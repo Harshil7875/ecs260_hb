@@ -1,0 +1,51 @@
+From 4290f8b1374c5f6121aa96a7ebb207aac6077484 Mon Sep 17 00:00:00 2001
+From: crAy <crAyCoding@gmail.com>
+Date: Wed, 17 Aug 2022 14:17:41 +0900
+Subject: [PATCH] common
+
+---
+ test/unit/test_c_api.cpp | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+
+diff --git a/test/unit/test_c_api.cpp b/test/unit/test_c_api.cpp
+index 2847d88d..d780a4d8 100644
+--- a/test/unit/test_c_api.cpp
++++ b/test/unit/test_c_api.cpp
+@@ -55,6 +55,22 @@ using namespace osgeo::proj::metadata;
+ using namespace osgeo::proj::operation;
+ using namespace osgeo::proj::util;
+ 
++#ifdef DPP_ENABLE_GCOV
++#include <signal.h>
++void dpp_sighandler(int signum);
++static struct sigaction dpp_gcov_sigaction;
++extern "C" void __gcov_flush();
++void dpp_gcov_flush(int signum) {
++   __gcov_flush();
++   exit(1);
++}
++void dpp_gcov_handler(void(*dpp_gcov_flush)(int sig)) {
++    dpp_gcov_sigaction.sa_handler = dpp_gcov_flush;
++    for (int sig = 1; sig <= SIGRTMAX; ++sig) {
++        sigaction(sig, &dpp_gcov_sigaction, NULL);
++    }
++}
++#endif
+ namespace {
+ 
+ class CApi : public ::testing::Test {
+@@ -1672,6 +1688,11 @@ TEST_F(CApi, proj_context_set_database_path_null) {
+ 
+ TEST_F(CApi, proj_context_set_database_path_main_memory_one_aux) {
+ 
++#ifdef DPP_ENABLE_GCOV
++    {
++        dpp_gcov_handler(dpp_gcov_flush);
++    }
++#endif
+     auto c_path = proj_context_get_database_path(m_ctxt);
+     ASSERT_TRUE(c_path != nullptr);
+     std::string path(c_path);
+-- 
+2.25.1
+

@@ -1,0 +1,35 @@
+From 9e08789609f019764a33b6e6357203a909953914 Mon Sep 17 00:00:00 2001
+From: crAy <crAyCoding@gmail.com>
+Date: Wed, 31 Aug 2022 09:27:29 +0900
+Subject: [PATCH] buggy
+
+---
+ src/singledocparser.cpp | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/src/singledocparser.cpp b/src/singledocparser.cpp
+index 4bbea76..8eed336 100644
+--- a/src/singledocparser.cpp
++++ b/src/singledocparser.cpp
+@@ -91,16 +91,14 @@ void SingleDocParser::HandleNode(EventHandler& eventHandler) {
+   const Token& token = m_scanner.peek();
+ 
+   // add non-specific tags
+-  if (tag.empty())
+-    tag = (token.type == Token::NON_PLAIN_SCALAR ? "!" : "?");
+   
+-  if (token.type == Token::PLAIN_SCALAR 
+-      && tag.compare("?") == 0 && IsNullString(token.value)) {
++  if (token.type == Token::PLAIN_SCALAR && IsNullString(token.value)) {
+     eventHandler.OnNull(mark, anchor);
+     m_scanner.pop();
+     return;
+   }
+ 
++  if (tag.empty())  tag = (token.type == Token::NON_PLAIN_SCALAR ? "!" : "?");
+   // now split based on what kind of node we should be
+   switch (token.type) {
+     case Token::PLAIN_SCALAR:
+-- 
+2.25.1
+

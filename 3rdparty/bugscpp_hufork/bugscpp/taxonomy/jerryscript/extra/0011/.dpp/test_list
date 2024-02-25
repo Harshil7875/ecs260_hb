@@ -1,0 +1,9 @@
+build/tests/unittests-es2015_subset/tests
+build/tests/unittests-es2015_subset-debug/tests
+build/tests/doctests-es2015_subset/tests
+build/tests/doctests-es2015_subset-debug/tests
+build/tests/unittests-es5.1/tests
+build/tests/unittests-es5.1-debug/tests
+build/tests/doctests-es5.1/tests
+build/tests/doctests-es5.1-debug/tests
+build/tests/unittests-es5.1-debug-init-fini/tests

@@ -1,0 +1,24 @@
+From d82a0aabc584cbcedeeb6ad782e579c7da2c65f4 Mon Sep 17 00:00:00 2001
+From: HansolChoe <hansol614@gmail.com>
+Date: Mon, 11 Jul 2022 11:44:04 +0900
+Subject: [PATCH] buggy
+
+---
+ crypto/evp/ctrl_params_translate.c | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/crypto/evp/ctrl_params_translate.c b/crypto/evp/ctrl_params_translate.c
+index 88945e13e6..04b953e4fc 100644
+--- a/crypto/evp/ctrl_params_translate.c
++++ b/crypto/evp/ctrl_params_translate.c
+@@ -1564,7 +1564,6 @@ static int get_payload_public_key(enum state state,
+     ctx->p2 = NULL;
+     switch (EVP_PKEY_get_base_id(pkey)) {
+ #ifndef OPENSSL_NO_DH
+-    case EVP_PKEY_DHX:
+     case EVP_PKEY_DH:
+         switch (ctx->params->data_type) {
+         case OSSL_PARAM_OCTET_STRING:
+-- 
+2.25.1
+

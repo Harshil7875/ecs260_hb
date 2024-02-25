@@ -1,0 +1,25 @@
+From fd5701fa5ae6abb04bdfda292303c7dee2d661c2 Mon Sep 17 00:00:00 2001
+From: HansolChoe <hansol614@gmail.com>
+Date: Thu, 16 Jun 2022 14:51:10 +0900
+Subject: [PATCH] buggy
+
+---
+ tools/tiff2pdf.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tools/tiff2pdf.c b/tools/tiff2pdf.c
+index 715a6629..098cac11 100644
+--- a/tools/tiff2pdf.c
++++ b/tools/tiff2pdf.c
+@@ -2923,7 +2923,7 @@ tsize_t t2p_readwrite_pdf_image_tile(T2P* t2p, TIFF* input, TIFF* output, ttile_
+ 				return(0);
+ 			}
+ 			if(TIFFGetField(input, TIFFTAG_JPEGTABLES, &count, &jpt) != 0) {
+-				if (count > 4) {
++				if (count >= 4) {
+                                         int retTIFFReadRawTile;
+                     /* Ignore EOI marker of JpegTables */
+ 					_TIFFmemcpy(buffer, jpt, count - 2);
+-- 
+2.25.1
+

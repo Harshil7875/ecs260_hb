@@ -1,0 +1,85 @@
+{
+  "info": {
+    "url": "https://git.libssh.org/projects/libssh.git",
+    "short-desc": "libssh is a multiplatform C library implementing the SSHv2 protocol on client and server side.",
+    "vcs": "git"
+  },
+  "common": {
+    "build": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "cmake @DPP_CMAKE_GEN_COMPILATION_DB@ -DUNIT_TESTING=ON -DWITH_TESTING=ON -DWITH_SERVER=OFF -DSERVER_TESTING=OFF -DCMAKE_BUILD_TYPE=Debug -S . -B build",
+            "cmake --build build --target clean",
+            "@DPP_CMAKE_COMPILATION_DB_TOOL@ cmake --build build --target all --parallel @DPP_PARALLEL_BUILD@"
+          ]
+        }
+      ]
+    },
+    "build-coverage": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "cmake @DPP_CMAKE_GEN_COMPILATION_DB@ -DCMAKE_C_FLAGS=\"--coverage -g -O0\" -DCMAKE_C_OUTPUT_EXTENSION_REPLACE=ON -DUNIT_TESTING=ON -DWITH_TESTING=ON -DWITH_SERVER=OFF -DSERVER_TESTING=OFF -DCMAKE_BUILD_TYPE=Debug -S . -B build",
+            "cmake --build build --target clean",
+            "@DPP_CMAKE_COMPILATION_DB_TOOL@ cmake --build build --target all --parallel @DPP_PARALLEL_BUILD@",
+            "rm -rf build/src/CMakeFiles/ssh_shared.dir"
+          ]
+        }
+      ]
+    },
+    "test-type": "ctest",
+    "test": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "bash -c \"[ -f CTEST_TEST_CASE.output ] || ctest --show-only --test-dir build | sed -rn 's/[[:blank:]]*Test[[:blank:]]*#[[:digit:]]*:[[:blank:]]*(.*)/\\1/p' > CTEST_TEST_CASE.output\"",
+            "bash -c \"index=$(cat DPP_TEST_INDEX); ctest --tests-regex $(sed -n \\\"${index}p\\\" < CTEST_TEST_CASE.output)$ --test-dir build\""
+          ]
+        }
+      ]
+    },
+    "test-coverage": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "bash -c \"[ -f CTEST_TEST_CASE.output ] || ctest --show-only --test-dir build | sed -rn 's/[[:blank:]]*Test[[:blank:]]*#[[:digit:]]*:[[:blank:]]*(.*)/\\1/p' > CTEST_TEST_CASE.output\"",
+            "bash -c \"index=$(cat DPP_TEST_INDEX); ctest --tests-regex $(sed -n \\\"${index}p\\\" < CTEST_TEST_CASE.output)$ --test-dir build\""
+          ]
+        }
+      ]
+    },
+    "gcov": {
+      "exclude": [],
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "mkdir gcov",
+            "bash -c 'cd gcov; gcov @DPP_ADDITIONAL_GCOV_OPTIONS@ ../build/tests/unittests/CMakeFiles/*/*.o --preserve-paths'",
+            "find build -type f -name \"*.gcov\" -exec mv {} home/workspace/gcov \\;",
+            "find build -type f -name \"*.gcda\" -delete"
+          ]
+        }
+      ]
+    }
+  },
+  "defects": [
+    {
+      "id": 1,
+      "hash": "88d777e6782330be8d6916f672ae106a5bd32b10",
+      "num_cases": 31,
+      "case": [23],
+      "tags": [
+        "logical-error",
+        "multi-line",
+        "modified"
+      ],
+      "description": "Fix format truncation in ssh_path_expand_escape()"
+    }
+  ]
+}

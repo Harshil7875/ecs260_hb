@@ -1,0 +1,27 @@
+From 27240fd978af52eb751420cd7c300a0d207159bf Mon Sep 17 00:00:00 2001
+From: crAy <crAyCoding@gmail.com>
+Date: Wed, 31 Aug 2022 09:28:49 +0900
+Subject: [PATCH] buggy
+
+---
+ src/singledocparser.cpp | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/src/singledocparser.cpp b/src/singledocparser.cpp
+index 47e9e04..8c1c9d2 100644
+--- a/src/singledocparser.cpp
++++ b/src/singledocparser.cpp
+@@ -80,10 +80,6 @@ void SingleDocParser::HandleNode(EventHandler& eventHandler) {
+     eventHandler.OnAnchor(mark, anchor_name);
+ 
+   // after parsing properties, an empty node is again a possibility
+-  if (m_scanner.empty()) {
+-    eventHandler.OnNull(mark, anchor);
+-    return;
+-  }
+ 
+   const Token& token = m_scanner.peek();
+ 
+-- 
+2.25.1
+

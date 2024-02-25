@@ -1,0 +1,39 @@
+From b7521fd7668a9a9ce4611fd94a378a646d82f953 Mon Sep 17 00:00:00 2001
+From: HansolChoe <hansol614@gmail.com>
+Date: Mon, 1 Aug 2022 11:29:57 +0900
+Subject: [PATCH] common
+
+---
+ runtest.c | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/runtest.c b/runtest.c
+index 36fbe5ac..ea47a55b 100644
+--- a/runtest.c
++++ b/runtest.c
+@@ -4377,7 +4377,22 @@ launchTests(testDescPtr tst) {
+
+ 	globbuf.gl_offs = 0;
+ 	glob(tst->in, GLOB_DOOFFS, NULL, &globbuf);
++   const char * DPP_RUN_ERROR_CASE = getenv("DPP_RUN_ERROR_CASE");
+ 	for (i = 0;i < globbuf.gl_pathc;i++) {
++       if (tst->func == errParseTest) {
++           if (DPP_RUN_ERROR_CASE && !strcmp(DPP_RUN_ERROR_CASE, "1")) {
++               if (strstr(globbuf.gl_pathv[i], "test/errors/758588.xml") == NULL &&
++                   strstr(globbuf.gl_pathv[i], "test/errors/attr2.xml") == NULL &&
++                   strstr(globbuf.gl_pathv[i], "test/errors/name2.xml") == NULL)
++                   continue;
++           } else {
++               if (strstr(globbuf.gl_pathv[i], "test/errors/758588.xml") ||
++                   strstr(globbuf.gl_pathv[i], "test/errors/attr2.xml") ||
++                   strstr(globbuf.gl_pathv[i], "test/errors/name2.xml")
++               )
++                   continue;
++           }
++       }
+ 	    if (!checkTestFile(globbuf.gl_pathv[i]))
+ 	        continue;
+ 	    if (tst->suffix != NULL) {
+--
+2.25.1
+

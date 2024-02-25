@@ -1,0 +1,34 @@
+From 3e64d81fa864c51c7bbf6af40c4fc73bac209b56 Mon Sep 17 00:00:00 2001
+From: crAy <crAyCoding@gmail.com>
+Date: Mon, 29 Aug 2022 10:56:50 +0900
+Subject: [PATCH] buggy
+
+---
+ src/wget.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/wget.c b/src/wget.c
+index 50bdc16c..b76707b9 100644
+--- a/src/wget.c
++++ b/src/wget.c
+@@ -3304,7 +3304,7 @@ static int WGET_GCC_NONNULL((1)) prepare_file(wget_http_response *resp, const ch
+ 	// Load partial content
+ 	if (partial_content) {
+ 		long long size = get_file_size(unique[0] ? unique : fname);
+-		if (size >= 0) {
++		if (size > 0) {
+ 			fd = open_unique(fname, O_RDONLY | O_BINARY, 0, multiple, unique, sizeof(unique));
+ 			if (fd >= 0) {
+ 				size_t rc;
+@@ -3723,7 +3723,7 @@ static wget_http_request *http_create_request(const wget_iri *iri, JOB *job)
+ 
+ 		if (config.continue_download) {
+ 			long long file_size = get_file_size(local_filename);
+-			if (file_size >= 0)
++			if (file_size > 0)
+ 				wget_http_add_header_printf(req, "Range", "bytes=%lld-", file_size);
+ 		}
+ 
+-- 
+2.25.1
+

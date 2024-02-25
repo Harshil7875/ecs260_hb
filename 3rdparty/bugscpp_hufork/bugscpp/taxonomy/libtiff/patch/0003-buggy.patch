@@ -1,0 +1,25 @@
+From 1a425a832344d0474d13f15bd0ab000bf45625b3 Mon Sep 17 00:00:00 2001
+From: HansolChoe <hansol614@gmail.com>
+Date: Wed, 15 Jun 2022 14:40:53 +0900
+Subject: [PATCH] buggy
+
+---
+ tools/rgb2ycbcr.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/tools/rgb2ycbcr.c b/tools/rgb2ycbcr.c
+index d03377a8..edce4c5b 100644
+--- a/tools/rgb2ycbcr.c
++++ b/tools/rgb2ycbcr.c
+@@ -116,8 +116,6 @@ main(int argc, char* argv[])
+ 			break;
+ 		case 'h':
+ 			horizSubSampling = atoi(optarg);
+-            if( horizSubSampling != 1 && horizSubSampling != 2 && horizSubSampling != 4 )
+-                usage(-1);
+ 			break;
+ 		case 'v':
+ 			vertSubSampling = atoi(optarg);
+-- 
+2.25.1
+

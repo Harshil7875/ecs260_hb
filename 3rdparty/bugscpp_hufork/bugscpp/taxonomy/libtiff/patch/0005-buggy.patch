@@ -1,0 +1,25 @@
+From d4e2ab8b9a60879b5f73e0b641de375018e27563 Mon Sep 17 00:00:00 2001
+From: crAy <crAyCoding@gmail.com>
+Date: Wed, 31 Aug 2022 08:32:57 +0900
+Subject: [PATCH] buggy
+
+---
+ libtiff/tif_strip.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/libtiff/tif_strip.c b/libtiff/tif_strip.c
+index 4c46ecf5..769590ab 100644
+--- a/libtiff/tif_strip.c
++++ b/libtiff/tif_strip.c
+@@ -69,8 +69,6 @@ TIFFNumberOfStrips(TIFF* tif)
+        after the initial affectation of td_nstrips = TIFFNumberOfStrips() in
+        tif_dirread.c ~line 3612.
+        See http://bugzilla.maptools.org/show_bug.cgi?id=2587 */
+-    if( td->td_nstrips )
+-        return td->td_nstrips;
+ 
+ 	nstrips = (td->td_rowsperstrip == (uint32) -1 ? 1 :
+ 	     TIFFhowmany_32(td->td_imagelength, td->td_rowsperstrip));
+-- 
+2.25.1
+

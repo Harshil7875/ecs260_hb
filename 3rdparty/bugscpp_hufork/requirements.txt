@@ -1,0 +1,12 @@
+certifi==2022.9.24
+charset-normalizer==2.1.1
+colorama==0.4.5
+docker==6.0.0
+gitdb==4.0.9
+GitPython==3.1.27
+idna==3.3
+requests==2.28.1
+smmap==5.0.0
+typing-extensions==4.3.0
+urllib3==1.26.12
+websocket-client==1.4.1

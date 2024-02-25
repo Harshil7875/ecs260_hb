@@ -1,0 +1,6 @@
+build/tests/unittests-es.next/tests
+build/tests/doctests-es.next/tests
+build/tests/unittests-es5.1/tests
+build/tests/doctests-es5.1/tests
+build/tests/unittests-es5.1-init-fini/tests
+build/tests/unittests-es5.1-math/tests

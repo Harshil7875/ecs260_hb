@@ -1,0 +1,660 @@
+{
+    "libucl-5": [
+        "src/ucl_parser.c"
+    ],
+    "libucl-6": [
+        "src/ucl_parser.c"
+    ],
+    "libucl-3": [
+        "src/ucl_parser.c"
+    ],
+    "libucl-4": [
+        "src/ucl_parser.c"
+    ],
+    "libucl-1": [
+        "src/ucl_emitter.c"
+    ],
+    "libucl-2": [
+        "src/ucl_parser.c"
+    ],
+    "proj-15": [
+        "src/iso19111/io.cpp"
+    ],
+    "proj-27": [
+        "src/iso19111/io.cpp"
+    ],
+    "proj-9": [
+        "src/projections/urm5.cpp"
+    ],
+    "proj-10": [
+        "src/projections/aeqd.cpp"
+    ],
+    "proj-22": [
+        "src/projections/aea.cpp"
+    ],
+    "proj-19": [
+        "src/4D_api.cpp"
+    ],
+    "proj-5": [
+        "src/iso19111/c_api.cpp"
+    ],
+    "proj-28": [
+        "src/projections/stere.cpp"
+    ],
+    "proj-6": [
+        "src/iso19111/crs.cpp"
+    ],
+    "proj-21": [
+        "src/projections/laea.cpp"
+    ],
+    "proj-13": [
+        "src/ell_set.cpp"
+    ],
+    "proj-24": [
+        "src/projections/labrd.cpp"
+    ],
+    "proj-16": [
+        "src/projections/lcc.cpp"
+    ],
+    "proj-3": [
+        "src/projections/isea.cpp"
+    ],
+    "proj-4": [
+        "src/iso19111/io.cpp"
+    ],
+    "proj-18": [
+        "src/projections/tmerc.cpp"
+    ],
+    "proj-23": [
+        "src/iso19111/c_api.cpp"
+    ],
+    "proj-11": [
+        "src/projections/lcc.cpp"
+    ],
+    "proj-26": [
+        "src/iso19111/operation/transformation.cpp"
+    ],
+    "proj-8": [
+        "src/projections/aea.cpp",
+        "src/strerrno.cpp"
+    ],
+    "proj-14": [
+        "src/iso19111/factory.cpp"
+    ],
+    "proj-1": [
+        "src/projections/omerc.cpp"
+    ],
+    "proj-2": [
+        "src/projections/airy.cpp"
+    ],
+    "proj-17": [
+        "src/projections/omerc.cpp"
+    ],
+    "proj-25": [
+        "src/iso19111/operation/coordinateoperationfactory.cpp"
+    ],
+    "proj-12": [
+        "src/projections/sterea.cpp"
+    ],
+    "proj-20": [
+        "src/grids.cpp"
+    ],
+    "proj-7": [
+        "src/iso19111/metadata.cpp"
+    ],
+    "libtiff-5": [
+        "libtiff/tif_strip.c"
+    ],
+    "libtiff-3": [
+        "tools/rgb2ycbcr.c"
+    ],
+    "libtiff-4": [
+        "libtiff/tif_jpeg.c"
+    ],
+    "libtiff-1": [
+        "tools/tiffcrop.c"
+    ],
+    "libtiff-2": [
+        "tools/gif2tiff.c"
+    ],
+    "coreutils-1": [
+        "src/split.c"
+    ],
+    "coreutils-2": [
+        "src/pr.c"
+    ],
+    "cppcheck-15": [
+        "lib/checkunusedvar.cpp"
+    ],
+    "cppcheck-27": [
+        "lib/valueflow.cpp"
+    ],
+    "cppcheck-9": [
+        "lib/valueflow.cpp"
+    ],
+    "cppcheck-10": [
+        "lib/symboldatabase.cpp"
+    ],
+    "cppcheck-22": [
+        "lib/checkuninitvar.cpp"
+    ],
+    "cppcheck-19": [
+        "lib/checkautovariables.cpp"
+    ],
+    "cppcheck-5": [
+        "lib/astutils.cpp"
+    ],
+    "cppcheck-28": [
+        "lib/checkautovariables.cpp"
+    ],
+    "cppcheck-6": [
+        "lib/checkuninitvar.cpp"
+    ],
+    "cppcheck-21": [
+        "lib/clangimport.cpp"
+    ],
+    "cppcheck-13": [
+        "lib/reverseanalyzer.cpp"
+    ],
+    "cppcheck-24": [
+        "lib/forwardanalyzer.cpp"
+    ],
+    "cppcheck-16": [
+        "lib/forwardanalyzer.cpp"
+    ],
+    "cppcheck-3": [
+        "lib/forwardanalyzer.cpp",
+        "lib/valueflow.cpp"
+    ],
+    "cppcheck-4": [
+        "lib/checkfunctions.cpp"
+    ],
+    "cppcheck-18": [
+        "lib/forwardanalyzer.cpp"
+    ],
+    "cppcheck-23": [
+        "lib/checkleakautovar.cpp"
+    ],
+    "cppcheck-11": [
+        "lib/valueflow.cpp"
+    ],
+    "cppcheck-26": [
+        "lib/tokenlist.cpp"
+    ],
+    "cppcheck-8": [
+        "lib/astutils.cpp"
+    ],
+    "cppcheck-14": [
+        "lib/checkother.cpp"
+    ],
+    "cppcheck-1": [
+        "lib/checkleakautovar.cpp"
+    ],
+    "cppcheck-30": [
+        "lib/astutils.cpp"
+    ],
+    "cppcheck-2": [
+        "lib/checkother.cpp"
+    ],
+    "cppcheck-17": [
+        "lib/valueflow.cpp"
+    ],
+    "cppcheck-25": [
+        "lib/valueflow.cpp"
+    ],
+    "cppcheck-12": [
+        "lib/checkstl.cpp"
+    ],
+    "cppcheck-20": [
+        "lib/tokenize.cpp"
+    ],
+    "cppcheck-29": [
+        "lib/tokenize.cpp"
+    ],
+    "cppcheck-7": [
+        "lib/tokenize.cpp"
+    ],
+    "libxml2-5": [
+        "parser.c"
+    ],
+    "libxml2-6": [
+        "parser.c"
+    ],
+    "libxml2-3": [
+        "parser.c"
+    ],
+    "libxml2-4": [
+        "parser.c"
+    ],
+    "libxml2-1": [
+        "parser.c"
+    ],
+    "libxml2-2": [
+        "HTMLparser.c"
+    ],
+    "libxml2-7": [
+        "parser.c"
+    ],
+    "wget2-3": [
+        "libwget/decompressor.c"
+    ],
+    "wget2-1": [
+        "src/wget.c"
+    ],
+    "wget2-2": [
+        "src/wget.c"
+    ],
+    "ndpi-3": [
+        "src/lib/protocols/syslog.c"
+    ],
+    "ndpi-4": [
+        "src/lib/protocols/http.c"
+    ],
+    "ndpi-1": [
+        "src/lib/protocols/tls.c"
+    ],
+    "ndpi-2": [
+        "src/lib/ndpi_main.c"
+    ],
+    "md4c-9": [
+        "md4c/md4c.c"
+    ],
+    "md4c-10": [
+        "md4c/md4c.c"
+    ],
+    "md4c-5": [
+        "src/md4c.c"
+    ],
+    "md4c-6": [
+        "src/md4c.c"
+    ],
+    "md4c-3": [
+        "md4c/md4c.c"
+    ],
+    "md4c-4": [
+        "src/md4c.c"
+    ],
+    "md4c-8": [
+        "md4c/md4c.c"
+    ],
+    "md4c-1": [
+        "md4c/md4c.c"
+    ],
+    "md4c-2": [
+        "md4c/md4c.c"
+    ],
+    "md4c-7": [
+        "md4c/md4c.c"
+    ],
+    "example-1": [
+        "example.c"
+    ],
+    "jerryscript-9": [
+        "jerry-core/ecma/operations/ecma-function-object.c"
+    ],
+    "jerryscript-10": [
+        "jerry-core/ecma/builtin-objects/ecma-builtin-array-prototype.c"
+    ],
+    "jerryscript-5": [
+        "jerry-core/parser/js/js-lexer.c"
+    ],
+    "jerryscript-6": [
+        "jerry-core/ecma/operations/ecma-atomics-object.c"
+    ],
+    "jerryscript-3": [
+        "jerry-core/ecma/operations/ecma-regexp-object.c"
+    ],
+    "jerryscript-4": [
+        ".../ecma/builtin-objects/ecma-builtin-array-prototype.c"
+    ],
+    "jerryscript-11": [
+        "jerry-core/ecma/operations/ecma-container-object.c"
+    ],
+    "jerryscript-8": [
+        "jerry-core/vm/opcodes.c"
+    ],
+    "jerryscript-1": [
+        "jerry-core/parser/js/js-scanner.c"
+    ],
+    "jerryscript-2": [
+        "jerry-core/vm/vm.c"
+    ],
+    "jerryscript-7": [
+        "jerry-core/vm/opcodes.c"
+    ],
+    "cpp_peglib-9": [
+        "peglib.h"
+    ],
+    "cpp_peglib-10": [
+        "peglib.h"
+    ],
+    "cpp_peglib-5": [
+        "peglib.h"
+    ],
+    "cpp_peglib-6": [
+        "peglib.h"
+    ],
+    "cpp_peglib-3": [
+        "peglib.h"
+    ],
+    "cpp_peglib-4": [
+        "peglib.h"
+    ],
+    "cpp_peglib-8": [
+        "peglib.h"
+    ],
+    "cpp_peglib-1": [
+        "peglib.h"
+    ],
+    "cpp_peglib-2": [
+        "peglib.h"
+    ],
+    "cpp_peglib-7": [
+        "peglib.h"
+    ],
+    "yara-5": [
+        "libyara/parser.c"
+    ],
+    "yara-3": [
+        "libyara/atoms.c"
+    ],
+    "yara-4": [
+        "libyara/include/yara/globals.h",
+        "libyara/libyara.c"
+    ],
+    "yara-1": [
+        "libyara/parser.c"
+    ],
+    "yara-2": [
+        "libyara/scan.c"
+    ],
+    "dlt_daemon-1": [
+        "src/shared/dlt_common.c"
+    ],
+    "berry-5": [
+        "src/be_code.c"
+    ],
+    "berry-3": [
+        "src/be_parser.c"
+    ],
+    "berry-4": [
+        "src/be_strlib.c"
+    ],
+    "berry-1": [
+        "src/be_vm.c"
+    ],
+    "berry-2": [
+        "src/be_code.c"
+    ],
+    "libtiff_sanitizer-3": [
+        "libtiff/tif_jpeg.c"
+    ],
+    "libtiff_sanitizer-4": [
+        "libtiff/tif_ojpeg.c"
+    ],
+    "libtiff_sanitizer-1": [
+        "tools/tiff2ps.c"
+    ],
+    "libtiff_sanitizer-2": [
+        "tools/tiff2pdf.c"
+    ],
+    "yaml_cpp-9": [
+        "src/exp.h"
+    ],
+    "yaml_cpp-10": [
+        "src/singledocparser.cpp"
+    ],
+    "yaml_cpp-5": [
+        "src/emitter.cpp"
+    ],
+    "yaml_cpp-6": [
+        "src/scanscalar.cpp"
+    ],
+    "yaml_cpp-3": [
+        "src/singledocparser.cpp"
+    ],
+    "yaml_cpp-4": [
+        "include/yaml-cpp/node/impl.h"
+    ],
+    "yaml_cpp-8": [
+        "src/emitterutils.cpp"
+    ],
+    "yaml_cpp-1": [
+        "src/singledocparser.cpp"
+    ],
+    "yaml_cpp-2": [
+        "src/emitter.cpp"
+    ],
+    "yaml_cpp-7": [
+        "src/emitter.cpp"
+    ],
+    "exiv2-15": [
+        "src/easyaccess.cpp"
+    ],
+    "exiv2-9": [
+        "src/crwimage_int.cpp"
+    ],
+    "exiv2-10": [
+        "src/psdimage.cpp"
+    ],
+    "exiv2-19": [
+        "src/tiffvisitor_int.cpp"
+    ],
+    "exiv2-5": [
+        "src/jp2image.cpp"
+    ],
+    "exiv2-6": [
+        "src/pngimage.cpp"
+    ],
+    "exiv2-13": [
+        "src/jp2image.cpp"
+    ],
+    "exiv2-16": [
+        "src/exif.cpp"
+    ],
+    "exiv2-3": [
+        "src/jp2image.cpp"
+    ],
+    "exiv2-4": [
+        "src/nikonmn_int.cpp"
+    ],
+    "exiv2-18": [
+        "src/tiffcomposite_int.cpp"
+    ],
+    "exiv2-11": [
+        "src/iptc.cpp"
+    ],
+    "exiv2-8": [
+        "src/pngimage.cpp"
+    ],
+    "exiv2-14": [
+        "src/tiffimage_int.cpp"
+    ],
+    "exiv2-1": [
+        "src/jpgimage.cpp"
+    ],
+    "exiv2-2": [
+        "src/crwimage_int.cpp"
+    ],
+    "exiv2-17": [
+        "src/value.cpp"
+    ],
+    "exiv2-12": [
+        "src/pngchunk_int.cpp"
+    ],
+    "exiv2-20": [
+        "src/exiv2.cpp"
+    ],
+    "exiv2-7": [
+        "src/crwimage_int.cpp"
+    ],
+    "libssh-1": [
+        "src/pki.c"
+    ],
+    "zsh-5": [
+        "Src/Modules/zutil.c"
+    ],
+    "zsh-3": [
+        "Src/parse.c"
+    ],
+    "zsh-4": [
+        "Src/subst.c"
+    ],
+    "zsh-1": [
+        "Src/exec.c"
+    ],
+    "zsh-2": [
+        "Src/Zle/zle_keymap.c"
+    ],
+    "openssl-15": [
+        "crypto/x509/x509_vfy.c"
+    ],
+    "openssl-27": [
+        "ssl/ssl_stat.c"
+    ],
+    "openssl-9": [
+        "crypto/ffc/ffc_params_validate.c"
+    ],
+    "openssl-10": [
+        "crypto/ffc/ffc_params_validate.c",
+        "include/crypto/dsa.h",
+        "providers/implementations/keymgmt/dsa_kmgmt.c"
+    ],
+    "openssl-22": [
+        "ssl/statem/extensions_clnt.c"
+    ],
+    "openssl-19": [
+        "crypto/store/store_lib.c"
+    ],
+    "openssl-5": [
+        "crypto/x509/v3_purp.c"
+    ],
+    "openssl-28": [
+        "crypto/asn1/a_dup.c",
+        "crypto/x509/x_x509.c",
+        "include/openssl/asn1t.h.in"
+    ],
+    "openssl-6": [
+        "crypto/dh/dh_group_params.c"
+    ],
+    "openssl-21": [
+        "crypto/evp/pmeth_lib.c"
+    ],
+    "openssl-13": [
+        "crypto/rsa/rsa_pmeth.c",
+        "include/openssl/core_names.h",
+        "providers/common/der/der_rsa.c.in",
+        "providers/implementations/signature/rsa.c"
+    ],
+    "openssl-24": [
+        "crypto/pem/pem_pk8.c"
+    ],
+    "openssl-16": [
+        "ssl/ssl_cert.c"
+    ],
+    "openssl-3": [
+        "crypto/evp/ctrl_params_translate.c"
+    ],
+    "openssl-4": [
+        "crypto/bn/bn_div.c"
+    ],
+    "openssl-18": [
+        "crypto/params_from_text.c"
+    ],
+    "openssl-23": [
+        "crypto/rsa/rsa_local.h",
+        "include/crypto/rsa.h",
+        "providers/implementations/keymgmt/rsa_kmgmt.c"
+    ],
+    "openssl-11": [
+        "crypto/x509/x509_cmp.c",
+        "crypto/x509/x509_vfy.c"
+    ],
+    "openssl-26": [
+        "crypto/x509/x509_vpm.c"
+    ],
+    "openssl-8": [
+        "crypto/evp/ctrl_params_translate.c"
+    ],
+    "openssl-14": [
+        "crypto/evp/p_lib.c"
+    ],
+    "openssl-1": [
+        "crypto/pem/pem_lib.c"
+    ],
+    "openssl-2": [
+        "crypto/bio/b_print.c"
+    ],
+    "openssl-17": [
+        "crypto/err/err_local.h"
+    ],
+    "openssl-25": [
+        "crypto/pkcs12/p12_sbag.c"
+    ],
+    "openssl-12": [
+        "crypto/rand/rand_lib.c"
+    ],
+    "openssl-20": [
+        "crypto/evp/m_sigver.c"
+    ],
+    "openssl-7": [
+        "crypto/rsa/rsa_sp800_56b_check.c"
+    ],
+    "libchewing-5": [
+        "src/chewingio.c"
+    ],
+    "libchewing-6": [
+        "src/chewingutil.c"
+    ],
+    "libchewing-3": [
+        "src/chewingutil.c"
+    ],
+    "libchewing-4": [
+        "src/chewingio.c"
+    ],
+    "libchewing-8": [
+        "src/chewingio.c"
+    ],
+    "libchewing-1": [
+        "src/chewingio.c"
+    ],
+    "libchewing-2": [
+        "src/chewingio.c"
+    ],
+    "libchewing-7": [
+        "src/chewingutil.c"
+    ],
+    "wireshark-5": [
+        "epan/print.c"
+    ],
+    "wireshark-6": [
+        "epan/wslua/wslua_byte_array.c"
+    ],
+    "wireshark-3": [
+        "epan/dissectors/packet-ip.c"
+    ],
+    "wireshark-4": [
+        "epan/crypt/dot11decrypt.c"
+    ],
+    "wireshark-1": [
+        "epan/ftypes/ftype-integer.c"
+    ],
+    "wireshark-2": [
+        "epan/wslua/wslua_tvb.c"
+    ],
+    "xbps-5": [
+        "lib/transaction_revdeps.c"
+    ],
+    "xbps-3": [
+        "lib/transaction_check_revdeps.c"
+    ],
+    "xbps-4": [
+        "lib/package_orphans.c"
+    ],
+    "xbps-1": [
+        "lib/transaction_files.c"
+    ],
+    "xbps-2": [
+        "lib/repo.c"
+    ]
+}

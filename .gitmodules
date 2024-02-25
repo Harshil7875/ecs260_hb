@@ -1,0 +1,3 @@
+[submodule "3rdparty/bugscpp_hufork"]
+	path = 3rdparty/bugscpp_hufork
+	url = git@github.com:xinzhuohuZJU/bugscpp_hufork.git

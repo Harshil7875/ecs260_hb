@@ -1,0 +1,39 @@
+From 19161f4f096558e2448350ef28f674c245434a2b Mon Sep 17 00:00:00 2001
+From: crAy <crAyCoding@gmail.com>
+Date: Tue, 30 Aug 2022 16:43:52 +0900
+Subject: [PATCH] buggy
+
+---
+ jerry-core/parser/js/js-lexer.c | 12 +++++-------
+ 1 file changed, 5 insertions(+), 7 deletions(-)
+
+diff --git a/jerry-core/parser/js/js-lexer.c b/jerry-core/parser/js/js-lexer.c
+index c552cbe3..52926762 100644
+--- a/jerry-core/parser/js/js-lexer.c
++++ b/jerry-core/parser/js/js-lexer.c
+@@ -3273,17 +3273,15 @@ lexer_expect_object_literal_id (parser_context_t *context_p, /**< context */
+ #endif /* JERRY_ESNEXT */
+       case LIT_CHAR_LEFT_BRACE:
+       {
+-        const uint32_t static_block_flags =
+-          (LEXER_OBJ_IDENT_CLASS_NO_STATIC | LEXER_OBJ_IDENT_CLASS_PRIVATE | LEXER_OBJ_IDENT_CLASS_IDENTIFIER);
+ 
+-        if ((ident_opts & static_block_flags) == LEXER_OBJ_IDENT_CLASS_IDENTIFIER)
++        if (ident_opts & (LEXER_OBJ_IDENT_CLASS_NO_STATIC | LEXER_OBJ_IDENT_CLASS_PRIVATE))
+         {
+-          context_p->token.type = LEXER_LEFT_BRACE;
+-          lexer_consume_next_character (context_p);
+-          return;
++          break;
+         }
+ 
+-        break;
++        context_p->token.type = LEXER_LEFT_BRACE;
++        lexer_consume_next_character (context_p);
++        return;
+       }
+       case LIT_CHAR_RIGHT_BRACE:
+       {
+-- 
+2.25.1
+

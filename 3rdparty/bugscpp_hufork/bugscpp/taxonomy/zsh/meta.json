@@ -1,0 +1,146 @@
+{
+  "info": {
+    "url": "https://github.com/zsh-users/zsh",
+    "short-desc": "Zsh is an extended Bourne shell with many improvements, including some features of Bash, ksh, and tcsh.",
+    "vcs": "git"
+  },
+  "common": {
+    "build": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "autoheader",
+            "autoconf",
+            "./configure --with-tcsetpgrp",
+            "sed -i '/^name=zsh\\/zpty/ s/link=no/link=static/' config.modules",
+            "make clean",
+            "@DPP_COMPILATION_DB_TOOL@ make -j@DPP_PARALLEL_BUILD@",
+            "sed -i 's|sleep 1;||' Test/Makefile"
+          ]
+        }
+      ]
+    },
+    "build-coverage": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "autoheader",
+            "autoconf",
+            "./configure --with-tcsetpgrp --enable-cflags=\"--coverage -g -O0\" --enable-libs=\"-lgcov\"",
+            "sed -i '/^name=zsh\\/zpty/ s/link=no/link=static/' config.modules",
+            "make clean",
+            "@DPP_COMPILATION_DB_TOOL@ make -j@DPP_PARALLEL_BUILD@",
+            "sed -i 's|sleep 1;||' Test/Makefile"
+          ]
+        }
+      ]
+    },
+    "test-type": "automake",
+    "test": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "bash -c \"[ -f AUTOMAKE_TEST_CASE.output ] || find Test -type f -name \"*.ztst\" -exec basename {} .ztst \\; | sort -t '\\0' > AUTOMAKE_TEST_CASE.output\"",
+            "bash -c \"sed -i '/X04zlehighlight/d' AUTOMAKE_TEST_CASE.output \"",
+            "bash -c \"index=$(cat DPP_TEST_INDEX); make -s TESTNUM=$(sed -n \\\"${index}p\\\" < AUTOMAKE_TEST_CASE.output) check\""
+          ]
+        }
+      ]
+    },
+    "test-coverage": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "bash -c \"[ -f AUTOMAKE_TEST_CASE.output ] || find Test -type f -name \"*.ztst\" -exec basename {} .ztst \\; | sort -t '\\0' > AUTOMAKE_TEST_CASE.output\"",
+            "bash -c \"sed -i '/X04zlehighlight/d' AUTOMAKE_TEST_CASE.output \"",
+            "bash -c \"index=$(cat DPP_TEST_INDEX); make -s TESTNUM=$(sed -n \\\"${index}p\\\" < AUTOMAKE_TEST_CASE.output) check\""
+          ]
+        }
+      ]
+    },
+    "gcov": {
+      "exclude": [],
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "mkdir gcov",
+            "bash -c 'cd Src; find $PWD -type f -maxdepth 1 -name \"*.o\" -exec gcov @DPP_ADDITIONAL_GCOV_OPTIONS@ --preserve-paths {} \\;'",
+            "bash -c 'cd Src/Modules; find $PWD -type f -maxdepth 1 -name \"*.o\" -exec gcov @DPP_ADDITIONAL_GCOV_OPTIONS@ --preserve-paths {} \\;'",
+            "bash -c 'cd Src/Builtins; find $PWD -type f -maxdepth 1 -name \"*.o\" -exec gcov @DPP_ADDITIONAL_GCOV_OPTIONS@ --preserve-paths {} \\;'",
+            "bash -c 'cd Src/Zle; find $PWD -type f -maxdepth 1 -name \"*.o\" -exec gcov @DPP_ADDITIONAL_GCOV_OPTIONS@ --preserve-paths {} \\;'",
+            "bash -c 'find Src -type f -name \"*.gcda\" -delete'",
+            "bash -c 'find Src -type f -name \"*.gcov\" -exec mv {} /home/workspace/gcov \\;'"
+          ]
+        }
+      ]
+    }
+  },
+  "defects": [
+    {
+      "id": 1,
+      "hash": "db46c9cd5844240fb6015666c8e2a12a0a3a6ead",
+      "num_cases": 62,
+      "case": [1],
+      "tags": [
+        "omission",
+        "single-line",
+        "modified"
+      ],
+      "description": "Fix leaving behind obsolete directories"
+    },
+    {
+      "id": 2,
+      "hash": "2a7945a900c8a1b1866ad31ee5e95db5b0ddb50a",
+      "num_cases": 62,
+      "case": [56],
+      "tags": [
+        "memory-error",
+        "multi-line",
+        "modified"
+      ],
+      "description": "Fix segfault by 'bindkey -d' with reordered keymapnamtab"
+    },
+    {
+      "id": 3,
+      "hash": "daa208e90763d304dc1d554a834d0066e0b9937c",
+      "num_cases": 61,
+      "case": [22],
+      "tags": [
+        "invalid-condition",
+        "single-line",
+        "modified"
+      ],
+      "description": "Fix \"[ ! -o ]\"."
+    },
+    {
+      "id": 4,
+      "hash": "9b3a2924101c4e17dbb9c0b8745dc4eb9cdca910",
+      "num_cases": 61,
+      "case": [29],
+      "tags": [
+        "invalid-format-string",
+        "multi-line",
+        "modified"
+      ],
+      "description": "Fix coredump in ${name:offset:length} with ill-formatted length"
+    },
+    {
+      "id": 5,
+      "hash": "283d2f3c2761ac549a647638bb7d8fd8de3dabb4",
+      "patch": 5,
+      "num_cases": 60,
+      "case": [42],
+      "tags": [
+        "etc",
+        "multi-line",
+        "modified"
+      ],
+      "description": "Fix quotiing of zstyle -L for zstyle -e"
+    }
+  ]
+}

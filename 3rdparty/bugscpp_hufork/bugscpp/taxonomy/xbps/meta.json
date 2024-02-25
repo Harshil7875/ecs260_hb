@@ -1,0 +1,141 @@
+{
+  "info": {
+    "url": "https://github.com/void-linux/xbps",
+    "short-desc": "The X Binary Package System (in short XBPS) is a binary package system designed and implemented from scratch.",
+    "vcs": "git"
+  },
+  "common": {
+    "exclude": [],
+    "build": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "make clean",
+            "bash -c 'CFLAGS=\"-Wno-error\" ./configure --enable-tests'",
+            "@DPP_COMPILATION_DB_TOOL@ make -j@DPP_PARALLEL_BUILD@ all",
+            "make -j@DPP_PARALLEL_BUILD@ check"
+          ]
+        }
+      ]
+    },
+    "build-coverage": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "make clean",
+            "bash -c 'CFLAGS=\"-Wno-error --coverage -g -O0\" LDFLAGS=\"-lgcov\" ./configure --enable-tests'",
+            "@DPP_COMPILATION_DB_TOOL@ make -j@DPP_PARALLEL_BUILD@ all"
+          ]
+        }
+      ]
+    },
+    "test-type": "kyua",
+    "test": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "bash -c '[ -f KYUA_TEST_CASE.output ] || kyua list -k tests/xbps/Kyuafile | grep -v '__test_cases_list__' | sort > KYUA_TEST_CASE.output'",
+            "bash -c \"index=$(cat DPP_TEST_INDEX); ./run-tests \\\"$(sed -n ${index}p KYUA_TEST_CASE.output)\\\"\""
+          ]
+        }
+      ]
+    },
+    "test-coverage": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "bash -c '[ -f KYUA_TEST_CASE.output ] || kyua list -k tests/xbps/Kyuafile | grep -v '__test_cases_list__' | sort > KYUA_TEST_CASE.output'",
+            "bash -c \"index=$(cat DPP_TEST_INDEX); ./run-tests \\\"$(sed -n ${index}p KYUA_TEST_CASE.output)\\\"\""
+          ]
+        }
+      ]
+    },
+    "gcov": {
+      "exclude": [],
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "bash -c 'mkdir gcov'",
+            "bash -c 'find /home/workspace/lib -type f -name \"*.o\" -execdir gcov @DPP_ADDITIONAL_GCOV_OPTIONS@ --preserve-paths {} \\;'",
+            "bash -c 'find /home/workspace/lib -type f -name \"*.gcda\" -delete'",
+            "bash -c 'find /home/workspace/bin -type f -name \"*.o\" -execdir gcov @DPP_ADDITIONAL_GCOV_OPTIONS@ --preserve-paths {} \\;'",
+            "bash -c 'find /home/workspace/bin -type f -name \"*.gcda\" -delete'",
+            "bash -c 'find /home/workspace/ -type f -name \"*.gcov\" -exec mv {} /home/workspace/gcov \\;'"
+          ]
+        }
+      ]
+    }
+  },
+  "defects": [
+    {
+      "id": 1,
+      "hash": "62962208fd40606467c616fc657c4ab1142fc997",
+      "patch": 1,
+      "num_cases": 226,
+      "case": [79, 80, 81, 82],
+      "tags": [
+        "omission",
+        "multi-line",
+        "added"
+      ],
+      "description": "Fix leaving behind obsolete directories"
+    },
+    {
+      "id": 2,
+      "hash": "bd707acfee7385be846e9851e305e47cea1a32ac",
+      "patch": 2,
+      "num_cases": 216,
+      "case": [120],
+      "tags": [
+        "memory-error",
+        "multi-line",
+        "modified"
+      ],
+      "description": "Fix a double free with invalid repodata."
+    },
+    {
+      "id": 3,
+      "hash": "7b933a87a89bbf111b6b88cfd858fc0068cc2149",
+      "patch": 3,
+      "num_cases": 214,
+      "case": [122],
+      "tags": [
+        "logical-error",
+        "multi-line",
+        "modified"
+      ],
+      "description": "Fix regression in revdeps check"
+    },
+    {
+      "id": 4,
+      "hash": "0005b3ecc08ef3f1979b49f665bb06ef02d10080",
+      "patch": 4,
+      "num_cases": 213,
+      "case": [86],
+      "tags": [
+        "logical-error",
+        "multi-line",
+        "modified"
+      ],
+      "description": "Fix for #234"
+    },
+    {
+      "id": 5,
+      "hash": "8637269b38d9cd59fe946dc797a455e3c8009ea0",
+      "patch": 5,
+      "num_cases": 207,
+      "case": [40, 43],
+      "tags": [
+        "omission",
+        "multi-line",
+        "added"
+      ],
+      "description": "Fix provides/replaces"
+    }
+  ]
+}

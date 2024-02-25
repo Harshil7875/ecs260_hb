@@ -1,0 +1,51 @@
+From dd5119a069665e7440798f3adb78a6a27bd2c240 Mon Sep 17 00:00:00 2001
+From: crAy <crAyCoding@gmail.com>
+Date: Wed, 31 Aug 2022 09:17:11 +0900
+Subject: [PATCH] buggy
+
+---
+ epan/ftypes/ftype-integer.c | 18 ++----------------
+ 1 file changed, 2 insertions(+), 16 deletions(-)
+
+diff --git a/epan/ftypes/ftype-integer.c b/epan/ftypes/ftype-integer.c
+index dc604f1eb2..b3e36ad31b 100644
+--- a/epan/ftypes/ftype-integer.c
++++ b/epan/ftypes/ftype-integer.c
+@@ -420,32 +420,18 @@ char_repr_len(fvalue_t *fv _U_, ftrepr_t rtype _U_, int field_display _U_)
+ static void
+ uinteger_to_repr(fvalue_t *fv, ftrepr_t rtype _U_, int field_display, char *buf, unsigned int size)
+ {
+-	if (((field_display & 0xff) == BASE_HEX) || ((field_display & 0xff) == BASE_HEX_DEC))
++	if ((field_display == BASE_HEX) || (field_display == BASE_HEX_DEC))
+ 	{
+ 		/* This format perfectly fits into 11 bytes. */
+ 		*buf++ = '0';
+ 		*buf++ = 'x';
+ 
+-		switch (fv->ftype->ftype) {
+ 
+-		case FT_UINT8:
+-			buf = guint8_to_hex(buf, fv->value.uinteger);
+-			break;
+ 
+-		case FT_UINT16:
+-			buf = word_to_hex(buf, fv->value.uinteger);
+-			break;
+ 
+-		case FT_UINT24:
+-			buf = guint8_to_hex(buf, (fv->value.uinteger & 0x00ff0000) >> 16);
+-			buf = word_to_hex(buf, (fv->value.uinteger & 0x0000ffff));
+-			break;
+ 
+-		default:
+-			buf = dword_to_hex(buf, fv->value.uinteger);
+-			break;
+-		}
+ 
++		buf = dword_to_hex(buf, fv->value.uinteger);
+ 		*buf++ = '\0';
+ 	}
+ 	else
+-- 
+2.25.1
+

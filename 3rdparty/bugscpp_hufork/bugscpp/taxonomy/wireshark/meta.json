@@ -1,0 +1,146 @@
+{
+  "info": {
+    "url": "https://gitlab.com/wireshark/wireshark.git",
+    "short-desc": "Wireshark is a network traffic analyzer, or \"sniffer\", for Linux, macOS, BSD and other Unix and Unix-like operating systems and for Windows.",
+    "vcs": "git"
+  },
+  "common": {
+    "build": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "cmake @DPP_CMAKE_GEN_COMPILATION_DB@ -GNinja -S . -B build",
+            "cmake --build build --target clean",
+            "@DPP_CMAKE_COMPILATION_DB_TOOL@ cmake --build build --target all --parallel @DPP_PARALLEL_BUILD@",
+            "cmake --build build --target test-programs --parallel @DPP_PARALLEL_BUILD@"
+          ]
+        }
+      ]
+    },
+    "build-coverage": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "cmake @DPP_CMAKE_GEN_COMPILATION_DB@ -DCMAKE_C_FLAGS=\"--coverage -g -O0 \"-DCMAKE_CXX_FLAGS=\"--coverage -g -O0\" -DCMAKE_C_OUTPUT_EXTENSION_REPLACE=ON -GNinja -S . -B build",
+            "cmake --build build --target clean",
+            "@DPP_CMAKE_COMPILATION_DB_TOOL@ cmake --build build --target all --parallel @DPP_PARALLEL_BUILD@",
+            "cmake --build build --target test-programs --parallel @DPP_PARALLEL_BUILD@"
+          ]
+        }
+      ]
+    },
+    "test-type": "ctest",
+    "test": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "bash -c \"[ -f CTEST_TEST_CASE.output ] || ctest --show-only --test-dir build | sed -rn 's/[[:blank:]]*Test[[:blank:]]*#[[:digit:]]*:[[:blank:]]*(.*)/\\1/p' > CTEST_TEST_CASE.output\"",
+            "bash -c \"index=$(cat DPP_TEST_INDEX); ctest --tests-regex $(sed -n \\\"${index}p\\\" < CTEST_TEST_CASE.output)$ --test-dir build\""
+          ]
+        }
+      ]
+    },
+    "test-coverage": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "bash -c \"[ -f CTEST_TEST_CASE.output ] || ctest --show-only --test-dir build | sed -rn 's/[[:blank:]]*Test[[:blank:]]*#[[:digit:]]*:[[:blank:]]*(.*)/\\1/p' > CTEST_TEST_CASE.output\"",
+            "bash -c \"index=$(cat DPP_TEST_INDEX); ctest --tests-regex $(sed -n \\\"${index}p\\\" < CTEST_TEST_CASE.output)$ --test-dir build\""
+          ]
+        }
+      ]
+    },
+    "gcov": {
+      "exclude": [],
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "bash -c 'find build \\( -path build/epan/dissectors/asn1 -o -path build/run -o -path build/doc \\) -prune -o -name \"*.o\" -exec gcov @DPP_ADDITIONAL_GCOV_OPTIONS@ --preserve-paths {} > /dev/null \\;'",
+            "bash -c 'find build \\( -path build/epan/dissectors/asn1 -o -path build/run -o -path build/doc \\) -prune -o -name \"*.gcda\" -delete'",
+            "bash -c 'mkdir gcov; mv **.gcov gcov'"
+          ]
+        }
+      ]
+    }
+  },
+  "defects": [
+    {
+      "id": 1,
+      "hash": "63b484c91a7368d1ba1fce4e652d32fe6bddea6e",
+      "num_cases": 36,
+      "case": [3, 22, 31],
+      "tags": [
+        "invalid-condition",
+        "omission",
+        "multi-line",
+        "modified"
+      ],
+      "description": "Copy->Value - don't zero pad hex values"
+    },
+    {
+      "id": 2,
+      "hash": "4a8da5fbde2b731aeba451735497b46361873282",
+      "num_cases": 34,
+      "case": [34],
+      "tags": [
+        "logical-error",
+        "multi-line",
+        "modified"
+      ],
+      "description": "Fix crash on TvbRange:__tostring for a zero-length TVB"
+    },
+    {
+      "id": 3,
+      "hash": "89beba7ea6c4e53c53349d2dc730db6ff4644979",
+      "num_cases": 33,
+      "case": [29],
+      "tags": [
+        "etc",
+        "single-line",
+        "modified"
+      ],
+      "description": "Fix display of Fragment Offset field"
+    },
+    {
+      "id": 4,
+      "hash": "3e9ce48d24242c891968f65ae5160e967e73cfa5",
+      "num_cases": 34,
+      "case": [3],
+      "tags": [
+        "invalid-condition",
+        "multi-line",
+        "modified"
+      ],
+      "description": "Fix decryption of MFP enabled connections"
+    },
+    {
+      "id": 5,
+      "hash": "00fd41b61985286b728c6631d83a0cc82d037cb3",
+      "num_cases": 32,
+      "case": [28],
+      "tags": [
+        "omission",
+        "multi-line",
+        "added"
+      ],
+      "description": "Fix ek output with -j option"
+    },
+    {
+      "id": 6,
+      "hash": "c03011b906dfaad7ff25d7b6f284ee07f9aeffc1",
+      "num_cases": 34,
+      "case": [34],
+      "tags": [
+        "memory-error",
+        "multi-line",
+        "modified"
+      ],
+      "description": "Handle unpadded data"
+    }
+  ]
+}

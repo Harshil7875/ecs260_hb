@@ -1,0 +1,239 @@
+{
+  "info": {
+    "url": "https://gitlab.gnome.org/GNOME/libxml2.git",
+    "short-desc": "libxml2 is an XML toolkit implemented in C, originally developed for the GNOME Project.",
+    "vcs": "git"
+  },
+  "common": {
+    "build": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "./autogen.sh",
+            "make clean",
+            "make runtest -j @DPP_PARALLEL_BUILD@"
+          ]
+        }
+      ]
+    },
+    "build-coverage": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "./autogen.sh --with-coverage",
+            "make clean",
+            "make runtest -j @DPP_PARALLEL_BUILD@"
+          ]
+        }
+      ]
+    },
+    "test-type": "ctest",
+    "test": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "bash -c 'index=$(cat DPP_TEST_INDEX); ./runtest \"$(sed -n ${index}p .dpp/test_list)\"'"
+          ]
+        }
+      ]
+    },
+    "test-coverage": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "bash -c 'index=$(cat DPP_TEST_INDEX); ./runtest \"$(sed -n ${index}p .dpp/test_list)\"'"
+          ]
+        }
+      ]
+    },
+    "gcov": {
+      "exclude": [],
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "mkdir gcov",
+            "bash -c 'gcov @DPP_ADDITIONAL_GCOV_OPTIONS@ --preserve-paths -o .libs *.o'",
+            "bash -c 'mv *.c.gcov gcov'",
+            "bash -c 'find /home/workspace/ -type f -name \"*.gcda\" -delete'"
+          ]
+        }
+      ]
+    }
+  },
+  "defects": [
+    {
+      "id": 1,
+      "hash": "db07dd613e461df93dde7902c6505629bf0734e9",
+      "num_cases": 40,
+      "case": [40],
+      "tags": [
+          "omission",
+          "multi-line",
+          "modified",
+          "cve"
+      ],
+      "description": "CVE-2016-1838 Heap-based buffer overread in xmlParserPrintFileContextInternal",
+      "extra_tests": [
+        [
+          {
+            "type": "docker",
+            "lines": [
+              "bash -c 'DPP_RUN_ERROR_CASE=1 ./runtest \"Error cases regression tests\"'"
+            ],
+            "is_pass": false
+          }
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "hash": "a820dbeac29d330bae4be05d9ecd939ad6b4aa33",
+      "num_cases": 40,
+      "case": [40],
+      "tags": [
+          "omission",
+          "multi-line",
+          "added",
+          "cve"
+      ],
+      "description": "CVE-2016-1839 Heap-based buffer overread in xmlDictAddString",
+      "extra_tests": [
+        [
+          {
+            "type": "docker",
+            "lines": [
+              "bash -c 'DPP_RUN_ERROR_CASE=1 ./runtest \"HTML\" + \"Error cases\"'"
+            ],
+            "is_pass": false
+          }
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "hash": "00906759053986b8079985644172085f74331f83",
+      "num_cases": 40,
+      "case": [40],
+      "tags": [
+          "etc",
+          "single-line",
+          "added",
+          "cve"
+      ],
+      "description": "CVE-2016-4447 Improper Restriction of Operations within the Bounds of a Memory Buffer",
+      "extra_tests": [
+        [
+          {
+            "type": "docker",
+            "lines": [
+              "bash -c 'DPP_RUN_ERROR_CASE=1 ./runtest \"Error cases regression tests\"'"
+            ],
+            "is_pass": false
+          }
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "hash": "4629ee02ac649c27f9c0cf98ba017c6b5526070f",
+      "num_cases": 39,
+      "case": [39],
+      "tags": [
+          "invalid-condition",
+          "multi-line",
+          "modified",
+          "cve"
+      ],
+      "description": "CVE-2016-9318 Improper Restriction of XML External Entity Reference",
+      "extra_tests": [
+        [
+          {
+            "type": "docker",
+            "lines": [
+              "bash -c 'DPP_RUN_ERROR_CASE=1 ./runtest \"Error cases\"'"
+            ],
+            "is_pass": false
+          }
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "hash": "e26630548e7d138d2c560844c43820b6767251e3",
+      "num_cases": 41,
+      "case": [41],
+      "tags": [
+          "logical-error",
+          "multi-line",
+          "modified",
+          "cve"
+      ],
+      "description": "CVE-2017-16931 Improper Restriction of Operations within the Bounds of a Memory Buffer",
+      "extra_tests": [
+        [
+          {
+            "type": "docker",
+            "lines": [
+              "bash -c 'DPP_RUN_ERROR_CASE=1 ./runtest \"Streaming validity checking regression tests\"'"
+            ],
+            "is_pass": false
+          }
+        ]
+      ]
+    },
+    {
+      "id": 6,
+      "hash": "899a5d9f0ed13b8e32449a08a361e0de127dd961",
+      "num_cases": 41,
+      "case": [41],
+      "tags": [
+          "infinite-loop-error",
+          "etc",
+          "single-line",
+          "added",
+          "cve"
+      ],
+      "description": "CVE-2017-16932 Loop with Unreachable Exit Condition ('Infinite Loop')",
+      "extra_tests": [
+        [
+          {
+            "type": "docker",
+            "lines": [
+              "bash -c 'DPP_RUN_ERROR_CASE=1 ./runtest \"Error cases\"'"
+            ],
+            "is_pass": false
+          }
+        ]
+      ]
+    },
+    {
+      "id": 7,
+      "hash": "a7a94612aa3b16779e2c74e1fa353b5d9786c602",
+      "num_cases": 41,
+      "case": [41],
+      "tags": [
+          "etc",
+          "single-line",
+          "added",
+          "cve"
+      ],
+      "description": "CVE-2016-1762 Improper Restriction of Operations within the Bounds of a Memory Buffer",
+      "extra_tests": [
+        [
+          {
+            "type": "docker",
+            "lines": [
+              "bash -c 'DPP_RUN_ERROR_CASE=1 ./runtest \"Error cases regression tests\" + \"General documents valid regression tests\"'"
+            ],
+            "is_pass": false
+          }
+        ]
+      ]
+    }
+  ]
+}

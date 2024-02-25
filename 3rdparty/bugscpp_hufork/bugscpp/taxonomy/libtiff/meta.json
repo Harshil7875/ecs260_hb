@@ -1,0 +1,196 @@
+{
+  "info": {
+    "url": "https://github.com/vadz/libtiff.git",
+    "short-desc": "This software provides support for the Tag Image File Format (TIFF), a widely used format for storing image data.",
+    "vcs": "git"
+  },
+  "common": {
+    "build": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "./autogen.sh",
+            "./configure",
+            "make clean",
+            "make -j @DPP_PARALLEL_BUILD@"
+          ]
+        }
+      ]
+    },
+    "build-coverage": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "./autogen.sh",
+            "./configure",
+            "make clean",
+            "make -j @DPP_PARALLEL_BUILD@ CFLAGS=\"--coverage -DDPP_ENABLE_GCOV\""
+          ]
+        }
+      ]
+    },
+    "test-type": "ctest",
+    "test": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "bash -c \"cd test; make check-TESTS --no-print-directory TESTS=$(make print-TESTS | cut -d ' ' -f $(cat ../DPP_TEST_INDEX))\""
+          ]
+        }
+      ]
+    },
+    "test-coverage": {
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "bash -c \"cd test; make CFLAGS=\"-DDPP_ENABLE_GCOV --coverage\" check-TESTS --no-print-directory TESTS=$(make print-TESTS | cut -d ' ' -f $(cat ../DPP_TEST_INDEX))\""
+          ]
+        }
+      ]
+    },
+    "gcov": {
+      "exclude": [],
+      "commands": [
+        {
+          "type": "docker",
+          "lines": [
+            "mkdir gcov",
+            "bash -c 'cd libtiff; gcov @DPP_ADDITIONAL_GCOV_OPTIONS@ *.o -o .libs'",
+            "bash -c 'cd tools; gcov @DPP_ADDITIONAL_GCOV_OPTIONS@ *.o'",
+            "bash -c 'find /home/workspace/ -type f -name \"*.gcov\" -exec mv {} /home/workspace/gcov \\;'",
+            "bash -c 'find /home/workspace/ -type f -name \"*.gcda\" -delete'"
+          ]
+        }
+      ]
+    }
+  },
+  "defects": [
+    {
+      "id": 1,
+      "hash": "d9783e4a1476b6787a51c5ae9e9b3156527589f0",
+      "num_cases": 82,
+      "case": [82],
+      "tags": [
+          "memory-error",
+          "invalid-condition",
+          "single-line",
+          "modified",
+          "cve"
+      ],
+      "description": "CVE-2016-5321 Avoid access outside of stack allocated array",
+      "extra_tests": [
+        [
+          {
+          "type": "docker",
+          "lines": [
+            "bash -c \"tools/tiffcrop .dpp/CVE-2016-5321.tif /tmp/tmpout.tif\""
+          ],
+          "is_pass": false
+          }
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "hash": "8a37c8e244de3457283b54986d09a8db4d24381c",
+      "num_cases": 82,
+      "case": [82],
+      "tags": [
+          "memory-error",
+          "invalid-condition",
+          "single-line",
+          "modified"
+      ],
+      "description": "Fix failure to update libtiff version in AC_INIT.",
+      "extra_tests": [
+        [
+          {
+            "type": "docker",
+            "lines": [
+              "bash -c \"tools/gif2tiff .dpp/crash.gif /tmp/tmpout.tif\""
+            ],
+            "is_pass": false
+          }
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "hash": "bd024f07019f5d9fea236675607a69f74a66bc7b",
+      "num_cases": 82,
+      "case": [82],
+      "tags": [
+          "division-by-zero",
+          "omission",
+          "multi-line",
+          "added",
+          "cve"
+      ],
+      "description": "CVE-2016-3623 Validate values of -v and -h parameters to avoid potential divide by zero.",
+      "extra_tests": [
+        [
+          {
+            "type": "docker",
+            "lines": [
+              "bash -c \"tools/rgb2ycbcr -c zip  -r 0 -v 4 -h 0 test/images/logluv-3c-16b.tiff /tmp/temp.tif; [ $? -eq 255 ]\""
+            ],
+            "is_pass": false
+          }
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "hash": "47f2fb61a3a64667bce1a8398a8fcb1b348ff122",
+      "num_cases": 82,
+      "case": [82],
+      "tags": [
+          "division-by-zero",
+          "omission",
+          "multi-line",
+          "added"
+      ],
+      "description": "Avoid integer division by zero in JPEGSetupEncode()",
+      "extra_tests": [
+        [
+          {
+            "type": "docker",
+            "lines": [
+              "bash -c \"tools/tiffcp -i .dpp/00123-libtiff-fpe-JPEGSetupEncode /tmp/foo; [ $? -eq 1 ]\""
+            ],
+            "is_pass": false
+          }
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "hash": "d651abc097d91fac57f33b5f9447d0a9183f58e7",
+      "num_cases": 82,
+      "case": [82],
+      "tags": [
+          "memory-error",
+          "omission",
+          "multi-line",
+          "added",
+          "cve"
+      ],
+      "description": "CVE-2016-9273 Heap-buffer-overflow in cpStrips",
+      "extra_tests": [
+        [
+          {
+            "type": "docker",
+            "lines": [
+              "bash -c \"tools/tiffsplit .dpp/test049\""
+            ],
+            "is_pass": false
+          }
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+From e5ad9d7620328673c581d8a15c759aa319efa7c6 Mon Sep 17 00:00:00 2001
+From: crAy <crAyCoding@gmail.com>
+Date: Thu, 18 Aug 2022 10:45:44 +0900
+Subject: [PATCH] buggy
+
+---
+ crypto/rand/rand_lib.c | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/crypto/rand/rand_lib.c b/crypto/rand/rand_lib.c
+index a37a575e5b..46b06aebcc 100644
+--- a/crypto/rand/rand_lib.c
++++ b/crypto/rand/rand_lib.c
+@@ -469,11 +469,6 @@ static EVP_RAND_CTX *rand_new_drbg(OPENSSL_CTX *libctx, EVP_RAND_CTX *parent,
+         EVP_RAND_CTX_free(ctx);
+         return NULL;
+     }
+-    if (!EVP_RAND_instantiate(ctx, 0, 0, NULL, 0)) {
+-        RANDerr(0, RAND_R_ERROR_INSTANTIATING_DRBG);
+-        EVP_RAND_CTX_free(ctx);
+-        return NULL;
+-    }
+     return ctx;
+ }
+ 
+-- 
+2.25.1
+

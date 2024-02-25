@@ -1,0 +1,27 @@
+From 388242cfca58a29b80e860a96366f85badf542ed Mon Sep 17 00:00:00 2001
+From: HansolChoe <hansol614@gmail.com>
+Date: Tue, 28 Jun 2022 10:46:43 +0900
+Subject: [PATCH] buggy
+
+---
+ src/iso19111/c_api.cpp | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/src/iso19111/c_api.cpp b/src/iso19111/c_api.cpp
+index 90c8a8cd..340d9fb9 100644
+--- a/src/iso19111/c_api.cpp
++++ b/src/iso19111/c_api.cpp
+@@ -348,10 +348,6 @@ const char *proj_context_get_database_metadata(PJ_CONTEXT *ctx,
+         // temporary variable must be used as getDBcontext() might create
+         // ctx->cpp_context
+         auto osVal(getDBcontext(ctx)->getMetadata(key));
+-        if (osVal == nullptr) {
+-            ctx->cpp_context->autoCloseDbIfNeeded();
+-            return nullptr;
+-        }
+         ctx->cpp_context->lastDbMetadataItem_ = osVal;
+         ctx->cpp_context->autoCloseDbIfNeeded();
+         return ctx->cpp_context->lastDbMetadataItem_.c_str();
+-- 
+2.25.1
+
