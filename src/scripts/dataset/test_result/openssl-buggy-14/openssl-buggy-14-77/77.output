@@ -1,0 +1,33 @@
+make depend && make _tests
+make[1]: Entering directory '/home/workspace'
+make[1]: Leaving directory '/home/workspace'
+make[1]: Entering directory '/home/workspace'
+( SRCTOP=. \
+  BLDTOP=. \
+  PERL="/usr/bin/perl" \
+  FIPSKEY="f4556650ac31d35461610bac4ed81b1a181b2d8a43ea2854cbae22ca74560813" \
+  EXE_EXT= \
+  /usr/bin/perl ./test/run_tests.pl test_cli_fips )
+
+../../util/wrap.pl ../../apps/openssl dgst -sha256 -sign RSA.nonfips.priv.pem -out RSA.nonfips.fail.sig ../../providers/fips.so => 0
+    not ok 9 - RSA: Sign something with a non-FIPS key (should fail) # TODO see issue #12629
+# ------------------------------------------------------------------------------
+    #   Failed (TODO) test 'RSA: Sign something with a non-FIPS key (should fail)'
+    #   at test/recipes/20-test_cli_fips.t line 116.
+Verified OK
+../../util/wrap.pl ../../apps/openssl dgst -sha256 -verify RSA.nonfips.priv.pem -signature RSA.nonfips.sig ../../providers/fips.so => 0
+    not ok 10 - RSA: Verify something with a non-FIPS key (should fail) # TODO see issue #12629
+# ------------------------------------------------------------------------------
+../../util/wrap.pl ../../apps/openssl dgst -sha256 -sign DSA.nonfips.priv.pem -out DSA.nonfips.fail.sig ../../providers/fips.so => 0
+    not ok 12 - DSA: Sign something with a non-FIPS key (should fail) # TODO see issues #12626, #12627
+# ------------------------------------------------------------------------------
+    #   Failed (TODO) test 'DSA: Sign something with a non-FIPS key (should fail)'
+    #   at test/recipes/20-test_cli_fips.t line 116.
+Verified OK
+../../util/wrap.pl ../../apps/openssl dgst -sha256 -verify DSA.nonfips.priv.pem -signature DSA.nonfips.sig ../../providers/fips.so => 0
+    not ok 13 - DSA: Verify something with a non-FIPS key (should fail) # TODO see issues #12626, #12627
+# ------------------------------------------------------------------------------20-test_cli_fips.t .. ok
+All tests successful.
+Files=1, Tests=6,  1 wallclock secs ( 0.02 usr  0.01 sys +  0.99 cusr  0.34 csys =  1.36 CPU)
+Result: PASS
+make[1]: Leaving directory '/home/workspace'

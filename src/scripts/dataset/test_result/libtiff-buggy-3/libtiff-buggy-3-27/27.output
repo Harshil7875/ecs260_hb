@@ -1,0 +1,17 @@
+FAIL: tiff2ps-PS2.sh
+============================================================================
+Testsuite summary for LibTIFF Software 4.0.6
+============================================================================
+# TOTAL: 1
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+============================================================================
+See test/test-suite.log
+Please report to tiff@lists.maptools.org
+============================================================================
+make[1]: *** [Makefile:988: test-suite.log] Error 1
+make: *** [Makefile:1096: check-TESTS] Error 2

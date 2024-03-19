@@ -1,0 +1,184 @@
+You are a automated program repair tool for C and C++. Your task is to provide a fix for the buggy function below.
+
+<<< Buggy Function:
+static int do_pk8pkey(BIO *bp, const EVP_PKEY *x, int isder, int nid,
+                      const EVP_CIPHER *enc, const char *kstr, int klen,
+                      pem_password_cb *cb, void *u, const char *propq)
+{
+    int ret = 0;
+    const char *outtype = isder ? "DER" : "PEM";
+    OSSL_ENCODER_CTX *ctx =
+        OSSL_ENCODER_CTX_new_for_pkey(x, OSSL_KEYMGMT_SELECT_ALL,
+                                      outtype, "pkcs8", propq);
+
+    if (ctx == NULL)
+        return 0;
+
+    /*
+     * If no keystring or callback is set, OpenSSL traditionally uses the
+     * user's cb argument as a password string, or if that's NULL, it falls
+     * back on PEM_def_callback().
+     */
+    if (kstr == NULL && cb == NULL) {
+        if (u != NULL) {
+            kstr = u;
+            klen = strlen(u);
+        } else {
+            cb = PEM_def_callback;
+        }
+    }
+
+    /*
+     * NOTE: There is no attempt to do a EVP_CIPHER_fetch() using the nid,
+     * since the nid is a PBE algorithm which can't be fetched currently.
+     * (e.g. NID_pbe_WithSHA1And2_Key_TripleDES_CBC). Just use the legacy
+     * path if the NID is passed.
+     */
+    if (OSSL_ENCODER_CTX_get_num_encoders(ctx) != 0) {
+        ret = 1;
+        if (enc != NULL) {
+            ret = 0;
+            if (OSSL_ENCODER_CTX_set_cipher(ctx, EVP_CIPHER_name(enc), NULL)) {
+                const unsigned char *ukstr = (const unsigned char *)kstr;
+
+                /*
+                 * Try to pass the passphrase if one was given, or the
+                 * passphrase callback if one was given.  If none of them
+                 * are given and that's wrong, we rely on the _to_bio()
+                 * call to generate errors.
+                 */
+                ret = 1;
+                if (kstr != NULL
+                    && !OSSL_ENCODER_CTX_set_passphrase(ctx, ukstr, klen))
+                    ret = 0;
+                else if (cb != NULL
+                         && !OSSL_ENCODER_CTX_set_pem_password_cb(ctx, cb, u))
+                    ret = 0;
+            }
+        }
+        ret = ret && OSSL_ENCODER_to_bio(ctx, bp);
+    } else {
+        X509_SIG *p8;
+        PKCS8_PRIV_KEY_INFO *p8inf;
+        char buf[PEM_BUFSIZE];
+
+        ret = 0;
+        if ((p8inf = EVP_PKEY2PKCS8(x)) == NULL) {
+            ERR_raise(ERR_LIB_PEM, PEM_R_ERROR_CONVERTING_PRIVATE_KEY);
+            goto legacy_end;
+        }
+        if (enc || (nid != -1)) {
+            if (kstr == NULL) {
+                klen = cb(buf, PEM_BUFSIZE, 1, u);
+                if (klen <= 0) {
+                    ERR_raise(ERR_LIB_PEM, PEM_R_READ_KEY);
+                    goto legacy_end;
+                }
+
+                kstr = buf;
+            }
+            p8 = PKCS8_encrypt(nid, enc, kstr, klen, NULL, 0, 0, p8inf);
+            if (kstr == buf)
+                OPENSSL_cleanse(buf, klen);
+            if (p8 == NULL)
+                goto legacy_end;
+            if (isder)
+                ret = i2d_PKCS8_bio(bp, p8);
+            else
+                ret = PEM_write_bio_PKCS8(bp, p8);
+            X509_SIG_free(p8);
+        } else {
+            if (isder)
+                ret = i2d_PKCS8_PRIV_KEY_INFO_bio(bp, p8inf);
+            else
+                ret = PEM_write_bio_PKCS8_PRIV_KEY_INFO(bp, p8inf);
+        }
+     legacy_end:
+        PKCS8_PRIV_KEY_INFO_free(p8inf);
+    }
+    OSSL_ENCODER_CTX_free(ctx);
+    return ret;
+}
+
+>>>
+
+The following was the errors outputted by a failed test case.
+
+<<< Test Failed Log:
+make depend && make _tests
+make[1]: Entering directory '/home/workspace'
+make[1]: Leaving directory '/home/workspace'
+make[1]: Entering directory '/home/workspace'
+( SRCTOP=. \
+  BLDTOP=. \
+  PERL="/usr/bin/perl" \
+  FIPSKEY="f4556650ac31d35461610bac4ed81b1a181b2d8a43ea2854cbae22ca74560813" \
+  EXE_EXT= \
+  /usr/bin/perl ./test/run_tests.pl test_evp_extra )
+
+    # ERROR: (ptr) 'pkey_dec = d2i_PKCS8PrivateKey_bio(enc_bio, NULL, NULL, (void *)pwd) != NULL' failed @ test/evp_extra_test2.c:315
+    # 0x0
+    # 808B14F8E77F0000:error:068000A8:asn1 encoding routines:asn1_check_tlen:wrong tag:crypto/asn1/tasn_dec.c:1156:
+    # 808B14F8E77F0000:error:0688010A:asn1 encoding routines:asn1_item_embed_d2i:nested asn1 error:crypto/asn1/tasn_dec.c:322:Type=X509_ALGOR
+    # 808B14F8E77F0000:error:0688010A:asn1 encoding routines:asn1_template_noexp_d2i:nested asn1 error:crypto/asn1/tasn_dec.c:653:Field=algor, Type=X509_SIG
+    # OPENSSL_TEST_RAND_ORDER=1710228668
+    not ok 8 - test_pkcs8key_nid_bio
+# ------------------------------------------------------------------------------
+../../util/wrap.pl ../../test/evp_extra_test2 => 1
+not ok 3 - running evp_extra_test2
+# ------------------------------------------------------------------------------
+#   Failed test 'running evp_extra_test2'
+#   at test/recipes/30-test_evp_extra.t line 24.
+# Looks like you failed 1 test of 3.30-test_evp_extra.t .. 
+Dubious, test returned 1 (wstat 256, 0x100)
+Failed 1/3 subtests 
+
+Test Summary Report
+-------------------
+30-test_evp_extra.t (Wstat: 256 Tests: 3 Failed: 1)
+  Failed test:  3
+  Non-zero exit status: 1
+Files=1, Tests=3,  1 wallclock secs ( 0.02 usr  0.00 sys +  1.32 cusr  0.03 csys =  1.37 CPU)
+Result: FAIL
+Makefile:3210: recipe for target '_tests' failed
+make[1]: *** [_tests] Error 1
+make[1]: Leaving directory '/home/workspace'
+Makefile:3208: recipe for target 'tests' failed
+make: *** [tests] Error 2
+
+>>>
+
+The following is the relevant code of that failed test case.
+
+<<< Test Code:
+#! /usr/bin/env perl
+# Copyright 2015-2021 The OpenSSL Project Authors. All Rights Reserved.
+#
+# Licensed under the Apache License 2.0 (the "License").  You may not use
+# this file except in compliance with the License.  You can obtain a copy
+# in the file LICENSE in the source distribution or at
+# https://www.openssl.org/source/license.html
+
+
+use strict;
+use warnings;
+
+use OpenSSL::Test qw/:DEFAULT bldtop_dir/;
+
+setup("test_evp_extra");
+
+plan tests => 3;
+
+ok(run(test(["evp_extra_test"])), "running evp_extra_test");
+
+# Run tests with a non-default library context
+ok(run(test(["evp_extra_test", "-context"])), "running evp_extra_test with a non-default library context");
+
+ok(run(test(["evp_extra_test2"])), "running evp_extra_test2");
+
+>>>
+
+You will only respond with your repaired function in a code snippet as below:
+```
+<Your repaired function>
+```

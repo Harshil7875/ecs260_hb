@@ -1,0 +1,37 @@
+You are a automated program repair tool for C and C++. Your task is to provide a fix for the buggy function below.
+
+<<< Buggy Function:
+uint32 TIFFNumberOfStrips(TIFF* tif)
+{
+	TIFFDirectory *td = &tif->tif_dir;
+	uint32 nstrips;
+
+    /* If the value was already computed and store in td_nstrips, then return it,
+       since ChopUpSingleUncompressedStrip might have altered and resized the
+       since the td_stripbytecount and td_stripoffset arrays to the new value
+       after the initial affectation of td_nstrips = TIFFNumberOfStrips() in
+       tif_dirread.c ~line 3612.
+       See http://bugzilla.maptools.org/show_bug.cgi?id=2587 */
+
+	nstrips = (td->td_rowsperstrip == (uint32) -1 ? 1 :
+	     TIFFhowmany_32(td->td_imagelength, td->td_rowsperstrip));
+	if (td->td_planarconfig == PLANARCONFIG_SEPARATE)
+		nstrips = _TIFFMultiply32(tif, nstrips, (uint32)td->td_samplesperpixel,
+		    "TIFFNumberOfStrips");
+	return (nstrips);
+}
+
+>>>
+
+The following was the errors outputted by a failed test case.
+
+<<< Test Failed Log:
+TIFFReadDirectoryCheckOrder: Warning, Invalid TIFF directory; tags are not sorted in ascending order.
+TIFFReadDirectory: Warning, Unknown field with tag 12336 (0x3030) encountered.
+
+>>>
+
+You will only respond with your repaired function in a code snippet as below:
+```
+<Your repaired function>
+```

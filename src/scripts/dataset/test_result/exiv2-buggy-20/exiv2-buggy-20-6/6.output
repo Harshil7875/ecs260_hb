@@ -1,0 +1,20 @@
+F
+======================================================================
+FAIL: test_run (test_issue_1969.TestPrintPlainWithSet)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/workspace/tests/system_tests.py", line 653, in test_run
+    self.compare_stdout(i, command, processed_stdout, stdout)
+  File "/home/workspace/tests/system_tests.py", line 768, in compare_stdout
+    msg="Standard output does not match"
+  File "/home/workspace/tests/system_tests.py", line 746, in _compare_output
+    expected, got, msg=msg
+AssertionError: 'set  Well it is a smiley that happens to be green\n' != 'set Exif.Image.ImageDescription              [57 chars]en\n'
+- set  Well it is a smiley that happens to be green
++ set Exif.Image.ImageDescription                  Ascii      Well it is a smiley that happens to be green
+ : Standard output does not match
+
+----------------------------------------------------------------------
+Ran 1 test in 0.008s
+
+FAILED (failures=1)

@@ -1,0 +1,88 @@
+```
+static int JPEGSetupEncode(TIFF* tif)
+{
+	JPEGState* sp = JState(tif);
+	TIFFDirectory *td = &tif->tif_dir;
+	static const char module[] = "JPEGSetupEncode";
+
+	if (sp == NULL) {
+		TIFFErrorExt(tif->tif_clientdata, module, "JPEGState is NULL");
+		return (0);
+	}
+
+	if (sp->cinfo.comm.is_decompressor) {
+		TIFFErrorExt(tif->tif_clientdata, module, "JPEGState is a decompressor");
+		return (0);
+	}
+
+	sp->photometric = td->td_photometric;
+
+	if (td->td_planarconfig == PLANARCONFIG_CONTIG) {
+		sp->cinfo.c.input_components = td->td_samplesperpixel;
+		if (sp->photometric == PHOTOMETRIC_YCBCR) {
+			sp->cinfo.c.in_color_space = (sp->jpegcolormode == JPEGCOLORMODE_RGB) ? JCS_RGB : JCS_YCbCr;
+		} else {
+			if ((td->td_photometric == PHOTOMETRIC_MINISWHITE || td->td_photometric == PHOTOMETRIC_MINISBLACK) && td->td_samplesperpixel == 1)
+				sp->cinfo.c.in_color_space = JCS_GRAYSCALE;
+			else if (td->td_photometric == PHOTOMETRIC_RGB && td->td_samplesperpixel == 3)
+				sp->cinfo.c.in_color_space = JCS_RGB;
+			else if (td->td_photometric == PHOTOMETRIC_SEPARATED && td->td_samplesperpixel == 4)
+				sp->cinfo.c.in_color_space = JCS_CMYK;
+			else
+				sp->cinfo.c.in_color_space = JCS_UNKNOWN;
+		}
+	} else {
+		sp->cinfo.c.input_components = 1;
+		sp->cinfo.c.in_color_space = JCS_UNKNOWN;
+	}
+
+	if (!TIFFjpeg_set_defaults(sp))
+		return (0);
+
+	switch (sp->photometric) {
+	case PHOTOMETRIC_YCBCR:
+		if (td->td_bitspersample == 12) {
+			return TIFFReInitJPEG_12(tif, COMPRESSION_JPEG, 1);
+		}
+		// Handle YCbCr case
+		break;
+	case PHOTOMETRIC_PALETTE:
+	case PHOTOMETRIC_MASK:
+		TIFFErrorExt(tif->tif_clientdata, module, "PhotometricInterpretation %d not allowed for JPEG", (int) sp->photometric);
+		return (0);
+	default:
+		// Handle other cases
+		break;
+	}
+
+	// Verify miscellaneous parameters
+	if (td->td_bitspersample != 8 && td->td_bitspersample != 12) {
+		TIFFErrorExt(tif->tif_clientdata, module, "BitsPerSample %d not allowed for JPEG", (int) td->td_bitspersample);
+		return (0);
+	}
+	sp->cinfo.c.data_precision = td->td_bitspersample;
+
+	if (isTiled(tif)) {
+		// Handle tiled case
+	} else {
+		// Handle non-tiled case
+	}
+
+	// Create a JPEGTables field if appropriate
+	if (sp->jpegtablesmode & (JPEGTABLESMODE_QUANT|JPEGTABLESMODE_HUFF)) {
+		if (sp->jpegtables == NULL || memcmp(sp->jpegtables, "\0\0\0\0\0\0\0\0\0", 8) == 0) {
+			if (!prepare_JPEGTables(tif))
+				return (0);
+			tif->tif_flags |= TIFF_DIRTYDIRECT;
+			TIFFSetFieldBit(tif, FIELD_JPEGTABLES);
+		}
+	} else {
+		TIFFClrFieldBit(tif, FIELD_JPEGTABLES);
+	}
+
+	// Direct libjpeg output to libtiff's output buffer
+	TIFFjpeg_data_dest(sp, tif);
+
+	return (1);
+}
+```

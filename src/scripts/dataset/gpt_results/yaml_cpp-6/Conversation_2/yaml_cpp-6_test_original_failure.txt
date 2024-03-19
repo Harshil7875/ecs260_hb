@@ -1,0 +1,8 @@
+test_result: 
+yaml_cpp-6: 
+build_result: True
+test_cases_result:  
+pass_rate: 1.0
+pass_test_cases: ['yaml_cpp-buggy-6-10']
+fail_test_cases: []
+fail_test_cases_info: {}

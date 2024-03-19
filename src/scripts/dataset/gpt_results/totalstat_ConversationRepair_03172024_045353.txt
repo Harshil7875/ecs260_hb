@@ -1,0 +1,6 @@
+Test_Buggy_Repo_List: ['libucl-3']
+Total_Patch_Number: 5
+Total_Compilable_Patch_Number: 4
+Total_Plausible_Patch_Number: 0
+Compilable_Patch_List: ['libucl-3_Conversation-1', 'libucl-3_Conversation-3', 'libucl-3_Conversation-4', 'libucl-3_Conversation-5']
+Plausible_Patch_list: []

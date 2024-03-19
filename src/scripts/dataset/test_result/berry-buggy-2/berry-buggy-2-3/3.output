@@ -1,0 +1,4 @@
+assert_failed: assert failed!
+stack traceback:
+	<native>: in native function
+	tests/bool.be:5: in function `main`

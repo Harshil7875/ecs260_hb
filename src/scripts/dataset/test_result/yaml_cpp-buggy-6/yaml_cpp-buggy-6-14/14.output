@@ -1,0 +1,19 @@
+Note: Google Test filter = ParserTest.*
+[==========] Running 5 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 5 tests from ParserTest
+[ RUN      ] ParserTest.Empty
+[       OK ] ParserTest.Empty (0 ms)
+[ RUN      ] ParserTest.CVE_2017_5950
+[       OK ] ParserTest.CVE_2017_5950 (31 ms)
+[ RUN      ] ParserTest.CVE_2018_20573
+[       OK ] ParserTest.CVE_2018_20573 (36 ms)
+[ RUN      ] ParserTest.CVE_2018_20574
+[       OK ] ParserTest.CVE_2018_20574 (35 ms)
+[ RUN      ] ParserTest.CVE_2019_6285
+[       OK ] ParserTest.CVE_2019_6285 (35 ms)
+[----------] 5 tests from ParserTest (137 ms total)
+
+[----------] Global test environment tear-down
+[==========] 5 tests from 1 test suite ran. (137 ms total)
+[  PASSED  ] 5 tests.

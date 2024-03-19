@@ -1,0 +1,564 @@
+You are a automated program repair tool for C and C++. Your task is to provide a fix for the buggy function below.
+
+<<< Buggy Function:
+/**
+ * Parse a key in an object
+ * @param parser
+ * @param chunk
+ * @return true if a key has been parsed
+ */
+static bool
+ucl_parse_key (struct ucl_parser *parser, struct ucl_chunk *chunk, bool *next_key, bool *end_of_object)
+{
+	const unsigned char *p, *c = NULL, *end, *t;
+	const char *key = NULL;
+	bool got_quote = false, got_eq = false, got_semicolon = false,
+			need_unescape = false, ucl_escape = false, var_expand = false,
+			got_content = false, got_sep = false;
+	ucl_object_t *nobj, *tobj;
+	ucl_hash_t *container;
+	ssize_t keylen;
+
+	p = chunk->pos;
+
+	if (*p == '.') {
+		/* It is macro actually */
+		ucl_chunk_skipc (chunk, p);
+		parser->prev_state = parser->state;
+		parser->state = UCL_STATE_MACRO_NAME;
+
+		return true;
+	}
+	while (p < chunk->end) {
+		/*
+		 * A key must start with alpha, number, '/' or '_' and end with space character
+		 */
+		if (c == NULL) {
+			if (chunk->remain >= 2 && ucl_lex_is_comment (p[0], p[1])) {
+				if (!ucl_skip_comments (parser)) {
+					return false;
+				}
+				p = chunk->pos;
+			}
+			else if (ucl_test_character (*p, UCL_CHARACTER_WHITESPACE_UNSAFE)) {
+				ucl_chunk_skipc (chunk, p);
+			}
+			else if (ucl_test_character (*p, UCL_CHARACTER_KEY_START)) {
+				/* The first symbol */
+				c = p;
+				ucl_chunk_skipc (chunk, p);
+				got_content = true;
+			}
+			else if (*p == '"') {
+				/* JSON style key */
+				c = p + 1;
+				got_quote = true;
+				got_content = true;
+				ucl_chunk_skipc (chunk, p);
+			}
+			else if (*p == '}') {
+				/* We have actually end of an object */
+				*end_of_object = true;
+				return true;
+			}
+			else if (*p == '.') {
+				ucl_chunk_skipc (chunk, p);
+				parser->prev_state = parser->state;
+				parser->state = UCL_STATE_MACRO_NAME;
+				return true;
+			}
+			else {
+				/* Invalid identifier */
+				ucl_set_err (parser, UCL_ESYNTAX, "key must begin with a letter",
+						&parser->err);
+				return false;
+			}
+		}
+		else {
+			/* Parse the body of a key */
+			if (!got_quote) {
+				if (ucl_test_character (*p, UCL_CHARACTER_KEY)) {
+					got_content = true;
+					ucl_chunk_skipc (chunk, p);
+				}
+				else if (ucl_test_character (*p, UCL_CHARACTER_KEY_SEP)) {
+					end = p;
+					break;
+				}
+				else {
+					ucl_set_err (parser, UCL_ESYNTAX, "invalid character in a key",
+							&parser->err);
+					return false;
+				}
+			}
+			else {
+				/* We need to parse json like quoted string */
+				if (!ucl_lex_json_string (parser, chunk, &need_unescape, &ucl_escape, &var_expand)) {
+					return false;
+				}
+				/* Always escape keys obtained via json */
+				end = chunk->pos - 1;
+				p = chunk->pos;
+				break;
+			}
+		}
+	}
+
+	if (p >= chunk->end && got_content) {
+		ucl_set_err (parser, UCL_ESYNTAX, "unfinished key", &parser->err);
+		return false;
+	}
+	else if (!got_content) {
+		return true;
+	}
+	*end_of_object = false;
+	/* We are now at the end of the key, need to parse the rest */
+	while (p < chunk->end) {
+		if (ucl_test_character (*p, UCL_CHARACTER_WHITESPACE)) {
+			ucl_chunk_skipc (chunk, p);
+		}
+		else if (*p == '=') {
+			if (!got_eq && !got_semicolon) {
+				ucl_chunk_skipc (chunk, p);
+				got_eq = true;
+			}
+			else {
+				ucl_set_err (parser, UCL_ESYNTAX, "unexpected '=' character",
+						&parser->err);
+				return false;
+			}
+		}
+		else if (*p == ':') {
+			if (!got_eq && !got_semicolon) {
+				ucl_chunk_skipc (chunk, p);
+				got_semicolon = true;
+			}
+			else {
+				ucl_set_err (parser, UCL_ESYNTAX, "unexpected ':' character",
+						&parser->err);
+				return false;
+			}
+		}
+		else if (chunk->remain >= 2 && ucl_lex_is_comment (p[0], p[1])) {
+			/* Check for comment */
+			if (!ucl_skip_comments (parser)) {
+				return false;
+			}
+			p = chunk->pos;
+		}
+		else {
+			/* Start value */
+			break;
+		}
+	}
+
+	if (p >= chunk->end && got_content) {
+		ucl_set_err (parser, UCL_ESYNTAX, "unfinished key", &parser->err);
+		return false;
+	}
+
+	got_sep = got_semicolon || got_eq;
+
+	if (!got_sep) {
+		/*
+		 * Maybe we have more keys nested, so search for termination character.
+		 * Possible choices:
+		 * 1) key1 key2 ... keyN [:=] value <- we treat that as error
+		 * 2) key1 ... keyN {} or [] <- we treat that as nested objects
+		 * 3) key1 value[;,\n] <- we treat that as linear object
+		 */
+		t = p;
+		*next_key = false;
+		while (ucl_test_character (*t, UCL_CHARACTER_WHITESPACE)) {
+			t ++;
+		}
+		/* Check first non-space character after a key */
+		if (*t != '{' && *t != '[') {
+			while (t < chunk->end) {
+				if (*t == ',' || *t == ';' || *t == '\n' || *t == '\r') {
+					break;
+				}
+				else if (*t == '{' || *t == '[') {
+					*next_key = true;
+					break;
+				}
+				t ++;
+			}
+		}
+	}
+
+	/* Create a new object */
+	nobj = ucl_object_new_full (UCL_NULL, parser->chunks->priority);
+	keylen = ucl_copy_or_store_ptr (parser, c, &nobj->trash_stack[UCL_TRASH_KEY],
+			&key, end - c, need_unescape, parser->flags & UCL_PARSER_KEY_LOWERCASE, false);
+	if (keylen == -1) {
+		ucl_object_unref (nobj);
+		return false;
+	}
+	else if (keylen == 0) {
+		ucl_set_err (parser, UCL_ESYNTAX, "empty keys are not allowed", &parser->err);
+		ucl_object_unref (nobj);
+		return false;
+	}
+
+	container = parser->stack->obj->value.ov;
+	nobj->key = key;
+	nobj->keylen = keylen;
+	tobj = __DECONST (ucl_object_t *, ucl_hash_search_obj (container, nobj));
+	if (tobj == NULL) {
+		container = ucl_hash_insert_object (container, nobj,
+				parser->flags & UCL_PARSER_KEY_LOWERCASE);
+		nobj->prev = nobj;
+		nobj->next = NULL;
+		parser->stack->obj->len ++;
+	}
+	else {
+		/*
+		 * The logic here is the following:
+		 *
+		 * - if we have two objects with the same priority, then we form an
+		 * implicit or explicit array
+		 * - if a new object has bigger priority, then we overwrite an old one
+		 * - if a new object has lower priority, then we ignore it
+		 */
+		unsigned priold = ucl_object_get_priority (tobj),
+				prinew = ucl_object_get_priority (nobj);
+		if (priold == prinew) {
+			ucl_parser_append_elt (parser, container, tobj, nobj);
+		}
+		else if (priold > prinew) {
+			ucl_object_unref (nobj);
+			return true;
+		}
+		else {
+			ucl_hash_replace (container, tobj, nobj);
+			ucl_object_unref (tobj);
+		}
+	}
+
+	if (ucl_escape) {
+		nobj->flags |= UCL_OBJECT_NEED_KEY_ESCAPE;
+	}
+	parser->stack->obj->value.ov = container;
+
+	parser->cur_obj = nobj;
+
+	return true;
+}
+>>>
+
+The following was the errors outputted by a failed test case.
+
+<<< Test Failed Log:
+========================================
+   libucl 0.7.2: tests/test-suite.log
+========================================
+
+# TOTAL: 1
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
+FAIL: basic
+===========
+
+Files ../tests/basic.out and ../tests/basic/1.res are identical
+Files ../tests/basic.out and ../tests/basic/11.res are identical
+Files ../tests/basic.out and ../tests/basic/12.res are identical
+Files ../tests/basic.out and ../tests/basic/13.res are identical
+Test: ../tests/basic/14 failed, output:
+Error occurred: error while parsing <unknown>: line: 6, column: 1 - 'delimiter is missing', character: 'i'
+FAIL basic.test (exit status: 1)
+
+
+>>>
+
+The following is the relevant code of that failed test case.
+
+<<< Test Code:
+#!/bin/sh
+
+PROG=${TEST_BINARY_DIR}/test_basic
+
+for _tin in ${TEST_DIR}/basic/*.in ; do
+	_t=`echo $_tin | sed -e 's/.in$//'`
+	_out=${TEST_OUT_DIR}/basic.out
+	$PROG $_t.in $_out
+	if [ $? -ne 0 ] ; then
+		echo "Test: $_t failed, output:"
+		cat $_out
+		rm $_out
+		exit 1
+	fi
+	if [ -f $_t.res ] ; then
+	diff -s $_out $_t.res -u 2>/dev/null
+		if [ $? -ne 0 ] ; then
+			rm $_out
+			echo "Test: $_t output missmatch"
+			exit 1
+		fi
+	fi
+	rm $_out
+done
+
+
+
+>>>
+
+The function provided by you is still not correct! Your repaired function is:
+
+<<< Function Repaired By You:
+/**
+ * Parse a key in an object
+ * @param parser
+ * @param chunk
+ * @return true if a key has been parsed
+ */
+static bool
+ucl_parse_key (struct ucl_parser *parser, struct ucl_chunk *chunk, bool *next_key, bool *end_of_object)
+{
+    const unsigned char *p, *c = NULL, *end, *t;
+    const char *key = NULL;
+    bool got_quote = false, got_eq = false, got_semicolon = false,
+            need_unescape = false, ucl_escape = false, var_expand = false,
+            got_content = false, got_sep = false;
+    ucl_object_t *nobj, *tobj;
+    ucl_hash_t *container;
+    ssize_t keylen;
+
+    p = chunk->pos;
+
+    if (*p == '.') {
+        /* It is macro actually */
+        ucl_chunk_skipc (chunk, p);
+        parser->prev_state = parser->state;
+        parser->state = UCL_STATE_MACRO_NAME;
+
+        return true;
+    }
+    while (p < chunk->end) {
+        /*
+         * A key must start with alpha, number, '/' or '_' and end with space character
+         */
+        if (c == NULL) {
+            if (chunk->remain >= 2 && ucl_lex_is_comment (p[0], p[1])) {
+                if (!ucl_skip_comments (parser)) {
+                    return false;
+                }
+                p = chunk->pos;
+            }
+            else if (ucl_test_character (*p, UCL_CHARACTER_WHITESPACE_UNSAFE)) {
+                ucl_chunk_skipc (chunk, p);
+            }
+            else if (ucl_test_character (*p, UCL_CHARACTER_KEY_START) || *p == '/') {
+                /* The first symbol */
+                c = p;
+                ucl_chunk_skipc (chunk, p);
+                got_content = true;
+            }
+            else if (*p == '"') {
+                /* JSON style key */
+                c = p + 1;
+                got_quote = true;
+                got_content = true;
+                ucl_chunk_skipc (chunk, p);
+            }
+            else if (*p == '}') {
+                /* We have actually end of an object */
+                *end_of_object = true;
+                return true;
+            }
+            else if (*p == '.') {
+                ucl_chunk_skipc (chunk, p);
+                parser->prev_state = parser->state;
+                parser->state = UCL_STATE_MACRO_NAME;
+                return true;
+            }
+            else {
+                /* Invalid identifier */
+                ucl_set_err (parser, UCL_ESYNTAX, "key must begin with a letter, number, '/', or '_'",
+                        &parser->err);
+                return false;
+            }
+        }
+        else {
+            /* Parse the body of a key */
+            if (!got_quote) {
+                if (ucl_test_character (*p, UCL_CHARACTER_KEY) || ucl_test_character (*p, UCL_CHARACTER_KEY_SEP)) {
+                    got_content = true;
+                    ucl_chunk_skipc (chunk, p);
+                }
+                else {
+                    ucl_set_err (parser, UCL_ESYNTAX, "invalid character in a key",
+                            &parser->err);
+                    return false;
+                }
+            }
+            else {
+                /* We need to parse json like quoted string */
+                if (!ucl_lex_json_string (parser, chunk, &need_unescape, &ucl_escape, &var_expand)) {
+                    return false;
+                }
+                /* Always escape keys obtained via json */
+                end = chunk->pos - 1;
+                p = chunk->pos;
+                break;
+            }
+        }
+    }
+
+    if (p >= chunk->end && got_content) {
+        ucl_set_err (parser, UCL_ESYNTAX, "unfinished key", &parser->err);
+        return false;
+    }
+    else if (!got_content) {
+        return true;
+    }
+    *end_of_object = false;
+    /* We are now at the end of the key, need to parse the rest */
+    while (p < chunk->end) {
+        if (ucl_test_character (*p, UCL_CHARACTER_WHITESPACE)) {
+            ucl_chunk_skipc (chunk, p);
+        }
+        else if (*p == '=') {
+            if (!got_eq && !got_semicolon) {
+                ucl_chunk_skipc (chunk, p);
+                got_eq = true;
+            }
+            else {
+                ucl_set_err (parser, UCL_ESYNTAX, "unexpected '=' character",
+                        &parser->err);
+                return false;
+            }
+        }
+        else if (*p == ':') {
+            if (!got_eq && !got_semicolon) {
+                ucl_chunk_skipc (chunk, p);
+                got_semicolon = true;
+            }
+            else {
+                ucl_set_err (parser, UCL_ESYNTAX, "unexpected ':' character",
+                        &parser->err);
+                return false;
+            }
+        }
+        else if (chunk->remain >= 2 && ucl_lex_is_comment (p[0], p[1])) {
+            /* Check for comment */
+            if (!ucl_skip_comments (parser)) {
+                return false;
+            }
+            p = chunk->pos;
+        }
+        else {
+            /* Start value */
+            break;
+        }
+    }
+
+    if (p >= chunk->end && got_content) {
+        ucl_set_err (parser, UCL_ESYNTAX, "unfinished key", &parser->err);
+        return false;
+    }
+
+    got_sep = got_semicolon || got_eq;
+
+    if (!got_sep) {
+        /*
+         * Maybe we have more keys nested, so search for termination character.
+         * Possible choices:
+         * 1) key1 key2 ... keyN [:=] value <- we treat that as error
+         * 2) key1 ... keyN {} or [] <- we treat that as nested objects
+         * 3) key1 value[;,\n] <- we treat that as linear object
+         */
+        t = p;
+        *next_key = false;
+        while (ucl_test_character (*t, UCL_CHARACTER_WHITESPACE)) {
+            t ++;
+        }
+        /* Check first non-space character after a key */
+        if (*t != '{' && *t != '[') {
+            while (t < chunk->end) {
+                if (*t == ',' || *t == ';' || *t == '\n' || *t == '\r') {
+                    break;
+                }
+                else if (*t == '{' || *t == '[') {
+                    *next_key = true;
+                    break;
+                }
+                t ++;
+            }
+        }
+    }
+
+    /* Create a new object */
+    nobj = ucl_object_new_full (UCL_NULL, parser->chunks->priority);
+    keylen = ucl_copy_or_store_ptr (parser, c, &nobj->trash_stack[UCL_TRASH_KEY],
+            &key, end - c, need_unescape, parser->flags & UCL_PARSER_KEY_LOWERCASE, false);
+    if (keylen == -1) {
+        ucl_object_unref (nobj);
+        return false;
+    }
+    else if (keylen == 0) {
+        ucl_set_err (parser, UCL_ESYNTAX, "empty keys are not allowed", &parser->err);
+        ucl_object_unref (nobj);
+        return false;
+    }
+
+    container = parser->stack->obj->value.ov;
+    nobj->key = key;
+    nobj->keylen = keylen;
+    tobj = __DECONST (ucl_object_t *, ucl_hash_search_obj (container, nobj));
+    if (tobj == NULL) {
+        container = ucl_hash_insert_object (container, nobj,
+                parser->flags & UCL_PARSER_KEY_LOWERCASE);
+        nobj->prev = nobj;
+        nobj->next = NULL;
+        parser->stack->obj->len ++;
+    }
+    else {
+        /*
+         * The logic here is the following:
+         *
+         * - if we have two objects with the same priority, then we form an
+         * implicit or explicit array
+         * - if a new object has bigger priority, then we overwrite an old one
+         * - if a new object has lower priority, then we ignore it
+         */
+        unsigned priold = ucl_object_get_priority (tobj),
+                prinew = ucl_object_get_priority (nobj);
+        if (priold == prinew) {
+            ucl_parser_append_elt (parser, container, tobj, nobj);
+        }
+        else if (priold > prinew) {
+            ucl_object_unref (nobj);
+            return true;
+        }
+        else {
+            ucl_hash_replace (container, tobj, nobj);
+            ucl_object_unref (tobj);
+        }
+    }
+
+    if (ucl_escape) {
+        nobj->flags |= UCL_OBJECT_NEED_KEY_ESCAPE;
+    }
+    parser->stack->obj->value.ov = container;
+
+    parser->cur_obj = nobj;
+
+    return true;
+}
+
+>>>
+
+It still does not fix the original test failure stated above!
+
+You will only respond with your repaired function in a code snippet as below:
+```
+<Your repaired function>
+```

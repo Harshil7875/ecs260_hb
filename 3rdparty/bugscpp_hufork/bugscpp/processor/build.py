@@ -52,6 +52,7 @@ class BuildCommandScript(DockerCommandScript):
             message.stdout_progress_detail(f"defects4cpp.build[{linenr}]: {line}")
 
     def output(self, linenr: Optional[int], exit_code: Optional[int], stream: str):
+        print(stream)
         if not exit_code:
             return
 

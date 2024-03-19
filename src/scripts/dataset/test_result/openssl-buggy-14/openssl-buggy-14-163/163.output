@@ -1,0 +1,654 @@
+make depend && make _tests
+make[1]: Entering directory '/home/workspace'
+make[1]: Leaving directory '/home/workspace'
+make[1]: Entering directory '/home/workspace'
+( SRCTOP=. \
+  BLDTOP=. \
+  PERL="/usr/bin/perl" \
+  FIPSKEY="f4556650ac31d35461610bac4ed81b1a181b2d8a43ea2854cbae22ca74560813" \
+  EXE_EXT= \
+  /usr/bin/perl ./test/run_tests.pl test_cms )
+
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa1.pem -out cms2pkcs7-1.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa1.pem -out cms2pkcs7-1.cms => 0
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-1.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-1.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C061DFBBC77F0000:error::PKCS7 routines:PKCS7_verify:certificate verify error:crypto/pkcs7/pk7_smime.c:295:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-1.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-1.txt => 4
+    not ok 1 - signed content DER format, RSA key
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content DER format, RSA key'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -signer ../../test/smime-certs/smrsa1.pem -out cms2pkcs7-2.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -signer ../../test/smime-certs/smrsa1.pem -out cms2pkcs7-2.cms => 0
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-2.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-2.txt -content ../../test/smcont.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0F1E933297F0000:error::PKCS7 routines:PKCS7_verify:certificate verify error:crypto/pkcs7/pk7_smime.c:295:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-2.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-2.txt -content ../../test/smcont.txt => 4
+    not ok 2 - signed detached content DER format, RSA key
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed detached content DER format, RSA key'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -stream -signer ../../test/smime-certs/smrsa1.pem -out cms2pkcs7-3.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -stream -signer ../../test/smime-certs/smrsa1.pem -out cms2pkcs7-3.cms => 0
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-3.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-3.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C09146570E7F0000:error::PKCS7 routines:PKCS7_verify:certificate verify error:crypto/pkcs7/pk7_smime.c:295:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-3.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-3.txt => 4
+    not ok 3 - signed content test streaming BER format, RSA
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content test streaming BER format, RSA'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -signer ../../test/smime-certs/smdsa1.pem -out cms2pkcs7-4.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -signer ../../test/smime-certs/smdsa1.pem -out cms2pkcs7-4.cms => 0
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-4.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-4.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C06115F3657F0000:error::PKCS7 routines:PKCS7_verify:certificate verify error:crypto/pkcs7/pk7_smime.c:295:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-4.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-4.txt => 4
+    not ok 4 - signed content DER format, DSA key
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content DER format, DSA key'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -signer ../../test/smime-certs/smdsa1.pem -out cms2pkcs7-5.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -signer ../../test/smime-certs/smdsa1.pem -out cms2pkcs7-5.cms => 0
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-5.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-5.txt -content ../../test/smcont.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C031EC76177F0000:error::PKCS7 routines:PKCS7_verify:certificate verify error:crypto/pkcs7/pk7_smime.c:295:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-5.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-5.txt -content ../../test/smcont.txt => 4
+    not ok 5 - signed detached content DER format, DSA key
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed detached content DER format, DSA key'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -signer ../../test/smime-certs/smdsa1.pem -out cms2pkcs7-6.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -signer ../../test/smime-certs/smdsa1.pem -out cms2pkcs7-6.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -resign -in cms2pkcs7-6.cms -inform DER -outform DER -signer ../../test/smime-certs/smrsa1.pem -out cms2pkcs7-62.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -resign -in cms2pkcs7-6.cms -inform DER -outform DER -signer ../../test/smime-certs/smrsa1.pem -out cms2pkcs7-62.cms => 0
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-62.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-6.txt -content ../../test/smcont.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C061AE52307F0000:error::PKCS7 routines:PKCS7_verify:certificate verify error:crypto/pkcs7/pk7_smime.c:295:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-62.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-6.txt -content ../../test/smcont.txt => 4
+    not ok 6 - signed detached content DER format, add RSA signer (with DSA existing)
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed detached content DER format, add RSA signer (with DSA existing)'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -stream -signer ../../test/smime-certs/smdsa1.pem -out cms2pkcs7-7.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -stream -signer ../../test/smime-certs/smdsa1.pem -out cms2pkcs7-7.cms => 0
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-7.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-7.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C011E45B5B7F0000:error::PKCS7 routines:PKCS7_verify:certificate verify error:crypto/pkcs7/pk7_smime.c:295:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-7.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-7.txt => 4
+    not ok 7 - signed content test streaming BER format, DSA key
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content test streaming BER format, DSA key'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -stream -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -out cms2pkcs7-8.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -stream -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -out cms2pkcs7-8.cms => 0
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-8.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-8.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0115646507F0000:error::PKCS7 routines:PKCS7_verify:certificate verify error:crypto/pkcs7/pk7_smime.c:295:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-8.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-8.txt => 4
+    not ok 8 - signed content test streaming BER format, 2 DSA and 2 RSA keys
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content test streaming BER format, 2 DSA and 2 RSA keys'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -noattr -nodetach -stream -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -out cms2pkcs7-9.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -noattr -nodetach -stream -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -out cms2pkcs7-9.cms => 0
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-9.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-9.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C071A79DF77F0000:error::PKCS7 routines:PKCS7_verify:certificate verify error:crypto/pkcs7/pk7_smime.c:295:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-9.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-9.txt => 4
+    not ok 9 - signed content test streaming BER format, 2 DSA and 2 RSA keys, no attributes
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content test streaming BER format, 2 DSA and 2 RSA keys, no attributes'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -md sha1 -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa1.pem -out cms2pkcs7-10.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -md sha1 -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa1.pem -out cms2pkcs7-10.cms => 0
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-10.cms -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-10.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C09125CBB17F0000:error::PKCS7 routines:PKCS7_verify:certificate verify error:crypto/pkcs7/pk7_smime.c:295:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-10.cms -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-10.txt => 4
+    not ok 10 - signed content S/MIME format, RSA key SHA1
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content S/MIME format, RSA key SHA1'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -nodetach -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -stream -out cms2pkcs7-11.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -nodetach -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -stream -out cms2pkcs7-11.cms => 0
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-11.cms -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-11.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C081E1A4477F0000:error::PKCS7 routines:PKCS7_verify:certificate verify error:crypto/pkcs7/pk7_smime.c:295:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-11.cms -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-11.txt => 4
+    not ok 11 - signed content test streaming S/MIME format, 2 DSA and 2 RSA keys
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content test streaming S/MIME format, 2 DSA and 2 RSA keys'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -stream -out cms2pkcs7-12.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -stream -out cms2pkcs7-12.cms => 0
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-12.cms -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-12.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0F1B56FC07F0000:error::PKCS7 routines:PKCS7_verify:certificate verify error:crypto/pkcs7/pk7_smime.c:295:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2pkcs7-12.cms -CAfile ../../test/smime-certs/smroot.pem -out cms2pkcs7-12.txt => 4
+    not ok 12 - signed content test streaming multipart S/MIME format, 2 DSA and 2 RSA keys
+# ------------------------------------------------------------------------------
+    # Looks like you failed 12 tests of 16.
+not ok 2 - CMS => PKCS\#7 compatibility tests
+# ------------------------------------------------------------------------------
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa1.pem -out pkcs72cms-1.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa1.pem -out pkcs72cms-1.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-1.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-1.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C05159D9AC7F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-1.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-1.txt => 4
+    not ok 1 - signed content DER format, RSA key
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content DER format, RSA key'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -signer ../../test/smime-certs/smrsa1.pem -out pkcs72cms-2.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -signer ../../test/smime-certs/smrsa1.pem -out pkcs72cms-2.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-2.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-2.txt -content ../../test/smcont.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0011CE22E7F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-2.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-2.txt -content ../../test/smcont.txt => 4
+    not ok 2 - signed detached content DER format, RSA key
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed detached content DER format, RSA key'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -stream -signer ../../test/smime-certs/smrsa1.pem -out pkcs72cms-3.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -stream -signer ../../test/smime-certs/smrsa1.pem -out pkcs72cms-3.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-3.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-3.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0219766DA7F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-3.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-3.txt => 4
+    not ok 3 - signed content test streaming BER format, RSA
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content test streaming BER format, RSA'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -signer ../../test/smime-certs/smdsa1.pem -out pkcs72cms-4.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -signer ../../test/smime-certs/smdsa1.pem -out pkcs72cms-4.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-4.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-4.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C06174C89C7F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-4.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-4.txt => 4
+    not ok 4 - signed content DER format, DSA key
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content DER format, DSA key'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -signer ../../test/smime-certs/smdsa1.pem -out pkcs72cms-5.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -signer ../../test/smime-certs/smdsa1.pem -out pkcs72cms-5.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-5.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-5.txt -content ../../test/smcont.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C091B8F0027F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-5.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-5.txt -content ../../test/smcont.txt => 4
+    not ok 5 - signed detached content DER format, DSA key
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed detached content DER format, DSA key'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -signer ../../test/smime-certs/smdsa1.pem -out pkcs72cms-6.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -signer ../../test/smime-certs/smdsa1.pem -out pkcs72cms-6.cms => 0
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -resign -in pkcs72cms-6.cms -inform DER -outform DER -signer ../../test/smime-certs/smrsa1.pem -out pkcs72cms-62.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -resign -in pkcs72cms-6.cms -inform DER -outform DER -signer ../../test/smime-certs/smrsa1.pem -out pkcs72cms-62.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-62.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-6.txt -content ../../test/smcont.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C081241DDC7F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-62.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-6.txt -content ../../test/smcont.txt => 4
+    not ok 6 - signed detached content DER format, add RSA signer (with DSA existing)
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed detached content DER format, add RSA signer (with DSA existing)'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -stream -signer ../../test/smime-certs/smdsa1.pem -out pkcs72cms-7.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -stream -signer ../../test/smime-certs/smdsa1.pem -out pkcs72cms-7.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-7.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-7.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0918B7BB57F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-7.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-7.txt => 4
+    not ok 7 - signed content test streaming BER format, DSA key
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content test streaming BER format, DSA key'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -stream -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -out pkcs72cms-8.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -stream -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -out pkcs72cms-8.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-8.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-8.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0F111CBD57F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-8.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-8.txt => 4
+    not ok 8 - signed content test streaming BER format, 2 DSA and 2 RSA keys
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content test streaming BER format, 2 DSA and 2 RSA keys'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -noattr -nodetach -stream -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -out pkcs72cms-9.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -noattr -nodetach -stream -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -out pkcs72cms-9.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-9.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-9.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0B173B4FB7F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-9.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-9.txt => 4
+    not ok 9 - signed content test streaming BER format, 2 DSA and 2 RSA keys, no attributes
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content test streaming BER format, 2 DSA and 2 RSA keys, no attributes'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -md sha1 -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa1.pem -out pkcs72cms-10.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -md sha1 -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa1.pem -out pkcs72cms-10.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-10.cms -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-10.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0412ADE7B7F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-10.cms -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-10.txt => 4
+    not ok 10 - signed content S/MIME format, RSA key SHA1
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content S/MIME format, RSA key SHA1'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -nodetach -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -stream -out pkcs72cms-11.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -nodetach -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -stream -out pkcs72cms-11.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-11.cms -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-11.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0B190E83F7F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-11.cms -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-11.txt => 4
+    not ok 11 - signed content test streaming S/MIME format, 2 DSA and 2 RSA keys
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content test streaming S/MIME format, 2 DSA and 2 RSA keys'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -stream -out pkcs72cms-12.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl smime -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -stream -out pkcs72cms-12.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-12.cms -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-12.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0418307887F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in pkcs72cms-12.cms -CAfile ../../test/smime-certs/smroot.pem -out pkcs72cms-12.txt => 4
+    not ok 12 - signed content test streaming multipart S/MIME format, 2 DSA and 2 RSA keys
+# ------------------------------------------------------------------------------
+    # Looks like you failed 12 tests of 16.
+not ok 3 - CMS <= PKCS\#7 compatibility tests
+# ------------------------------------------------------------------------------
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa1.pem -out cms2cms-1-1.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa1.pem -out cms2cms-1-1.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-1.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-1.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C06155FB557F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-1.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-1.txt => 4
+    not ok 1 - signed content DER format, RSA key
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content DER format, RSA key'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -signer ../../test/smime-certs/smrsa1.pem -out cms2cms-1-2.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -signer ../../test/smime-certs/smrsa1.pem -out cms2cms-1-2.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-2.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-2.txt -content ../../test/smcont.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C071F494F07F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-2.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-2.txt -content ../../test/smcont.txt => 4
+    not ok 2 - signed detached content DER format, RSA key
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed detached content DER format, RSA key'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -stream -signer ../../test/smime-certs/smrsa1.pem -out cms2cms-1-3.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -stream -signer ../../test/smime-certs/smrsa1.pem -out cms2cms-1-3.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-3.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-3.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C081A52E447F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-3.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-3.txt => 4
+    not ok 3 - signed content test streaming BER format, RSA
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content test streaming BER format, RSA'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -signer ../../test/smime-certs/smdsa1.pem -out cms2cms-1-4.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -signer ../../test/smime-certs/smdsa1.pem -out cms2cms-1-4.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-4.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-4.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C021A665967F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-4.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-4.txt => 4
+    not ok 4 - signed content DER format, DSA key
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content DER format, DSA key'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -signer ../../test/smime-certs/smdsa1.pem -out cms2cms-1-5.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -signer ../../test/smime-certs/smdsa1.pem -out cms2cms-1-5.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-5.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-5.txt -content ../../test/smcont.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0716C846E7F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-5.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-5.txt -content ../../test/smcont.txt => 4
+    not ok 5 - signed detached content DER format, DSA key
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed detached content DER format, DSA key'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -signer ../../test/smime-certs/smdsa1.pem -out cms2cms-1-6.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -signer ../../test/smime-certs/smdsa1.pem -out cms2cms-1-6.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -resign -in cms2cms-1-6.cms -inform DER -outform DER -signer ../../test/smime-certs/smrsa1.pem -out cms2cms-1-62.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -resign -in cms2cms-1-6.cms -inform DER -outform DER -signer ../../test/smime-certs/smrsa1.pem -out cms2cms-1-62.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-62.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-6.txt -content ../../test/smcont.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0A13598137F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-62.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-6.txt -content ../../test/smcont.txt => 4
+    not ok 6 - signed detached content DER format, add RSA signer (with DSA existing)
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed detached content DER format, add RSA signer (with DSA existing)'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -stream -signer ../../test/smime-certs/smdsa1.pem -out cms2cms-1-7.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -stream -signer ../../test/smime-certs/smdsa1.pem -out cms2cms-1-7.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-7.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-7.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C081742D537F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-7.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-7.txt => 4
+    not ok 7 - signed content test streaming BER format, DSA key
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content test streaming BER format, DSA key'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -stream -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -out cms2cms-1-8.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -stream -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -out cms2cms-1-8.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-8.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-8.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C091DAFFC37F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-8.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-8.txt => 4
+    not ok 8 - signed content test streaming BER format, 2 DSA and 2 RSA keys
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content test streaming BER format, 2 DSA and 2 RSA keys'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -noattr -nodetach -stream -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -out cms2cms-1-9.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -noattr -nodetach -stream -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -out cms2cms-1-9.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-9.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-9.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0512EF5487F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-9.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-9.txt => 4
+    not ok 9 - signed content test streaming BER format, 2 DSA and 2 RSA keys, no attributes
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content test streaming BER format, 2 DSA and 2 RSA keys, no attributes'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -md sha1 -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa1.pem -out cms2cms-1-10.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -md sha1 -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa1.pem -out cms2cms-1-10.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-10.cms -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-10.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0C18F35B17F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-10.cms -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-10.txt => 4
+    not ok 10 - signed content S/MIME format, RSA key SHA1
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content S/MIME format, RSA key SHA1'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -nodetach -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -stream -out cms2cms-1-11.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -nodetach -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -stream -out cms2cms-1-11.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-11.cms -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-11.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0B1C127F37F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-11.cms -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-11.txt => 4
+    not ok 11 - signed content test streaming S/MIME format, 2 DSA and 2 RSA keys
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content test streaming S/MIME format, 2 DSA and 2 RSA keys'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -stream -out cms2cms-1-12.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -stream -out cms2cms-1-12.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-12.cms -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-12.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C00163FFF27F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-1-12.cms -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-1-12.txt => 4
+    not ok 12 - signed content test streaming multipart S/MIME format, 2 DSA and 2 RSA keys
+# ------------------------------------------------------------------------------
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -keyid -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -stream -out cms2cms-2-1.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform DER -nodetach -keyid -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -stream -out cms2cms-2-1.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-2-1.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-2-1.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0F1A5AFB67F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-2-1.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-2-1.txt => 4
+    not ok 17 - signed content test streaming BER format, 2 DSA and 2 RSA keys, keyid
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content test streaming BER format, 2 DSA and 2 RSA keys, keyid'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform PEM -nodetach -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -stream -out cms2cms-2-2.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform PEM -nodetach -signer ../../test/smime-certs/smrsa1.pem -signer ../../test/smime-certs/smrsa2.pem -signer ../../test/smime-certs/smdsa1.pem -signer ../../test/smime-certs/smdsa2.pem -stream -out cms2cms-2-2.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-2-2.cms -inform PEM -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-2-2.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0F13A13597F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-2-2.cms -inform PEM -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-2-2.txt => 4
+    not ok 18 - signed content test streaming PEM format, 2 DSA and 2 RSA keys
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content test streaming PEM format, 2 DSA and 2 RSA keys'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -nodetach -signer ../../test/smime-certs/smrsa1.pem -receipt_request_to test@openssl.org -receipt_request_all -out cms2cms-2-3.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -nodetach -signer ../../test/smime-certs/smrsa1.pem -receipt_request_to test@openssl.org -receipt_request_all -out cms2cms-2-3.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-2-3.cms -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-2-3.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C00125D1687F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-2-3.cms -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-2-3.txt => 4
+    not ok 19 - signed content MIME format, RSA key, signed receipt request
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content MIME format, RSA key, signed receipt request'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -nodetach -signer ../../test/smime-certs/smrsa1.pem -receipt_request_to test@openssl.org -receipt_request_all -out cms2cms-2-4.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -nodetach -signer ../../test/smime-certs/smrsa1.pem -receipt_request_to test@openssl.org -receipt_request_all -out cms2cms-2-4.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign_receipt -in cms2cms-2-4.cms -signer ../../test/smime-certs/smrsa2.pem -out cms2cms-2-42.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign_receipt -in cms2cms-2-4.cms -signer ../../test/smime-certs/smrsa2.pem -out cms2cms-2-42.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify_receipt cms2cms-2-42.cms -in cms2cms-2-4.cms -CAfile ../../test/smime-certs/smroot.pem
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C06152FA127F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify_receipt cms2cms-2-42.cms -in cms2cms-2-4.cms -CAfile ../../test/smime-certs/smroot.pem => 4
+    not ok 20 - signed receipt MIME format, RSA key
+# ------------------------------------------------------------------------------
+    # Looks like you failed 16 tests of 29.
+not ok 4 - CMS <=> CMS consistency tests
+# ------------------------------------------------------------------------------
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform PEM -nodetach -signer ../../test/smime-certs/smrsa1.pem -keyopt rsa_padding_mode:pss -out cms2cms-mod-1.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform PEM -nodetach -signer ../../test/smime-certs/smrsa1.pem -keyopt 'rsa_padding_mode:pss' -out cms2cms-mod-1.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-mod-1.cms -inform PEM -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-mod-1.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0E12E94777F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-mod-1.cms -inform PEM -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-mod-1.txt => 4
+    not ok 1 - signed content test streaming PEM format, RSA keys, PSS signature
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content test streaming PEM format, RSA keys, PSS signature'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform PEM -nodetach -signer ../../test/smime-certs/smrsa1.pem -keyopt rsa_padding_mode:pss -keyopt rsa_pss_saltlen:max -out cms2cms-mod-2.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform PEM -nodetach -signer ../../test/smime-certs/smrsa1.pem -keyopt 'rsa_padding_mode:pss' -keyopt 'rsa_pss_saltlen:max' -out cms2cms-mod-2.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-mod-2.cms -inform PEM -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-mod-2.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0E122CC397F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-mod-2.cms -inform PEM -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-mod-2.txt => 4
+    not ok 2 - signed content test streaming PEM format, RSA keys, PSS signature, saltlen=max
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content test streaming PEM format, RSA keys, PSS signature, saltlen=max'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform PEM -nodetach -noattr -signer ../../test/smime-certs/smrsa1.pem -keyopt rsa_padding_mode:pss -out cms2cms-mod-3.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform PEM -nodetach -noattr -signer ../../test/smime-certs/smrsa1.pem -keyopt 'rsa_padding_mode:pss' -out cms2cms-mod-3.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-mod-3.cms -inform PEM -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-mod-3.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0E12AF1C47F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-mod-3.cms -inform PEM -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-mod-3.txt => 4
+    not ok 3 - signed content test streaming PEM format, RSA keys, PSS signature, no attributes
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content test streaming PEM format, RSA keys, PSS signature, no attributes'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform PEM -nodetach -signer ../../test/smime-certs/smrsa1.pem -keyopt rsa_padding_mode:pss -keyopt rsa_mgf1_md:sha384 -out cms2cms-mod-4.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -in ../../test/smcont.txt -outform PEM -nodetach -signer ../../test/smime-certs/smrsa1.pem -keyopt 'rsa_padding_mode:pss' -keyopt 'rsa_mgf1_md:sha384' -out cms2cms-mod-4.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-mod-4.cms -inform PEM -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-mod-4.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C04161ED497F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-mod-4.cms -inform PEM -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-mod-4.txt => 4
+    not ok 4 - signed content test streaming PEM format, RSA keys, PSS signature, SHA384 MGF1
+# ------------------------------------------------------------------------------
+    # Looks like you failed 4 tests of 13.
+not ok 5 - CMS <=> CMS consistency tests, modified key parameters
+# ------------------------------------------------------------------------------
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -binary -nodetach -stream -in ../../test/smcont.txt -outform DER -signer ../../test/smime-certs/smrsa1.pem -md SHA256 -out cms2cms-added-1.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -binary -nodetach -stream -in ../../test/smcont.txt -outform DER -signer ../../test/smime-certs/smrsa1.pem -md SHA256 -out cms2cms-added-1.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -resign -binary -nodetach -in cms2cms-added-1.cms -inform DER -outform DER -signer ../../test/smime-certs/smrsa2.pem -md SHA256 -out cms2cms-added-12.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -resign -binary -nodetach -in cms2cms-added-1.cms -inform DER -outform DER -signer ../../test/smime-certs/smrsa2.pem -md SHA256 -out cms2cms-added-12.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-added-12.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-added-1.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0316BF3397F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -in cms2cms-added-12.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms2cms-added-1.txt => 4
+    not ok 1 - signed content test - check that content type is added to additional signerinfo, RSA keys
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content test - check that content type is added to additional signerinfo, RSA keys'
+    #   at test/recipes/80-test_cms.t line 670.
+    # Looks like you failed 1 test of 1.
+not ok 6 - CMS Check the content type attribute is added for additional signers
+# ------------------------------------------------------------------------------
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -cades -in ../../test/smcont.txt -outform DER -nodetach -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa1.pem -out cms-cades-1.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -cades -in ../../test/smcont.txt -outform DER -nodetach -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa1.pem -out cms-cades-1.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -cades -in cms-cades-1.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms-cades-1.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0713C51CD7F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -cades -in cms-cades-1.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms-cades-1.txt => 4
+    not ok 1 - signed content DER format, RSA key, CAdES-BES compatible
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content DER format, RSA key, CAdES-BES compatible'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -cades -md sha256 -in ../../test/smcont.txt -outform DER -nodetach -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa1.pem -out cms-cades-2.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -cades -md sha256 -in ../../test/smcont.txt -outform DER -nodetach -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa1.pem -out cms-cades-2.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -cades -in cms-cades-2.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms-cades-2.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0719CE87A7F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -cades -in cms-cades-2.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms-cades-2.txt => 4
+    not ok 2 - signed content DER format, RSA key, SHA256 md, CAdES-BES compatible
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content DER format, RSA key, SHA256 md, CAdES-BES compatible'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -cades -md sha512 -in ../../test/smcont.txt -outform DER -nodetach -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa1.pem -out cms-cades-3.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -cades -md sha512 -in ../../test/smcont.txt -outform DER -nodetach -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa1.pem -out cms-cades-3.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -cades -in cms-cades-3.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms-cades-3.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C01136D0277F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -cades -in cms-cades-3.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms-cades-3.txt => 4
+    not ok 3 - signed content DER format, RSA key, SHA512 md, CAdES-BES compatible
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content DER format, RSA key, SHA512 md, CAdES-BES compatible'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -cades -binary -nodetach -nosmimecap -md sha256 -in ../../test/smcont.txt -outform DER -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa1.pem -outform DER -out cms-cades-4.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -cades -binary -nodetach -nosmimecap -md sha256 -in ../../test/smcont.txt -outform DER -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa1.pem -outform DER -out cms-cades-4.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -cades -in cms-cades-4.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms-cades-4.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0A1BB71B57F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -cades -in cms-cades-4.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms-cades-4.txt => 4
+    not ok 4 - signed content DER format, RSA key, SHA256 md, CAdES-BES compatible
+# ------------------------------------------------------------------------------
+    #   Failed test 'signed content DER format, RSA key, SHA256 md, CAdES-BES compatible'
+    #   at test/recipes/80-test_cms.t line 670.
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -cades -binary -nodetach -nosmimecap -md sha256 -in ../../test/smcont.txt -outform DER -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa1.pem -outform DER -out cms-cades-5.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -sign -cades -binary -nodetach -nosmimecap -md sha256 -in ../../test/smcont.txt -outform DER -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa1.pem -outform DER -out cms-cades-5.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -resign -cades -binary -nodetach -nosmimecap -md sha256 -inform DER -in cms-cades-5.cms -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa2.pem -outform DER -out cms-cades-52.cms
+Using configuration from ../../test/fips-and-base.cnf
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -resign -cades -binary -nodetach -nosmimecap -md sha256 -inform DER -in cms-cades-5.cms -certfile ../../test/smime-certs/smroot.pem -signer ../../test/smime-certs/smrsa2.pem -outform DER -out cms-cades-52.cms => 0
+    # CMD: openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -cades -in cms-cades-52.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms-cades-5.txt
+Using configuration from ../../test/fips-and-base.cnf
+Verification failure
+C0D18623E77F0000:error::CMS routines:cms_signerinfo_verify_cert:certificate verify error:crypto/cms/cms_smime.c:291:Verify error:certificate has expired
+../../util/wrap.pl ../../apps/openssl cms -provider-path ../../providers -config ../../test/fips-and-base.cnf -provider fips -verify -cades -in cms-cades-52.cms -inform DER -CAfile ../../test/smime-certs/smroot.pem -out cms-cades-5.txt => 4
+    not ok 5 - resigned content DER format, RSA key, SHA256 md, CAdES-BES compatible
+# ------------------------------------------------------------------------------
+    #   Failed test 'resigned content DER format, RSA key, SHA256 md, CAdES-BES compatible'
+    #   at test/recipes/80-test_cms.t line 670.
+    # Looks like you failed 5 tests of 5.
+not ok 9 - CAdES <=> CAdES consistency tests
+# ------------------------------------------------------------------------------
+# 
+# Looks like you failed 6 tests of 11.80-test_cms.t .. 
+Dubious, test returned 6 (wstat 1536, 0x600)
+Failed 6/11 subtests 
+
+Test Summary Report
+-------------------
+80-test_cms.t (Wstat: 1536 Tests: 11 Failed: 6)
+  Failed tests:  2-6, 9
+  Non-zero exit status: 6
+Files=1, Tests=11,  5 wallclock secs ( 0.06 usr  0.01 sys +  3.12 cusr  1.49 csys =  4.68 CPU)
+Result: FAIL
+Makefile:3170: recipe for target '_tests' failed
+make[1]: *** [_tests] Error 1
+make[1]: Leaving directory '/home/workspace'
+Makefile:3168: recipe for target 'tests' failed
+make: *** [tests] Error 2

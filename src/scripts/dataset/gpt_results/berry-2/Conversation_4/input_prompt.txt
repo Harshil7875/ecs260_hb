@@ -1,0 +1,98 @@
+You are a automated program repair tool for C and C++. Your task is to provide a fix for the buggy function below.
+
+<<< Buggy Function:
+static void code_not(bfuncinfo *finfo, bexpdesc *e)
+{
+    switch (e->type) {
+    case ETINT: e->v.i = e->v.i == 0; break;
+    case ETREAL: e->v.i = e->v.r == cast(breal, 0); break;
+    case ETNIL: e->v.i = 1; break;
+    case ETBOOL: e->v.i = !e->v.i; break;
+    case ETSTRING: e->v.i = 0; break;
+    default: {
+        
+        int temp = e->t;
+        e->t = e->f;
+        e->f = temp;
+        e->not = NOT_EXPR | (e->not ^ NOT_MASK);
+        return;
+    }
+    }
+    e->type = ETBOOL;
+}
+
+>>>
+
+The following was the errors outputted by a failed test case.
+
+<<< Test Failed Log:
+assert_failed: assert failed!
+stack traceback:
+	<native>: in native function
+	tests/bool.be:25: in function `main`
+
+>>>
+
+The following is the relevant code of that failed test case.
+
+<<< Test Code:
+# test cases for boolean expressions
+
+assert(1 != false && 1 != true)
+assert(0 != false && 0 != true)
+assert(!!1 == true)
+assert(!!0 == false)
+
+a = true
+b = false
+assert(!!list == true)
+assert(a && b == false)
+assert(!(a && b))
+def test(a, b)
+    while !(a && b)
+        assert(false)
+    end
+end
+test(true, true)
+
+# bug in unary 
+def f(i)
+    var j = !i       # bug if i is erroneously modified
+    return i
+end
+assert(f(1) == 1)
+
+>>>
+
+The function provided by you is still not correct! Your repaired function is:
+
+<<< Function Repaired By You:
+static void code_not(bfuncinfo *finfo, bexpdesc *e)
+{
+    switch (e->type) {
+    case ETINT: e->v.i = !e->v.i; break;
+    case ETREAL: e->v.i = e->v.r == (breal)0; break;
+    case ETNIL: e->v.i = 1; break;
+    case ETBOOL: e->v.i = !e->v.i; break;
+    case ETSTRING: e->v.i = 0; break;
+    default: {
+        
+        int temp = e->t;
+        e->t = e->f;
+        e->f = temp;
+        e->not = NOT_EXPR | (e->not ^ NOT_MASK);
+        e->type = ETBOOL; // Moved the type assignment here
+        return;
+    }
+    }
+}
+
+
+>>>
+
+It still does not fix the original test failure stated above!
+
+You will only respond with your repaired function in a code snippet as below:
+```
+<Your repaired function>
+```

@@ -1,0 +1,43 @@
+make depend && make _tests
+make[1]: Entering directory '/home/workspace'
+make[1]: Leaving directory '/home/workspace'
+make[1]: Entering directory '/home/workspace'
+( SRCTOP=. \
+  BLDTOP=. \
+  PERL="/usr/bin/perl" \
+  FIPSKEY="f4556650ac31d35461610bac4ed81b1a181b2d8a43ea2854cbae22ca74560813" \
+  EXE_EXT= \
+  /usr/bin/perl ./test/run_tests.pl test_verify )
+
+C = CN, ST = LN, L = Shenyang, O = Test Org, OU = Test OU, CN = Test SM2 Sign Cert
+error 10 at 0 depth lookup: certificate has expired
+error ../../test/certs/sm2.pem: verification failed
+../../util/wrap.pl ../../apps/openssl verify -auth_level 1 -purpose any -vfyopt 'distid:1234567812345678' -trusted ../../test/certs/sm2-ca-cert.pem ../../test/certs/sm2.pem => 2
+not ok 144 - SM2 ID test
+# ------------------------------------------------------------------------------
+#   Failed test 'SM2 ID test'
+#   at /home/workspace/util/perl/OpenSSL/Test.pm line 886.
+C = CN, ST = LN, L = Shenyang, O = Test Org, OU = Test OU, CN = Test SM2 Sign Cert
+error 10 at 0 depth lookup: certificate has expired
+error ../../test/certs/sm2.pem: verification failed
+../../util/wrap.pl ../../apps/openssl verify -auth_level 1 -purpose any -vfyopt 'hexdistid:31323334353637383132333435363738' -trusted ../../test/certs/sm2-ca-cert.pem ../../test/certs/sm2.pem => 2
+not ok 145 - SM2 hex ID test
+# ------------------------------------------------------------------------------
+#   Failed test 'SM2 hex ID test'
+#   at /home/workspace/util/perl/OpenSSL/Test.pm line 886.
+# Looks like you failed 2 tests of 145.25-test_verify.t .. 
+Dubious, test returned 2 (wstat 512, 0x200)
+Failed 2/145 subtests 
+
+Test Summary Report
+-------------------
+25-test_verify.t (Wstat: 512 Tests: 145 Failed: 2)
+  Failed tests:  144-145
+  Non-zero exit status: 2
+Files=1, Tests=145,  3 wallclock secs ( 0.04 usr  0.03 sys +  1.90 cusr  1.09 csys =  3.06 CPU)
+Result: FAIL
+Makefile:3170: recipe for target '_tests' failed
+make[1]: *** [_tests] Error 1
+make[1]: Leaving directory '/home/workspace'
+Makefile:3168: recipe for target 'tests' failed
+make: *** [tests] Error 2

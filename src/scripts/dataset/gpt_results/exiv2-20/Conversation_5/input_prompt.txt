@@ -1,0 +1,326 @@
+You are a automated program repair tool for C and C++. Your task is to provide a fix for the buggy function below.
+
+<<< Buggy Function:
+int Params::evalPrintFlags(const std::string& optArg)
+{
+    int rc = 0;
+    switch (action_) {
+    case Action::none:
+        action_ = Action::print;
+        printMode_ = pmList;
+        for (auto&& i : optArg) {
+            switch (i) {
+                case 'E':
+                    printTags_ |= Exiv2::mdExif;
+                    break;
+                case 'I':
+                    printTags_ |= Exiv2::mdIptc;
+                    break;
+                case 'X':
+                    printTags_ |= Exiv2::mdXmp;
+                    break;
+                case 'x':
+                    printItems_ |= prTag;
+                    break;
+                case 'g':
+                    printItems_ |= prGroup;
+                    break;
+                case 'k':
+                    printItems_ |= prKey;
+                    break;
+                case 'l':
+                    printItems_ |= prLabel;
+                    break;
+                case 'n':
+                    printItems_ |= prName;
+                    break;
+                case 'y':
+                    printItems_ |= prType;
+                    break;
+                case 'c':
+                    printItems_ |= prCount;
+                    break;
+                case 's':
+                    printItems_ |= prSize;
+                    break;
+                case 'v':
+                    printItems_ |= prValue;
+                    break;
+                case 't':
+                    printItems_ |= prTrans;
+                    break;
+                case 'h':
+                    printItems_ |= prHex;
+                    break;
+                case 'V':
+                    printItems_ |= prSet | prValue;
+                    break;
+                default:
+                    std::cerr << progname() << ": " << _("Unrecognized print item") << " `" << i << "'\n";
+                    rc = 1;
+                    break;
+            }
+        }
+        break;
+    case Action::print:
+        std::cerr << progname() << ": "
+                  << _("Ignoring surplus option -P") << optArg << "\n";
+        break;
+    default:
+        std::cerr << progname() << ": "
+                  << _("Option -P is not compatible with a previous option\n");
+        rc = 1;
+        break;
+    }
+    return rc;
+} // Params::evalPrintFlags
+
+>>>
+
+The following was the errors outputted by a failed test case.
+
+<<< Test Failed Log:
+...............s...F...............................................s........
+======================================================================
+FAIL: test_run (test_issue_1137.MetadataPiping)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/workspace/tests/system_tests.py", line 653, in test_run
+    self.compare_stdout(i, command, processed_stdout, stdout)
+  File "/home/workspace/tests/system_tests.py", line 768, in compare_stdout
+    msg="Standard output does not match"
+  File "/home/workspace/tests/system_tests.py", line 746, in _compare_output
+    expected, got, msg=msg
+AssertionError: 'set [40 chars]      N\nset Exif.GPSInfo.GPSLatitude         [157 chars]/1\n' != 'set [40 chars]     Ascii      N\nset Exif.GPSInfo.GPSLatitud[197 chars]/1\n'
+- set Exif.GPSInfo.GPSLatitudeRef                   N
++ set Exif.GPSInfo.GPSLatitudeRef                  Ascii      N
+?                                                  ++++++++++
+- set Exif.GPSInfo.GPSLatitude                      51/1 106969/10000 0/1
++ set Exif.GPSInfo.GPSLatitude                     Rational   51/1 106969/10000 0/1
+?                                                  ++++++++++
+- set Exif.GPSInfo.GPSLongitudeRef                  W
++ set Exif.GPSInfo.GPSLongitudeRef                 Ascii      W
+?                                                  ++++++++++
+- set Exif.GPSInfo.GPSLongitude                     1/1 495984/10000 0/1
++ set Exif.GPSInfo.GPSLongitude                    Rational   1/1 495984/10000 0/1
+?                                                  ++++++++++
+ : Standard output does not match
+
+----------------------------------------------------------------------
+Ran 76 tests in 12.246s
+
+FAILED (failures=1, skipped=2)
+
+>>>
+
+The following is the relevant code of that failed test case.
+
+<<< Test Code:
+def test_run(self):
+    if not (len(self.commands) == len(self.retval)
+            == len(self.stdout) == len(self.stderr) == len(self.stdin)):
+        raise ValueError(
+            "commands, retval, stdout, stderr and stdin don't have the same "
+            "length"
+        )
+
+    for i, command, retval, stdout, stderr, stdin in \
+        zip(range(len(self.commands)),
+            self.commands,
+            self.retval,
+            self.stdout,
+            self.stderr,
+            self.stdin):
+        command, retval, stdout, stderr, stdin = [
+            self.expand_variables(var) for var in
+            (command, retval, stdout, stderr, stdin)
+        ]
+
+        retval = int(retval)
+
+        if "memcheck" in _parameters:
+            command = _parameters["memcheck"] + " " + command
+
+        if _debug_mode:
+            print(
+                '', "="*80, "will run: " + command, "expected stdout:", stdout,
+                "expected stderr:", stderr,
+                "expected return value: {:d}".format(retval),
+                sep='\n'
+            )
+
+        proc = subprocess.Popen(
+            command,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            stdin=subprocess.PIPE if stdin is not None else None,
+            env=self._get_env(),
+            cwd=self.work_dir,
+            shell=True,
+        )
+
+        # Setup a threading.Timer which will terminate the command if it takes
+        # too long. Don't use the timeout parameter in subprocess.Popen, since
+        # that is not available for all Python 3 versions.
+        # Use a dictionary to indicate a timeout, as booleans get passed by
+        # value and the changes made timeout_reached function will not be
+        # visible once it exits (the command will still be terminated once the
+        # timeout expires).
+        timeout = {"flag": False}
+
+        def timeout_reached(tmout):
+            tmout["flag"] = True
+            proc.kill()
+
+        t = threading.Timer(
+            _parameters["timeout"], timeout_reached, args=[timeout]
+        )
+
+        def get_encode_err():
+            """ Return an error message indicating that the encoding of stdin
+            failed.
+            """
+            return "Could not encode stdin {!s} for the command {!s} with the"\
+                " following encodings: {!s}"\
+                .format(stdin, command, ','.join(self.encodings))
+
+        # Prepare stdin: try to encode it or keep it at None if it was not
+        # provided
+        encoded_stdin = None
+        if stdin is not None:
+            encoded_stdin = self._encode(
+                stdin, lambda data_in, encoding: data_in.encode(encoding),
+                get_encode_err
+            )
+
+        if _debug_mode:
+            print('', "stdin:", stdin or "", sep='\n')
+
+        t.start()
+        got_stdout, got_stderr = proc.communicate(input=encoded_stdin)
+        t.cancel()
+
+        def get_decode_error():
+            """ Return an error indicating the the decoding of stdout/stderr
+            failed.
+            """
+            return "Could not decode the output of the command '{!s}' with "\
+                "the following encodings: {!s}"\
+                .format(command, ','.join(self.encodings))
+
+        def decode_output(data_in, encoding):
+            """ Decode stdout/stderr, consider platform dependent line
+            endings.
+            """
+            return _process_output_post(data_in.decode(encoding))
+
+        processed_stdout, processed_stderr = [
+            self._encode(output, decode_output, get_decode_error)
+            for output in (got_stdout, got_stderr)
+        ]
+
+        if _debug_mode:
+            print(
+                "got stdout:", processed_stdout, "got stderr:",
+                processed_stderr, "got return value: {:d}"
+                .format(proc.returncode),
+                sep='\n'
+            )
+
+        self.assertFalse(timeout["flag"], msg="Timeout reached")
+        self.compare_stderr(i, command, processed_stderr, stderr)
+        self.compare_stdout(i, command, processed_stdout, stdout)
+        self.assertEqual(
+            retval, proc.returncode, msg="Return value does not match"
+        )
+
+        self.post_command_hook(i, command)
+
+    self.post_tests_hook()
+>>>
+
+The function provided by you is still not correct! Your repaired function is:
+
+<<< Function Repaired By You:
+int Params::evalPrintFlags(const std::string& optArg)
+{
+    int rc = 0;
+    switch (action_) {
+    case Action::none:
+        action_ = Action::print;
+        printMode_ = pmList;
+        for (auto&& i : optArg) {
+            switch (i) {
+                case 'E':
+                    printTags_ |= Exiv2::mdExif;
+                    break;
+                case 'I':
+                    printTags_ |= Exiv2::mdIptc;
+                    break;
+                case 'X':
+                    printTags_ |= Exiv2::mdXmp;
+                    break;
+                case 'x':
+                    printItems_ |= prTag;
+                    break;
+                case 'g':
+                    printItems_ |= prGroup;
+                    break;
+                case 'k':
+                    printItems_ |= prKey;
+                    break;
+                case 'l':
+                    printItems_ |= prLabel;
+                    break;
+                case 'n':
+                    printItems_ |= prName;
+                    break;
+                case 'y':
+                    printItems_ |= prType;
+                    break;
+                case 'c':
+                    printItems_ |= prCount;
+                    break;
+                case 's':
+                    printItems_ |= prSize;
+                    break;
+                case 'v':
+                    printItems_ |= prValue;
+                    break;
+                case 't':
+                    printItems_ |= prTrans;
+                    break;
+                case 'h':
+                    printItems_ |= prHex;
+                    break;
+                case 'V':
+                    printItems_ |= prSet | prValue;
+                    break;
+                default:
+                    std::cerr << progname() << ": " << _("Unrecognized print item") << " `" << i << "'\n";
+                    rc = 1;
+                    break;
+            }
+        }
+        break;
+    case Action::print:
+        std::cerr << progname() << ": "
+                  << _("Ignoring surplus option -P") << optArg << "\n";
+        break;
+    default:
+        std::cerr << progname() << ": "
+                  << _("Option -P is not compatible with a previous option\n");
+        rc = 1;
+        break;
+    }
+    return rc;
+}
+
+>>>
+
+It still does not fix the original test failure stated above!
+
+You will only respond with your repaired function in a code snippet as below:
+```
+<Your repaired function>
+```

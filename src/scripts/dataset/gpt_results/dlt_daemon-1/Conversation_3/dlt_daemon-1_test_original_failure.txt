@@ -1,0 +1,8 @@
+test_result: 
+dlt_daemon-1: 
+build_result: True
+test_cases_result:  
+pass_rate: 0.0
+pass_test_cases: []
+fail_test_cases: ['dlt_daemon-buggy-1-56']
+fail_test_cases_info: {'dlt_daemon-buggy-1-56': {'failing_info': '*** stack smashing detected ***: <unknown> terminated\n', 'tc_code': ''}}

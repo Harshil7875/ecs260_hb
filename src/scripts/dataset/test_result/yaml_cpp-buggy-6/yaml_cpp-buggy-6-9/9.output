@@ -1,0 +1,141 @@
+Note: Google Test filter = NodeTest.*-NodeTest.SpecialFlow
+[==========] Running 66 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 66 tests from NodeTest
+[ RUN      ] NodeTest.EmitEmptyNode
+[       OK ] NodeTest.EmitEmptyNode (0 ms)
+[ RUN      ] NodeTest.ParseNodeStyle
+[       OK ] NodeTest.ParseNodeStyle (1 ms)
+[ RUN      ] NodeTest.IncompleteJson
+[       OK ] NodeTest.IncompleteJson (0 ms)
+[ RUN      ] NodeTest.IncorrectFlow
+[       OK ] NodeTest.IncorrectFlow (0 ms)
+[ RUN      ] NodeTest.LoadTildeAsNull
+[       OK ] NodeTest.LoadTildeAsNull (0 ms)
+[ RUN      ] NodeTest.LoadNullWithStrTag
+[       OK ] NodeTest.LoadNullWithStrTag (0 ms)
+[ RUN      ] NodeTest.LoadQuotedNull
+[       OK ] NodeTest.LoadQuotedNull (0 ms)
+[ RUN      ] NodeTest.LoadTagWithParenthesis
+[       OK ] NodeTest.LoadTagWithParenthesis (0 ms)
+[ RUN      ] NodeTest.LoadTagWithNullScalar
+[       OK ] NodeTest.LoadTagWithNullScalar (0 ms)
+[ RUN      ] NodeTest.SimpleScalar
+[       OK ] NodeTest.SimpleScalar (0 ms)
+[ RUN      ] NodeTest.IntScalar
+[       OK ] NodeTest.IntScalar (0 ms)
+[ RUN      ] NodeTest.SimpleAppendSequence
+[       OK ] NodeTest.SimpleAppendSequence (0 ms)
+[ RUN      ] NodeTest.SequenceElementRemoval
+[       OK ] NodeTest.SequenceElementRemoval (0 ms)
+[ RUN      ] NodeTest.SequenceElementRemovalSizeCheck
+[       OK ] NodeTest.SequenceElementRemovalSizeCheck (0 ms)
+[ RUN      ] NodeTest.SequenceFirstElementRemoval
+[       OK ] NodeTest.SequenceFirstElementRemoval (0 ms)
+[ RUN      ] NodeTest.SequenceFirstElementRemovalSizeCheck
+[       OK ] NodeTest.SequenceFirstElementRemovalSizeCheck (0 ms)
+[ RUN      ] NodeTest.SequenceLastElementRemoval
+[       OK ] NodeTest.SequenceLastElementRemoval (0 ms)
+[ RUN      ] NodeTest.SequenceLastElementRemovalSizeCheck
+[       OK ] NodeTest.SequenceLastElementRemovalSizeCheck (0 ms)
+[ RUN      ] NodeTest.NodeAssignment
+[       OK ] NodeTest.NodeAssignment (0 ms)
+[ RUN      ] NodeTest.EqualRepresentationAfterMoveAssignment
+[       OK ] NodeTest.EqualRepresentationAfterMoveAssignment (0 ms)
+[ RUN      ] NodeTest.MapElementRemoval
+[       OK ] NodeTest.MapElementRemoval (0 ms)
+[ RUN      ] NodeTest.MapIntegerElementRemoval
+[       OK ] NodeTest.MapIntegerElementRemoval (0 ms)
+[ RUN      ] NodeTest.SimpleAssignSequence
+[       OK ] NodeTest.SimpleAssignSequence (0 ms)
+[ RUN      ] NodeTest.SimpleMap
+[       OK ] NodeTest.SimpleMap (0 ms)
+[ RUN      ] NodeTest.MapWithUndefinedValues
+[       OK ] NodeTest.MapWithUndefinedValues (0 ms)
+[ RUN      ] NodeTest.SeqIntoMap
+[       OK ] NodeTest.SeqIntoMap (0 ms)
+[ RUN      ] NodeTest.RemoveUnassignedNode
+[       OK ] NodeTest.RemoveUnassignedNode (0 ms)
+[ RUN      ] NodeTest.RemoveUnassignedNodeFromMap
+[       OK ] NodeTest.RemoveUnassignedNodeFromMap (0 ms)
+[ RUN      ] NodeTest.MapForceInsert
+[       OK ] NodeTest.MapForceInsert (0 ms)
+[ RUN      ] NodeTest.UndefinedConstNodeWithFallback
+[       OK ] NodeTest.UndefinedConstNodeWithFallback (0 ms)
+[ RUN      ] NodeTest.MapIteratorWithUndefinedValues
+[       OK ] NodeTest.MapIteratorWithUndefinedValues (0 ms)
+[ RUN      ] NodeTest.ConstIteratorOnConstUndefinedNode
+[       OK ] NodeTest.ConstIteratorOnConstUndefinedNode (0 ms)
+[ RUN      ] NodeTest.IteratorOnConstUndefinedNode
+[       OK ] NodeTest.IteratorOnConstUndefinedNode (0 ms)
+[ RUN      ] NodeTest.SimpleSubkeys
+[       OK ] NodeTest.SimpleSubkeys (0 ms)
+[ RUN      ] NodeTest.StdArray
+[       OK ] NodeTest.StdArray (0 ms)
+[ RUN      ] NodeTest.StdArrayWrongSize
+[       OK ] NodeTest.StdArrayWrongSize (0 ms)
+[ RUN      ] NodeTest.StdVector
+[       OK ] NodeTest.StdVector (1 ms)
+[ RUN      ] NodeTest.StdVectorWithCustomAllocator
+[       OK ] NodeTest.StdVectorWithCustomAllocator (0 ms)
+[ RUN      ] NodeTest.StdList
+[       OK ] NodeTest.StdList (0 ms)
+[ RUN      ] NodeTest.StdListWithCustomAllocator
+[       OK ] NodeTest.StdListWithCustomAllocator (0 ms)
+[ RUN      ] NodeTest.StdMap
+[       OK ] NodeTest.StdMap (0 ms)
+[ RUN      ] NodeTest.StdMapWithCustomAllocator
+[       OK ] NodeTest.StdMapWithCustomAllocator (0 ms)
+[ RUN      ] NodeTest.StdPair
+[       OK ] NodeTest.StdPair (0 ms)
+[ RUN      ] NodeTest.SimpleAlias
+[       OK ] NodeTest.SimpleAlias (0 ms)
+[ RUN      ] NodeTest.AliasAsKey
+[       OK ] NodeTest.AliasAsKey (0 ms)
+[ RUN      ] NodeTest.SelfReferenceSequence
+[       OK ] NodeTest.SelfReferenceSequence (0 ms)
+[ RUN      ] NodeTest.ValueSelfReferenceMap
+[       OK ] NodeTest.ValueSelfReferenceMap (0 ms)
+[ RUN      ] NodeTest.KeySelfReferenceMap
+[       OK ] NodeTest.KeySelfReferenceMap (0 ms)
+[ RUN      ] NodeTest.SelfReferenceMap
+[       OK ] NodeTest.SelfReferenceMap (0 ms)
+[ RUN      ] NodeTest.TempMapVariable
+[       OK ] NodeTest.TempMapVariable (0 ms)
+[ RUN      ] NodeTest.TempMapVariableAlias
+[       OK ] NodeTest.TempMapVariableAlias (0 ms)
+[ RUN      ] NodeTest.Bool
+[       OK ] NodeTest.Bool (0 ms)
+[ RUN      ] NodeTest.AutoBoolConversion
+[       OK ] NodeTest.AutoBoolConversion (0 ms)
+[ RUN      ] NodeTest.FloatingPrecisionFloat
+[       OK ] NodeTest.FloatingPrecisionFloat (0 ms)
+[ RUN      ] NodeTest.FloatingPrecisionPositiveInfinityFloat
+[       OK ] NodeTest.FloatingPrecisionPositiveInfinityFloat (0 ms)
+[ RUN      ] NodeTest.FloatingPrecisionNegativeInfinityFloat
+[       OK ] NodeTest.FloatingPrecisionNegativeInfinityFloat (0 ms)
+[ RUN      ] NodeTest.FloatingPrecisionNanFloat
+[       OK ] NodeTest.FloatingPrecisionNanFloat (0 ms)
+[ RUN      ] NodeTest.FloatingPrecisionDouble
+[       OK ] NodeTest.FloatingPrecisionDouble (0 ms)
+[ RUN      ] NodeTest.FloatingPrecisionPositiveInfinityDouble
+[       OK ] NodeTest.FloatingPrecisionPositiveInfinityDouble (0 ms)
+[ RUN      ] NodeTest.FloatingPrecisionNegativeInfinityDouble
+[       OK ] NodeTest.FloatingPrecisionNegativeInfinityDouble (0 ms)
+[ RUN      ] NodeTest.FloatingPrecisionNanDouble
+[       OK ] NodeTest.FloatingPrecisionNanDouble (0 ms)
+[ RUN      ] NodeTest.SpaceChar
+[       OK ] NodeTest.SpaceChar (0 ms)
+[ RUN      ] NodeTest.CloneNull
+[       OK ] NodeTest.CloneNull (0 ms)
+[ RUN      ] NodeTest.KeyNodeExitsScope
+[       OK ] NodeTest.KeyNodeExitsScope (0 ms)
+[ RUN      ] NodeTest.DefaultNodeStyle
+[       OK ] NodeTest.DefaultNodeStyle (0 ms)
+[ RUN      ] NodeTest.AccessNonexistentKeyOnConstNode
+[       OK ] NodeTest.AccessNonexistentKeyOnConstNode (0 ms)
+[----------] 66 tests from NodeTest (4 ms total)
+
+[----------] Global test environment tear-down
+[==========] 66 tests from 1 test suite ran. (4 ms total)
+[  PASSED  ] 66 tests.

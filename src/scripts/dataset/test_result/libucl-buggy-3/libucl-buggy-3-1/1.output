@@ -1,0 +1,44 @@
+Making check in src
+make[1]: Entering directory '/home/workspace/src'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/home/workspace/src'
+Making check in tests
+make[1]: Entering directory '/home/workspace/tests'
+make  test_basic test_speed test_generate test_schema test_streamline
+make[2]: Entering directory '/home/workspace/tests'
+  CC       test_basic-test_basic.o
+  CCLD     test_basic
+  CC       test_speed-test_speed.o
+  CCLD     test_speed
+  CC       test_generate-test_generate.o
+  CCLD     test_generate
+  CC       test_schema-test_schema.o
+  CCLD     test_schema
+  CC       test_streamline-test_streamline.o
+  CCLD     test_streamline
+make[2]: Leaving directory '/home/workspace/tests'
+make  check-TESTS
+make[2]: Entering directory '/home/workspace/tests'
+make[3]: Entering directory '/home/workspace/tests'
+FAIL: basic.test
+============================================================================
+Testsuite summary for libucl 0.7.2
+============================================================================
+# TOTAL: 1
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+============================================================================
+See tests/test-suite.log
+Please report to https://github.com/vstakhov/libucl
+============================================================================
+make[3]: *** [Makefile:835: test-suite.log] Error 1
+make[3]: Leaving directory '/home/workspace/tests'
+make[2]: Leaving directory '/home/workspace/tests'
+make[2]: *** [Makefile:943: check-TESTS] Error 2
+make[1]: *** [Makefile:1010: check-am] Error 2
+make[1]: Leaving directory '/home/workspace/tests'
+make: *** [Makefile:480: check-recursive] Error 1

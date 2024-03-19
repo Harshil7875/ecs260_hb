@@ -1,0 +1,13 @@
+Note: Google Test filter = ErrorMessageTest.*
+[==========] Running 2 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 2 tests from ErrorMessageTest
+[ RUN      ] ErrorMessageTest.BadSubscriptErrorMessage
+[       OK ] ErrorMessageTest.BadSubscriptErrorMessage (0 ms)
+[ RUN      ] ErrorMessageTest.Ex9_1_InvalidNodeErrorMessage
+[       OK ] ErrorMessageTest.Ex9_1_InvalidNodeErrorMessage (4 ms)
+[----------] 2 tests from ErrorMessageTest (4 ms total)
+
+[----------] Global test environment tear-down
+[==========] 2 tests from 1 test suite ran. (4 ms total)
+[  PASSED  ] 2 tests.

@@ -1,0 +1,56 @@
+```
+static bool isContainerSizeChangedByFunction(const Token *tok, int depth = 20)
+{
+    if (!tok->valueType() || !tok->valueType()->container)
+        return false;
+    // If we are accessing an element then we are not changing the container size
+    if (Token::Match(tok, "%name% . %name% (")) {
+        Library::Container::Yield yield = tok->valueType()->container->getYield(tok->strAt(2));
+        if (yield != Library::Container::Yield::NO_YIELD)
+            return false;
+    }
+    if (Token::simpleMatch(tok->astParent(), "[")) {
+        return false;
+    }
+
+    // address of variable
+    const bool addressOf = tok->valueType()->pointer || (tok->astParent() && tok->astParent()->isUnaryOp("&"));
+
+    int narg;
+    const Token * ftok = getTokenArgumentFunction(tok, narg);
+    if (!ftok) {
+        return false; // not a function => variable not changed
+    }
+    const Function * fun = ftok->function();
+    if (fun) {
+        const Variable *arg = fun->getArgumentVar(narg);
+        if (arg) {
+            if (!arg->isReference() && !addressOf) {
+                return false;
+            }
+            if (!addressOf && arg->isConst()) {
+                return false;
+            }
+            if (arg->valueType() && arg->valueType()->constness == 1) {
+                return false;
+            }
+            const Scope * scope = fun->functionScope;
+            if (scope) {
+                // Argument not used
+                if (!arg->nameToken()) {
+                    return false;
+                }
+                if (depth > 0) {
+                    return isContainerSizeChangedByFunction(arg->declarationId(), scope->bodyStart, scope->bodyEnd, depth - 1);
+                }
+            }
+            // Don't know => Safe guess
+            return true;
+        }
+    }
+
+    bool inconclusive = false;
+    const bool isChanged = isVariableChangedByFunctionCall(tok, 0, nullptr, &inconclusive);
+    return (isChanged || inconclusive);
+}
+```

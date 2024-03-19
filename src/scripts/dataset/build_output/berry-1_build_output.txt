@@ -1,0 +1,94 @@
+[berry] start building
+  Starting container
+    Image: hschoe/defects4cpp-ubuntu:berry
+[Clean...]
+done
+
+[Prebuild] generate resources
+[Compile] src/be_map.c
+[Compile] src/be_debuglib.c
+[Compile] src/be_filelib.c
+[Compile] src/be_module.c
+[Compile] src/be_maplib.c
+[Compile] src/be_introspectlib.c
+[Compile] src/be_object.c
+[Compile] src/be_gclib.c
+[Compile] src/be_gc.c
+[Compile] src/be_baselib.c
+[Compile] src/be_list.c
+[Compile] src/be_syslib.c
+[Compile] src/be_parser.c
+[Compile] src/be_debug.c
+[Compile] src/be_strlib.c
+[Compile] src/be_vm.c
+src/be_vm.c: In function 'vm_exec':
+src/be_vm.c:740:21: warning: unused variable 'a' [-Wunused-variable]
+  740 |             bvalue *a = RA(), *b = RKB(), *c = RKC();
+      |                     ^
+src/be_vm.c:745:21: warning: unused variable 'a' [-Wunused-variable]
+  745 |             bvalue *a = RA(), *b = RKB(), *c = RKC();
+      |                     ^
+src/be_vm.c:750:55: error: 'a' undeclared (first use in this function)
+  750 |             attribute_error(vm, "writable attribute", a, b);
+      |                                                       ^
+src/be_vm.c:750:55: note: each undeclared identifier is reported only once for each function it appears in
+src/be_vm.c:750:58: error: 'b' undeclared (first use in this function)
+  750 |             attribute_error(vm, "writable attribute", a, b);
+      |                                                          ^
+src/be_vm.c:754:13: error: too few arguments to function 'attribute_error'
+  754 |             attribute_error(vm, "type_error", be_vtype2str(b));
+      |             ^~~~~~~~~~~~~~~
+src/be_vm.c:128:13: note: declared here
+  128 | static void attribute_error(bvm *vm, const char *t, bvalue *b, bvalue *c)
+      |             ^~~~~~~~~~~~~~~
+src/be_vm.c:758:13: error: too few arguments to function 'attribute_error'
+  758 |             attribute_error(vm, "type_error", be_vtype2str(a));
+      |             ^~~~~~~~~~~~~~~
+src/be_vm.c:128:13: note: declared here
+  128 | static void attribute_error(bvm *vm, const char *t, bvalue *b, bvalue *c)
+      |             ^~~~~~~~~~~~~~~
+src/be_vm.c:762:13: error: too few arguments to function 'attribute_error'
+  762 |             attribute_error(vm, "type_error", be_vtype2str(b));
+      |             ^~~~~~~~~~~~~~~
+src/be_vm.c:128:13: note: declared here
+  128 | static void attribute_error(bvm *vm, const char *t, bvalue *b, bvalue *c)
+      |             ^~~~~~~~~~~~~~~
+src/be_vm.c:770:13: error: too few arguments to function 'attribute_error'
+  770 |             attribute_error(vm, "type_error", be_vtype2str(b));
+      |             ^~~~~~~~~~~~~~~
+src/be_vm.c:128:13: note: declared here
+  128 | static void attribute_error(bvm *vm, const char *t, bvalue *b, bvalue *c)
+      |             ^~~~~~~~~~~~~~~
+src/be_vm.c: At top level:
+src/be_vm.c:813:1: error: expected identifier or '(' before '}' token
+  813 | }
+      | ^
+src/be_vm.c:814:1: error: expected identifier or '(' before '{' token
+  814 | {
+      | ^
+src/be_vm.c:126:13: error: 'prep_closure' used but never defined
+  126 | static void prep_closure(bvm *vm, bvalue *reg, int argc, int mode);
+      |             ^~~~~~~~~~~~
+src/be_vm.c:410:13: warning: 'connect_str' defined but not used [-Wunused-function]
+  410 | static void connect_str(bvm *vm, bstring *a, bvalue *b)
+      |             ^~~~~~~~~~~
+src/be_vm.c:358:13: warning: 'ins_unop' defined but not used [-Wunused-function]
+  358 | static void ins_unop(bvm *vm, const char *op, bvalue self)
+      |             ^~~~~~~~
+src/be_vm.c:305:12: warning: 'module_attribute' defined but not used [-Wunused-function]
+  305 | static int module_attribute(bvm *vm, bvalue *o, bvalue *c, bvalue *dst)
+      |            ^~~~~~~~~~~~~~~~
+src/be_vm.c:292:12: warning: 'class_attribute' defined but not used [-Wunused-function]
+  292 | static int class_attribute(bvm *vm, bvalue *o, bvalue *c, bvalue *dst)
+      |            ^~~~~~~~~~~~~~~
+src/be_vm.c:280:12: warning: 'obj_attribute' defined but not used [-Wunused-function]
+  280 | static int obj_attribute(bvm *vm, bvalue *o, bstring *attr, bvalue *dst)
+      |            ^~~~~~~~~~~~~
+src/be_vm.c:213:13: warning: 'push_closure' defined but not used [-Wunused-function]
+  213 | static void push_closure(bvm *vm, bvalue *func, int nstack, int mode)
+      |             ^~~~~~~~~~~~
+make: *** [Makefile:70: src/be_vm.o] Error 1
+
+  Closing container
+[berry] done
+Elapsed: 13.65s

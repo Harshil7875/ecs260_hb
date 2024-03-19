@@ -1,0 +1,1 @@
+syntax_error: tests/class_const.be:97: register overflow (more than 255)

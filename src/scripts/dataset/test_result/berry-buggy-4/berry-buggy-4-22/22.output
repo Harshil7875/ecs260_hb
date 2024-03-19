@@ -1,0 +1,4 @@
+runtime_error: bad argument #2 to 'format': no value
+stack traceback:
+	<native>: in native function
+	tests/string.be:32: in function `main`

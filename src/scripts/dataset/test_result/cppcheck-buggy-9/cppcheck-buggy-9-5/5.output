@@ -1,0 +1,109 @@
+Internal ctest changing into directory: /home/workspace/build
+Test project /home/workspace/build
+    Start 5: TestAutoVariables
+1/1 Test #5: TestAutoVariables ................***Failed    0.54 sec
+TestAutoVariables::testautovar1
+TestAutoVariables::testautovar2
+TestAutoVariables::testautovar3
+TestAutoVariables::testautovar4
+TestAutoVariables::testautovar5
+TestAutoVariables::testautovar6
+TestAutoVariables::testautovar7
+TestAutoVariables::testautovar8
+TestAutoVariables::testautovar9
+TestAutoVariables::testautovar10
+TestAutoVariables::testautovar11
+TestAutoVariables::testautovar12
+TestAutoVariables::testautovar13
+TestAutoVariables::testautovar14
+TestAutoVariables::testautovar15
+TestAutoVariables::testautovar16
+TestAutoVariables::testautovar_array1
+TestAutoVariables::testautovar_array2
+TestAutoVariables::testautovar_normal
+TestAutoVariables::testautovar_ptrptr
+TestAutoVariables::testautovar_return1
+TestAutoVariables::testautovar_return2
+TestAutoVariables::testautovar_return3
+TestAutoVariables::testautovar_return4
+TestAutoVariables::testautovar_extern
+TestAutoVariables::testinvaliddealloc
+TestAutoVariables::testinvaliddealloc_C
+TestAutoVariables::testassign1
+TestAutoVariables::testassign2
+TestAutoVariables::assignAddressOfLocalArrayToGlobalPointer
+TestAutoVariables::assignAddressOfLocalVariableToGlobalPointer
+TestAutoVariables::assignAddressOfLocalVariableToMemberVariable
+TestAutoVariables::returnLocalVariable1
+TestAutoVariables::returnLocalVariable2
+TestAutoVariables::returnLocalVariable3
+TestAutoVariables::returnLocalVariable4
+TestAutoVariables::returnLocalVariable5
+TestAutoVariables::returnLocalVariable6
+TestAutoVariables::returnReference1
+TestAutoVariables::returnReference2
+TestAutoVariables::returnReference3
+TestAutoVariables::returnReference4
+TestAutoVariables::returnReference5
+TestAutoVariables::returnReference6
+TestAutoVariables::returnReference7
+TestAutoVariables::returnReference8
+TestAutoVariables::returnReference9
+TestAutoVariables::returnReference10
+TestAutoVariables::returnReference11
+TestAutoVariables::returnReference12
+TestAutoVariables::returnReference13
+TestAutoVariables::returnReference14
+TestAutoVariables::returnReference15
+TestAutoVariables::returnReference16
+TestAutoVariables::returnReference16
+TestAutoVariables::returnReference17
+TestAutoVariables::returnReference18
+TestAutoVariables::returnReference19
+TestAutoVariables::returnReference20
+TestAutoVariables::returnReferenceFunction
+TestAutoVariables::returnReferenceContainer
+TestAutoVariables::returnReferenceLiteral
+TestAutoVariables::returnReferenceCalculation
+TestAutoVariables::returnReferenceLambda
+TestAutoVariables::returnReferenceInnerScope
+TestAutoVariables::returnReferenceRecursive
+TestAutoVariables::extendedLifetime
+TestAutoVariables::danglingReference
+TestAutoVariables::testglobalnamespace
+TestAutoVariables::returnParameterAddress
+TestAutoVariables::testconstructor
+TestAutoVariables::variableIsUsedInScope
+TestAutoVariables::danglingLifetimeLambda
+TestAutoVariables::danglingLifetimeContainer
+TestAutoVariables::danglingLifetime
+TestAutoVariables::danglingLifetimeFunction
+TestAutoVariables::danglingLifetimeAggegrateConstructor
+TestAutoVariables::danglingLifetimeInitList
+TestAutoVariables::danglingLifetimeImplicitConversion
+TestAutoVariables::danglingTemporaryLifetime
+TestAutoVariables::invalidLifetime
+TestAutoVariables::deadPointer
+
+
+Testing Complete
+Number of tests: 82
+Number of todos: 10
+Tests failed: 1
+
+/home/workspace/test/testautovariables.cpp:2151(TestAutoVariables::danglingLifetimeContainer): Assertion failed. 
+Expected: 
+
+Actual: 
+[test.cpp:4] -> [test.cpp:4]: (error) Reference to local variable returned.\n
+
+_____
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   0.54 sec
+
+The following tests FAILED:
+	  5 - TestAutoVariables (Failed)
+Errors while running CTest

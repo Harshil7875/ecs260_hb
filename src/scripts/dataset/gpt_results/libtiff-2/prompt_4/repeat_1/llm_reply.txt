@@ -1,0 +1,21 @@
+Repaired function:
+void dpp_sighandler(int signum) {
+    __gcov_flush();
+    struct sigaction sa;
+    sigaction(signum, NULL, &dpp_orig_sigaction);
+    raise(signum);
+    exit(1);
+}
+
+```json
+{
+  "error": [
+    {
+      "line_number": 3,
+      "error_type": "Incorrect function parameter",
+      "explanation": "The sigaction function call had incorrect parameters. Changed to sigaction(signum, NULL, &dpp_orig_sigaction)."
+    }
+  ],
+  "confidence": 0.95
+}
+```

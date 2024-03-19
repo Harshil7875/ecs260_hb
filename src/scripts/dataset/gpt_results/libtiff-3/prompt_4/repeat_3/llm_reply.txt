@@ -1,0 +1,24 @@
+Repaired function:
+void dpp_sighandler(int signum) {
+    if (signum == SIGFPE) {
+        printf("Division by zero error occurred.\n");
+        exit(1);
+    }
+    __gcov_flush();
+    sigaction(signum, &dpp_orig_sigaction, NULL);
+    raise(signum);
+    exit(1);
+}
+
+```json
+{
+  "error": [
+    {
+      "line_number": 3,
+      "error_type": "omission and vulnerability error",
+      "explanation": "Added a check for SIGFPE (division by zero) and proper handling."
+    }
+  ],
+  "confidence": 0.85
+}
+```

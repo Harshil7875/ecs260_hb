@@ -1,0 +1,41 @@
+Repaired function:
+```c
+uint64
+TIFFVStripSize64(TIFF* tif, uint32 nrows)
+{
+	static const char module[] = "TIFFVStripSize64";
+	TIFFDirectory *td = &tif->tif_dir;
+	if (nrows == (uint32)(-1))
+		nrows = td->td_imagelength;
+	if ((td->td_planarconfig == PLANARCONFIG_CONTIG) &&
+		(td->td_photometric != PHOTOMETRIC_YCBCR || isUpSampled(tif)))
+	{
+		uint64 stripSize = td->td_imagewidth * td->td_imagelength * td->td_samplesperpixel;
+		return stripSize;
+	}
+	else
+	{
+		TIFFErrorExt(tif->tif_clientdata, module, "Invalid combination of planar configuration and photometric interpretation");
+		return 0;
+	}
+}
+```
+
+JSON response:
+```json
+{
+  "error": [
+    {
+      "line_number": 21,
+      "error_type": "Logical Error",
+      "explanation": "The condition should check for the opposite of the original condition."
+    },
+    {
+      "line_number": 33,
+      "error_type": "Logical Error",
+      "explanation": "The calculation of strip size was incorrect."
+    }
+  ],
+  "confidence": 0.85
+}
+```

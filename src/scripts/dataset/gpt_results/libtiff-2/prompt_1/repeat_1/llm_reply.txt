@@ -1,0 +1,26 @@
+Repaired function:
+void dpp_sighandler(int signum) {
+	__gcov_flush();
+	struct sigaction sa;
+	sigaction(signum, NULL, &sa);
+	raise(signum);
+	exit(1);
+}
+
+```json
+{
+  "error": [
+    {
+      "line_number": 3,
+      "error_type": "Syntax error",
+      "explanation": "Incorrect usage of sigaction function"
+    },
+    {
+      "line_number": 4,
+      "error_type": "Incorrect function parameter",
+      "explanation": "Incorrect usage of sigaction function"
+    }
+  ],
+  "confidence": 0.8
+}
+```

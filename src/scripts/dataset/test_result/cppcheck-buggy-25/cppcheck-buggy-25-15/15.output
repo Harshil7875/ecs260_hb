@@ -1,0 +1,43 @@
+Internal ctest changing into directory: /home/workspace/build
+Test project /home/workspace/build
+    Start 15: TestConstructors
+Could not find executable /home/workspace/build/bin/testrunner
+Looked in the following places:
+/home/workspace/build/bin/testrunner
+/home/workspace/build/bin/testrunner
+/home/workspace/build/bin/Release/testrunner
+/home/workspace/build/bin/Release/testrunner
+/home/workspace/build/bin/Debug/testrunner
+/home/workspace/build/bin/Debug/testrunner
+/home/workspace/build/bin/MinSizeRel/testrunner
+/home/workspace/build/bin/MinSizeRel/testrunner
+/home/workspace/build/bin/RelWithDebInfo/testrunner
+/home/workspace/build/bin/RelWithDebInfo/testrunner
+/home/workspace/build/bin/Deployment/testrunner
+/home/workspace/build/bin/Deployment/testrunner
+/home/workspace/build/bin/Development/testrunner
+/home/workspace/build/bin/Development/testrunner
+home/workspace/build/bin/testrunner
+home/workspace/build/bin/testrunner
+home/workspace/build/bin/Release/testrunner
+home/workspace/build/bin/Release/testrunner
+home/workspace/build/bin/Debug/testrunner
+home/workspace/build/bin/Debug/testrunner
+home/workspace/build/bin/MinSizeRel/testrunner
+home/workspace/build/bin/MinSizeRel/testrunner
+home/workspace/build/bin/RelWithDebInfo/testrunner
+home/workspace/build/bin/RelWithDebInfo/testrunner
+home/workspace/build/bin/Deployment/testrunner
+home/workspace/build/bin/Deployment/testrunner
+home/workspace/build/bin/Development/testrunner
+home/workspace/build/bin/Development/testrunner
+Unable to find executable: /home/workspace/build/bin/testrunner
+1/1 Test #15: TestConstructors .................***Not Run   0.00 sec
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   0.00 sec
+
+The following tests FAILED:
+	 15 - TestConstructors (Not Run)
+Errors while running CTest

@@ -1,0 +1,237 @@
+Note: Google Test filter = EmitterTest.*
+[==========] Running 114 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 114 tests from EmitterTest
+[ RUN      ] EmitterTest.SimpleScalar
+[       OK ] EmitterTest.SimpleScalar (1 ms)
+[ RUN      ] EmitterTest.SimpleQuotedScalar
+[       OK ] EmitterTest.SimpleQuotedScalar (0 ms)
+[ RUN      ] EmitterTest.DumpAndSize
+[       OK ] EmitterTest.DumpAndSize (0 ms)
+[ RUN      ] EmitterTest.NullScalar
+[       OK ] EmitterTest.NullScalar (0 ms)
+[ RUN      ] EmitterTest.AliasScalar
+[       OK ] EmitterTest.AliasScalar (0 ms)
+[ RUN      ] EmitterTest.StringFormat
+[       OK ] EmitterTest.StringFormat (0 ms)
+[ RUN      ] EmitterTest.IntBase
+[       OK ] EmitterTest.IntBase (0 ms)
+[ RUN      ] EmitterTest.NumberPrecision
+[       OK ] EmitterTest.NumberPrecision (0 ms)
+[ RUN      ] EmitterTest.SimpleSeq
+[       OK ] EmitterTest.SimpleSeq (1 ms)
+[ RUN      ] EmitterTest.SimpleFlowSeq
+[       OK ] EmitterTest.SimpleFlowSeq (0 ms)
+[ RUN      ] EmitterTest.EmptyFlowSeq
+[       OK ] EmitterTest.EmptyFlowSeq (0 ms)
+[ RUN      ] EmitterTest.NestedBlockSeq
+[       OK ] EmitterTest.NestedBlockSeq (0 ms)
+[ RUN      ] EmitterTest.NestedFlowSeq
+[       OK ] EmitterTest.NestedFlowSeq (0 ms)
+[ RUN      ] EmitterTest.SimpleMap
+[       OK ] EmitterTest.SimpleMap (0 ms)
+[ RUN      ] EmitterTest.SimpleFlowMap
+[       OK ] EmitterTest.SimpleFlowMap (0 ms)
+[ RUN      ] EmitterTest.MapAndList
+[       OK ] EmitterTest.MapAndList (0 ms)
+[ RUN      ] EmitterTest.ListAndMap
+[       OK ] EmitterTest.ListAndMap (0 ms)
+[ RUN      ] EmitterTest.NestedBlockMap
+[       OK ] EmitterTest.NestedBlockMap (0 ms)
+[ RUN      ] EmitterTest.NestedFlowMap
+[       OK ] EmitterTest.NestedFlowMap (1 ms)
+[ RUN      ] EmitterTest.MapListMix
+[       OK ] EmitterTest.MapListMix (0 ms)
+[ RUN      ] EmitterTest.SimpleLongKey
+[       OK ] EmitterTest.SimpleLongKey (0 ms)
+[ RUN      ] EmitterTest.SingleLongKey
+[       OK ] EmitterTest.SingleLongKey (2 ms)
+[ RUN      ] EmitterTest.ComplexLongKey
+[       OK ] EmitterTest.ComplexLongKey (0 ms)
+[ RUN      ] EmitterTest.AutoLongKey
+[       OK ] EmitterTest.AutoLongKey (0 ms)
+[ RUN      ] EmitterTest.ScalarFormat
+[       OK ] EmitterTest.ScalarFormat (0 ms)
+[ RUN      ] EmitterTest.AutoLongKeyScalar
+[       OK ] EmitterTest.AutoLongKeyScalar (0 ms)
+[ RUN      ] EmitterTest.LongKeyFlowMap
+[       OK ] EmitterTest.LongKeyFlowMap (1 ms)
+[ RUN      ] EmitterTest.BlockMapAsKey
+[       OK ] EmitterTest.BlockMapAsKey (0 ms)
+[ RUN      ] EmitterTest.AliasAndAnchor
+[       OK ] EmitterTest.AliasAndAnchor (0 ms)
+[ RUN      ] EmitterTest.AliasAndAnchorWithNull
+[       OK ] EmitterTest.AliasAndAnchorWithNull (0 ms)
+[ RUN      ] EmitterTest.AliasAndAnchorInFlow
+[       OK ] EmitterTest.AliasAndAnchorInFlow (0 ms)
+[ RUN      ] EmitterTest.SimpleVerbatimTag
+[       OK ] EmitterTest.SimpleVerbatimTag (0 ms)
+[ RUN      ] EmitterTest.VerbatimTagInBlockSeq
+[       OK ] EmitterTest.VerbatimTagInBlockSeq (0 ms)
+[ RUN      ] EmitterTest.VerbatimTagInFlowSeq
+[       OK ] EmitterTest.VerbatimTagInFlowSeq (0 ms)
+[ RUN      ] EmitterTest.VerbatimTagInFlowSeqWithNull
+[       OK ] EmitterTest.VerbatimTagInFlowSeqWithNull (0 ms)
+[ RUN      ] EmitterTest.VerbatimTagInBlockMap
+[       OK ] EmitterTest.VerbatimTagInBlockMap (0 ms)
+[ RUN      ] EmitterTest.VerbatimTagInFlowMap
+[       OK ] EmitterTest.VerbatimTagInFlowMap (0 ms)
+[ RUN      ] EmitterTest.VerbatimTagInFlowMapWithNull
+[       OK ] EmitterTest.VerbatimTagInFlowMapWithNull (0 ms)
+[ RUN      ] EmitterTest.VerbatimTagWithEmptySeq
+[       OK ] EmitterTest.VerbatimTagWithEmptySeq (0 ms)
+[ RUN      ] EmitterTest.VerbatimTagWithEmptyMap
+[       OK ] EmitterTest.VerbatimTagWithEmptyMap (0 ms)
+[ RUN      ] EmitterTest.VerbatimTagWithEmptySeqAndMap
+[       OK ] EmitterTest.VerbatimTagWithEmptySeqAndMap (0 ms)
+[ RUN      ] EmitterTest.ByKindTagWithScalar
+[       OK ] EmitterTest.ByKindTagWithScalar (0 ms)
+[ RUN      ] EmitterTest.LocalTagInNameHandle
+[       OK ] EmitterTest.LocalTagInNameHandle (0 ms)
+[ RUN      ] EmitterTest.LocalTagWithScalar
+[       OK ] EmitterTest.LocalTagWithScalar (0 ms)
+[ RUN      ] EmitterTest.ComplexDoc
+[       OK ] EmitterTest.ComplexDoc (1 ms)
+[ RUN      ] EmitterTest.STLContainers
+[       OK ] EmitterTest.STLContainers (0 ms)
+[ RUN      ] EmitterTest.CommentStyle
+[       OK ] EmitterTest.CommentStyle (0 ms)
+[ RUN      ] EmitterTest.SimpleComment
+[       OK ] EmitterTest.SimpleComment (0 ms)
+[ RUN      ] EmitterTest.MultiLineComment
+[       OK ] EmitterTest.MultiLineComment (0 ms)
+[ RUN      ] EmitterTest.ComplexComments
+[       OK ] EmitterTest.ComplexComments (0 ms)
+[ RUN      ] EmitterTest.InitialComment
+[       OK ] EmitterTest.InitialComment (0 ms)
+[ RUN      ] EmitterTest.InitialCommentWithDocIndicator
+[       OK ] EmitterTest.InitialCommentWithDocIndicator (0 ms)
+[ RUN      ] EmitterTest.CommentInFlowSeq
+[       OK ] EmitterTest.CommentInFlowSeq (0 ms)
+[ RUN      ] EmitterTest.CommentInFlowMap
+[       OK ] EmitterTest.CommentInFlowMap (0 ms)
+[ RUN      ] EmitterTest.Indentation
+[       OK ] EmitterTest.Indentation (0 ms)
+[ RUN      ] EmitterTest.SimpleGlobalSettings
+[       OK ] EmitterTest.SimpleGlobalSettings (1 ms)
+[ RUN      ] EmitterTest.GlobalLongKeyOnSeq
+[       OK ] EmitterTest.GlobalLongKeyOnSeq (0 ms)
+[ RUN      ] EmitterTest.GlobalLongKeyOnMap
+[       OK ] EmitterTest.GlobalLongKeyOnMap (0 ms)
+[ RUN      ] EmitterTest.GlobalSettingStyleOnSeqNode
+[       OK ] EmitterTest.GlobalSettingStyleOnSeqNode (0 ms)
+[ RUN      ] EmitterTest.GlobalSettingStyleOnMapNode
+[       OK ] EmitterTest.GlobalSettingStyleOnMapNode (0 ms)
+[ RUN      ] EmitterTest.ComplexGlobalSettings
+[       OK ] EmitterTest.ComplexGlobalSettings (0 ms)
+[ RUN      ] EmitterTest.Null
+[       OK ] EmitterTest.Null (0 ms)
+[ RUN      ] EmitterTest.OutputCharset
+[       OK ] EmitterTest.OutputCharset (0 ms)
+[ RUN      ] EmitterTest.EscapedUnicode
+[       OK ] EmitterTest.EscapedUnicode (0 ms)
+[ RUN      ] EmitterTest.Unicode
+[       OK ] EmitterTest.Unicode (0 ms)
+[ RUN      ] EmitterTest.DoubleQuotedUnicode
+[       OK ] EmitterTest.DoubleQuotedUnicode (0 ms)
+[ RUN      ] EmitterTest.EscapedJsonString
+[       OK ] EmitterTest.EscapedJsonString (0 ms)
+[ RUN      ] EmitterTest.EscapedCharacters
+[       OK ] EmitterTest.EscapedCharacters (0 ms)
+[ RUN      ] EmitterTest.CharactersEscapedAsJson
+[       OK ] EmitterTest.CharactersEscapedAsJson (0 ms)
+[ RUN      ] EmitterTest.DoubleQuotedString
+[       OK ] EmitterTest.DoubleQuotedString (0 ms)
+[ RUN      ] EmitterTest.UserType
+[       OK ] EmitterTest.UserType (0 ms)
+[ RUN      ] EmitterTest.UserTypeInContainer
+[       OK ] EmitterTest.UserTypeInContainer (0 ms)
+[ RUN      ] EmitterTest.PointerToInt
+[       OK ] EmitterTest.PointerToInt (0 ms)
+[ RUN      ] EmitterTest.PointerToUserType
+[       OK ] EmitterTest.PointerToUserType (0 ms)
+[ RUN      ] EmitterTest.NewlineAtEnd
+[       OK ] EmitterTest.NewlineAtEnd (0 ms)
+[ RUN      ] EmitterTest.NewlineInBlockSequence
+[       OK ] EmitterTest.NewlineInBlockSequence (0 ms)
+[ RUN      ] EmitterTest.NewlineInFlowSequence
+[       OK ] EmitterTest.NewlineInFlowSequence (0 ms)
+[ RUN      ] EmitterTest.NewlineInBlockMap
+[       OK ] EmitterTest.NewlineInBlockMap (0 ms)
+[ RUN      ] EmitterTest.NewlineInFlowMap
+[       OK ] EmitterTest.NewlineInFlowMap (0 ms)
+[ RUN      ] EmitterTest.LotsOfNewlines
+[       OK ] EmitterTest.LotsOfNewlines (0 ms)
+[ RUN      ] EmitterTest.Binary
+[       OK ] EmitterTest.Binary (0 ms)
+[ RUN      ] EmitterTest.LongBinary
+[       OK ] EmitterTest.LongBinary (0 ms)
+[ RUN      ] EmitterTest.EmptyBinary
+[       OK ] EmitterTest.EmptyBinary (0 ms)
+[ RUN      ] EmitterTest.ColonAtEndOfScalar
+[       OK ] EmitterTest.ColonAtEndOfScalar (0 ms)
+[ RUN      ] EmitterTest.ColonAsScalar
+[       OK ] EmitterTest.ColonAsScalar (0 ms)
+[ RUN      ] EmitterTest.ColonAtEndOfScalarInFlow
+[       OK ] EmitterTest.ColonAtEndOfScalarInFlow (0 ms)
+[ RUN      ] EmitterTest.GlobalBoolFormatting
+[       OK ] EmitterTest.GlobalBoolFormatting (1 ms)
+[ RUN      ] EmitterTest.BoolFormatting
+[       OK ] EmitterTest.BoolFormatting (0 ms)
+[ RUN      ] EmitterTest.GlobalNullFormatting
+[       OK ] EmitterTest.GlobalNullFormatting (0 ms)
+[ RUN      ] EmitterTest.NullFormatting
+[       OK ] EmitterTest.NullFormatting (0 ms)
+[ RUN      ] EmitterTest.NullFormattingOnNode
+[       OK ] EmitterTest.NullFormattingOnNode (0 ms)
+[ RUN      ] EmitterTest.ImplicitDocStart
+[       OK ] EmitterTest.ImplicitDocStart (0 ms)
+[ RUN      ] EmitterTest.EmptyString
+[       OK ] EmitterTest.EmptyString (0 ms)
+[ RUN      ] EmitterTest.SingleChar
+[       OK ] EmitterTest.SingleChar (0 ms)
+[ RUN      ] EmitterTest.DefaultPrecision
+[       OK ] EmitterTest.DefaultPrecision (0 ms)
+[ RUN      ] EmitterTest.SetPrecision
+[       OK ] EmitterTest.SetPrecision (0 ms)
+[ RUN      ] EmitterTest.DashInBlockContext
+[       OK ] EmitterTest.DashInBlockContext (0 ms)
+[ RUN      ] EmitterTest.HexAndOct
+[       OK ] EmitterTest.HexAndOct (0 ms)
+[ RUN      ] EmitterTest.CompactMapWithNewline
+[       OK ] EmitterTest.CompactMapWithNewline (0 ms)
+[ RUN      ] EmitterTest.ForceSingleQuotedToDouble
+[       OK ] EmitterTest.ForceSingleQuotedToDouble (0 ms)
+[ RUN      ] EmitterTest.QuoteNull
+[       OK ] EmitterTest.QuoteNull (0 ms)
+[ RUN      ] EmitterTest.ValueOfDoubleQuote
+[       OK ] EmitterTest.ValueOfDoubleQuote (0 ms)
+[ RUN      ] EmitterTest.ValueOfBackslash
+[       OK ] EmitterTest.ValueOfBackslash (0 ms)
+[ RUN      ] EmitterTest.Infinity
+[       OK ] EmitterTest.Infinity (0 ms)
+[ RUN      ] EmitterTest.NegInfinity
+[       OK ] EmitterTest.NegInfinity (0 ms)
+[ RUN      ] EmitterTest.NaN
+[       OK ] EmitterTest.NaN (1 ms)
+[ RUN      ] EmitterTest.ComplexFlowSeqEmbeddingAMapWithNewLine
+[       OK ] EmitterTest.ComplexFlowSeqEmbeddingAMapWithNewLine (0 ms)
+[ RUN      ] EmitterTest.ComplexFlowSeqEmbeddingAMapWithNewLineUsingAliases
+[       OK ] EmitterTest.ComplexFlowSeqEmbeddingAMapWithNewLineUsingAliases (0 ms)
+[ RUN      ] EmitterTest.ComplexFlowSeqEmbeddingAMapUsingAliases
+[       OK ] EmitterTest.ComplexFlowSeqEmbeddingAMapUsingAliases (0 ms)
+[ RUN      ] EmitterTest.ComplexFlowSeqEmbeddingAMapWithNewLineUsingAliases2
+[       OK ] EmitterTest.ComplexFlowSeqEmbeddingAMapWithNewLineUsingAliases2 (0 ms)
+[ RUN      ] EmitterTest.ComplexFlowSeqEmbeddingAMapUsingAliases2
+[       OK ] EmitterTest.ComplexFlowSeqEmbeddingAMapUsingAliases2 (0 ms)
+[ RUN      ] EmitterTest.ComplexFlowSeqEmbeddingAMapWithNewLineUsingAliases3
+[       OK ] EmitterTest.ComplexFlowSeqEmbeddingAMapWithNewLineUsingAliases3 (0 ms)
+[ RUN      ] EmitterTest.ComplexFlowSeqEmbeddingAMapUsingAliases3a
+[       OK ] EmitterTest.ComplexFlowSeqEmbeddingAMapUsingAliases3a (0 ms)
+[ RUN      ] EmitterTest.ComplexFlowSeqEmbeddingAMapUsingAliases3b
+[       OK ] EmitterTest.ComplexFlowSeqEmbeddingAMapUsingAliases3b (0 ms)
+[----------] 114 tests from EmitterTest (11 ms total)
+
+[----------] Global test environment tear-down
+[==========] 114 tests from 1 test suite ran. (11 ms total)
+[  PASSED  ] 114 tests.

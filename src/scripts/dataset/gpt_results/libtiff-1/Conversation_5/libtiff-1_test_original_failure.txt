@@ -1,0 +1,8 @@
+test_result: 
+libtiff-1: 
+build_result: True
+test_cases_result:  
+pass_rate: 0.0
+pass_test_cases: []
+fail_test_cases: ['libtiff-buggy-1-82']
+fail_test_cases_info: {'libtiff-buggy-1-82': {'failing_info': 'TIFFReadDirectoryCheckOrder: Warning, Invalid TIFF directory; tags are not sorted in ascending order.\n.dpp/CVE-2016-5321.tif: Warning, Nonstandard tile length 1, convert file.\nTIFFReadDirectory: Warning, Unknown field with tag 406 (0x196) encountered.\nTIFFFetchNormalTag: Warning, ASCII value for tag "DocumentName" contains null byte in value; value incorrectly truncated during reading due to implementation limitations.\nTIFFFetchNormalTag: Warning, IO error during reading of "YResolution"; tag ignored.\nTIFFFetchNormalTag: Warning, incorrect count for field "PageNumber", expected 2, got 514.\nTIFFReadDirectory: Warning, TIFF directory is missing required "StripByteCounts" field, calculating from imagelength.\nTIFFAdvanceDirectory: Error fetching directory count.\n', 'tc_code': ''}}

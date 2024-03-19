@@ -1,0 +1,74 @@
+Making check in libyara
+make[1]: Entering directory '/home/workspace/libyara'
+make  check-am
+make[2]: Entering directory '/home/workspace/libyara'
+make[2]: Nothing to be done for 'check-am'.
+make[2]: Leaving directory '/home/workspace/libyara'
+make[1]: Leaving directory '/home/workspace/libyara'
+make[1]: Entering directory '/home/workspace'
+make  test-alignment test-atoms test-api test-rules test-pe test-elf test-version test-bitmask test-math test-stack test-exception  
+make[2]: Entering directory '/home/workspace'
+  CC       tests/test-alignment.o
+  CCLD     test-alignment
+  CC       tests/test-atoms.o
+  CC       tests/util.o
+  CCLD     test-atoms
+  CC       tests/test-api.o
+tests/test-api.c: In function 'main':
+tests/test-api.c:750:5: warning: ignoring return value of 'chdir', declared with attribute warn_unused_result [-Wunused-result]
+  750 |     chdir(top_srcdir);
+      |     ^~~~~~~~~~~~~~~~~
+  CCLD     test-api
+  CC       tests/test-rules.o
+tests/test-rules.c: In function 'main':
+tests/test-rules.c:2035:5: warning: ignoring return value of 'chdir', declared with attribute warn_unused_result [-Wunused-result]
+ 2035 |     chdir(top_srcdir);
+      |     ^~~~~~~~~~~~~~~~~
+  CCLD     test-rules
+  CC       tests/test-pe.o
+tests/test-pe.c: In function 'main':
+tests/test-pe.c:12:5: warning: ignoring return value of 'chdir', declared with attribute warn_unused_result [-Wunused-result]
+   12 |     chdir(top_srcdir);
+      |     ^~~~~~~~~~~~~~~~~
+  CCLD     test-pe
+  CC       tests/test-elf.o
+  CCLD     test-elf
+  CC       tests/test-version.o
+  CCLD     test-version
+  CC       tests/test-bitmask.o
+  CCLD     test-bitmask
+  CC       tests/test-math.o
+  CCLD     test-math
+  CC       tests/test-stack.o
+  CCLD     test-stack
+  CC       tests/test-exception.o
+  CCLD     test-exception
+make[2]: Leaving directory '/home/workspace'
+make  check-TESTS
+make[2]: Entering directory '/home/workspace'
+make[3]: Entering directory '/home/workspace'
+PASS: test-alignment
+PASS: test-atoms
+PASS: test-api
+PASS: test-rules
+PASS: test-pe
+PASS: test-elf
+PASS: test-version
+PASS: test-bitmask
+PASS: test-math
+PASS: test-stack
+PASS: test-exception
+============================================================================
+Testsuite summary for yara 3.8.1
+============================================================================
+# TOTAL: 11
+# PASS:  11
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[3]: Leaving directory '/home/workspace'
+make[2]: Leaving directory '/home/workspace'
+make[1]: Leaving directory '/home/workspace'

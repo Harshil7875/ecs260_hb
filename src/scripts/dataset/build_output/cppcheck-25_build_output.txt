@@ -1,0 +1,191 @@
+[cppcheck] start building
+  Starting container
+    Image: hschoe/defects4cpp-ubuntu:cppcheck
+-- ------------------ General configuration for Cppcheck 2.1.99 -----------------
+-- 
+-- CMake Generator =       Unix Makefiles
+-- Compiler =              GNU
+-- Compiler Version =      7.5.0
+-- Build type =            Debug
+-- CMAKE_INSTALL_PREFIX =  /usr/local
+-- CMAKE_DISABLE_PRECOMPILE_HEADERS = Off
+-- C++ flags (General) =   
+-- C++ flags (Release) =   -O3 -DNDEBUG
+-- C++ flags (RelWithDebInfo) = -O2 -g -DNDEBUG
+-- C++ flags (Debug) =     -g
+-- Found Define: _GLIBCXX_DEBUG
+-- Found Define: FILESDIR="/usr/local/share/Cppcheck"
+-- 
+-- ---------------------------------------------------------
+-- ANALYZE_MEMORY =        OFF
+-- ANALYZE_ADDRESS =       OFF
+-- ANALYZE_THREAD =        OFF
+-- ANALYZE_UNDEFINED =     OFF
+-- ANALYZE_DATAFLOW =      OFF
+-- WARNINGS_ARE_ERRORS =   OFF
+-- 
+-- USE_MATCHCOMPILER =     Auto
+-- USE_MATCHCOMPILER_OPT = Off
+-- 
+-- BUILD_SHARED_LIBS =     OFF
+-- BUILD_TESTS =           ON
+-- ENABLE_CHECK_INTERNAL = OFF
+-- ENABLE_OSS_FUZZ =       ON
+-- 
+-- BUILD_GUI =             OFF
+-- WITH_QCHART =           OFF
+-- 
+-- HAVE_RULES =            OFF
+-- 
+-- USE_Z3 =                OFF
+-- 
+-- CLANG_TIDY=CLANG_TIDY-NOTFOUND
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/workspace/build
+
+
+[  1%] Building CXX object externals/tinyxml/CMakeFiles/tinyxml_objs.dir/tinyxml2.cpp.o
+[  1%] Built target tinyxml_objs
+[  2%] Building CXX object externals/simplecpp/CMakeFiles/simplecpp_objs.dir/simplecpp.cpp.o
+[  2%] Built target simplecpp_objs
+[  3%] Building CXX object lib/CMakeFiles/lib_objs.dir/cmake_pch.hxx.gch
+[  3%] Building CXX object lib/CMakeFiles/lib_objs.dir/analyzerinfo.cpp.o
+[  4%] Building CXX object lib/CMakeFiles/lib_objs.dir/astutils.cpp.o
+[  5%] Building CXX object lib/CMakeFiles/lib_objs.dir/bughuntingchecks.cpp.o
+[  6%] Building CXX object lib/CMakeFiles/lib_objs.dir/check.cpp.o
+[  6%] Building CXX object lib/CMakeFiles/lib_objs.dir/check64bit.cpp.o
+[  7%] Building CXX object lib/CMakeFiles/lib_objs.dir/checkassert.cpp.o
+[  8%] Building CXX object lib/CMakeFiles/lib_objs.dir/checkautovariables.cpp.o
+[  9%] Building CXX object lib/CMakeFiles/lib_objs.dir/checkbool.cpp.o
+[  9%] Building CXX object lib/CMakeFiles/lib_objs.dir/checkboost.cpp.o
+[ 10%] Building CXX object lib/CMakeFiles/lib_objs.dir/checkbufferoverrun.cpp.o
+[ 11%] Building CXX object lib/CMakeFiles/lib_objs.dir/checkclass.cpp.o
+[ 11%] Building CXX object lib/CMakeFiles/lib_objs.dir/checkcondition.cpp.o
+[ 12%] Building CXX object lib/CMakeFiles/lib_objs.dir/checkexceptionsafety.cpp.o
+[ 13%] Building CXX object lib/CMakeFiles/lib_objs.dir/checkfunctions.cpp.o
+[ 14%] Building CXX object lib/CMakeFiles/lib_objs.dir/checkinternal.cpp.o
+[ 14%] Building CXX object lib/CMakeFiles/lib_objs.dir/checkio.cpp.o
+[ 15%] Building CXX object lib/CMakeFiles/lib_objs.dir/checkleakautovar.cpp.o
+[ 16%] Building CXX object lib/CMakeFiles/lib_objs.dir/checkmemoryleak.cpp.o
+[ 17%] Building CXX object lib/CMakeFiles/lib_objs.dir/checknullpointer.cpp.o
+[ 17%] Building CXX object lib/CMakeFiles/lib_objs.dir/checkother.cpp.o
+[ 18%] Building CXX object lib/CMakeFiles/lib_objs.dir/checkpostfixoperator.cpp.o
+[ 20%] Building CXX object lib/CMakeFiles/lib_objs.dir/checksizeof.cpp.o
+[ 21%] Building CXX object lib/CMakeFiles/lib_objs.dir/checkstl.cpp.o
+[ 21%] Building CXX object lib/CMakeFiles/lib_objs.dir/checkstring.cpp.o
+[ 22%] Building CXX object lib/CMakeFiles/lib_objs.dir/checktype.cpp.o
+[ 23%] Building CXX object lib/CMakeFiles/lib_objs.dir/checkuninitvar.cpp.o
+[ 23%] Building CXX object lib/CMakeFiles/lib_objs.dir/checkunusedfunctions.cpp.o
+[ 24%] Building CXX object lib/CMakeFiles/lib_objs.dir/checkunusedvar.cpp.o
+[ 25%] Building CXX object lib/CMakeFiles/lib_objs.dir/checkvaarg.cpp.o
+[ 26%] Building CXX object lib/CMakeFiles/lib_objs.dir/clangimport.cpp.o
+[ 26%] Building CXX object lib/CMakeFiles/lib_objs.dir/cppcheck.cpp.o
+[ 27%] Building CXX object lib/CMakeFiles/lib_objs.dir/ctu.cpp.o
+[ 28%] Building CXX object lib/CMakeFiles/lib_objs.dir/errorlogger.cpp.o
+[ 29%] Building CXX object lib/CMakeFiles/lib_objs.dir/errortypes.cpp.o
+[ 29%] Building CXX object lib/CMakeFiles/lib_objs.dir/exprengine.cpp.o
+[ 30%] Building CXX object lib/CMakeFiles/lib_objs.dir/forwardanalyzer.cpp.o
+[ 31%] Building CXX object lib/CMakeFiles/lib_objs.dir/importproject.cpp.o
+[ 31%] Building CXX object lib/CMakeFiles/lib_objs.dir/library.cpp.o
+[ 32%] Building CXX object lib/CMakeFiles/lib_objs.dir/mathlib.cpp.o
+[ 33%] Building CXX object lib/CMakeFiles/lib_objs.dir/path.cpp.o
+[ 34%] Building CXX object lib/CMakeFiles/lib_objs.dir/pathanalysis.cpp.o
+[ 34%] Building CXX object lib/CMakeFiles/lib_objs.dir/pathmatch.cpp.o
+[ 35%] Building CXX object lib/CMakeFiles/lib_objs.dir/platform.cpp.o
+[ 36%] Building CXX object lib/CMakeFiles/lib_objs.dir/preprocessor.cpp.o
+[ 37%] Building CXX object lib/CMakeFiles/lib_objs.dir/programmemory.cpp.o
+[ 37%] Building CXX object lib/CMakeFiles/lib_objs.dir/settings.cpp.o
+[ 38%] Building CXX object lib/CMakeFiles/lib_objs.dir/suppressions.cpp.o
+[ 40%] Building CXX object lib/CMakeFiles/lib_objs.dir/symboldatabase.cpp.o
+[ 40%] Building CXX object lib/CMakeFiles/lib_objs.dir/templatesimplifier.cpp.o
+[ 41%] Building CXX object lib/CMakeFiles/lib_objs.dir/timer.cpp.o
+[ 42%] Building CXX object lib/CMakeFiles/lib_objs.dir/token.cpp.o
+[ 43%] Building CXX object lib/CMakeFiles/lib_objs.dir/tokenize.cpp.o
+[ 43%] Building CXX object lib/CMakeFiles/lib_objs.dir/tokenlist.cpp.o
+[ 44%] Building CXX object lib/CMakeFiles/lib_objs.dir/utils.cpp.o
+[ 45%] Building CXX object lib/CMakeFiles/lib_objs.dir/valueflow.cpp.o
+[ 45%] Built target lib_objs
+[ 45%] Building CXX object cli/CMakeFiles/cli_objs.dir/cmdlineparser.cpp.o
+[ 46%] Building CXX object cli/CMakeFiles/cli_objs.dir/cppcheckexecutor.cpp.o
+[ 47%] Building CXX object cli/CMakeFiles/cli_objs.dir/filelister.cpp.o
+[ 47%] Building CXX object cli/CMakeFiles/cli_objs.dir/threadexecutor.cpp.o
+[ 47%] Built target cli_objs
+[ 48%] Building CXX object cli/CMakeFiles/cppcheck.dir/main.cpp.o
+[ 49%] Linking CXX executable ../bin/cppcheck
+[ 49%] Built target cppcheck
+[ 49%] Built target copy_cfg
+[ 49%] Building CXX object test/CMakeFiles/testrunner.dir/cmake_pch.hxx.gch
+[ 50%] Building CXX object test/CMakeFiles/testrunner.dir/options.cpp.o
+[ 51%] Building CXX object test/CMakeFiles/testrunner.dir/test64bit.cpp.o
+[ 52%] Building CXX object test/CMakeFiles/testrunner.dir/testassert.cpp.o
+[ 52%] Building CXX object test/CMakeFiles/testrunner.dir/testastutils.cpp.o
+[ 53%] Building CXX object test/CMakeFiles/testrunner.dir/testautovariables.cpp.o
+[ 54%] Building CXX object test/CMakeFiles/testrunner.dir/testbool.cpp.o
+[ 54%] Building CXX object test/CMakeFiles/testrunner.dir/testboost.cpp.o
+[ 55%] Building CXX object test/CMakeFiles/testrunner.dir/testbufferoverrun.cpp.o
+[ 56%] Building CXX object test/CMakeFiles/testrunner.dir/testbughuntingchecks.cpp.o
+[ 57%] Building CXX object test/CMakeFiles/testrunner.dir/testcharvar.cpp.o
+[ 57%] Building CXX object test/CMakeFiles/testrunner.dir/testclangimport.cpp.o
+[ 58%] Building CXX object test/CMakeFiles/testrunner.dir/testclass.cpp.o
+[ 60%] Building CXX object test/CMakeFiles/testrunner.dir/testcmdlineparser.cpp.o
+[ 61%] Building CXX object test/CMakeFiles/testrunner.dir/testcondition.cpp.o
+[ 61%] Building CXX object test/CMakeFiles/testrunner.dir/testconstructors.cpp.o
+[ 62%] Building CXX object test/CMakeFiles/testrunner.dir/testcppcheck.cpp.o
+[ 63%] Building CXX object test/CMakeFiles/testrunner.dir/testerrorlogger.cpp.o
+[ 63%] Building CXX object test/CMakeFiles/testrunner.dir/testexceptionsafety.cpp.o
+[ 64%] Building CXX object test/CMakeFiles/testrunner.dir/testexprengine.cpp.o
+[ 65%] Building CXX object test/CMakeFiles/testrunner.dir/testfilelister.cpp.o
+[ 66%] Building CXX object test/CMakeFiles/testrunner.dir/testfunctions.cpp.o
+[ 66%] Building CXX object test/CMakeFiles/testrunner.dir/testgarbage.cpp.o
+[ 67%] Building CXX object test/CMakeFiles/testrunner.dir/testimportproject.cpp.o
+[ 68%] Building CXX object test/CMakeFiles/testrunner.dir/testincompletestatement.cpp.o
+[ 69%] Building CXX object test/CMakeFiles/testrunner.dir/testinternal.cpp.o
+[ 69%] Building CXX object test/CMakeFiles/testrunner.dir/testio.cpp.o
+[ 70%] Building CXX object test/CMakeFiles/testrunner.dir/testleakautovar.cpp.o
+[ 71%] Building CXX object test/CMakeFiles/testrunner.dir/testlibrary.cpp.o
+[ 71%] Building CXX object test/CMakeFiles/testrunner.dir/testmathlib.cpp.o
+/home/workspace/test/testmathlib.cpp:310:74: warning: character constant too long for its type
+         ASSERT_EQUALS((int)('ABCDE'),    MathLib::toLongNumber("'ABCDE'"));
+                                                                          ^
+[ 72%] Building CXX object test/CMakeFiles/testrunner.dir/testmemleak.cpp.o
+[ 73%] Building CXX object test/CMakeFiles/testrunner.dir/testnullpointer.cpp.o
+[ 74%] Building CXX object test/CMakeFiles/testrunner.dir/testoptions.cpp.o
+[ 74%] Building CXX object test/CMakeFiles/testrunner.dir/testother.cpp.o
+[ 75%] Building CXX object test/CMakeFiles/testrunner.dir/testpath.cpp.o
+[ 76%] Building CXX object test/CMakeFiles/testrunner.dir/testpathmatch.cpp.o
+[ 77%] Building CXX object test/CMakeFiles/testrunner.dir/testplatform.cpp.o
+[ 77%] Building CXX object test/CMakeFiles/testrunner.dir/testpostfixoperator.cpp.o
+[ 78%] Building CXX object test/CMakeFiles/testrunner.dir/testpreprocessor.cpp.o
+[ 80%] Building CXX object test/CMakeFiles/testrunner.dir/testrunner.cpp.o
+[ 81%] Building CXX object test/CMakeFiles/testrunner.dir/testsamples.cpp.o
+[ 81%] Building CXX object test/CMakeFiles/testrunner.dir/testsimplifytemplate.cpp.o
+[ 82%] Building CXX object test/CMakeFiles/testrunner.dir/testsimplifytokens.cpp.o
+[ 83%] Building CXX object test/CMakeFiles/testrunner.dir/testsimplifytypedef.cpp.o
+[ 83%] Building CXX object test/CMakeFiles/testrunner.dir/testsimplifyusing.cpp.o
+[ 84%] Building CXX object test/CMakeFiles/testrunner.dir/testsizeof.cpp.o
+[ 85%] Building CXX object test/CMakeFiles/testrunner.dir/teststl.cpp.o
+[ 86%] Building CXX object test/CMakeFiles/testrunner.dir/teststring.cpp.o
+[ 86%] Building CXX object test/CMakeFiles/testrunner.dir/testsuite.cpp.o
+[ 87%] Building CXX object test/CMakeFiles/testrunner.dir/testsuppressions.cpp.o
+[ 88%] Building CXX object test/CMakeFiles/testrunner.dir/testsymboldatabase.cpp.o
+[ 89%] Building CXX object test/CMakeFiles/testrunner.dir/testthreadexecutor.cpp.o
+[ 89%] Building CXX object test/CMakeFiles/testrunner.dir/testtimer.cpp.o
+[ 90%] Building CXX object test/CMakeFiles/testrunner.dir/testtoken.cpp.o
+[ 91%] Building CXX object test/CMakeFiles/testrunner.dir/testtokenize.cpp.o
+[ 91%] Building CXX object test/CMakeFiles/testrunner.dir/testtokenlist.cpp.o
+[ 92%] Building CXX object test/CMakeFiles/testrunner.dir/testtype.cpp.o
+[ 93%] Building CXX object test/CMakeFiles/testrunner.dir/testuninitvar.cpp.o
+[ 94%] Building CXX object test/CMakeFiles/testrunner.dir/testunusedfunctions.cpp.o
+[ 94%] Building CXX object test/CMakeFiles/testrunner.dir/testunusedprivfunc.cpp.o
+[ 95%] Building CXX object test/CMakeFiles/testrunner.dir/testunusedvar.cpp.o
+[ 96%] Building CXX object test/CMakeFiles/testrunner.dir/testutils.cpp.o
+[ 97%] Building CXX object test/CMakeFiles/testrunner.dir/testvaarg.cpp.o
+[ 97%] Building CXX object test/CMakeFiles/testrunner.dir/testvalueflow.cpp.o
+[ 98%] Building CXX object test/CMakeFiles/testrunner.dir/testvarid.cpp.o
+[100%] Linking CXX executable ../bin/testrunner
+[100%] Built target testrunner
+
+  Closing container
+[cppcheck] done
+Elapsed: 3m 20.05s

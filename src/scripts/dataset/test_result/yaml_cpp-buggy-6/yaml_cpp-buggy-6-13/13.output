@@ -1,0 +1,25 @@
+Note: Google Test filter = OstreamWrapperTest.*
+[==========] Running 8 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 8 tests from OstreamWrapperTest
+[ RUN      ] OstreamWrapperTest.BufferNoWrite
+[       OK ] OstreamWrapperTest.BufferNoWrite (0 ms)
+[ RUN      ] OstreamWrapperTest.BufferWriteStr
+[       OK ] OstreamWrapperTest.BufferWriteStr (0 ms)
+[ RUN      ] OstreamWrapperTest.BufferWriteCStr
+[       OK ] OstreamWrapperTest.BufferWriteCStr (0 ms)
+[ RUN      ] OstreamWrapperTest.StreamNoWrite
+[       OK ] OstreamWrapperTest.StreamNoWrite (0 ms)
+[ RUN      ] OstreamWrapperTest.StreamWriteStr
+[       OK ] OstreamWrapperTest.StreamWriteStr (0 ms)
+[ RUN      ] OstreamWrapperTest.StreamWriteCStr
+[       OK ] OstreamWrapperTest.StreamWriteCStr (0 ms)
+[ RUN      ] OstreamWrapperTest.Position
+[       OK ] OstreamWrapperTest.Position (0 ms)
+[ RUN      ] OstreamWrapperTest.Comment
+[       OK ] OstreamWrapperTest.Comment (0 ms)
+[----------] 8 tests from OstreamWrapperTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 8 tests from 1 test suite ran. (1 ms total)
+[  PASSED  ] 8 tests.

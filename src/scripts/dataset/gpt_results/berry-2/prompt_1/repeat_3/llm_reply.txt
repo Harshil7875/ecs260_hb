@@ -1,0 +1,37 @@
+Repaired function:
+static void code_not(bfuncinfo *finfo, bexpdesc *e)
+{
+    switch (e->type) {
+    case ETINT: e->v.i = !(e->v.i == 0); break;
+    case ETREAL: e->v.i = !(e->v.r == (breal)0); break;
+    case ETNIL: e->v.i = 1; break;
+    case ETBOOL: e->v.i = !e->v.i; break;
+    case ETSTRING: e->v.i = 0; break;
+    default: {
+        int temp = e->t;
+        e->t = e->f;
+        e->f = temp;
+        e->not = NOT_EXPR | (e->not ^ NOT_MASK);
+        return;
+    }
+    }
+    e->type = ETBOOL;
+}
+
+```json
+{
+  "error": [
+    {
+      "line_number": 4,
+      "error_type": "Logical error",
+      "explanation": "The logic of checking equality to 0 and then negating the result is incorrect. It should be negating the comparison itself."
+    },
+    {
+      "line_number": 5,
+      "error_type": "Type casting error",
+      "explanation": "The casting of 0 to type 'breal' is incorrect. It should be cast as '(breal)0'."
+    }
+  ],
+  "confidence": 95
+}
+```

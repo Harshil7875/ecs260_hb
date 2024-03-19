@@ -1,0 +1,170 @@
+You are a automated program repair tool for C and C++. Your task is to provide a fix for the buggy function below.
+
+<<< Buggy Function:
+/**
+ * Parse macro arguments as UCL object
+ * @param parser parser structure
+ * @param chunk the current data chunk
+ * @return
+ */
+static ucl_object_t *
+ucl_parse_macro_arguments (struct ucl_parser *parser,
+		struct ucl_chunk *chunk)
+{
+	ucl_object_t *res = NULL;
+	struct ucl_parser *params_parser;
+	int obraces = 1, ebraces = 0, state = 0;
+	const unsigned char *p, *c;
+	size_t args_len = 0;
+	struct ucl_parser_saved_state saved;
+
+	saved.column = chunk->column;
+	saved.line = chunk->line;
+	saved.pos = chunk->pos;
+	saved.remain = chunk->remain;
+	p = chunk->pos;
+
+	if (*p != '(' || chunk->remain < 2) {
+		return NULL;
+	}
+
+	/* Set begin and start */
+	ucl_chunk_skipc (chunk, p);
+	c = p;
+
+	while ((p) < (chunk)->end) {
+		switch (state) {
+		case 0:
+			/* Parse symbols and check for '(', ')' and '"' */
+			if (*p == '(') {
+				obraces ++;
+			}
+			else if (*p == ')') {
+				ebraces ++;
+			}
+			else if (*p == '"') {
+				state = 1;
+			}
+			/* Check pairing */
+			if (obraces == ebraces) {
+				state = 99;
+			}
+			else {
+				args_len ++;
+			}
+			/* Check overflow */
+			if (chunk->remain == 0) {
+				goto restore_chunk;
+			}
+			ucl_chunk_skipc (chunk, p);
+			break;
+		case 1:
+			/* We have quote character, so skip all but quotes */
+			if (*p == '"' && *(p - 1) != '\\') {
+				state = 0;
+			}
+			if (chunk->remain == 0) {
+				goto restore_chunk;
+			}
+      
+			ucl_chunk_skipc (chunk, p);
+			break;
+		case 99:
+			/*
+			 * We have read the full body of arguments, so we need to parse and set
+			 * object from that
+			 */
+			params_parser = ucl_parser_new (parser->flags);
+			if (!ucl_parser_add_chunk (params_parser, c, args_len)) {
+				ucl_set_err (parser, UCL_ESYNTAX, "macro arguments parsing error",
+						&parser->err);
+			}
+			else {
+				res = ucl_parser_get_object (params_parser);
+			}
+			ucl_parser_free (params_parser);
+
+			return res;
+
+			break;
+		}
+	}
+
+	return res;
+
+restore_chunk:
+	chunk->column = saved.column;
+	chunk->line = saved.line;
+	chunk->pos = saved.pos;
+	chunk->remain = saved.remain;
+
+	return NULL;
+}
+>>>
+
+The following was the errors outputted by a failed test case.
+
+<<< Test Failed Log:
+========================================
+   libucl 0.7.3: tests/test-suite.log
+========================================
+
+# TOTAL: 1
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
+FAIL: basic
+===========
+
+Files ../tests/basic.out and ../tests/basic/1.res are identical
+Files ../tests/basic.out and ../tests/basic/11.res are identical
+Files ../tests/basic.out and ../tests/basic/12.res are identical
+Test: ../tests/basic/13 failed, output:
+Error occurred: error while parsing <unknown>: line: 4, column: 36 - 'macro arguments parsing error', character: '0x20'
+FAIL basic.test (exit status: 1)
+
+
+>>>
+
+The following is the relevant code of that failed test case.
+
+<<< Test Code:
+#!/bin/sh
+
+PROG=${TEST_BINARY_DIR}/test_basic
+
+for _tin in ${TEST_DIR}/basic/*.in ; do
+	_t=`echo $_tin | sed -e 's/.in$//'`
+	_out=${TEST_OUT_DIR}/basic.out
+	$PROG $_t.in $_out
+	if [ $? -ne 0 ] ; then
+		echo "Test: $_t failed, output:"
+		cat $_out
+		rm $_out
+		exit 1
+	fi
+	if [ -f $_t.res ] ; then
+	diff -s $_out $_t.res -u 2>/dev/null
+		if [ $? -ne 0 ] ; then
+			rm $_out
+			echo "Test: $_t output missmatch"
+			exit 1
+		fi
+	fi
+	rm $_out
+done
+
+
+
+>>>
+
+You will only respond with your repaired function in a code snippet as below:
+```
+<Your repaired function>
+```

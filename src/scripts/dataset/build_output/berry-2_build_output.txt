@@ -1,0 +1,67 @@
+[berry] start building
+  Starting container
+    Image: hschoe/defects4cpp-ubuntu:berry
+[Clean...]
+done
+
+[Prebuild] generate resources
+[Compile] src/be_map.c
+[Compile] src/be_debuglib.c
+[Compile] src/be_filelib.c
+[Compile] src/be_module.c
+[Compile] src/be_maplib.c
+[Compile] src/be_introspectlib.c
+[Compile] src/be_object.c
+[Compile] src/be_gclib.c
+[Compile] src/be_gc.c
+[Compile] src/be_baselib.c
+src/be_baselib.c: In function 'l_int':
+src/be_baselib.c:237:28: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  237 |             be_pushint(vm, (int) be_tocomptr(vm, 1));
+      |                            ^
+[Compile] src/be_list.c
+[Compile] src/be_syslib.c
+[Compile] src/be_parser.c
+[Compile] src/be_debug.c
+[Compile] src/be_strlib.c
+[Compile] src/be_vm.c
+[Compile] src/be_vector.c
+[Compile] src/be_strictlib.c
+[Compile] src/be_timelib.c
+[Compile] src/be_var.c
+[Compile] src/be_solidifylib.c
+[Compile] src/be_listlib.c
+[Compile] src/be_bytecode.c
+[Compile] src/be_code.c
+src/be_code.c: In function 'code_not':
+src/be_code.c:572:33: warning: unused parameter 'finfo' [-Wunused-parameter]
+  572 | static void code_not(bfuncinfo *finfo, bexpdesc *e)
+      |                      ~~~~~~~~~~~^~~~~
+[Compile] src/be_rangelib.c
+[Compile] src/be_repl.c
+[Compile] src/be_mem.c
+[Compile] src/be_api.c
+[Compile] src/be_oslib.c
+[Compile] src/be_lexer.c
+[Compile] src/be_byteslib.c
+src/be_byteslib.c: In function 'buf_set_len':
+src/be_byteslib.c:249:54: warning: operand of ?: changes signedness from 'int32_t' {aka 'int'} to 'size_t' {aka 'const long unsigned int'} due to unsignedness of other operand [-Wsign-compare]
+  249 |     attr->len = ((int32_t)len <= attr->size) ? len : attr->size;
+      |                                                      ^~~~~~~~~~
+[Compile] src/be_mathlib.c
+[Compile] src/be_exec.c
+[Compile] src/be_libs.c
+[Compile] src/be_string.c
+[Compile] src/be_func.c
+[Compile] src/be_jsonlib.c
+[Compile] src/be_globallib.c
+[Compile] src/be_class.c
+[Compile] default/berry.c
+[Compile] default/be_port.c
+[Compile] default/be_modtab.c
+[Linking...]
+done
+
+  Closing container
+[berry] done
+Elapsed: 16.90s

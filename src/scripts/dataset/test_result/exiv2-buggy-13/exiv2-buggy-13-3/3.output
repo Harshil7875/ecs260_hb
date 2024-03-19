@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "./runner.py", line 48, in <module>
+    system_tests.configure_suite(conf_file)
+  File "/home/workspace/tests/system_tests.py", line 178, in configure_suite
+    rel=rel_path)
+ValueError: Path replacement for exiv2: /home/workspace/build/bin/exiv2 does not exist (was expanded from ../build/bin/exiv2)

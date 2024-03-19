@@ -1,0 +1,8 @@
+test_result: 
+libucl-1: 
+build_result: True
+test_cases_result:  
+pass_rate: 0.0
+pass_test_cases: []
+fail_test_cases: ['libucl-buggy-1-4']
+fail_test_cases_info: {'libucl-buggy-1-4': {'failing_info': "========================================\n   libucl 0.7.3: tests/test-suite.log\n========================================\n\n# TOTAL: 1\n# PASS:  0\n# SKIP:  0\n# XFAIL: 0\n# FAIL:  1\n# XPASS: 0\n# ERROR: 0\n\n.. contents:: :depth: 2\n\nFAIL: msgpack\n=============\n\nerror parsing input: too long or empty keytest_msgpack: test_msgpack.c:181: main: Assertion `0' failed.\nAborted\nFAIL msgpack.test (exit status: 134)\n\n", 'tc_code': 'if (!ucl_parser_add_chunk_full (parser, emitted, elen, 0,\n\t\t\t\tUCL_DUPLICATE_APPEND, UCL_PARSE_MSGPACK)) {\n\t\t\tfprintf (stderr, "error parsing input: %s",\n\t\t\t\t\tucl_parser_get_error (parser));\n\t\t\tassert (0);\n\t\t}'}}

@@ -1,0 +1,76 @@
+[cppcheck] start building
+  Starting container
+    Image: hschoe/defects4cpp-ubuntu:cppcheck
+-- ------------------ General configuration for Cppcheck 2.0.99 -----------------
+-- 
+-- CMake Generator =       Unix Makefiles
+-- Compiler =              GNU
+-- Compiler Version =      7.5.0
+-- Build type =            Debug
+-- CMAKE_INSTALL_PREFIX =  /usr/local
+-- C++ flags (General) =   
+-- C++ flags (Release) =   -O3 -DNDEBUG
+-- C++ flags (RelWithDebInfo) = -O2 -g -DNDEBUG
+-- C++ flags (Debug) =     -g
+-- Found Define: _GLIBCXX_DEBUG
+-- Found Define: FILESDIR="/usr/local/share/Cppcheck"
+-- 
+-- ---------------------------------------------------------
+-- ANALYZE_MEMORY =        OFF
+-- ANALYZE_ADDRESS =       OFF
+-- ANALYZE_THREAD =        OFF
+-- ANALYZE_UNDEFINED =     OFF
+-- ANALYZE_DATAFLOW =      OFF
+-- WARNINGS_ARE_ERRORS =   OFF
+-- 
+-- USE_MATCHCOMPILER =     Auto
+-- USE_MATCHCOMPILER_OPT = Off
+-- 
+-- BUILD_SHARED_LIBS =     OFF
+-- BUILD_TESTS =           ON
+-- ENABLE_CHECK_INTERNAL = OFF
+-- ENABLE_OSS_FUZZ =       ON
+-- 
+-- BUILD_GUI =             OFF
+-- WITH_QCHART =           OFF
+-- 
+-- HAVE_RULES =            OFF
+-- 
+-- USE_Z3 =                OFF
+-- 
+-- CLANG_TIDY=CLANG_TIDY-NOTFOUND
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/workspace/build
+
+
+[  1%] Building CXX object externals/tinyxml/CMakeFiles/tinyxml_objs.dir/tinyxml2.cpp.o
+[  1%] Built target tinyxml_objs
+[  2%] Building CXX object externals/simplecpp/CMakeFiles/simplecpp_objs.dir/simplecpp.cpp.o
+[  2%] Built target simplecpp_objs
+[  3%] Building CXX object lib/CMakeFiles/lib_objs.dir/analyzerinfo.cpp.o
+[  4%] Building CXX object lib/CMakeFiles/lib_objs.dir/astutils.cpp.o
+/home/workspace/lib/astutils.cpp:1567:13: error: 'LinkReferences' has not been declared
+ inline void LinkReferences::visit(Reference& ope) {
+             ^~~~~~~~~~~~~~
+/home/workspace/lib/astutils.cpp:1567:35: error: variable or field 'visit' declared void
+ inline void LinkReferences::visit(Reference& ope) {
+                                   ^~~~~~~~~
+/home/workspace/lib/astutils.cpp:1567:35: error: 'Reference' was not declared in this scope
+/home/workspace/lib/astutils.cpp:1567:46: error: 'ope' was not declared in this scope
+ inline void LinkReferences::visit(Reference& ope) {
+                                              ^~~
+/home/workspace/lib/astutils.cpp:1567:46: note: suggested alternative: 'Type'
+ inline void LinkReferences::visit(Reference& ope) {
+                                              ^~~
+                                              Type
+lib/CMakeFiles/lib_objs.dir/build.make:89: recipe for target 'lib/CMakeFiles/lib_objs.dir/astutils.cpp.o' failed
+make[2]: *** [lib/CMakeFiles/lib_objs.dir/astutils.cpp.o] Error 1
+CMakeFiles/Makefile2:354: recipe for target 'lib/CMakeFiles/lib_objs.dir/all' failed
+make[1]: *** [lib/CMakeFiles/lib_objs.dir/all] Error 2
+Makefile:145: recipe for target 'all' failed
+make: *** [all] Error 2
+
+  Closing container
+[cppcheck] done
+Elapsed: 16.95s

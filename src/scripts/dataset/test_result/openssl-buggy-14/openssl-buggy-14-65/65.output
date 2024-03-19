@@ -1,0 +1,996 @@
+make depend && make _tests
+make[1]: Entering directory '/home/workspace'
+make[1]: Leaving directory '/home/workspace'
+make[1]: Entering directory '/home/workspace'
+( SRCTOP=. \
+  BLDTOP=. \
+  PERL="/usr/bin/perl" \
+  FIPSKEY="f4556650ac31d35461610bac4ed81b1a181b2d8a43ea2854cbae22ca74560813" \
+  EXE_EXT= \
+  /usr/bin/perl ./test/run_tests.pl test_ecdsa )
+
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp112r1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 1 - iteration 1
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp112r2 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 2 - iteration 2
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp128r1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 3 - iteration 3
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp128r2 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 4 - iteration 4
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp160k1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 5 - iteration 5
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp160r1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 6 - iteration 6
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp160r2 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 7 - iteration 7
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp192k1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 8 - iteration 8
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp224k1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 9 - iteration 9
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp224r1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 10 - iteration 10
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp256k1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 11 - iteration 11
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp384r1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 12 - iteration 12
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp521r1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 13 - iteration 13
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve prime192v1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 14 - iteration 14
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve prime192v2 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 15 - iteration 15
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve prime192v3 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 16 - iteration 16
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve prime239v1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 17 - iteration 17
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve prime239v2 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 18 - iteration 18
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve prime239v3 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 19 - iteration 19
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve prime256v1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 20 - iteration 20
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect113r1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 21 - iteration 21
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect113r2 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 22 - iteration 22
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect131r1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 23 - iteration 23
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect131r2 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 24 - iteration 24
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect163k1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 25 - iteration 25
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect163r1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 26 - iteration 26
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect163r2 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 27 - iteration 27
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect193r1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 28 - iteration 28
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect193r2 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 29 - iteration 29
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect233k1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 30 - iteration 30
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect233r1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 31 - iteration 31
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect239k1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 32 - iteration 32
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect283k1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 33 - iteration 33
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect283r1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 34 - iteration 34
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect409k1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 35 - iteration 35
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect409r1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 36 - iteration 36
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect571k1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 37 - iteration 37
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect571r1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 38 - iteration 38
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2pnb163v1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 39 - iteration 39
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2pnb163v2 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 40 - iteration 40
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2pnb163v3 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 41 - iteration 41
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2pnb176v1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 42 - iteration 42
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2tnb191v1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 43 - iteration 43
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2tnb191v2 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 44 - iteration 44
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2tnb191v3 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 45 - iteration 45
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2pnb208w1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 46 - iteration 46
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2tnb239v1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 47 - iteration 47
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2tnb239v2 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 48 - iteration 48
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2tnb239v3 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 49 - iteration 49
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2pnb272w1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 50 - iteration 50
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2pnb304w1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 51 - iteration 51
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2tnb359v1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 52 - iteration 52
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2pnb368w1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 53 - iteration 53
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2tnb431r1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 54 - iteration 54
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve wap-wsg-idm-ecid-wtls1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 55 - iteration 55
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve wap-wsg-idm-ecid-wtls3 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 56 - iteration 56
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve wap-wsg-idm-ecid-wtls4 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 57 - iteration 57
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve wap-wsg-idm-ecid-wtls5 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 58 - iteration 58
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve wap-wsg-idm-ecid-wtls6 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 59 - iteration 59
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve wap-wsg-idm-ecid-wtls7 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 60 - iteration 60
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve wap-wsg-idm-ecid-wtls8 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 61 - iteration 61
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve wap-wsg-idm-ecid-wtls9 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 62 - iteration 62
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve wap-wsg-idm-ecid-wtls10 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 63 - iteration 63
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve wap-wsg-idm-ecid-wtls11 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 64 - iteration 64
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve wap-wsg-idm-ecid-wtls12 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 65 - iteration 65
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP160r1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 68 - iteration 68
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP160t1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 69 - iteration 69
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP192r1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 70 - iteration 70
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP192t1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 71 - iteration 71
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP224r1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 72 - iteration 72
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP224t1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 73 - iteration 73
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP256r1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 74 - iteration 74
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP256t1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 75 - iteration 75
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP320r1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 76 - iteration 76
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP320t1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 77 - iteration 77
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP384r1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 78 - iteration 78
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP384t1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 79 - iteration 79
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP512r1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 80 - iteration 80
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP512t1 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 81 - iteration 81
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve SM2 as EC key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 82 - iteration 82
+# ------------------------------------------------------------------------------
+    not ok 1 - test_builtin_as_ec
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp112r1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 1 - iteration 1
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp112r2 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 2 - iteration 2
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp128r1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 3 - iteration 3
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp128r2 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 4 - iteration 4
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp160k1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 5 - iteration 5
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp160r1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 6 - iteration 6
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp160r2 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 7 - iteration 7
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp192k1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 8 - iteration 8
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp224k1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 9 - iteration 9
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp224r1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 10 - iteration 10
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp256k1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 11 - iteration 11
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp384r1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 12 - iteration 12
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve secp521r1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 13 - iteration 13
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve prime192v1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 14 - iteration 14
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve prime192v2 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 15 - iteration 15
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve prime192v3 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 16 - iteration 16
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve prime239v1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 17 - iteration 17
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve prime239v2 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 18 - iteration 18
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve prime239v3 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 19 - iteration 19
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve prime256v1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 20 - iteration 20
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect113r1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 21 - iteration 21
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect113r2 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 22 - iteration 22
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect131r1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 23 - iteration 23
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect131r2 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 24 - iteration 24
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect163k1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 25 - iteration 25
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect163r1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 26 - iteration 26
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect163r2 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 27 - iteration 27
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect193r1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 28 - iteration 28
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect193r2 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 29 - iteration 29
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect233k1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 30 - iteration 30
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect233r1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 31 - iteration 31
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect239k1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 32 - iteration 32
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect283k1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 33 - iteration 33
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect283r1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 34 - iteration 34
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect409k1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 35 - iteration 35
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect409r1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 36 - iteration 36
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect571k1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 37 - iteration 37
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve sect571r1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 38 - iteration 38
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2pnb163v1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 39 - iteration 39
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2pnb163v2 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 40 - iteration 40
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2pnb163v3 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 41 - iteration 41
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2pnb176v1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 42 - iteration 42
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2tnb191v1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 43 - iteration 43
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2tnb191v2 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 44 - iteration 44
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2tnb191v3 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 45 - iteration 45
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2pnb208w1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 46 - iteration 46
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2tnb239v1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 47 - iteration 47
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2tnb239v2 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 48 - iteration 48
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2tnb239v3 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 49 - iteration 49
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2pnb272w1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 50 - iteration 50
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2pnb304w1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 51 - iteration 51
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2tnb359v1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 52 - iteration 52
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2pnb368w1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 53 - iteration 53
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve c2tnb431r1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 54 - iteration 54
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve wap-wsg-idm-ecid-wtls1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 55 - iteration 55
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve wap-wsg-idm-ecid-wtls3 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 56 - iteration 56
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve wap-wsg-idm-ecid-wtls4 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 57 - iteration 57
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve wap-wsg-idm-ecid-wtls5 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 58 - iteration 58
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve wap-wsg-idm-ecid-wtls6 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 59 - iteration 59
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve wap-wsg-idm-ecid-wtls7 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 60 - iteration 60
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve wap-wsg-idm-ecid-wtls8 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 61 - iteration 61
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve wap-wsg-idm-ecid-wtls9 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 62 - iteration 62
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve wap-wsg-idm-ecid-wtls10 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 63 - iteration 63
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve wap-wsg-idm-ecid-wtls11 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 64 - iteration 64
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve wap-wsg-idm-ecid-wtls12 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 65 - iteration 65
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP160r1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 68 - iteration 68
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP160t1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 69 - iteration 69
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP192r1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 70 - iteration 70
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP192t1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 71 - iteration 71
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP224r1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 72 - iteration 72
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP224t1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 73 - iteration 73
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP256r1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 74 - iteration 74
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP256t1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 75 - iteration 75
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP320r1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 76 - iteration 76
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP320t1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 77 - iteration 77
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP384r1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 78 - iteration 78
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP384t1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 79 - iteration 79
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP512r1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 80 - iteration 80
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve brainpoolP512t1 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 81 - iteration 81
+# ------------------------------------------------------------------------------
+        # INFO:  @ test/ecdsatest.c:241
+        # testing ECDSA for curve SM2 as SM2 key type
+        # ERROR: (bool) 'EVP_PKEY_assign_EC_KEY(pkey_neg, NULL) == false' failed @ test/ecdsatest.c:255
+        # true
+        not ok 82 - iteration 82
+# ------------------------------------------------------------------------------
+    not ok 2 - test_builtin_as_sm2
+# ------------------------------------------------------------------------------
+../../util/wrap.pl ../../test/ecdsatest => 1
+not ok 1 - running ecdsatest
+# ------------------------------------------------------------------------------
+#   Failed test 'running ecdsatest'
+#   at /home/workspace/util/perl/OpenSSL/Test/Simple.pm line 77.
+# Looks like you failed 1 test of 1.15-test_ecdsa.t .. 
+Dubious, test returned 1 (wstat 256, 0x100)
+Failed 1/1 subtests 
+
+Test Summary Report
+-------------------
+15-test_ecdsa.t (Wstat: 256 Tests: 1 Failed: 1)
+  Failed test:  1
+  Non-zero exit status: 1
+Files=1, Tests=1,  2 wallclock secs ( 0.14 usr  0.01 sys +  2.42 cusr  0.05 csys =  2.62 CPU)
+Result: FAIL
+Makefile:3197: recipe for target '_tests' failed
+make[1]: *** [_tests] Error 1
+make[1]: Leaving directory '/home/workspace'
+Makefile:3195: recipe for target 'tests' failed
+make: *** [tests] Error 2

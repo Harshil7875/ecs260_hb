@@ -1,0 +1,254 @@
+[libucl] start building
+  Starting container
+    Image: hschoe/defects4cpp-ubuntu:libucl
+
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports the include directive... yes (GNU style)
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking dependency style of gcc... gcc3
+checking for gcc option to accept ISO C99... none needed
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for an ANSI C-conforming const... yes
+checking for size_t... yes
+checking for fcntl.h... yes
+checking for unistd.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for sys/param.h... yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for sys/mman.h... yes
+checking for stddef.h... yes
+checking for stdarg.h... yes
+checking for stdbool.h... yes
+checking for stdint.h... (cached) yes
+checking for string.h... (cached) yes
+checking for ctype.h... yes
+checking for errno.h... yes
+checking for limits.h... yes
+checking for libgen.h... yes
+checking for stdio.h... yes
+checking for float.h... yes
+checking for math.h... yes
+checking for off_t... yes
+checking for getpagesize... yes
+checking for working mmap... yes
+checking for pandoc... /non/existent
+checking for library containing clock_gettime... none required
+checking for library containing remainder... -lm
+checking for regex.h... yes
+checking for library containing regexec... none required
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for GCC atomic builtins... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating tests/Makefile
+config.status: creating utils/Makefile
+config.status: creating doc/Makefile
+config.status: creating libucl.pc
+config.status: creating stamp-h
+config.status: creating config.h
+config.status: config.h is unchanged
+config.status: executing depfiles commands
+config.status: executing libtool commands
+
+Making clean in src
+make[1]: Entering directory '/home/workspace/src'
+test -z "libucl.la" || rm -f libucl.la
+rm -f ./so_locations
+rm -rf .libs _libs
+rm -f *.o
+rm -f *.lo
+make[1]: Leaving directory '/home/workspace/src'
+Making clean in tests
+make[1]: Entering directory '/home/workspace/tests'
+ rm -f test_basic test_speed test_generate test_schema test_streamline
+rm -rf .libs _libs
+rm -f *.o
+test -z "basic.log generate.log schema.log speed.log streamline.log" || rm -f basic.log generate.log schema.log speed.log streamline.log
+test -z "basic.trs generate.trs schema.trs speed.trs streamline.trs" || rm -f basic.trs generate.trs schema.trs speed.trs streamline.trs
+test -z "test-suite.log" || rm -f test-suite.log
+rm -f *.lo
+make[1]: Leaving directory '/home/workspace/tests'
+Making clean in utils
+make[1]: Entering directory '/home/workspace/utils'
+rm -rf .libs _libs
+rm -f *.o
+rm -f *.lo
+make[1]: Leaving directory '/home/workspace/utils'
+Making clean in doc
+make[1]: Entering directory '/home/workspace/doc'
+rm -rf .libs _libs
+rm -f *.lo
+make[1]: Leaving directory '/home/workspace/doc'
+make[1]: Entering directory '/home/workspace'
+rm -rf .libs _libs
+rm -f *.lo
+make[1]: Leaving directory '/home/workspace'
+
+make  all-recursive
+make[1]: Entering directory '/home/workspace'
+Making all in src
+make[2]: Entering directory '/home/workspace/src'
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..    -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign  -g -O2 -MT libucl_la-ucl_emitter.lo -MD -MP -MF .deps/libucl_la-ucl_emitter.Tpo -c -o libucl_la-ucl_emitter.lo `test -f 'ucl_emitter.c' || echo './'`ucl_emitter.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign -g -O2 -MT libucl_la-ucl_emitter.lo -MD -MP -MF .deps/libucl_la-ucl_emitter.Tpo -c ucl_emitter.c  -fPIC -DPIC -o .libs/libucl_la-ucl_emitter.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign -g -O2 -MT libucl_la-ucl_emitter.lo -MD -MP -MF .deps/libucl_la-ucl_emitter.Tpo -c ucl_emitter.c -o libucl_la-ucl_emitter.o >/dev/null 2>&1
+mv -f .deps/libucl_la-ucl_emitter.Tpo .deps/libucl_la-ucl_emitter.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..    -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign  -g -O2 -MT libucl_la-ucl_emitter_streamline.lo -MD -MP -MF .deps/libucl_la-ucl_emitter_streamline.Tpo -c -o libucl_la-ucl_emitter_streamline.lo `test -f 'ucl_emitter_streamline.c' || echo './'`ucl_emitter_streamline.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign -g -O2 -MT libucl_la-ucl_emitter_streamline.lo -MD -MP -MF .deps/libucl_la-ucl_emitter_streamline.Tpo -c ucl_emitter_streamline.c  -fPIC -DPIC -o .libs/libucl_la-ucl_emitter_streamline.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign -g -O2 -MT libucl_la-ucl_emitter_streamline.lo -MD -MP -MF .deps/libucl_la-ucl_emitter_streamline.Tpo -c ucl_emitter_streamline.c -o libucl_la-ucl_emitter_streamline.o >/dev/null 2>&1
+mv -f .deps/libucl_la-ucl_emitter_streamline.Tpo .deps/libucl_la-ucl_emitter_streamline.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..    -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign  -g -O2 -MT libucl_la-ucl_emitter_utils.lo -MD -MP -MF .deps/libucl_la-ucl_emitter_utils.Tpo -c -o libucl_la-ucl_emitter_utils.lo `test -f 'ucl_emitter_utils.c' || echo './'`ucl_emitter_utils.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign -g -O2 -MT libucl_la-ucl_emitter_utils.lo -MD -MP -MF .deps/libucl_la-ucl_emitter_utils.Tpo -c ucl_emitter_utils.c  -fPIC -DPIC -o .libs/libucl_la-ucl_emitter_utils.o
+ucl_emitter_utils.c: In function 'ucl_fd_append_len':
+ucl_emitter_utils.c:295:2: warning: ignoring return value of 'write', declared with attribute warn_unused_result [-Wunused-result]
+  295 |  write (fd, str, len);
+      |  ^~~~~~~~~~~~~~~~~~~~
+ucl_emitter_utils.c: In function 'ucl_fd_append_int':
+ucl_emitter_utils.c:307:2: warning: ignoring return value of 'write', declared with attribute warn_unused_result [-Wunused-result]
+  307 |  write (fd, intbuf, strlen (intbuf));
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ucl_emitter_utils.c: In function 'ucl_fd_append_double':
+ucl_emitter_utils.c:330:2: warning: ignoring return value of 'write', declared with attribute warn_unused_result [-Wunused-result]
+  330 |  write (fd, nbuf, strlen (nbuf));
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ucl_emitter_utils.c: In function 'ucl_fd_append_character':
+ucl_emitter_utils.c:270:3: warning: ignoring return value of 'write', declared with attribute warn_unused_result [-Wunused-result]
+  270 |   write (fd, &c, 1);
+      |   ^~~~~~~~~~~~~~~~~
+ucl_emitter_utils.c:277:5: warning: ignoring return value of 'write', declared with attribute warn_unused_result [-Wunused-result]
+  277 |     write (fd, &c, 1);
+      |     ^~~~~~~~~~~~~~~~~
+ucl_emitter_utils.c:282:4: warning: ignoring return value of 'write', declared with attribute warn_unused_result [-Wunused-result]
+  282 |    write (fd, buf, len);
+      |    ^~~~~~~~~~~~~~~~~~~~
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign -g -O2 -MT libucl_la-ucl_emitter_utils.lo -MD -MP -MF .deps/libucl_la-ucl_emitter_utils.Tpo -c ucl_emitter_utils.c -o libucl_la-ucl_emitter_utils.o >/dev/null 2>&1
+mv -f .deps/libucl_la-ucl_emitter_utils.Tpo .deps/libucl_la-ucl_emitter_utils.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..    -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign  -g -O2 -MT libucl_la-ucl_hash.lo -MD -MP -MF .deps/libucl_la-ucl_hash.Tpo -c -o libucl_la-ucl_hash.lo `test -f 'ucl_hash.c' || echo './'`ucl_hash.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign -g -O2 -MT libucl_la-ucl_hash.lo -MD -MP -MF .deps/libucl_la-ucl_hash.Tpo -c ucl_hash.c  -fPIC -DPIC -o .libs/libucl_la-ucl_hash.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign -g -O2 -MT libucl_la-ucl_hash.lo -MD -MP -MF .deps/libucl_la-ucl_hash.Tpo -c ucl_hash.c -o libucl_la-ucl_hash.o >/dev/null 2>&1
+mv -f .deps/libucl_la-ucl_hash.Tpo .deps/libucl_la-ucl_hash.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..    -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign  -g -O2 -MT libucl_la-ucl_parser.lo -MD -MP -MF .deps/libucl_la-ucl_parser.Tpo -c -o libucl_la-ucl_parser.lo `test -f 'ucl_parser.c' || echo './'`ucl_parser.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign -g -O2 -MT libucl_la-ucl_parser.lo -MD -MP -MF .deps/libucl_la-ucl_parser.Tpo -c ucl_parser.c  -fPIC -DPIC -o .libs/libucl_la-ucl_parser.o
+ucl_parser.c: In function 'ucl_parse_value':
+ucl_parser.c:1365:7: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1365 |    if (chunk->end - p > 3) {
+      |       ^
+ucl_parser.c:1396:3: note: here
+ 1396 |   default:
+      |   ^~~~~~~
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign -g -O2 -MT libucl_la-ucl_parser.lo -MD -MP -MF .deps/libucl_la-ucl_parser.Tpo -c ucl_parser.c -o libucl_la-ucl_parser.o >/dev/null 2>&1
+mv -f .deps/libucl_la-ucl_parser.Tpo .deps/libucl_la-ucl_parser.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..    -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign  -g -O2 -MT libucl_la-ucl_schema.lo -MD -MP -MF .deps/libucl_la-ucl_schema.Tpo -c -o libucl_la-ucl_schema.lo `test -f 'ucl_schema.c' || echo './'`ucl_schema.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign -g -O2 -MT libucl_la-ucl_schema.lo -MD -MP -MF .deps/libucl_la-ucl_schema.Tpo -c ucl_schema.c  -fPIC -DPIC -o .libs/libucl_la-ucl_schema.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign -g -O2 -MT libucl_la-ucl_schema.lo -MD -MP -MF .deps/libucl_la-ucl_schema.Tpo -c ucl_schema.c -o libucl_la-ucl_schema.o >/dev/null 2>&1
+mv -f .deps/libucl_la-ucl_schema.Tpo .deps/libucl_la-ucl_schema.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..    -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign  -g -O2 -MT libucl_la-ucl_util.lo -MD -MP -MF .deps/libucl_la-ucl_util.Tpo -c -o libucl_la-ucl_util.lo `test -f 'ucl_util.c' || echo './'`ucl_util.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign -g -O2 -MT libucl_la-ucl_util.lo -MD -MP -MF .deps/libucl_la-ucl_util.Tpo -c ucl_util.c  -fPIC -DPIC -o .libs/libucl_la-ucl_util.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign -g -O2 -MT libucl_la-ucl_util.lo -MD -MP -MF .deps/libucl_la-ucl_util.Tpo -c ucl_util.c -o libucl_la-ucl_util.o >/dev/null 2>&1
+mv -f .deps/libucl_la-ucl_util.Tpo .deps/libucl_la-ucl_util.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..    -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign  -g -O2 -MT libucl_la-xxhash.lo -MD -MP -MF .deps/libucl_la-xxhash.Tpo -c -o libucl_la-xxhash.lo `test -f 'xxhash.c' || echo './'`xxhash.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign -g -O2 -MT libucl_la-xxhash.lo -MD -MP -MF .deps/libucl_la-xxhash.Tpo -c xxhash.c  -fPIC -DPIC -o .libs/libucl_la-xxhash.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign -g -O2 -MT libucl_la-xxhash.lo -MD -MP -MF .deps/libucl_la-xxhash.Tpo -c xxhash.c -o libucl_la-xxhash.o >/dev/null 2>&1
+mv -f .deps/libucl_la-xxhash.Tpo .deps/libucl_la-xxhash.Plo
+/bin/bash ../libtool  --tag=CC   --mode=link gcc -I../src -I../include -I../uthash -Wall -W -Wno-unused-parameter -Wno-pointer-sign  -g -O2 -version-info 2:0:0  -o libucl.la -rpath /usr/local/lib libucl_la-ucl_emitter.lo libucl_la-ucl_emitter_streamline.lo libucl_la-ucl_emitter_utils.lo libucl_la-ucl_hash.lo libucl_la-ucl_parser.lo libucl_la-ucl_schema.lo libucl_la-ucl_util.lo libucl_la-xxhash.lo  -lm 
+libtool: link: gcc -shared  -fPIC -DPIC  .libs/libucl_la-ucl_emitter.o .libs/libucl_la-ucl_emitter_streamline.o .libs/libucl_la-ucl_emitter_utils.o .libs/libucl_la-ucl_hash.o .libs/libucl_la-ucl_parser.o .libs/libucl_la-ucl_schema.o .libs/libucl_la-ucl_util.o .libs/libucl_la-xxhash.o   -lm  -g -O2   -Wl,-soname -Wl,libucl.so.2 -o .libs/libucl.so.2.0.0
+libtool: link: (cd ".libs" && rm -f "libucl.so.2" && ln -s "libucl.so.2.0.0" "libucl.so.2")
+libtool: link: (cd ".libs" && rm -f "libucl.so" && ln -s "libucl.so.2.0.0" "libucl.so")
+libtool: link: ar cr .libs/libucl.a  libucl_la-ucl_emitter.o libucl_la-ucl_emitter_streamline.o libucl_la-ucl_emitter_utils.o libucl_la-ucl_hash.o libucl_la-ucl_parser.o libucl_la-ucl_schema.o libucl_la-ucl_util.o libucl_la-xxhash.o
+libtool: link: ranlib .libs/libucl.a
+libtool: link: ( cd ".libs" && rm -f "libucl.la" && ln -s "../libucl.la" "libucl.la" )
+make[2]: Leaving directory '/home/workspace/src'
+Making all in tests
+make[2]: Entering directory '/home/workspace/tests'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/workspace/tests'
+Making all in utils
+make[2]: Entering directory '/home/workspace/utils'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/workspace/utils'
+Making all in doc
+make[2]: Entering directory '/home/workspace/doc'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/workspace/doc'
+make[2]: Entering directory '/home/workspace'
+make[2]: Leaving directory '/home/workspace'
+make[1]: Leaving directory '/home/workspace'
+
+  Closing container
+[libucl] done
+Elapsed: 24.85s

@@ -1,0 +1,27 @@
+Repaired function:
+void dpp_sighandler(int signum) {
+	__gcov_flush();
+	struct sigaction act;
+	sigaction(signum, NULL, &act);
+	raise(signum);
+	exit(1);
+}
+
+JSON response:
+```json
+{
+  "error": [
+    {
+      "line_number": 3,
+      "error_type": "Incorrect function argument",
+      "explanation": "The function sigaction requires a struct sigaction argument, not an int"
+    },
+    {
+      "line_number": 4,
+      "error_type": "Unused variable",
+      "explanation": "The variable dpp_orig_sigaction is declared but not used in the function"
+    }
+  ],
+  "confidence": 90
+}
+```

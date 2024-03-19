@@ -1,0 +1,4 @@
+assert_failed: assert failed!
+stack traceback:
+	<native>: in native function
+	tests/bitwise.be:13: in function `main`

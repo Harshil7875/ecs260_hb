@@ -1,0 +1,23 @@
+Note: Google Test filter = NodeEmitterTest.*
+[==========] Running 7 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 7 tests from NodeEmitterTest
+[ RUN      ] NodeEmitterTest.SimpleFlowSeqNode
+[       OK ] NodeEmitterTest.SimpleFlowSeqNode (1 ms)
+[ RUN      ] NodeEmitterTest.NestFlowSeqNode
+[       OK ] NodeEmitterTest.NestFlowSeqNode (0 ms)
+[ RUN      ] NodeEmitterTest.MixBlockFlowSeqNode
+[       OK ] NodeEmitterTest.MixBlockFlowSeqNode (0 ms)
+[ RUN      ] NodeEmitterTest.NestBlockFlowMapListNode
+[       OK ] NodeEmitterTest.NestBlockFlowMapListNode (0 ms)
+[ RUN      ] NodeEmitterTest.NestBlockMixMapListNode
+[       OK ] NodeEmitterTest.NestBlockMixMapListNode (0 ms)
+[ RUN      ] NodeEmitterTest.NestBlockMapListNode
+[       OK ] NodeEmitterTest.NestBlockMapListNode (0 ms)
+[ RUN      ] NodeEmitterTest.NestFlowMapListNode
+[       OK ] NodeEmitterTest.NestFlowMapListNode (1 ms)
+[----------] 7 tests from NodeEmitterTest (2 ms total)
+
+[----------] Global test environment tear-down
+[==========] 7 tests from 1 test suite ran. (2 ms total)
+[  PASSED  ] 7 tests.

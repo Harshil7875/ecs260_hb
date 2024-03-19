@@ -1,0 +1,8 @@
+test_result: 
+cpp_peglib-4: 
+build_result: True
+test_cases_result:  
+pass_rate: 0.0
+pass_test_cases: []
+fail_test_cases: ['cpp_peglib-buggy-4-74']
+fail_test_cases_info: {'cpp_peglib-buggy-4-74': {'failing_info': '\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\ntest-main is a Catch v2.2.2 host application.\nRun with -? for options\n\n-------------------------------------------------------------------------------\nMacro rule-parameter collision\n-------------------------------------------------------------------------------\n/home/workspace/test/test.cc:1456\n...............................................................................\n\n/home/workspace/test/test.cc:1465: FAILED:\n  REQUIRE( parser.parse("c") )\nwith expansion:\n  false\n\n===============================================================================\ntest cases: 1 | 1 failed\nassertions: 1 | 1 failed', 'tc_code': 'TEST_CASE("Macro rule-parameter collision", "[macro]")\n{\n    parser parser(R"(\n        A    <- B(C)\n        B(D) <- D\n        C    <- \'c\'\n        D    <- \'d\'\n\t)");\n\n    REQUIRE(parser.parse("c"));\n}'}}

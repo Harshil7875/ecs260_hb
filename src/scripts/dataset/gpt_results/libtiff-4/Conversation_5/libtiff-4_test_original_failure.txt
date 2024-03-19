@@ -1,0 +1,8 @@
+test_result: 
+libtiff-4: 
+build_result: True
+test_cases_result:  
+pass_rate: 0.0
+pass_test_cases: []
+fail_test_cases: ['libtiff-buggy-4-82']
+fail_test_cases_info: {'libtiff-buggy-4-82': {'failing_info': 'TIFFReadDirectoryCheckOrder: Warning, Invalid TIFF directory; tags are not sorted in ascending order.\nTIFFReadDirectory: Warning, Unknown field with tag 65535 (0xffff) encountered.\n.dpp/00123-libtiff-fpe-JPEGSetupEncode: Warning, Nonstandard tile width 3, convert file.\nTIFFFetchNormalTag: Warning, IO error during reading of "DocumentName"; tag ignored.\nTIFFFetchNormalTag: Warning, Incorrect count for "XResolution"; tag ignored.\nTIFFFetchNormalTag: Warning, Incorrect count for "YResolution"; tag ignored.\nTIFFFetchNormalTag: Warning, IO error during reading of "Software"; tag ignored.\nTIFFFillTile: 0: Invalid tile byte count, tile 1.\nJPEGLib: Not a JPEG file: starts with 0x49 0x49.\nTIFFFillTile: 0: Invalid tile byte count, tile 3.\nTIFFFillTile: 0: Invalid tile byte count, tile 4.\nTIFFFillTile: 0: Invalid tile byte count, tile 5.\nTIFFFillTile: 0: Invalid tile byte count, tile 6.\nJPEGLib: Not a JPEG file: starts with 0x49 0x49.\nTIFFFillTile: 0: Invalid tile byte count, tile 9.\nTIFFFillTile: 0: Invalid tile byte count, tile 10.\nTIFFFillTile: 0: Invalid tile byte count, tile 11.\nJPEGLib: Not a JPEG file: starts with 0x49 0x49.\nbash: line 1:    19 Floating point exceptiontools/tiffcp -i .dpp/00123-libtiff-fpe-JPEGSetupEncode /tmp/foo\n', 'tc_code': ''}}

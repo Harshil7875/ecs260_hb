@@ -1,0 +1,24 @@
+Repaired function:
+```c
+void dpp_sighandler(int signum) {
+    __gcov_flush();
+    struct sigaction sa;
+    sigaction(signum, &dpp_orig_sigaction, &sa);
+    raise(signum);
+    exit(1);
+}
+```
+
+JSON response:
+```json
+{
+  "error": [
+    {
+      "line_number": 3,
+      "error_type": "Syntax Error",
+      "explanation": "The second argument of sigaction should be a pointer to a struct sigaction, not the function itself"
+    }
+  ],
+  "confidence": 90
+}
+```

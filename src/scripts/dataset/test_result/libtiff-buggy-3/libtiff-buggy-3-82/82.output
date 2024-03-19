@@ -1,0 +1,2 @@
+TIFFScanlineSize64: Invalid YCbCr subsampling.
+bash: line 1:    19 Floating point exception(core dumped) tools/rgb2ycbcr -c zip -r 0 -v 4 -h 0 test/images/logluv-3c-16b.tiff /tmp/temp.tif

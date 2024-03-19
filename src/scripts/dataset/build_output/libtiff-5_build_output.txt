@@ -1,0 +1,2634 @@
+[libtiff] start building
+  Starting container
+    Image: hschoe/defects4cpp-ubuntu:libtiff
++ libtoolize --force --copy
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'config'.
+libtoolize: copying file 'config/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
++ aclocal -I ./m4
++ autoheader
++ automake --foreign --add-missing --copy
+configure.ac:106: installing 'config/compile'
+configure.ac:36: installing 'config/missing'
+contrib/addtiffo/Makefile.am: installing 'config/depcomp'
++ autoconf
+
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking how to create a pax tar archive... gnutar
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of gcc... gcc3
+checking for C compiler warning flags... -Wall -W
+checking whether ln -s works... yes
+checking for cmake... /usr/bin/cmake
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-unknown-linux-gnu file names to x86_64-unknown-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking dependency style of g++... gcc3
+checking how to run the C++ preprocessor... g++ -E
+checking for ld used by g++... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking for g++ option to produce PIC... -fPIC -DPIC
+checking if g++ PIC flag -fPIC -DPIC works... yes
+checking if g++ static flag -static works... yes
+checking if g++ supports -c -o file.o... yes
+checking if g++ supports -c -o file.o... (cached) yes
+checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether make supports nested variables... (cached) yes
+checking for sin in -lm... yes
+checking assert.h usability... yes
+checking assert.h presence... yes
+checking for assert.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking io.h usability... no
+checking io.h presence... no
+checking for io.h... no
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking search.h usability... yes
+checking search.h presence... yes
+checking for search.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for unistd.h... (cached) yes
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking whether byte ordering is bigendian... no
+checking for off_t... yes
+checking for size_t... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking for _LARGEFILE_SOURCE value needed for large files... no
+checking whether optarg is declared... yes
+checking size of signed short... 2
+checking size of unsigned short... 2
+checking size of signed int... 4
+checking size of unsigned int... 4
+checking size of signed long... 8
+checking size of unsigned long... 8
+checking size of signed long long... 8
+checking size of unsigned long long... 8
+checking size of unsigned char *... 8
+checking size of size_t... 8
+checking for signed 8-bit type... signed char
+checking for unsigned 8-bit type... unsigned char
+checking for signed 16-bit type... signed short
+checking for unsigned 16-bit type... unsigned short
+checking for signed 32-bit type... signed int
+checking for unsigned 32-bit type... unsigned int
+checking for signed 64-bit type... signed long
+checking for unsigned 64-bit type... unsigned long
+checking for 'size_t' format specifier... "%lu"
+checking for signed size type... signed long
+checking for ptrdiff_t... yes
+checking for pointer difference type... ptrdiff_t
+checking for int8... no
+checking for int16... no
+checking for int32... no
+checking for floor... yes
+checking for isascii... yes
+checking for memmove... yes
+checking for memset... yes
+checking for mmap... yes
+checking for pow... yes
+checking for setmode... no
+checking for snprintf... yes
+checking for sqrt... yes
+checking for strchr... yes
+checking for strrchr... yes
+checking for strstr... yes
+checking for strtol... yes
+checking for strtoul... yes
+checking for strtoull... yes
+checking for getopt... yes
+checking for snprintf... (cached) yes
+checking for strcasecmp... yes
+checking for strtoul... (cached) yes
+checking for strtoull... (cached) yes
+checking for lfind... yes
+checking native cpu bit order... lsb2msb
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for inflateEnd in -lz... no
+checking zlib.h usability... no
+checking zlib.h presence... no
+checking for zlib.h... no
+checking for jpeg_read_scanlines in -ljpeg... yes
+checking jpeglib.h usability... yes
+checking jpeglib.h presence... yes
+checking for jpeglib.h... yes
+checking for jbg_dec_init in -ljbig... no
+checking jbig.h usability... no
+checking jbig.h presence... no
+checking for jbig.h... no
+checking for lzma_code in -llzma... no
+checking lzma.h usability... no
+checking lzma.h presence... no
+checking for lzma.h... no
+checking for X... no
+checking for the pthreads library -lpthreads... no
+checking whether pthreads work without any flags... no
+checking whether pthreads work with -Kthread... no
+checking whether pthreads work with -kthread... no
+checking for the pthreads library -llthread... no
+checking whether pthreads work with -pthread... yes
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking if more special flags are required for pthreads... no
+checking whether we are using the Microsoft C compiler... no
+checking GL/gl.h usability... no
+checking GL/gl.h presence... no
+checking for GL/gl.h... no
+checking OpenGL/gl.h usability... no
+checking OpenGL/gl.h presence... no
+checking for OpenGL/gl.h... no
+checking windows.h usability... no
+checking windows.h presence... no
+checking for windows.h... no
+checking for OpenGL library... no
+checking GL/glu.h usability... no
+checking GL/glu.h presence... no
+checking for GL/glu.h... no
+checking OpenGL/glu.h usability... no
+checking OpenGL/glu.h presence... no
+checking for OpenGL/glu.h... no
+checking for OpenGL Utility library... no
+checking GL/glut.h usability... no
+checking GL/glut.h presence... no
+checking for GL/glut.h... no
+checking GLUT/glut.h usability... no
+checking GLUT/glut.h presence... no
+checking for GLUT/glut.h... no
+checking for GLUT library... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating build/Makefile
+config.status: creating contrib/Makefile
+config.status: creating contrib/addtiffo/Makefile
+config.status: creating contrib/dbs/Makefile
+config.status: creating contrib/dbs/xtiff/Makefile
+config.status: creating contrib/iptcutil/Makefile
+config.status: creating contrib/mfs/Makefile
+config.status: creating contrib/pds/Makefile
+config.status: creating contrib/ras/Makefile
+config.status: creating contrib/stream/Makefile
+config.status: creating contrib/tags/Makefile
+config.status: creating contrib/win_dib/Makefile
+config.status: creating html/Makefile
+config.status: creating html/images/Makefile
+config.status: creating html/man/Makefile
+config.status: creating libtiff-4.pc
+config.status: creating libtiff/Makefile
+config.status: creating man/Makefile
+config.status: creating port/Makefile
+config.status: creating test/Makefile
+config.status: creating tools/Makefile
+config.status: creating libtiff/tif_config.h
+config.status: libtiff/tif_config.h is unchanged
+config.status: creating libtiff/tiffconf.h
+config.status: libtiff/tiffconf.h is unchanged
+config.status: executing depfiles commands
+config.status: executing libtool commands
+
+Libtiff is now configured for x86_64-unknown-linux-gnu
+
+  Installation directory:             /usr/local
+  Documentation directory:            ${prefix}/share/doc/tiff-4.0.6
+  C compiler:                         gcc -g -O2 -Wall -W
+  C++ compiler:                       g++ -g -O2
+  Enable runtime linker paths:        no
+  Enable linker symbol versioning:    no
+  Support Microsoft Document Imaging: yes
+  Use win32 IO:                       no
+
+ Support for internal codecs:
+  CCITT Group 3 & 4 algorithms:       yes
+  Macintosh PackBits algorithm:       yes
+  LZW algorithm:                      yes
+  ThunderScan 4-bit RLE algorithm:    yes
+  NeXT 2-bit RLE algorithm:           yes
+  LogLuv high dynamic range encoding: yes
+
+ Support for external codecs:
+  ZLIB support:                       no
+  Pixar log-format algorithm:         no
+  JPEG support:                       yes
+  Old JPEG support:                   yes
+  JPEG 8/12 bit dual mode:            no
+  ISO JBIG support:                   no
+  LZMA2 support:                      no
+
+  C++ support:                        yes
+
+  OpenGL support:                     no
+
+
+Making clean in port
+make[1]: Entering directory '/home/workspace/port'
+rm -rf .libs _libs
+test -z "libport.la" || rm -f libport.la
+rm -f ./so_locations
+rm -f *.o
+rm -f *.lo
+make[1]: Leaving directory '/home/workspace/port'
+Making clean in libtiff
+make[1]: Entering directory '/home/workspace/libtiff'
+test -z "libtiff.la libtiffxx.la" || rm -f libtiff.la libtiffxx.la
+rm -f ./so_locations
+rm -rf .libs _libs
+ rm -f mkg3states
+rm -f *.o
+rm -f *.lo
+make[1]: Leaving directory '/home/workspace/libtiff'
+Making clean in tools
+make[1]: Entering directory '/home/workspace/tools'
+ rm -f bmp2tiff fax2ps fax2tiff gif2tiff pal2rgb ppm2tiff ras2tiff raw2tiff rgb2ycbcr thumbnail tiff2bw tiff2pdf tiff2ps tiff2rgba tiffcmp tiffcp tiffcrop tiffdither tiffdump tiffinfo tiffmedian tiffset tiffsplit
+rm -rf .libs _libs
+rm -f *.o
+rm -f *.lo
+make[1]: Leaving directory '/home/workspace/tools'
+Making clean in build
+make[1]: Entering directory '/home/workspace/build'
+make[2]: Entering directory '/home/workspace/build'
+rm -rf .libs _libs
+rm -f *.lo
+make[2]: Leaving directory '/home/workspace/build'
+make[1]: Leaving directory '/home/workspace/build'
+Making clean in contrib
+make[1]: Entering directory '/home/workspace/contrib'
+Making clean in addtiffo
+make[2]: Entering directory '/home/workspace/contrib/addtiffo'
+rm -rf .libs _libs
+ rm -f addtiffo
+rm -f *.o
+rm -f *.lo
+make[2]: Leaving directory '/home/workspace/contrib/addtiffo'
+Making clean in dbs
+make[2]: Entering directory '/home/workspace/contrib/dbs'
+Making clean in xtiff
+make[3]: Entering directory '/home/workspace/contrib/dbs/xtiff'
+rm -rf .libs _libs
+rm -f *.lo
+make[3]: Leaving directory '/home/workspace/contrib/dbs/xtiff'
+make[3]: Entering directory '/home/workspace/contrib/dbs'
+rm -rf .libs _libs
+ rm -f tiff-bi tiff-grayscale tiff-palette tiff-rgb
+rm -f *.o
+rm -f *.lo
+make[3]: Leaving directory '/home/workspace/contrib/dbs'
+make[2]: Leaving directory '/home/workspace/contrib/dbs'
+Making clean in iptcutil
+make[2]: Entering directory '/home/workspace/contrib/iptcutil'
+rm -rf .libs _libs
+ rm -f iptcutil
+rm -f *.o
+rm -f *.lo
+make[2]: Leaving directory '/home/workspace/contrib/iptcutil'
+Making clean in mfs
+make[2]: Entering directory '/home/workspace/contrib/mfs'
+rm -rf .libs _libs
+rm -f *.lo
+make[2]: Leaving directory '/home/workspace/contrib/mfs'
+Making clean in pds
+make[2]: Entering directory '/home/workspace/contrib/pds'
+rm -rf .libs _libs
+rm -f *.lo
+make[2]: Leaving directory '/home/workspace/contrib/pds'
+Making clean in ras
+make[2]: Entering directory '/home/workspace/contrib/ras'
+rm -rf .libs _libs
+rm -f *.lo
+make[2]: Leaving directory '/home/workspace/contrib/ras'
+Making clean in stream
+make[2]: Entering directory '/home/workspace/contrib/stream'
+rm -rf .libs _libs
+rm -f *.lo
+make[2]: Leaving directory '/home/workspace/contrib/stream'
+Making clean in tags
+make[2]: Entering directory '/home/workspace/contrib/tags'
+rm -rf .libs _libs
+rm -f *.lo
+make[2]: Leaving directory '/home/workspace/contrib/tags'
+Making clean in win_dib
+make[2]: Entering directory '/home/workspace/contrib/win_dib'
+rm -rf .libs _libs
+rm -f *.lo
+make[2]: Leaving directory '/home/workspace/contrib/win_dib'
+make[2]: Entering directory '/home/workspace/contrib'
+rm -rf .libs _libs
+rm -f *.lo
+make[2]: Leaving directory '/home/workspace/contrib'
+make[1]: Leaving directory '/home/workspace/contrib'
+Making clean in test
+make[1]: Entering directory '/home/workspace/test'
+ rm -f ascii_tag long_tag short_tag strip_rw rewrite custom_dir raw_decode
+test -z "test_packbits.tif o-*" || rm -f test_packbits.tif o-*
+rm -rf .libs _libs
+rm -f *.o
+test -z "ascii_tag.log long_tag.log short_tag.log strip_rw.log rewrite.log custom_dir.log raw_decode.log bmp2tiff_palette.sh.log bmp2tiff_rgb.sh.log gif2tiff.sh.log ppm2tiff_pbm.sh.log ppm2tiff_pgm.sh.log ppm2tiff_ppm.sh.log tiffcp-g3.sh.log tiffcp-g3-1d.sh.log tiffcp-g3-1d-fill.sh.log tiffcp-g3-2d.sh.log tiffcp-g3-2d-fill.sh.log tiffcp-g4.sh.log tiffcp-logluv.sh.log tiffcp-thumbnail.sh.log tiffdump.sh.log tiffinfo.sh.log tiffcp-split.sh.log tiffcp-split-join.sh.log tiff2ps-PS1.sh.log tiff2ps-PS2.sh.log tiff2ps-PS3.sh.log tiff2ps-EPS1.sh.log tiff2pdf.sh.log tiffcrop-doubleflip-logluv-3c-16b.sh.log tiffcrop-doubleflip-minisblack-1c-16b.sh.log tiffcrop-doubleflip-minisblack-1c-8b.sh.log tiffcrop-doubleflip-minisblack-2c-8b-alpha.sh.log tiffcrop-doubleflip-miniswhite-1c-1b.sh.log tiffcrop-doubleflip-palette-1c-1b.sh.log tiffcrop-doubleflip-palette-1c-4b.sh.log tiffcrop-doubleflip-palette-1c-8b.sh.log tiffcrop-doubleflip-rgb-3c-16b.sh.log tiffcrop-doubleflip-rgb-3c-8b.sh.log tiffcrop-extract-logluv-3c-16b.sh.log tiffcrop-extract-minisblack-1c-16b.sh.log tiffcrop-extract-minisblack-1c-8b.sh.log tiffcrop-extract-minisblack-2c-8b-alpha.sh.log tiffcrop-extract-miniswhite-1c-1b.sh.log tiffcrop-extract-palette-1c-1b.sh.log tiffcrop-extract-palette-1c-4b.sh.log tiffcrop-extract-palette-1c-8b.sh.log tiffcrop-extract-rgb-3c-16b.sh.log tiffcrop-extract-rgb-3c-8b.sh.log tiffcrop-extractz14-logluv-3c-16b.sh.log tiffcrop-extractz14-minisblack-1c-16b.sh.log tiffcrop-extractz14-minisblack-1c-8b.sh.log tiffcrop-extractz14-minisblack-2c-8b-alpha.sh.log tiffcrop-extractz14-miniswhite-1c-1b.sh.log tiffcrop-extractz14-palette-1c-1b.sh.log tiffcrop-extractz14-palette-1c-4b.sh.log tiffcrop-extractz14-palette-1c-8b.sh.log tiffcrop-extractz14-rgb-3c-16b.sh.log tiffcrop-extractz14-rgb-3c-8b.sh.log tiffcrop-R90-logluv-3c-16b.sh.log tiffcrop-R90-minisblack-1c-16b.sh.log tiffcrop-R90-minisblack-1c-8b.sh.log tiffcrop-R90-minisblack-2c-8b-alpha.sh.log tiffcrop-R90-miniswhite-1c-1b.sh.log tiffcrop-R90-palette-1c-1b.sh.log tiffcrop-R90-palette-1c-4b.sh.log tiffcrop-R90-palette-1c-8b.sh.log tiffcrop-R90-rgb-3c-16b.sh.log tiffcrop-R90-rgb-3c-8b.sh.log tiff2rgba-logluv-3c-16b.sh.log tiff2rgba-minisblack-1c-16b.sh.log tiff2rgba-minisblack-1c-8b.sh.log tiff2rgba-minisblack-2c-8b-alpha.sh.log tiff2rgba-miniswhite-1c-1b.sh.log tiff2rgba-palette-1c-1b.sh.log tiff2rgba-palette-1c-4b.sh.log tiff2rgba-palette-1c-8b.sh.log tiff2rgba-rgb-3c-16b.sh.log tiff2rgba-rgb-3c-8b.sh.log tiff2rgba-quad-tile.jpg.sh.log" || rm -f ascii_tag.log long_tag.log short_tag.log strip_rw.log rewrite.log custom_dir.log raw_decode.log bmp2tiff_palette.sh.log bmp2tiff_rgb.sh.log gif2tiff.sh.log ppm2tiff_pbm.sh.log ppm2tiff_pgm.sh.log ppm2tiff_ppm.sh.log tiffcp-g3.sh.log tiffcp-g3-1d.sh.log tiffcp-g3-1d-fill.sh.log tiffcp-g3-2d.sh.log tiffcp-g3-2d-fill.sh.log tiffcp-g4.sh.log tiffcp-logluv.sh.log tiffcp-thumbnail.sh.log tiffdump.sh.log tiffinfo.sh.log tiffcp-split.sh.log tiffcp-split-join.sh.log tiff2ps-PS1.sh.log tiff2ps-PS2.sh.log tiff2ps-PS3.sh.log tiff2ps-EPS1.sh.log tiff2pdf.sh.log tiffcrop-doubleflip-logluv-3c-16b.sh.log tiffcrop-doubleflip-minisblack-1c-16b.sh.log tiffcrop-doubleflip-minisblack-1c-8b.sh.log tiffcrop-doubleflip-minisblack-2c-8b-alpha.sh.log tiffcrop-doubleflip-miniswhite-1c-1b.sh.log tiffcrop-doubleflip-palette-1c-1b.sh.log tiffcrop-doubleflip-palette-1c-4b.sh.log tiffcrop-doubleflip-palette-1c-8b.sh.log tiffcrop-doubleflip-rgb-3c-16b.sh.log tiffcrop-doubleflip-rgb-3c-8b.sh.log tiffcrop-extract-logluv-3c-16b.sh.log tiffcrop-extract-minisblack-1c-16b.sh.log tiffcrop-extract-minisblack-1c-8b.sh.log tiffcrop-extract-minisblack-2c-8b-alpha.sh.log tiffcrop-extract-miniswhite-1c-1b.sh.log tiffcrop-extract-palette-1c-1b.sh.log tiffcrop-extract-palette-1c-4b.sh.log tiffcrop-extract-palette-1c-8b.sh.log tiffcrop-extract-rgb-3c-16b.sh.log tiffcrop-extract-rgb-3c-8b.sh.log tiffcrop-extractz14-logluv-3c-16b.sh.log tiffcrop-extractz14-minisblack-1c-16b.sh.log tiffcrop-extractz14-minisblack-1c-8b.sh.log tiffcrop-extractz14-minisblack-2c-8b-alpha.sh.log tiffcrop-extractz14-miniswhite-1c-1b.sh.log tiffcrop-extractz14-palette-1c-1b.sh.log tiffcrop-extractz14-palette-1c-4b.sh.log tiffcrop-extractz14-palette-1c-8b.sh.log tiffcrop-extractz14-rgb-3c-16b.sh.log tiffcrop-extractz14-rgb-3c-8b.sh.log tiffcrop-R90-logluv-3c-16b.sh.log tiffcrop-R90-minisblack-1c-16b.sh.log tiffcrop-R90-minisblack-1c-8b.sh.log tiffcrop-R90-minisblack-2c-8b-alpha.sh.log tiffcrop-R90-miniswhite-1c-1b.sh.log tiffcrop-R90-palette-1c-1b.sh.log tiffcrop-R90-palette-1c-4b.sh.log tiffcrop-R90-palette-1c-8b.sh.log tiffcrop-R90-rgb-3c-16b.sh.log tiffcrop-R90-rgb-3c-8b.sh.log tiff2rgba-logluv-3c-16b.sh.log tiff2rgba-minisblack-1c-16b.sh.log tiff2rgba-minisblack-1c-8b.sh.log tiff2rgba-minisblack-2c-8b-alpha.sh.log tiff2rgba-miniswhite-1c-1b.sh.log tiff2rgba-palette-1c-1b.sh.log tiff2rgba-palette-1c-4b.sh.log tiff2rgba-palette-1c-8b.sh.log tiff2rgba-rgb-3c-16b.sh.log tiff2rgba-rgb-3c-8b.sh.log tiff2rgba-quad-tile.jpg.sh.log
+test -z "ascii_tag.trs long_tag.trs short_tag.trs strip_rw.trs rewrite.trs custom_dir.trs raw_decode.trs bmp2tiff_palette.sh.trs bmp2tiff_rgb.sh.trs gif2tiff.sh.trs ppm2tiff_pbm.sh.trs ppm2tiff_pgm.sh.trs ppm2tiff_ppm.sh.trs tiffcp-g3.sh.trs tiffcp-g3-1d.sh.trs tiffcp-g3-1d-fill.sh.trs tiffcp-g3-2d.sh.trs tiffcp-g3-2d-fill.sh.trs tiffcp-g4.sh.trs tiffcp-logluv.sh.trs tiffcp-thumbnail.sh.trs tiffdump.sh.trs tiffinfo.sh.trs tiffcp-split.sh.trs tiffcp-split-join.sh.trs tiff2ps-PS1.sh.trs tiff2ps-PS2.sh.trs tiff2ps-PS3.sh.trs tiff2ps-EPS1.sh.trs tiff2pdf.sh.trs tiffcrop-doubleflip-logluv-3c-16b.sh.trs tiffcrop-doubleflip-minisblack-1c-16b.sh.trs tiffcrop-doubleflip-minisblack-1c-8b.sh.trs tiffcrop-doubleflip-minisblack-2c-8b-alpha.sh.trs tiffcrop-doubleflip-miniswhite-1c-1b.sh.trs tiffcrop-doubleflip-palette-1c-1b.sh.trs tiffcrop-doubleflip-palette-1c-4b.sh.trs tiffcrop-doubleflip-palette-1c-8b.sh.trs tiffcrop-doubleflip-rgb-3c-16b.sh.trs tiffcrop-doubleflip-rgb-3c-8b.sh.trs tiffcrop-extract-logluv-3c-16b.sh.trs tiffcrop-extract-minisblack-1c-16b.sh.trs tiffcrop-extract-minisblack-1c-8b.sh.trs tiffcrop-extract-minisblack-2c-8b-alpha.sh.trs tiffcrop-extract-miniswhite-1c-1b.sh.trs tiffcrop-extract-palette-1c-1b.sh.trs tiffcrop-extract-palette-1c-4b.sh.trs tiffcrop-extract-palette-1c-8b.sh.trs tiffcrop-extract-rgb-3c-16b.sh.trs tiffcrop-extract-rgb-3c-8b.sh.trs tiffcrop-extractz14-logluv-3c-16b.sh.trs tiffcrop-extractz14-minisblack-1c-16b.sh.trs tiffcrop-extractz14-minisblack-1c-8b.sh.trs tiffcrop-extractz14-minisblack-2c-8b-alpha.sh.trs tiffcrop-extractz14-miniswhite-1c-1b.sh.trs tiffcrop-extractz14-palette-1c-1b.sh.trs tiffcrop-extractz14-palette-1c-4b.sh.trs tiffcrop-extractz14-palette-1c-8b.sh.trs tiffcrop-extractz14-rgb-3c-16b.sh.trs tiffcrop-extractz14-rgb-3c-8b.sh.trs tiffcrop-R90-logluv-3c-16b.sh.trs tiffcrop-R90-minisblack-1c-16b.sh.trs tiffcrop-R90-minisblack-1c-8b.sh.trs tiffcrop-R90-minisblack-2c-8b-alpha.sh.trs tiffcrop-R90-miniswhite-1c-1b.sh.trs tiffcrop-R90-palette-1c-1b.sh.trs tiffcrop-R90-palette-1c-4b.sh.trs tiffcrop-R90-palette-1c-8b.sh.trs tiffcrop-R90-rgb-3c-16b.sh.trs tiffcrop-R90-rgb-3c-8b.sh.trs tiff2rgba-logluv-3c-16b.sh.trs tiff2rgba-minisblack-1c-16b.sh.trs tiff2rgba-minisblack-1c-8b.sh.trs tiff2rgba-minisblack-2c-8b-alpha.sh.trs tiff2rgba-miniswhite-1c-1b.sh.trs tiff2rgba-palette-1c-1b.sh.trs tiff2rgba-palette-1c-4b.sh.trs tiff2rgba-palette-1c-8b.sh.trs tiff2rgba-rgb-3c-16b.sh.trs tiff2rgba-rgb-3c-8b.sh.trs tiff2rgba-quad-tile.jpg.sh.trs" || rm -f ascii_tag.trs long_tag.trs short_tag.trs strip_rw.trs rewrite.trs custom_dir.trs raw_decode.trs bmp2tiff_palette.sh.trs bmp2tiff_rgb.sh.trs gif2tiff.sh.trs ppm2tiff_pbm.sh.trs ppm2tiff_pgm.sh.trs ppm2tiff_ppm.sh.trs tiffcp-g3.sh.trs tiffcp-g3-1d.sh.trs tiffcp-g3-1d-fill.sh.trs tiffcp-g3-2d.sh.trs tiffcp-g3-2d-fill.sh.trs tiffcp-g4.sh.trs tiffcp-logluv.sh.trs tiffcp-thumbnail.sh.trs tiffdump.sh.trs tiffinfo.sh.trs tiffcp-split.sh.trs tiffcp-split-join.sh.trs tiff2ps-PS1.sh.trs tiff2ps-PS2.sh.trs tiff2ps-PS3.sh.trs tiff2ps-EPS1.sh.trs tiff2pdf.sh.trs tiffcrop-doubleflip-logluv-3c-16b.sh.trs tiffcrop-doubleflip-minisblack-1c-16b.sh.trs tiffcrop-doubleflip-minisblack-1c-8b.sh.trs tiffcrop-doubleflip-minisblack-2c-8b-alpha.sh.trs tiffcrop-doubleflip-miniswhite-1c-1b.sh.trs tiffcrop-doubleflip-palette-1c-1b.sh.trs tiffcrop-doubleflip-palette-1c-4b.sh.trs tiffcrop-doubleflip-palette-1c-8b.sh.trs tiffcrop-doubleflip-rgb-3c-16b.sh.trs tiffcrop-doubleflip-rgb-3c-8b.sh.trs tiffcrop-extract-logluv-3c-16b.sh.trs tiffcrop-extract-minisblack-1c-16b.sh.trs tiffcrop-extract-minisblack-1c-8b.sh.trs tiffcrop-extract-minisblack-2c-8b-alpha.sh.trs tiffcrop-extract-miniswhite-1c-1b.sh.trs tiffcrop-extract-palette-1c-1b.sh.trs tiffcrop-extract-palette-1c-4b.sh.trs tiffcrop-extract-palette-1c-8b.sh.trs tiffcrop-extract-rgb-3c-16b.sh.trs tiffcrop-extract-rgb-3c-8b.sh.trs tiffcrop-extractz14-logluv-3c-16b.sh.trs tiffcrop-extractz14-minisblack-1c-16b.sh.trs tiffcrop-extractz14-minisblack-1c-8b.sh.trs tiffcrop-extractz14-minisblack-2c-8b-alpha.sh.trs tiffcrop-extractz14-miniswhite-1c-1b.sh.trs tiffcrop-extractz14-palette-1c-1b.sh.trs tiffcrop-extractz14-palette-1c-4b.sh.trs tiffcrop-extractz14-palette-1c-8b.sh.trs tiffcrop-extractz14-rgb-3c-16b.sh.trs tiffcrop-extractz14-rgb-3c-8b.sh.trs tiffcrop-R90-logluv-3c-16b.sh.trs tiffcrop-R90-minisblack-1c-16b.sh.trs tiffcrop-R90-minisblack-1c-8b.sh.trs tiffcrop-R90-minisblack-2c-8b-alpha.sh.trs tiffcrop-R90-miniswhite-1c-1b.sh.trs tiffcrop-R90-palette-1c-1b.sh.trs tiffcrop-R90-palette-1c-4b.sh.trs tiffcrop-R90-palette-1c-8b.sh.trs tiffcrop-R90-rgb-3c-16b.sh.trs tiffcrop-R90-rgb-3c-8b.sh.trs tiff2rgba-logluv-3c-16b.sh.trs tiff2rgba-minisblack-1c-16b.sh.trs tiff2rgba-minisblack-1c-8b.sh.trs tiff2rgba-minisblack-2c-8b-alpha.sh.trs tiff2rgba-miniswhite-1c-1b.sh.trs tiff2rgba-palette-1c-1b.sh.trs tiff2rgba-palette-1c-4b.sh.trs tiff2rgba-palette-1c-8b.sh.trs tiff2rgba-rgb-3c-16b.sh.trs tiff2rgba-rgb-3c-8b.sh.trs tiff2rgba-quad-tile.jpg.sh.trs
+test -z "test-suite.log" || rm -f test-suite.log
+rm -f *.lo
+make[1]: Leaving directory '/home/workspace/test'
+Making clean in man
+make[1]: Entering directory '/home/workspace/man'
+rm -rf .libs _libs
+rm -f *.lo
+make[1]: Leaving directory '/home/workspace/man'
+Making clean in html
+make[1]: Entering directory '/home/workspace/html'
+Making clean in images
+make[2]: Entering directory '/home/workspace/html/images'
+rm -rf .libs _libs
+rm -f *.lo
+make[2]: Leaving directory '/home/workspace/html/images'
+Making clean in man
+make[2]: Entering directory '/home/workspace/html/man'
+rm -rf .libs _libs
+rm -f *.lo
+make[2]: Leaving directory '/home/workspace/html/man'
+make[2]: Entering directory '/home/workspace/html'
+rm -rf .libs _libs
+rm -f *.lo
+make[2]: Leaving directory '/home/workspace/html'
+make[1]: Leaving directory '/home/workspace/html'
+make[1]: Entering directory '/home/workspace'
+rm -rf .libs _libs
+rm -f *.lo
+make[1]: Leaving directory '/home/workspace'
+
+Making all in port
+make[1]: Entering directory '/home/workspace/port'
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../libtiff     -g -O2 -Wall -W -MT dummy.lo -MD -MP -MF .deps/dummy.Tpo -c -o dummy.lo dummy.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../libtiff -g -O2 -Wall -W -MT dummy.lo -MD -MP -MF .deps/dummy.Tpo -c dummy.c  -fPIC -DPIC -o .libs/dummy.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../libtiff -g -O2 -Wall -W -MT dummy.lo -MD -MP -MF .deps/dummy.Tpo -c dummy.c -o dummy.o >/dev/null 2>&1
+mv -f .deps/dummy.Tpo .deps/dummy.Plo
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o libport.la  dummy.lo  -ljpeg -lm 
+libtool: link: ar cr .libs/libport.a .libs/dummy.o 
+libtool: link: ranlib .libs/libport.a
+libtool: link: ( cd ".libs" && rm -f "libport.la" && ln -s "../libport.la" "libport.la" )
+make[1]: Leaving directory '/home/workspace/port'
+Making all in libtiff
+make[1]: Entering directory '/home/workspace/libtiff'
+make  all-am
+make[2]: Entering directory '/home/workspace/libtiff'
+gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT mkg3states.o -MD -MP -MF .deps/mkg3states.Tpo -c -o mkg3states.o mkg3states.c
+mv -f .deps/mkg3states.Tpo .deps/mkg3states.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o mkg3states mkg3states.o ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o mkg3states mkg3states.o  ../port/.libs/libport.a -ljpeg -lm
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_aux.lo -MD -MP -MF .deps/tif_aux.Tpo -c -o tif_aux.lo tif_aux.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_aux.lo -MD -MP -MF .deps/tif_aux.Tpo -c tif_aux.c  -fPIC -DPIC -o .libs/tif_aux.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_aux.lo -MD -MP -MF .deps/tif_aux.Tpo -c tif_aux.c -o tif_aux.o >/dev/null 2>&1
+mv -f .deps/tif_aux.Tpo .deps/tif_aux.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_close.lo -MD -MP -MF .deps/tif_close.Tpo -c -o tif_close.lo tif_close.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_close.lo -MD -MP -MF .deps/tif_close.Tpo -c tif_close.c  -fPIC -DPIC -o .libs/tif_close.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_close.lo -MD -MP -MF .deps/tif_close.Tpo -c tif_close.c -o tif_close.o >/dev/null 2>&1
+mv -f .deps/tif_close.Tpo .deps/tif_close.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_codec.lo -MD -MP -MF .deps/tif_codec.Tpo -c -o tif_codec.lo tif_codec.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_codec.lo -MD -MP -MF .deps/tif_codec.Tpo -c tif_codec.c  -fPIC -DPIC -o .libs/tif_codec.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_codec.lo -MD -MP -MF .deps/tif_codec.Tpo -c tif_codec.c -o tif_codec.o >/dev/null 2>&1
+mv -f .deps/tif_codec.Tpo .deps/tif_codec.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_color.lo -MD -MP -MF .deps/tif_color.Tpo -c -o tif_color.lo tif_color.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_color.lo -MD -MP -MF .deps/tif_color.Tpo -c tif_color.c  -fPIC -DPIC -o .libs/tif_color.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_color.lo -MD -MP -MF .deps/tif_color.Tpo -c tif_color.c -o tif_color.o >/dev/null 2>&1
+mv -f .deps/tif_color.Tpo .deps/tif_color.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_compress.lo -MD -MP -MF .deps/tif_compress.Tpo -c -o tif_compress.lo tif_compress.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_compress.lo -MD -MP -MF .deps/tif_compress.Tpo -c tif_compress.c  -fPIC -DPIC -o .libs/tif_compress.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_compress.lo -MD -MP -MF .deps/tif_compress.Tpo -c tif_compress.c -o tif_compress.o >/dev/null 2>&1
+mv -f .deps/tif_compress.Tpo .deps/tif_compress.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_dir.lo -MD -MP -MF .deps/tif_dir.Tpo -c -o tif_dir.lo tif_dir.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_dir.lo -MD -MP -MF .deps/tif_dir.Tpo -c tif_dir.c  -fPIC -DPIC -o .libs/tif_dir.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_dir.lo -MD -MP -MF .deps/tif_dir.Tpo -c tif_dir.c -o tif_dir.o >/dev/null 2>&1
+mv -f .deps/tif_dir.Tpo .deps/tif_dir.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_dirinfo.lo -MD -MP -MF .deps/tif_dirinfo.Tpo -c -o tif_dirinfo.lo tif_dirinfo.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_dirinfo.lo -MD -MP -MF .deps/tif_dirinfo.Tpo -c tif_dirinfo.c  -fPIC -DPIC -o .libs/tif_dirinfo.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_dirinfo.lo -MD -MP -MF .deps/tif_dirinfo.Tpo -c tif_dirinfo.c -o tif_dirinfo.o >/dev/null 2>&1
+mv -f .deps/tif_dirinfo.Tpo .deps/tif_dirinfo.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_dirread.lo -MD -MP -MF .deps/tif_dirread.Tpo -c -o tif_dirread.lo tif_dirread.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_dirread.lo -MD -MP -MF .deps/tif_dirread.Tpo -c tif_dirread.c  -fPIC -DPIC -o .libs/tif_dirread.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_dirread.lo -MD -MP -MF .deps/tif_dirread.Tpo -c tif_dirread.c -o tif_dirread.o >/dev/null 2>&1
+mv -f .deps/tif_dirread.Tpo .deps/tif_dirread.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_dirwrite.lo -MD -MP -MF .deps/tif_dirwrite.Tpo -c -o tif_dirwrite.lo tif_dirwrite.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_dirwrite.lo -MD -MP -MF .deps/tif_dirwrite.Tpo -c tif_dirwrite.c  -fPIC -DPIC -o .libs/tif_dirwrite.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_dirwrite.lo -MD -MP -MF .deps/tif_dirwrite.Tpo -c tif_dirwrite.c -o tif_dirwrite.o >/dev/null 2>&1
+mv -f .deps/tif_dirwrite.Tpo .deps/tif_dirwrite.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_dumpmode.lo -MD -MP -MF .deps/tif_dumpmode.Tpo -c -o tif_dumpmode.lo tif_dumpmode.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_dumpmode.lo -MD -MP -MF .deps/tif_dumpmode.Tpo -c tif_dumpmode.c  -fPIC -DPIC -o .libs/tif_dumpmode.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_dumpmode.lo -MD -MP -MF .deps/tif_dumpmode.Tpo -c tif_dumpmode.c -o tif_dumpmode.o >/dev/null 2>&1
+mv -f .deps/tif_dumpmode.Tpo .deps/tif_dumpmode.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_error.lo -MD -MP -MF .deps/tif_error.Tpo -c -o tif_error.lo tif_error.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_error.lo -MD -MP -MF .deps/tif_error.Tpo -c tif_error.c  -fPIC -DPIC -o .libs/tif_error.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_error.lo -MD -MP -MF .deps/tif_error.Tpo -c tif_error.c -o tif_error.o >/dev/null 2>&1
+mv -f .deps/tif_error.Tpo .deps/tif_error.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_extension.lo -MD -MP -MF .deps/tif_extension.Tpo -c -o tif_extension.lo tif_extension.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_extension.lo -MD -MP -MF .deps/tif_extension.Tpo -c tif_extension.c  -fPIC -DPIC -o .libs/tif_extension.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_extension.lo -MD -MP -MF .deps/tif_extension.Tpo -c tif_extension.c -o tif_extension.o >/dev/null 2>&1
+mv -f .deps/tif_extension.Tpo .deps/tif_extension.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_fax3.lo -MD -MP -MF .deps/tif_fax3.Tpo -c -o tif_fax3.lo tif_fax3.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_fax3.lo -MD -MP -MF .deps/tif_fax3.Tpo -c tif_fax3.c  -fPIC -DPIC -o .libs/tif_fax3.o
+tif_fax3.c: In function '_TIFFFax3fillruns':
+tif_fax3.c:341:22: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  341 |     case 15:(cp)[14] = 0; case 14:(cp)[13] = 0; case 13: (cp)[12] = 0; \
+      |             ~~~~~~~~~^~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:341:27: note: here
+  341 |     case 15:(cp)[14] = 0; case 14:(cp)[13] = 0; case 13: (cp)[12] = 0; \
+      |                           ^~~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:341:44: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  341 |     case 15:(cp)[14] = 0; case 14:(cp)[13] = 0; case 13: (cp)[12] = 0; \
+      |                                   ~~~~~~~~~^~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:341:49: note: here
+  341 |     case 15:(cp)[14] = 0; case 14:(cp)[13] = 0; case 13: (cp)[12] = 0; \
+      |                                                 ^~~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:341:67: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  341 |     case 15:(cp)[14] = 0; case 14:(cp)[13] = 0; case 13: (cp)[12] = 0; \
+      |                                                          ~~~~~~~~~^~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:342:5: note: here
+  342 |     case 12:(cp)[11] = 0; case 11:(cp)[10] = 0; case 10: (cp)[9] = 0; \
+      |     ^~~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:342:22: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  342 |     case 12:(cp)[11] = 0; case 11:(cp)[10] = 0; case 10: (cp)[9] = 0; \
+      |             ~~~~~~~~~^~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:342:27: note: here
+  342 |     case 12:(cp)[11] = 0; case 11:(cp)[10] = 0; case 10: (cp)[9] = 0; \
+      |                           ^~~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:342:44: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  342 |     case 12:(cp)[11] = 0; case 11:(cp)[10] = 0; case 10: (cp)[9] = 0; \
+      |                                   ~~~~~~~~~^~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:342:49: note: here
+  342 |     case 12:(cp)[11] = 0; case 11:(cp)[10] = 0; case 10: (cp)[9] = 0; \
+      |                                                 ^~~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:342:66: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  342 |     case 12:(cp)[11] = 0; case 11:(cp)[10] = 0; case 10: (cp)[9] = 0; \
+      |                                                          ~~~~~~~~^~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:343:5: note: here
+  343 |     case  9: (cp)[8] = 0; case  8: (cp)[7] = 0; case  7: (cp)[6] = 0; \
+      |     ^~~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:343:22: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  343 |     case  9: (cp)[8] = 0; case  8: (cp)[7] = 0; case  7: (cp)[6] = 0; \
+      |              ~~~~~~~~^~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:343:27: note: here
+  343 |     case  9: (cp)[8] = 0; case  8: (cp)[7] = 0; case  7: (cp)[6] = 0; \
+      |                           ^~~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:343:44: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  343 |     case  9: (cp)[8] = 0; case  8: (cp)[7] = 0; case  7: (cp)[6] = 0; \
+      |                                    ~~~~~~~~^~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:343:49: note: here
+  343 |     case  9: (cp)[8] = 0; case  8: (cp)[7] = 0; case  7: (cp)[6] = 0; \
+      |                                                 ^~~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:343:66: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  343 |     case  9: (cp)[8] = 0; case  8: (cp)[7] = 0; case  7: (cp)[6] = 0; \
+      |                                                          ~~~~~~~~^~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:344:5: note: here
+  344 |     case  6: (cp)[5] = 0; case  5: (cp)[4] = 0; case  4: (cp)[3] = 0; \
+      |     ^~~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:344:22: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  344 |     case  6: (cp)[5] = 0; case  5: (cp)[4] = 0; case  4: (cp)[3] = 0; \
+      |              ~~~~~~~~^~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:344:27: note: here
+  344 |     case  6: (cp)[5] = 0; case  5: (cp)[4] = 0; case  4: (cp)[3] = 0; \
+      |                           ^~~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:344:44: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  344 |     case  6: (cp)[5] = 0; case  5: (cp)[4] = 0; case  4: (cp)[3] = 0; \
+      |                                    ~~~~~~~~^~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:344:49: note: here
+  344 |     case  6: (cp)[5] = 0; case  5: (cp)[4] = 0; case  4: (cp)[3] = 0; \
+      |                                                 ^~~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:344:66: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  344 |     case  6: (cp)[5] = 0; case  5: (cp)[4] = 0; case  4: (cp)[3] = 0; \
+      |                                                          ~~~~~~~~^~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:345:5: note: here
+  345 |     case  3: (cp)[2] = 0; case  2: (cp)[1] = 0;    \
+      |     ^~~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:345:22: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  345 |     case  3: (cp)[2] = 0; case  2: (cp)[1] = 0;    \
+      |              ~~~~~~~~^~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:345:27: note: here
+  345 |     case  3: (cp)[2] = 0; case  2: (cp)[1] = 0;    \
+      |                           ^~~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:345:44: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  345 |     case  3: (cp)[2] = 0; case  2: (cp)[1] = 0;    \
+      |                                    ~~~~~~~~^~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:346:5: note: here
+  346 |     case  1: (cp)[0] = 0; (cp) += (n); case 0:  ;   \
+      |     ^~~~
+tif_fax3.c:407:4: note: in expansion of macro 'ZERO'
+  407 |    ZERO(n, cp);
+      |    ^~~~
+tif_fax3.c:332:22: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  332 |     case 15:(cp)[14] = 0xff; case 14:(cp)[13] = 0xff; case 13: (cp)[12] = 0xff;\
+      |             ~~~~~~~~~^~~~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:332:30: note: here
+  332 |     case 15:(cp)[14] = 0xff; case 14:(cp)[13] = 0xff; case 13: (cp)[12] = 0xff;\
+      |                              ^~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:332:47: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  332 |     case 15:(cp)[14] = 0xff; case 14:(cp)[13] = 0xff; case 13: (cp)[12] = 0xff;\
+      |                                      ~~~~~~~~~^~~~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:332:55: note: here
+  332 |     case 15:(cp)[14] = 0xff; case 14:(cp)[13] = 0xff; case 13: (cp)[12] = 0xff;\
+      |                                                       ^~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:332:73: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  332 |     case 15:(cp)[14] = 0xff; case 14:(cp)[13] = 0xff; case 13: (cp)[12] = 0xff;\
+      |                                                                ~~~~~~~~~^~~~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:333:5: note: here
+  333 |     case 12:(cp)[11] = 0xff; case 11:(cp)[10] = 0xff; case 10: (cp)[9] = 0xff;\
+      |     ^~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:333:22: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  333 |     case 12:(cp)[11] = 0xff; case 11:(cp)[10] = 0xff; case 10: (cp)[9] = 0xff;\
+      |             ~~~~~~~~~^~~~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:333:30: note: here
+  333 |     case 12:(cp)[11] = 0xff; case 11:(cp)[10] = 0xff; case 10: (cp)[9] = 0xff;\
+      |                              ^~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:333:47: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  333 |     case 12:(cp)[11] = 0xff; case 11:(cp)[10] = 0xff; case 10: (cp)[9] = 0xff;\
+      |                                      ~~~~~~~~~^~~~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:333:55: note: here
+  333 |     case 12:(cp)[11] = 0xff; case 11:(cp)[10] = 0xff; case 10: (cp)[9] = 0xff;\
+      |                                                       ^~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:333:72: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  333 |     case 12:(cp)[11] = 0xff; case 11:(cp)[10] = 0xff; case 10: (cp)[9] = 0xff;\
+      |                                                                ~~~~~~~~^~~~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:334:5: note: here
+  334 |     case  9: (cp)[8] = 0xff; case  8: (cp)[7] = 0xff; case  7: (cp)[6] = 0xff;\
+      |     ^~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:334:22: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  334 |     case  9: (cp)[8] = 0xff; case  8: (cp)[7] = 0xff; case  7: (cp)[6] = 0xff;\
+      |              ~~~~~~~~^~~~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:334:30: note: here
+  334 |     case  9: (cp)[8] = 0xff; case  8: (cp)[7] = 0xff; case  7: (cp)[6] = 0xff;\
+      |                              ^~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:334:47: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  334 |     case  9: (cp)[8] = 0xff; case  8: (cp)[7] = 0xff; case  7: (cp)[6] = 0xff;\
+      |                                       ~~~~~~~~^~~~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:334:55: note: here
+  334 |     case  9: (cp)[8] = 0xff; case  8: (cp)[7] = 0xff; case  7: (cp)[6] = 0xff;\
+      |                                                       ^~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:334:72: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  334 |     case  9: (cp)[8] = 0xff; case  8: (cp)[7] = 0xff; case  7: (cp)[6] = 0xff;\
+      |                                                                ~~~~~~~~^~~~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:335:5: note: here
+  335 |     case  6: (cp)[5] = 0xff; case  5: (cp)[4] = 0xff; case  4: (cp)[3] = 0xff;\
+      |     ^~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:335:22: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  335 |     case  6: (cp)[5] = 0xff; case  5: (cp)[4] = 0xff; case  4: (cp)[3] = 0xff;\
+      |              ~~~~~~~~^~~~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:335:30: note: here
+  335 |     case  6: (cp)[5] = 0xff; case  5: (cp)[4] = 0xff; case  4: (cp)[3] = 0xff;\
+      |                              ^~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:335:47: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  335 |     case  6: (cp)[5] = 0xff; case  5: (cp)[4] = 0xff; case  4: (cp)[3] = 0xff;\
+      |                                       ~~~~~~~~^~~~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:335:55: note: here
+  335 |     case  6: (cp)[5] = 0xff; case  5: (cp)[4] = 0xff; case  4: (cp)[3] = 0xff;\
+      |                                                       ^~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:335:72: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  335 |     case  6: (cp)[5] = 0xff; case  5: (cp)[4] = 0xff; case  4: (cp)[3] = 0xff;\
+      |                                                                ~~~~~~~~^~~~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:336:5: note: here
+  336 |     case  3: (cp)[2] = 0xff; case  2: (cp)[1] = 0xff;         \
+      |     ^~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:336:22: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  336 |     case  3: (cp)[2] = 0xff; case  2: (cp)[1] = 0xff;         \
+      |              ~~~~~~~~^~~~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:336:30: note: here
+  336 |     case  3: (cp)[2] = 0xff; case  2: (cp)[1] = 0xff;         \
+      |                              ^~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:336:47: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  336 |     case  3: (cp)[2] = 0xff; case  2: (cp)[1] = 0xff;         \
+      |                                       ~~~~~~~~^~~~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+tif_fax3.c:337:5: note: here
+  337 |     case  1: (cp)[0] = 0xff; (cp) += (n); case 0:  ;         \
+      |     ^~~~
+tif_fax3.c:442:4: note: in expansion of macro 'FILL'
+  442 |    FILL(n, cp);
+      |    ^~~~
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_fax3.lo -MD -MP -MF .deps/tif_fax3.Tpo -c tif_fax3.c -o tif_fax3.o >/dev/null 2>&1
+mv -f .deps/tif_fax3.Tpo .deps/tif_fax3.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_fax3sm.lo -MD -MP -MF .deps/tif_fax3sm.Tpo -c -o tif_fax3sm.lo tif_fax3sm.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_fax3sm.lo -MD -MP -MF .deps/tif_fax3sm.Tpo -c tif_fax3sm.c  -fPIC -DPIC -o .libs/tif_fax3sm.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_fax3sm.lo -MD -MP -MF .deps/tif_fax3sm.Tpo -c tif_fax3sm.c -o tif_fax3sm.o >/dev/null 2>&1
+mv -f .deps/tif_fax3sm.Tpo .deps/tif_fax3sm.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_flush.lo -MD -MP -MF .deps/tif_flush.Tpo -c -o tif_flush.lo tif_flush.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_flush.lo -MD -MP -MF .deps/tif_flush.Tpo -c tif_flush.c  -fPIC -DPIC -o .libs/tif_flush.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_flush.lo -MD -MP -MF .deps/tif_flush.Tpo -c tif_flush.c -o tif_flush.o >/dev/null 2>&1
+mv -f .deps/tif_flush.Tpo .deps/tif_flush.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_getimage.lo -MD -MP -MF .deps/tif_getimage.Tpo -c -o tif_getimage.lo tif_getimage.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_getimage.lo -MD -MP -MF .deps/tif_getimage.Tpo -c tif_getimage.c  -fPIC -DPIC -o .libs/tif_getimage.o
+tif_getimage.c: In function 'putcontig8bitYCbCr41tile':
+tif_getimage.c:1751:28: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1751 | #define YCbCrtoRGB(dst, Y) {      \
+      |                            ^
+tif_getimage.c:2049:23: note: in expansion of macro 'YCbCrtoRGB'
+ 2049 |               case 3: YCbCrtoRGB(cp [2], pp[2]);
+      |                       ^~~~~~~~~~
+tif_getimage.c:2050:15: note: here
+ 2050 |               case 2: YCbCrtoRGB(cp [1], pp[1]);
+      |               ^~~~
+tif_getimage.c:1751:28: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1751 | #define YCbCrtoRGB(dst, Y) {      \
+      |                            ^
+tif_getimage.c:2050:23: note: in expansion of macro 'YCbCrtoRGB'
+ 2050 |               case 2: YCbCrtoRGB(cp [1], pp[1]);
+      |                       ^~~~~~~~~~
+tif_getimage.c:2051:15: note: here
+ 2051 |               case 1: YCbCrtoRGB(cp [0], pp[0]);
+      |               ^~~~
+tif_getimage.c: In function 'put1bitbwtile':
+tif_getimage.c:1352:38: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1352 |  UNROLL8(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |                                ~~~~~~^~~~~~~
+tif_getimage.c:1139:13: note: in definition of macro 'CASE8'
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |             ^~
+tif_getimage.c:1352:2: note: in expansion of macro 'UNROLL8'
+ 1352 |  UNROLL8(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1139:17: note: here
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                 ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1352:2: note: in expansion of macro 'UNROLL8'
+ 1352 |  UNROLL8(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1352:38: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1352 |  UNROLL8(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |                                ~~~~~~^~~~~~~
+tif_getimage.c:1139:25: note: in definition of macro 'CASE8'
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                         ^~
+tif_getimage.c:1352:2: note: in expansion of macro 'UNROLL8'
+ 1352 |  UNROLL8(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1139:29: note: here
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                             ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1352:2: note: in expansion of macro 'UNROLL8'
+ 1352 |  UNROLL8(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1352:38: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1352 |  UNROLL8(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |                                ~~~~~~^~~~~~~
+tif_getimage.c:1139:37: note: in definition of macro 'CASE8'
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                                     ^~
+tif_getimage.c:1352:2: note: in expansion of macro 'UNROLL8'
+ 1352 |  UNROLL8(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1140:5: note: here
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |     ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1352:2: note: in expansion of macro 'UNROLL8'
+ 1352 |  UNROLL8(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1352:38: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1352 |  UNROLL8(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |                                ~~~~~~^~~~~~~
+tif_getimage.c:1140:13: note: in definition of macro 'CASE8'
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |             ^~
+tif_getimage.c:1352:2: note: in expansion of macro 'UNROLL8'
+ 1352 |  UNROLL8(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1140:17: note: here
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                 ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1352:2: note: in expansion of macro 'UNROLL8'
+ 1352 |  UNROLL8(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1352:38: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1352 |  UNROLL8(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |                                ~~~~~~^~~~~~~
+tif_getimage.c:1140:25: note: in definition of macro 'CASE8'
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                         ^~
+tif_getimage.c:1352:2: note: in expansion of macro 'UNROLL8'
+ 1352 |  UNROLL8(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1140:29: note: here
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                             ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1352:2: note: in expansion of macro 'UNROLL8'
+ 1352 |  UNROLL8(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1352:38: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1352 |  UNROLL8(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |                                ~~~~~~^~~~~~~
+tif_getimage.c:1140:37: note: in definition of macro 'CASE8'
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                                     ^~
+tif_getimage.c:1352:2: note: in expansion of macro 'UNROLL8'
+ 1352 |  UNROLL8(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1141:5: note: here
+ 1141 |     case 1: op;    \
+      |     ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1352:2: note: in expansion of macro 'UNROLL8'
+ 1352 |  UNROLL8(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c: In function 'put2bitbwtile':
+tif_getimage.c:1369:38: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1369 |  UNROLL4(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |                                ~~~~~~^~~~~~~
+tif_getimage.c:1143:42: note: in definition of macro 'CASE4'
+ 1143 | #define CASE4(x,op) switch (x) { case 3: op; case 2: op; case 1: op; }
+      |                                          ^~
+tif_getimage.c:1369:2: note: in expansion of macro 'UNROLL4'
+ 1369 |  UNROLL4(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1143:46: note: here
+ 1143 | #define CASE4(x,op) switch (x) { case 3: op; case 2: op; case 1: op; }
+      |                                              ^~~~
+tif_getimage.c:1165:2: note: in expansion of macro 'CASE4'
+ 1165 |  CASE4(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1369:2: note: in expansion of macro 'UNROLL4'
+ 1369 |  UNROLL4(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1369:38: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1369 |  UNROLL4(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |                                ~~~~~~^~~~~~~
+tif_getimage.c:1143:54: note: in definition of macro 'CASE4'
+ 1143 | #define CASE4(x,op) switch (x) { case 3: op; case 2: op; case 1: op; }
+      |                                                      ^~
+tif_getimage.c:1369:2: note: in expansion of macro 'UNROLL4'
+ 1369 |  UNROLL4(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1143:58: note: here
+ 1143 | #define CASE4(x,op) switch (x) { case 3: op; case 2: op; case 1: op; }
+      |                                                          ^~~~
+tif_getimage.c:1165:2: note: in expansion of macro 'CASE4'
+ 1165 |  CASE4(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1369:2: note: in expansion of macro 'UNROLL4'
+ 1369 |  UNROLL4(w, bw = BWmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c: In function 'put1bitcmaptile':
+tif_getimage.c:1270:39: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1270 |  UNROLL8(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |                                 ~~~~~~^~~~~~~
+tif_getimage.c:1139:13: note: in definition of macro 'CASE8'
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |             ^~
+tif_getimage.c:1270:2: note: in expansion of macro 'UNROLL8'
+ 1270 |  UNROLL8(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1139:17: note: here
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                 ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1270:2: note: in expansion of macro 'UNROLL8'
+ 1270 |  UNROLL8(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1270:39: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1270 |  UNROLL8(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |                                 ~~~~~~^~~~~~~
+tif_getimage.c:1139:25: note: in definition of macro 'CASE8'
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                         ^~
+tif_getimage.c:1270:2: note: in expansion of macro 'UNROLL8'
+ 1270 |  UNROLL8(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1139:29: note: here
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                             ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1270:2: note: in expansion of macro 'UNROLL8'
+ 1270 |  UNROLL8(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1270:39: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1270 |  UNROLL8(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |                                 ~~~~~~^~~~~~~
+tif_getimage.c:1139:37: note: in definition of macro 'CASE8'
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                                     ^~
+tif_getimage.c:1270:2: note: in expansion of macro 'UNROLL8'
+ 1270 |  UNROLL8(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1140:5: note: here
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |     ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1270:2: note: in expansion of macro 'UNROLL8'
+ 1270 |  UNROLL8(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1270:39: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1270 |  UNROLL8(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |                                 ~~~~~~^~~~~~~
+tif_getimage.c:1140:13: note: in definition of macro 'CASE8'
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |             ^~
+tif_getimage.c:1270:2: note: in expansion of macro 'UNROLL8'
+ 1270 |  UNROLL8(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1140:17: note: here
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                 ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1270:2: note: in expansion of macro 'UNROLL8'
+ 1270 |  UNROLL8(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1270:39: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1270 |  UNROLL8(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |                                 ~~~~~~^~~~~~~
+tif_getimage.c:1140:25: note: in definition of macro 'CASE8'
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                         ^~
+tif_getimage.c:1270:2: note: in expansion of macro 'UNROLL8'
+ 1270 |  UNROLL8(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1140:29: note: here
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                             ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1270:2: note: in expansion of macro 'UNROLL8'
+ 1270 |  UNROLL8(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1270:39: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1270 |  UNROLL8(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |                                 ~~~~~~^~~~~~~
+tif_getimage.c:1140:37: note: in definition of macro 'CASE8'
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                                     ^~
+tif_getimage.c:1270:2: note: in expansion of macro 'UNROLL8'
+ 1270 |  UNROLL8(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1141:5: note: here
+ 1141 |     case 1: op;    \
+      |     ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1270:2: note: in expansion of macro 'UNROLL8'
+ 1270 |  UNROLL8(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c: In function 'put2bitcmaptile':
+tif_getimage.c:1253:39: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1253 |  UNROLL4(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |                                 ~~~~~~^~~~~~~
+tif_getimage.c:1143:42: note: in definition of macro 'CASE4'
+ 1143 | #define CASE4(x,op) switch (x) { case 3: op; case 2: op; case 1: op; }
+      |                                          ^~
+tif_getimage.c:1253:2: note: in expansion of macro 'UNROLL4'
+ 1253 |  UNROLL4(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1143:46: note: here
+ 1143 | #define CASE4(x,op) switch (x) { case 3: op; case 2: op; case 1: op; }
+      |                                              ^~~~
+tif_getimage.c:1165:2: note: in expansion of macro 'CASE4'
+ 1165 |  CASE4(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1253:2: note: in expansion of macro 'UNROLL4'
+ 1253 |  UNROLL4(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1253:39: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1253 |  UNROLL4(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |                                 ~~~~~~^~~~~~~
+tif_getimage.c:1143:54: note: in definition of macro 'CASE4'
+ 1143 | #define CASE4(x,op) switch (x) { case 3: op; case 2: op; case 1: op; }
+      |                                                      ^~
+tif_getimage.c:1253:2: note: in expansion of macro 'UNROLL4'
+ 1253 |  UNROLL4(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c:1143:58: note: here
+ 1143 | #define CASE4(x,op) switch (x) { case 3: op; case 2: op; case 1: op; }
+      |                                                          ^~~~
+tif_getimage.c:1165:2: note: in expansion of macro 'CASE4'
+ 1165 |  CASE4(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1253:2: note: in expansion of macro 'UNROLL4'
+ 1253 |  UNROLL4(w, bw = PALmap[*pp++], *cp++ = *bw++);
+      |  ^~~~~~~
+tif_getimage.c: In function 'putRGBcontig8bitCMYKtile':
+tif_getimage.c:1545:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1545 |      pp += samplesperpixel);
+      |      ~~~^~~~~~~~~~~~~~~~~~
+tif_getimage.c:1139:13: note: in definition of macro 'CASE8'
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |             ^~
+tif_getimage.c:1539:2: note: in expansion of macro 'UNROLL8'
+ 1539 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1139:17: note: here
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                 ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1539:2: note: in expansion of macro 'UNROLL8'
+ 1539 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1545:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1545 |      pp += samplesperpixel);
+      |      ~~~^~~~~~~~~~~~~~~~~~
+tif_getimage.c:1139:25: note: in definition of macro 'CASE8'
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                         ^~
+tif_getimage.c:1539:2: note: in expansion of macro 'UNROLL8'
+ 1539 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1139:29: note: here
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                             ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1539:2: note: in expansion of macro 'UNROLL8'
+ 1539 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1545:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1545 |      pp += samplesperpixel);
+      |      ~~~^~~~~~~~~~~~~~~~~~
+tif_getimage.c:1139:37: note: in definition of macro 'CASE8'
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                                     ^~
+tif_getimage.c:1539:2: note: in expansion of macro 'UNROLL8'
+ 1539 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1140:5: note: here
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |     ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1539:2: note: in expansion of macro 'UNROLL8'
+ 1539 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1545:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1545 |      pp += samplesperpixel);
+      |      ~~~^~~~~~~~~~~~~~~~~~
+tif_getimage.c:1140:13: note: in definition of macro 'CASE8'
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |             ^~
+tif_getimage.c:1539:2: note: in expansion of macro 'UNROLL8'
+ 1539 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1140:17: note: here
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                 ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1539:2: note: in expansion of macro 'UNROLL8'
+ 1539 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1545:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1545 |      pp += samplesperpixel);
+      |      ~~~^~~~~~~~~~~~~~~~~~
+tif_getimage.c:1140:25: note: in definition of macro 'CASE8'
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                         ^~
+tif_getimage.c:1539:2: note: in expansion of macro 'UNROLL8'
+ 1539 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1140:29: note: here
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                             ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1539:2: note: in expansion of macro 'UNROLL8'
+ 1539 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1545:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1545 |      pp += samplesperpixel);
+      |      ~~~^~~~~~~~~~~~~~~~~~
+tif_getimage.c:1140:37: note: in definition of macro 'CASE8'
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                                     ^~
+tif_getimage.c:1539:2: note: in expansion of macro 'UNROLL8'
+ 1539 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1141:5: note: here
+ 1141 |     case 1: op;    \
+      |     ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1539:2: note: in expansion of macro 'UNROLL8'
+ 1539 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c: In function 'putRGBcontig8bittile':
+tif_getimage.c:1404:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1404 |      pp += samplesperpixel);
+      |      ~~~^~~~~~~~~~~~~~~~~~
+tif_getimage.c:1139:13: note: in definition of macro 'CASE8'
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |             ^~
+tif_getimage.c:1402:2: note: in expansion of macro 'UNROLL8'
+ 1402 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1139:17: note: here
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                 ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1402:2: note: in expansion of macro 'UNROLL8'
+ 1402 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1404:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1404 |      pp += samplesperpixel);
+      |      ~~~^~~~~~~~~~~~~~~~~~
+tif_getimage.c:1139:25: note: in definition of macro 'CASE8'
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                         ^~
+tif_getimage.c:1402:2: note: in expansion of macro 'UNROLL8'
+ 1402 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1139:29: note: here
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                             ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1402:2: note: in expansion of macro 'UNROLL8'
+ 1402 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1404:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1404 |      pp += samplesperpixel);
+      |      ~~~^~~~~~~~~~~~~~~~~~
+tif_getimage.c:1139:37: note: in definition of macro 'CASE8'
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                                     ^~
+tif_getimage.c:1402:2: note: in expansion of macro 'UNROLL8'
+ 1402 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1140:5: note: here
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |     ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1402:2: note: in expansion of macro 'UNROLL8'
+ 1402 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1404:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1404 |      pp += samplesperpixel);
+      |      ~~~^~~~~~~~~~~~~~~~~~
+tif_getimage.c:1140:13: note: in definition of macro 'CASE8'
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |             ^~
+tif_getimage.c:1402:2: note: in expansion of macro 'UNROLL8'
+ 1402 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1140:17: note: here
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                 ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1402:2: note: in expansion of macro 'UNROLL8'
+ 1402 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1404:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1404 |      pp += samplesperpixel);
+      |      ~~~^~~~~~~~~~~~~~~~~~
+tif_getimage.c:1140:25: note: in definition of macro 'CASE8'
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                         ^~
+tif_getimage.c:1402:2: note: in expansion of macro 'UNROLL8'
+ 1402 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1140:29: note: here
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                             ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1402:2: note: in expansion of macro 'UNROLL8'
+ 1402 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1404:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1404 |      pp += samplesperpixel);
+      |      ~~~^~~~~~~~~~~~~~~~~~
+tif_getimage.c:1140:37: note: in definition of macro 'CASE8'
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                                     ^~
+tif_getimage.c:1402:2: note: in expansion of macro 'UNROLL8'
+ 1402 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1141:5: note: here
+ 1141 |     case 1: op;    \
+      |     ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1402:2: note: in expansion of macro 'UNROLL8'
+ 1402 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c: In function 'putRGBAAcontig8bittile':
+tif_getimage.c:1423:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1423 |      pp += samplesperpixel);
+      |      ~~~^~~~~~~~~~~~~~~~~~
+tif_getimage.c:1139:13: note: in definition of macro 'CASE8'
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |             ^~
+tif_getimage.c:1421:2: note: in expansion of macro 'UNROLL8'
+ 1421 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1139:17: note: here
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                 ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1421:2: note: in expansion of macro 'UNROLL8'
+ 1421 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1423:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1423 |      pp += samplesperpixel);
+      |      ~~~^~~~~~~~~~~~~~~~~~
+tif_getimage.c:1139:25: note: in definition of macro 'CASE8'
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                         ^~
+tif_getimage.c:1421:2: note: in expansion of macro 'UNROLL8'
+ 1421 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1139:29: note: here
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                             ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1421:2: note: in expansion of macro 'UNROLL8'
+ 1421 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1423:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1423 |      pp += samplesperpixel);
+      |      ~~~^~~~~~~~~~~~~~~~~~
+tif_getimage.c:1139:37: note: in definition of macro 'CASE8'
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                                     ^~
+tif_getimage.c:1421:2: note: in expansion of macro 'UNROLL8'
+ 1421 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1140:5: note: here
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |     ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1421:2: note: in expansion of macro 'UNROLL8'
+ 1421 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1423:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1423 |      pp += samplesperpixel);
+      |      ~~~^~~~~~~~~~~~~~~~~~
+tif_getimage.c:1140:13: note: in definition of macro 'CASE8'
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |             ^~
+tif_getimage.c:1421:2: note: in expansion of macro 'UNROLL8'
+ 1421 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1140:17: note: here
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                 ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1421:2: note: in expansion of macro 'UNROLL8'
+ 1421 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1423:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1423 |      pp += samplesperpixel);
+      |      ~~~^~~~~~~~~~~~~~~~~~
+tif_getimage.c:1140:25: note: in definition of macro 'CASE8'
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                         ^~
+tif_getimage.c:1421:2: note: in expansion of macro 'UNROLL8'
+ 1421 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1140:29: note: here
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                             ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1421:2: note: in expansion of macro 'UNROLL8'
+ 1421 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1423:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1423 |      pp += samplesperpixel);
+      |      ~~~^~~~~~~~~~~~~~~~~~
+tif_getimage.c:1140:37: note: in definition of macro 'CASE8'
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                                     ^~
+tif_getimage.c:1421:2: note: in expansion of macro 'UNROLL8'
+ 1421 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c:1141:5: note: here
+ 1141 |     case 1: op;    \
+      |     ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1421:2: note: in expansion of macro 'UNROLL8'
+ 1421 |  UNROLL8(w, NOP,
+      |  ^~~~~~~
+tif_getimage.c: In function 'putRGBseparate8bittile':
+tif_getimage.c:1595:24: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1595 |  UNROLL8(w, NOP, *cp++ = PACK(*r++, *g++, *b++));
+      |                        ^
+tif_getimage.c:1139:13: note: in definition of macro 'CASE8'
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |             ^~
+tif_getimage.c:1595:2: note: in expansion of macro 'UNROLL8'
+ 1595 |  UNROLL8(w, NOP, *cp++ = PACK(*r++, *g++, *b++));
+      |  ^~~~~~~
+tif_getimage.c:1139:17: note: here
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                 ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1595:2: note: in expansion of macro 'UNROLL8'
+ 1595 |  UNROLL8(w, NOP, *cp++ = PACK(*r++, *g++, *b++));
+      |  ^~~~~~~
+tif_getimage.c:1595:24: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1595 |  UNROLL8(w, NOP, *cp++ = PACK(*r++, *g++, *b++));
+      |                        ^
+tif_getimage.c:1139:25: note: in definition of macro 'CASE8'
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                         ^~
+tif_getimage.c:1595:2: note: in expansion of macro 'UNROLL8'
+ 1595 |  UNROLL8(w, NOP, *cp++ = PACK(*r++, *g++, *b++));
+      |  ^~~~~~~
+tif_getimage.c:1139:29: note: here
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                             ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1595:2: note: in expansion of macro 'UNROLL8'
+ 1595 |  UNROLL8(w, NOP, *cp++ = PACK(*r++, *g++, *b++));
+      |  ^~~~~~~
+tif_getimage.c:1595:24: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1595 |  UNROLL8(w, NOP, *cp++ = PACK(*r++, *g++, *b++));
+      |                        ^
+tif_getimage.c:1139:37: note: in definition of macro 'CASE8'
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                                     ^~
+tif_getimage.c:1595:2: note: in expansion of macro 'UNROLL8'
+ 1595 |  UNROLL8(w, NOP, *cp++ = PACK(*r++, *g++, *b++));
+      |  ^~~~~~~
+tif_getimage.c:1140:5: note: here
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |     ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1595:2: note: in expansion of macro 'UNROLL8'
+ 1595 |  UNROLL8(w, NOP, *cp++ = PACK(*r++, *g++, *b++));
+      |  ^~~~~~~
+tif_getimage.c:1595:24: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1595 |  UNROLL8(w, NOP, *cp++ = PACK(*r++, *g++, *b++));
+      |                        ^
+tif_getimage.c:1140:13: note: in definition of macro 'CASE8'
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |             ^~
+tif_getimage.c:1595:2: note: in expansion of macro 'UNROLL8'
+ 1595 |  UNROLL8(w, NOP, *cp++ = PACK(*r++, *g++, *b++));
+      |  ^~~~~~~
+tif_getimage.c:1140:17: note: here
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                 ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1595:2: note: in expansion of macro 'UNROLL8'
+ 1595 |  UNROLL8(w, NOP, *cp++ = PACK(*r++, *g++, *b++));
+      |  ^~~~~~~
+tif_getimage.c:1595:24: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1595 |  UNROLL8(w, NOP, *cp++ = PACK(*r++, *g++, *b++));
+      |                        ^
+tif_getimage.c:1140:25: note: in definition of macro 'CASE8'
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                         ^~
+tif_getimage.c:1595:2: note: in expansion of macro 'UNROLL8'
+ 1595 |  UNROLL8(w, NOP, *cp++ = PACK(*r++, *g++, *b++));
+      |  ^~~~~~~
+tif_getimage.c:1140:29: note: here
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                             ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1595:2: note: in expansion of macro 'UNROLL8'
+ 1595 |  UNROLL8(w, NOP, *cp++ = PACK(*r++, *g++, *b++));
+      |  ^~~~~~~
+tif_getimage.c:1595:24: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1595 |  UNROLL8(w, NOP, *cp++ = PACK(*r++, *g++, *b++));
+      |                        ^
+tif_getimage.c:1140:37: note: in definition of macro 'CASE8'
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                                     ^~
+tif_getimage.c:1595:2: note: in expansion of macro 'UNROLL8'
+ 1595 |  UNROLL8(w, NOP, *cp++ = PACK(*r++, *g++, *b++));
+      |  ^~~~~~~
+tif_getimage.c:1141:5: note: here
+ 1141 |     case 1: op;    \
+      |     ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1595:2: note: in expansion of macro 'UNROLL8'
+ 1595 |  UNROLL8(w, NOP, *cp++ = PACK(*r++, *g++, *b++));
+      |  ^~~~~~~
+tif_getimage.c: In function 'putRGBAAseparate8bittile':
+tif_getimage.c:1608:25: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1608 |   UNROLL8(w, NOP, *cp++ = PACK4(*r++, *g++, *b++, *a++));
+      |                         ^
+tif_getimage.c:1139:13: note: in definition of macro 'CASE8'
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |             ^~
+tif_getimage.c:1608:3: note: in expansion of macro 'UNROLL8'
+ 1608 |   UNROLL8(w, NOP, *cp++ = PACK4(*r++, *g++, *b++, *a++));
+      |   ^~~~~~~
+tif_getimage.c:1139:17: note: here
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                 ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1608:3: note: in expansion of macro 'UNROLL8'
+ 1608 |   UNROLL8(w, NOP, *cp++ = PACK4(*r++, *g++, *b++, *a++));
+      |   ^~~~~~~
+tif_getimage.c:1608:25: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1608 |   UNROLL8(w, NOP, *cp++ = PACK4(*r++, *g++, *b++, *a++));
+      |                         ^
+tif_getimage.c:1139:25: note: in definition of macro 'CASE8'
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                         ^~
+tif_getimage.c:1608:3: note: in expansion of macro 'UNROLL8'
+ 1608 |   UNROLL8(w, NOP, *cp++ = PACK4(*r++, *g++, *b++, *a++));
+      |   ^~~~~~~
+tif_getimage.c:1139:29: note: here
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                             ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1608:3: note: in expansion of macro 'UNROLL8'
+ 1608 |   UNROLL8(w, NOP, *cp++ = PACK4(*r++, *g++, *b++, *a++));
+      |   ^~~~~~~
+tif_getimage.c:1608:25: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1608 |   UNROLL8(w, NOP, *cp++ = PACK4(*r++, *g++, *b++, *a++));
+      |                         ^
+tif_getimage.c:1139:37: note: in definition of macro 'CASE8'
+ 1139 |     case 7: op; case 6: op; case 5: op; \
+      |                                     ^~
+tif_getimage.c:1608:3: note: in expansion of macro 'UNROLL8'
+ 1608 |   UNROLL8(w, NOP, *cp++ = PACK4(*r++, *g++, *b++, *a++));
+      |   ^~~~~~~
+tif_getimage.c:1140:5: note: here
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |     ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1608:3: note: in expansion of macro 'UNROLL8'
+ 1608 |   UNROLL8(w, NOP, *cp++ = PACK4(*r++, *g++, *b++, *a++));
+      |   ^~~~~~~
+tif_getimage.c:1608:25: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1608 |   UNROLL8(w, NOP, *cp++ = PACK4(*r++, *g++, *b++, *a++));
+      |                         ^
+tif_getimage.c:1140:13: note: in definition of macro 'CASE8'
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |             ^~
+tif_getimage.c:1608:3: note: in expansion of macro 'UNROLL8'
+ 1608 |   UNROLL8(w, NOP, *cp++ = PACK4(*r++, *g++, *b++, *a++));
+      |   ^~~~~~~
+tif_getimage.c:1140:17: note: here
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                 ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1608:3: note: in expansion of macro 'UNROLL8'
+ 1608 |   UNROLL8(w, NOP, *cp++ = PACK4(*r++, *g++, *b++, *a++));
+      |   ^~~~~~~
+tif_getimage.c:1608:25: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1608 |   UNROLL8(w, NOP, *cp++ = PACK4(*r++, *g++, *b++, *a++));
+      |                         ^
+tif_getimage.c:1140:25: note: in definition of macro 'CASE8'
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                         ^~
+tif_getimage.c:1608:3: note: in expansion of macro 'UNROLL8'
+ 1608 |   UNROLL8(w, NOP, *cp++ = PACK4(*r++, *g++, *b++, *a++));
+      |   ^~~~~~~
+tif_getimage.c:1140:29: note: here
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                             ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1608:3: note: in expansion of macro 'UNROLL8'
+ 1608 |   UNROLL8(w, NOP, *cp++ = PACK4(*r++, *g++, *b++, *a++));
+      |   ^~~~~~~
+tif_getimage.c:1608:25: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1608 |   UNROLL8(w, NOP, *cp++ = PACK4(*r++, *g++, *b++, *a++));
+      |                         ^
+tif_getimage.c:1140:37: note: in definition of macro 'CASE8'
+ 1140 |     case 4: op; case 3: op; case 2: op; \
+      |                                     ^~
+tif_getimage.c:1608:3: note: in expansion of macro 'UNROLL8'
+ 1608 |   UNROLL8(w, NOP, *cp++ = PACK4(*r++, *g++, *b++, *a++));
+      |   ^~~~~~~
+tif_getimage.c:1141:5: note: here
+ 1141 |     case 1: op;    \
+      |     ^~~~
+tif_getimage.c:1154:2: note: in expansion of macro 'CASE8'
+ 1154 |  CASE8(_x,op2);   \
+      |  ^~~~~
+tif_getimage.c:1608:3: note: in expansion of macro 'UNROLL8'
+ 1608 |   UNROLL8(w, NOP, *cp++ = PACK4(*r++, *g++, *b++, *a++));
+      |   ^~~~~~~
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_getimage.lo -MD -MP -MF .deps/tif_getimage.Tpo -c tif_getimage.c -o tif_getimage.o >/dev/null 2>&1
+mv -f .deps/tif_getimage.Tpo .deps/tif_getimage.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_jbig.lo -MD -MP -MF .deps/tif_jbig.Tpo -c -o tif_jbig.lo tif_jbig.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_jbig.lo -MD -MP -MF .deps/tif_jbig.Tpo -c tif_jbig.c  -fPIC -DPIC -o .libs/tif_jbig.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_jbig.lo -MD -MP -MF .deps/tif_jbig.Tpo -c tif_jbig.c -o tif_jbig.o >/dev/null 2>&1
+mv -f .deps/tif_jbig.Tpo .deps/tif_jbig.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_jpeg.lo -MD -MP -MF .deps/tif_jpeg.Tpo -c -o tif_jpeg.lo tif_jpeg.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_jpeg.lo -MD -MP -MF .deps/tif_jpeg.Tpo -c tif_jpeg.c  -fPIC -DPIC -o .libs/tif_jpeg.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_jpeg.lo -MD -MP -MF .deps/tif_jpeg.Tpo -c tif_jpeg.c -o tif_jpeg.o >/dev/null 2>&1
+mv -f .deps/tif_jpeg.Tpo .deps/tif_jpeg.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_jpeg_12.lo -MD -MP -MF .deps/tif_jpeg_12.Tpo -c -o tif_jpeg_12.lo tif_jpeg_12.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_jpeg_12.lo -MD -MP -MF .deps/tif_jpeg_12.Tpo -c tif_jpeg_12.c  -fPIC -DPIC -o .libs/tif_jpeg_12.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_jpeg_12.lo -MD -MP -MF .deps/tif_jpeg_12.Tpo -c tif_jpeg_12.c -o tif_jpeg_12.o >/dev/null 2>&1
+mv -f .deps/tif_jpeg_12.Tpo .deps/tif_jpeg_12.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_luv.lo -MD -MP -MF .deps/tif_luv.Tpo -c -o tif_luv.lo tif_luv.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_luv.lo -MD -MP -MF .deps/tif_luv.Tpo -c tif_luv.c  -fPIC -DPIC -o .libs/tif_luv.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_luv.lo -MD -MP -MF .deps/tif_luv.Tpo -c tif_luv.c -o tif_luv.o >/dev/null 2>&1
+mv -f .deps/tif_luv.Tpo .deps/tif_luv.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_lzma.lo -MD -MP -MF .deps/tif_lzma.Tpo -c -o tif_lzma.lo tif_lzma.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_lzma.lo -MD -MP -MF .deps/tif_lzma.Tpo -c tif_lzma.c  -fPIC -DPIC -o .libs/tif_lzma.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_lzma.lo -MD -MP -MF .deps/tif_lzma.Tpo -c tif_lzma.c -o tif_lzma.o >/dev/null 2>&1
+mv -f .deps/tif_lzma.Tpo .deps/tif_lzma.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_lzw.lo -MD -MP -MF .deps/tif_lzw.Tpo -c -o tif_lzw.lo tif_lzw.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_lzw.lo -MD -MP -MF .deps/tif_lzw.Tpo -c tif_lzw.c  -fPIC -DPIC -o .libs/tif_lzw.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_lzw.lo -MD -MP -MF .deps/tif_lzw.Tpo -c tif_lzw.c -o tif_lzw.o >/dev/null 2>&1
+mv -f .deps/tif_lzw.Tpo .deps/tif_lzw.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_next.lo -MD -MP -MF .deps/tif_next.Tpo -c -o tif_next.lo tif_next.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_next.lo -MD -MP -MF .deps/tif_next.Tpo -c tif_next.c  -fPIC -DPIC -o .libs/tif_next.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_next.lo -MD -MP -MF .deps/tif_next.Tpo -c tif_next.c -o tif_next.o >/dev/null 2>&1
+mv -f .deps/tif_next.Tpo .deps/tif_next.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_ojpeg.lo -MD -MP -MF .deps/tif_ojpeg.Tpo -c -o tif_ojpeg.lo tif_ojpeg.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_ojpeg.lo -MD -MP -MF .deps/tif_ojpeg.Tpo -c tif_ojpeg.c  -fPIC -DPIC -o .libs/tif_ojpeg.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_ojpeg.lo -MD -MP -MF .deps/tif_ojpeg.Tpo -c tif_ojpeg.c -o tif_ojpeg.o >/dev/null 2>&1
+mv -f .deps/tif_ojpeg.Tpo .deps/tif_ojpeg.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_open.lo -MD -MP -MF .deps/tif_open.Tpo -c -o tif_open.lo tif_open.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_open.lo -MD -MP -MF .deps/tif_open.Tpo -c tif_open.c  -fPIC -DPIC -o .libs/tif_open.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_open.lo -MD -MP -MF .deps/tif_open.Tpo -c tif_open.c -o tif_open.o >/dev/null 2>&1
+mv -f .deps/tif_open.Tpo .deps/tif_open.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_packbits.lo -MD -MP -MF .deps/tif_packbits.Tpo -c -o tif_packbits.lo tif_packbits.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_packbits.lo -MD -MP -MF .deps/tif_packbits.Tpo -c tif_packbits.c  -fPIC -DPIC -o .libs/tif_packbits.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_packbits.lo -MD -MP -MF .deps/tif_packbits.Tpo -c tif_packbits.c -o tif_packbits.o >/dev/null 2>&1
+mv -f .deps/tif_packbits.Tpo .deps/tif_packbits.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_pixarlog.lo -MD -MP -MF .deps/tif_pixarlog.Tpo -c -o tif_pixarlog.lo tif_pixarlog.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_pixarlog.lo -MD -MP -MF .deps/tif_pixarlog.Tpo -c tif_pixarlog.c  -fPIC -DPIC -o .libs/tif_pixarlog.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_pixarlog.lo -MD -MP -MF .deps/tif_pixarlog.Tpo -c tif_pixarlog.c -o tif_pixarlog.o >/dev/null 2>&1
+mv -f .deps/tif_pixarlog.Tpo .deps/tif_pixarlog.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_predict.lo -MD -MP -MF .deps/tif_predict.Tpo -c -o tif_predict.lo tif_predict.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_predict.lo -MD -MP -MF .deps/tif_predict.Tpo -c tif_predict.c  -fPIC -DPIC -o .libs/tif_predict.o
+tif_predict.c: In function 'fpDiff':
+tif_predict.c:262:14: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  262 |     default: { tmsize_t i; for (i = n-4; i > 0; i--) { op; } } \
+      |              ^
+tif_predict.c:674:3: note: in expansion of macro 'REPEAT4'
+  674 |   REPEAT4(stride, cp[stride] = (unsigned char)((cp[stride] - cp[0])&0xff); cp--)
+      |   ^~~~~~~
+tif_predict.c:263:5: note: here
+  263 |     case 4:  op;  \
+      |     ^~~~
+tif_predict.c:674:3: note: in expansion of macro 'REPEAT4'
+  674 |   REPEAT4(stride, cp[stride] = (unsigned char)((cp[stride] - cp[0])&0xff); cp--)
+      |   ^~~~~~~
+tif_predict.c:674:78: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  674 |   REPEAT4(stride, cp[stride] = (unsigned char)((cp[stride] - cp[0])&0xff); cp--)
+      |                                                                            ~~^~
+tif_predict.c:263:14: note: in definition of macro 'REPEAT4'
+  263 |     case 4:  op;  \
+      |              ^~
+tif_predict.c:264:5: note: here
+  264 |     case 3:  op;  \
+      |     ^~~~
+tif_predict.c:674:3: note: in expansion of macro 'REPEAT4'
+  674 |   REPEAT4(stride, cp[stride] = (unsigned char)((cp[stride] - cp[0])&0xff); cp--)
+      |   ^~~~~~~
+tif_predict.c:674:78: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  674 |   REPEAT4(stride, cp[stride] = (unsigned char)((cp[stride] - cp[0])&0xff); cp--)
+      |                                                                            ~~^~
+tif_predict.c:264:14: note: in definition of macro 'REPEAT4'
+  264 |     case 3:  op;  \
+      |              ^~
+tif_predict.c:265:5: note: here
+  265 |     case 2:  op;  \
+      |     ^~~~
+tif_predict.c:674:3: note: in expansion of macro 'REPEAT4'
+  674 |   REPEAT4(stride, cp[stride] = (unsigned char)((cp[stride] - cp[0])&0xff); cp--)
+      |   ^~~~~~~
+tif_predict.c:674:78: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  674 |   REPEAT4(stride, cp[stride] = (unsigned char)((cp[stride] - cp[0])&0xff); cp--)
+      |                                                                            ~~^~
+tif_predict.c:265:14: note: in definition of macro 'REPEAT4'
+  265 |     case 2:  op;  \
+      |              ^~
+tif_predict.c:266:5: note: here
+  266 |     case 1:  op;  \
+      |     ^~~~
+tif_predict.c:674:3: note: in expansion of macro 'REPEAT4'
+  674 |   REPEAT4(stride, cp[stride] = (unsigned char)((cp[stride] - cp[0])&0xff); cp--)
+      |   ^~~~~~~
+tif_predict.c: In function 'horDiff32':
+tif_predict.c:262:14: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  262 |     default: { tmsize_t i; for (i = n-4; i > 0; i--) { op; } } \
+      |              ^
+tif_predict.c:613:4: note: in expansion of macro 'REPEAT4'
+  613 |    REPEAT4(stride, wp[stride] -= wp[0]; wp--)
+      |    ^~~~~~~
+tif_predict.c:263:5: note: here
+  263 |     case 4:  op;  \
+      |     ^~~~
+tif_predict.c:613:4: note: in expansion of macro 'REPEAT4'
+  613 |    REPEAT4(stride, wp[stride] -= wp[0]; wp--)
+      |    ^~~~~~~
+tif_predict.c:613:43: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  613 |    REPEAT4(stride, wp[stride] -= wp[0]; wp--)
+      |                                         ~~^~
+tif_predict.c:263:14: note: in definition of macro 'REPEAT4'
+  263 |     case 4:  op;  \
+      |              ^~
+tif_predict.c:264:5: note: here
+  264 |     case 3:  op;  \
+      |     ^~~~
+tif_predict.c:613:4: note: in expansion of macro 'REPEAT4'
+  613 |    REPEAT4(stride, wp[stride] -= wp[0]; wp--)
+      |    ^~~~~~~
+tif_predict.c:613:43: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  613 |    REPEAT4(stride, wp[stride] -= wp[0]; wp--)
+      |                                         ~~^~
+tif_predict.c:264:14: note: in definition of macro 'REPEAT4'
+  264 |     case 3:  op;  \
+      |              ^~
+tif_predict.c:265:5: note: here
+  265 |     case 2:  op;  \
+      |     ^~~~
+tif_predict.c:613:4: note: in expansion of macro 'REPEAT4'
+  613 |    REPEAT4(stride, wp[stride] -= wp[0]; wp--)
+      |    ^~~~~~~
+tif_predict.c:613:43: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  613 |    REPEAT4(stride, wp[stride] -= wp[0]; wp--)
+      |                                         ~~^~
+tif_predict.c:265:14: note: in definition of macro 'REPEAT4'
+  265 |     case 2:  op;  \
+      |              ^~
+tif_predict.c:266:5: note: here
+  266 |     case 1:  op;  \
+      |     ^~~~
+tif_predict.c:613:4: note: in expansion of macro 'REPEAT4'
+  613 |    REPEAT4(stride, wp[stride] -= wp[0]; wp--)
+      |    ^~~~~~~
+tif_predict.c: In function 'horDiff16':
+tif_predict.c:262:14: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  262 |     default: { tmsize_t i; for (i = n-4; i > 0; i--) { op; } } \
+      |              ^
+tif_predict.c:574:4: note: in expansion of macro 'REPEAT4'
+  574 |    REPEAT4(stride, wp[stride] = (uint16)(((unsigned int)wp[stride] - (unsigned int)wp[0]) & 0xffff); wp--)
+      |    ^~~~~~~
+tif_predict.c:263:5: note: here
+  263 |     case 4:  op;  \
+      |     ^~~~
+tif_predict.c:574:4: note: in expansion of macro 'REPEAT4'
+  574 |    REPEAT4(stride, wp[stride] = (uint16)(((unsigned int)wp[stride] - (unsigned int)wp[0]) & 0xffff); wp--)
+      |    ^~~~~~~
+tif_predict.c:574:104: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  574 |    REPEAT4(stride, wp[stride] = (uint16)(((unsigned int)wp[stride] - (unsigned int)wp[0]) & 0xffff); wp--)
+      |                                                                                                      ~~^~
+tif_predict.c:263:14: note: in definition of macro 'REPEAT4'
+  263 |     case 4:  op;  \
+      |              ^~
+tif_predict.c:264:5: note: here
+  264 |     case 3:  op;  \
+      |     ^~~~
+tif_predict.c:574:4: note: in expansion of macro 'REPEAT4'
+  574 |    REPEAT4(stride, wp[stride] = (uint16)(((unsigned int)wp[stride] - (unsigned int)wp[0]) & 0xffff); wp--)
+      |    ^~~~~~~
+tif_predict.c:574:104: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  574 |    REPEAT4(stride, wp[stride] = (uint16)(((unsigned int)wp[stride] - (unsigned int)wp[0]) & 0xffff); wp--)
+      |                                                                                                      ~~^~
+tif_predict.c:264:14: note: in definition of macro 'REPEAT4'
+  264 |     case 3:  op;  \
+      |              ^~
+tif_predict.c:265:5: note: here
+  265 |     case 2:  op;  \
+      |     ^~~~
+tif_predict.c:574:4: note: in expansion of macro 'REPEAT4'
+  574 |    REPEAT4(stride, wp[stride] = (uint16)(((unsigned int)wp[stride] - (unsigned int)wp[0]) & 0xffff); wp--)
+      |    ^~~~~~~
+tif_predict.c:574:104: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  574 |    REPEAT4(stride, wp[stride] = (uint16)(((unsigned int)wp[stride] - (unsigned int)wp[0]) & 0xffff); wp--)
+      |                                                                                                      ~~^~
+tif_predict.c:265:14: note: in definition of macro 'REPEAT4'
+  265 |     case 2:  op;  \
+      |              ^~
+tif_predict.c:266:5: note: here
+  266 |     case 1:  op;  \
+      |     ^~~~
+tif_predict.c:574:4: note: in expansion of macro 'REPEAT4'
+  574 |    REPEAT4(stride, wp[stride] = (uint16)(((unsigned int)wp[stride] - (unsigned int)wp[0]) & 0xffff); wp--)
+      |    ^~~~~~~
+tif_predict.c: In function 'horDiff8':
+tif_predict.c:262:14: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  262 |     default: { tmsize_t i; for (i = n-4; i > 0; i--) { op; } } \
+      |              ^
+tif_predict.c:548:5: note: in expansion of macro 'REPEAT4'
+  548 |     REPEAT4(stride, cp[stride] = (unsigned char)((cp[stride] - cp[0])&0xff); cp--)
+      |     ^~~~~~~
+tif_predict.c:263:5: note: here
+  263 |     case 4:  op;  \
+      |     ^~~~
+tif_predict.c:548:5: note: in expansion of macro 'REPEAT4'
+  548 |     REPEAT4(stride, cp[stride] = (unsigned char)((cp[stride] - cp[0])&0xff); cp--)
+      |     ^~~~~~~
+tif_predict.c:548:80: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  548 |     REPEAT4(stride, cp[stride] = (unsigned char)((cp[stride] - cp[0])&0xff); cp--)
+      |                                                                              ~~^~
+tif_predict.c:263:14: note: in definition of macro 'REPEAT4'
+  263 |     case 4:  op;  \
+      |              ^~
+tif_predict.c:264:5: note: here
+  264 |     case 3:  op;  \
+      |     ^~~~
+tif_predict.c:548:5: note: in expansion of macro 'REPEAT4'
+  548 |     REPEAT4(stride, cp[stride] = (unsigned char)((cp[stride] - cp[0])&0xff); cp--)
+      |     ^~~~~~~
+tif_predict.c:548:80: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  548 |     REPEAT4(stride, cp[stride] = (unsigned char)((cp[stride] - cp[0])&0xff); cp--)
+      |                                                                              ~~^~
+tif_predict.c:264:14: note: in definition of macro 'REPEAT4'
+  264 |     case 3:  op;  \
+      |              ^~
+tif_predict.c:265:5: note: here
+  265 |     case 2:  op;  \
+      |     ^~~~
+tif_predict.c:548:5: note: in expansion of macro 'REPEAT4'
+  548 |     REPEAT4(stride, cp[stride] = (unsigned char)((cp[stride] - cp[0])&0xff); cp--)
+      |     ^~~~~~~
+tif_predict.c:548:80: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  548 |     REPEAT4(stride, cp[stride] = (unsigned char)((cp[stride] - cp[0])&0xff); cp--)
+      |                                                                              ~~^~
+tif_predict.c:265:14: note: in definition of macro 'REPEAT4'
+  265 |     case 2:  op;  \
+      |              ^~
+tif_predict.c:266:5: note: here
+  266 |     case 1:  op;  \
+      |     ^~~~
+tif_predict.c:548:5: note: in expansion of macro 'REPEAT4'
+  548 |     REPEAT4(stride, cp[stride] = (unsigned char)((cp[stride] - cp[0])&0xff); cp--)
+      |     ^~~~~~~
+tif_predict.c: In function 'fpAcc':
+tif_predict.c:262:14: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  262 |     default: { tmsize_t i; for (i = n-4; i > 0; i--) { op; } } \
+      |              ^
+tif_predict.c:426:3: note: in expansion of macro 'REPEAT4'
+  426 |   REPEAT4(stride, cp[stride] =
+      |   ^~~~~~~
+tif_predict.c:263:5: note: here
+  263 |     case 4:  op;  \
+      |     ^~~~
+tif_predict.c:426:3: note: in expansion of macro 'REPEAT4'
+  426 |   REPEAT4(stride, cp[stride] =
+      |   ^~~~~~~
+tif_predict.c:427:74: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  427 |                         (unsigned char) ((cp[stride] + cp[0]) & 0xff); cp++)
+      |                                                                        ~~^~
+tif_predict.c:263:14: note: in definition of macro 'REPEAT4'
+  263 |     case 4:  op;  \
+      |              ^~
+tif_predict.c:264:5: note: here
+  264 |     case 3:  op;  \
+      |     ^~~~
+tif_predict.c:426:3: note: in expansion of macro 'REPEAT4'
+  426 |   REPEAT4(stride, cp[stride] =
+      |   ^~~~~~~
+tif_predict.c:427:74: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  427 |                         (unsigned char) ((cp[stride] + cp[0]) & 0xff); cp++)
+      |                                                                        ~~^~
+tif_predict.c:264:14: note: in definition of macro 'REPEAT4'
+  264 |     case 3:  op;  \
+      |              ^~
+tif_predict.c:265:5: note: here
+  265 |     case 2:  op;  \
+      |     ^~~~
+tif_predict.c:426:3: note: in expansion of macro 'REPEAT4'
+  426 |   REPEAT4(stride, cp[stride] =
+      |   ^~~~~~~
+tif_predict.c:427:74: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  427 |                         (unsigned char) ((cp[stride] + cp[0]) & 0xff); cp++)
+      |                                                                        ~~^~
+tif_predict.c:265:14: note: in definition of macro 'REPEAT4'
+  265 |     case 2:  op;  \
+      |              ^~
+tif_predict.c:266:5: note: here
+  266 |     case 1:  op;  \
+      |     ^~~~
+tif_predict.c:426:3: note: in expansion of macro 'REPEAT4'
+  426 |   REPEAT4(stride, cp[stride] =
+      |   ^~~~~~~
+tif_predict.c: In function 'horAcc32':
+tif_predict.c:262:14: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  262 |     default: { tmsize_t i; for (i = n-4; i > 0; i--) { op; } } \
+      |              ^
+tif_predict.c:394:4: note: in expansion of macro 'REPEAT4'
+  394 |    REPEAT4(stride, wp[stride] += wp[0]; wp++)
+      |    ^~~~~~~
+tif_predict.c:263:5: note: here
+  263 |     case 4:  op;  \
+      |     ^~~~
+tif_predict.c:394:4: note: in expansion of macro 'REPEAT4'
+  394 |    REPEAT4(stride, wp[stride] += wp[0]; wp++)
+      |    ^~~~~~~
+tif_predict.c:394:43: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  394 |    REPEAT4(stride, wp[stride] += wp[0]; wp++)
+      |                                         ~~^~
+tif_predict.c:263:14: note: in definition of macro 'REPEAT4'
+  263 |     case 4:  op;  \
+      |              ^~
+tif_predict.c:264:5: note: here
+  264 |     case 3:  op;  \
+      |     ^~~~
+tif_predict.c:394:4: note: in expansion of macro 'REPEAT4'
+  394 |    REPEAT4(stride, wp[stride] += wp[0]; wp++)
+      |    ^~~~~~~
+tif_predict.c:394:43: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  394 |    REPEAT4(stride, wp[stride] += wp[0]; wp++)
+      |                                         ~~^~
+tif_predict.c:264:14: note: in definition of macro 'REPEAT4'
+  264 |     case 3:  op;  \
+      |              ^~
+tif_predict.c:265:5: note: here
+  265 |     case 2:  op;  \
+      |     ^~~~
+tif_predict.c:394:4: note: in expansion of macro 'REPEAT4'
+  394 |    REPEAT4(stride, wp[stride] += wp[0]; wp++)
+      |    ^~~~~~~
+tif_predict.c:394:43: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  394 |    REPEAT4(stride, wp[stride] += wp[0]; wp++)
+      |                                         ~~^~
+tif_predict.c:265:14: note: in definition of macro 'REPEAT4'
+  265 |     case 2:  op;  \
+      |              ^~
+tif_predict.c:266:5: note: here
+  266 |     case 1:  op;  \
+      |     ^~~~
+tif_predict.c:394:4: note: in expansion of macro 'REPEAT4'
+  394 |    REPEAT4(stride, wp[stride] += wp[0]; wp++)
+      |    ^~~~~~~
+tif_predict.c: In function 'horAcc16':
+tif_predict.c:262:14: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  262 |     default: { tmsize_t i; for (i = n-4; i > 0; i--) { op; } } \
+      |              ^
+tif_predict.c:360:4: note: in expansion of macro 'REPEAT4'
+  360 |    REPEAT4(stride, wp[stride] = (uint16)(((unsigned int)wp[stride] + (unsigned int)wp[0]) & 0xffff); wp++)
+      |    ^~~~~~~
+tif_predict.c:263:5: note: here
+  263 |     case 4:  op;  \
+      |     ^~~~
+tif_predict.c:360:4: note: in expansion of macro 'REPEAT4'
+  360 |    REPEAT4(stride, wp[stride] = (uint16)(((unsigned int)wp[stride] + (unsigned int)wp[0]) & 0xffff); wp++)
+      |    ^~~~~~~
+tif_predict.c:360:104: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  360 |    REPEAT4(stride, wp[stride] = (uint16)(((unsigned int)wp[stride] + (unsigned int)wp[0]) & 0xffff); wp++)
+      |                                                                                                      ~~^~
+tif_predict.c:263:14: note: in definition of macro 'REPEAT4'
+  263 |     case 4:  op;  \
+      |              ^~
+tif_predict.c:264:5: note: here
+  264 |     case 3:  op;  \
+      |     ^~~~
+tif_predict.c:360:4: note: in expansion of macro 'REPEAT4'
+  360 |    REPEAT4(stride, wp[stride] = (uint16)(((unsigned int)wp[stride] + (unsigned int)wp[0]) & 0xffff); wp++)
+      |    ^~~~~~~
+tif_predict.c:360:104: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  360 |    REPEAT4(stride, wp[stride] = (uint16)(((unsigned int)wp[stride] + (unsigned int)wp[0]) & 0xffff); wp++)
+      |                                                                                                      ~~^~
+tif_predict.c:264:14: note: in definition of macro 'REPEAT4'
+  264 |     case 3:  op;  \
+      |              ^~
+tif_predict.c:265:5: note: here
+  265 |     case 2:  op;  \
+      |     ^~~~
+tif_predict.c:360:4: note: in expansion of macro 'REPEAT4'
+  360 |    REPEAT4(stride, wp[stride] = (uint16)(((unsigned int)wp[stride] + (unsigned int)wp[0]) & 0xffff); wp++)
+      |    ^~~~~~~
+tif_predict.c:360:104: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  360 |    REPEAT4(stride, wp[stride] = (uint16)(((unsigned int)wp[stride] + (unsigned int)wp[0]) & 0xffff); wp++)
+      |                                                                                                      ~~^~
+tif_predict.c:265:14: note: in definition of macro 'REPEAT4'
+  265 |     case 2:  op;  \
+      |              ^~
+tif_predict.c:266:5: note: here
+  266 |     case 1:  op;  \
+      |     ^~~~
+tif_predict.c:360:4: note: in expansion of macro 'REPEAT4'
+  360 |    REPEAT4(stride, wp[stride] = (uint16)(((unsigned int)wp[stride] + (unsigned int)wp[0]) & 0xffff); wp++)
+      |    ^~~~~~~
+tif_predict.c: In function 'horAcc8':
+tif_predict.c:262:14: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  262 |     default: { tmsize_t i; for (i = n-4; i > 0; i--) { op; } } \
+      |              ^
+tif_predict.c:324:5: note: in expansion of macro 'REPEAT4'
+  324 |     REPEAT4(stride, cp[stride] =
+      |     ^~~~~~~
+tif_predict.c:263:5: note: here
+  263 |     case 4:  op;  \
+      |     ^~~~
+tif_predict.c:324:5: note: in expansion of macro 'REPEAT4'
+  324 |     REPEAT4(stride, cp[stride] =
+      |     ^~~~~~~
+tif_predict.c:325:53: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  325 |      (unsigned char) ((cp[stride] + *cp) & 0xff); cp++)
+      |                                                   ~~^~
+tif_predict.c:263:14: note: in definition of macro 'REPEAT4'
+  263 |     case 4:  op;  \
+      |              ^~
+tif_predict.c:264:5: note: here
+  264 |     case 3:  op;  \
+      |     ^~~~
+tif_predict.c:324:5: note: in expansion of macro 'REPEAT4'
+  324 |     REPEAT4(stride, cp[stride] =
+      |     ^~~~~~~
+tif_predict.c:325:53: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  325 |      (unsigned char) ((cp[stride] + *cp) & 0xff); cp++)
+      |                                                   ~~^~
+tif_predict.c:264:14: note: in definition of macro 'REPEAT4'
+  264 |     case 3:  op;  \
+      |              ^~
+tif_predict.c:265:5: note: here
+  265 |     case 2:  op;  \
+      |     ^~~~
+tif_predict.c:324:5: note: in expansion of macro 'REPEAT4'
+  324 |     REPEAT4(stride, cp[stride] =
+      |     ^~~~~~~
+tif_predict.c:325:53: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  325 |      (unsigned char) ((cp[stride] + *cp) & 0xff); cp++)
+      |                                                   ~~^~
+tif_predict.c:265:14: note: in definition of macro 'REPEAT4'
+  265 |     case 2:  op;  \
+      |              ^~
+tif_predict.c:266:5: note: here
+  266 |     case 1:  op;  \
+      |     ^~~~
+tif_predict.c:324:5: note: in expansion of macro 'REPEAT4'
+  324 |     REPEAT4(stride, cp[stride] =
+      |     ^~~~~~~
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_predict.lo -MD -MP -MF .deps/tif_predict.Tpo -c tif_predict.c -o tif_predict.o >/dev/null 2>&1
+mv -f .deps/tif_predict.Tpo .deps/tif_predict.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_print.lo -MD -MP -MF .deps/tif_print.Tpo -c -o tif_print.lo tif_print.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_print.lo -MD -MP -MF .deps/tif_print.Tpo -c tif_print.c  -fPIC -DPIC -o .libs/tif_print.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_print.lo -MD -MP -MF .deps/tif_print.Tpo -c tif_print.c -o tif_print.o >/dev/null 2>&1
+mv -f .deps/tif_print.Tpo .deps/tif_print.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_read.lo -MD -MP -MF .deps/tif_read.Tpo -c -o tif_read.lo tif_read.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_read.lo -MD -MP -MF .deps/tif_read.Tpo -c tif_read.c  -fPIC -DPIC -o .libs/tif_read.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_read.lo -MD -MP -MF .deps/tif_read.Tpo -c tif_read.c -o tif_read.o >/dev/null 2>&1
+mv -f .deps/tif_read.Tpo .deps/tif_read.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_strip.lo -MD -MP -MF .deps/tif_strip.Tpo -c -o tif_strip.lo tif_strip.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_strip.lo -MD -MP -MF .deps/tif_strip.Tpo -c tif_strip.c  -fPIC -DPIC -o .libs/tif_strip.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_strip.lo -MD -MP -MF .deps/tif_strip.Tpo -c tif_strip.c -o tif_strip.o >/dev/null 2>&1
+mv -f .deps/tif_strip.Tpo .deps/tif_strip.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_swab.lo -MD -MP -MF .deps/tif_swab.Tpo -c -o tif_swab.lo tif_swab.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_swab.lo -MD -MP -MF .deps/tif_swab.Tpo -c tif_swab.c  -fPIC -DPIC -o .libs/tif_swab.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_swab.lo -MD -MP -MF .deps/tif_swab.Tpo -c tif_swab.c -o tif_swab.o >/dev/null 2>&1
+mv -f .deps/tif_swab.Tpo .deps/tif_swab.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_thunder.lo -MD -MP -MF .deps/tif_thunder.Tpo -c -o tif_thunder.lo tif_thunder.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_thunder.lo -MD -MP -MF .deps/tif_thunder.Tpo -c tif_thunder.c  -fPIC -DPIC -o .libs/tif_thunder.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_thunder.lo -MD -MP -MF .deps/tif_thunder.Tpo -c tif_thunder.c -o tif_thunder.o >/dev/null 2>&1
+mv -f .deps/tif_thunder.Tpo .deps/tif_thunder.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_tile.lo -MD -MP -MF .deps/tif_tile.Tpo -c -o tif_tile.lo tif_tile.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_tile.lo -MD -MP -MF .deps/tif_tile.Tpo -c tif_tile.c  -fPIC -DPIC -o .libs/tif_tile.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_tile.lo -MD -MP -MF .deps/tif_tile.Tpo -c tif_tile.c -o tif_tile.o >/dev/null 2>&1
+mv -f .deps/tif_tile.Tpo .deps/tif_tile.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_version.lo -MD -MP -MF .deps/tif_version.Tpo -c -o tif_version.lo tif_version.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_version.lo -MD -MP -MF .deps/tif_version.Tpo -c tif_version.c  -fPIC -DPIC -o .libs/tif_version.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_version.lo -MD -MP -MF .deps/tif_version.Tpo -c tif_version.c -o tif_version.o >/dev/null 2>&1
+mv -f .deps/tif_version.Tpo .deps/tif_version.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_warning.lo -MD -MP -MF .deps/tif_warning.Tpo -c -o tif_warning.lo tif_warning.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_warning.lo -MD -MP -MF .deps/tif_warning.Tpo -c tif_warning.c  -fPIC -DPIC -o .libs/tif_warning.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_warning.lo -MD -MP -MF .deps/tif_warning.Tpo -c tif_warning.c -o tif_warning.o >/dev/null 2>&1
+mv -f .deps/tif_warning.Tpo .deps/tif_warning.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_write.lo -MD -MP -MF .deps/tif_write.Tpo -c -o tif_write.lo tif_write.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_write.lo -MD -MP -MF .deps/tif_write.Tpo -c tif_write.c  -fPIC -DPIC -o .libs/tif_write.o
+tif_write.c: In function 'TIFFWriteEncodedTile':
+tif_write.c:477:5: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+  477 |     if (!(*tif->tif_preencode)(tif, sample))
+      |     ^~
+tif_write.c:480:2: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+  480 |  tif->tif_postdecode( tif, (uint8*) data, cc );
+      |  ^~~
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_write.lo -MD -MP -MF .deps/tif_write.Tpo -c tif_write.c -o tif_write.o >/dev/null 2>&1
+mv -f .deps/tif_write.Tpo .deps/tif_write.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_zip.lo -MD -MP -MF .deps/tif_zip.Tpo -c -o tif_zip.lo tif_zip.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_zip.lo -MD -MP -MF .deps/tif_zip.Tpo -c tif_zip.c  -fPIC -DPIC -o .libs/tif_zip.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_zip.lo -MD -MP -MF .deps/tif_zip.Tpo -c tif_zip.c -o tif_zip.o >/dev/null 2>&1
+mv -f .deps/tif_zip.Tpo .deps/tif_zip.Plo
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -W -MT tif_unix.lo -MD -MP -MF .deps/tif_unix.Tpo -c -o tif_unix.lo tif_unix.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_unix.lo -MD -MP -MF .deps/tif_unix.Tpo -c tif_unix.c  -fPIC -DPIC -o .libs/tif_unix.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -O2 -Wall -W -MT tif_unix.lo -MD -MP -MF .deps/tif_unix.Tpo -c tif_unix.c -o tif_unix.o >/dev/null 2>&1
+mv -f .deps/tif_unix.Tpo .deps/tif_unix.Plo
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W -no-undefined -version-info 7:4:2    -o libtiff.la -rpath /usr/local/lib tif_aux.lo tif_close.lo tif_codec.lo tif_color.lo tif_compress.lo tif_dir.lo tif_dirinfo.lo tif_dirread.lo tif_dirwrite.lo tif_dumpmode.lo tif_error.lo tif_extension.lo tif_fax3.lo tif_fax3sm.lo tif_flush.lo tif_getimage.lo tif_jbig.lo tif_jpeg.lo tif_jpeg_12.lo tif_luv.lo tif_lzma.lo tif_lzw.lo tif_next.lo tif_ojpeg.lo tif_open.lo tif_packbits.lo tif_pixarlog.lo tif_predict.lo tif_print.lo tif_read.lo tif_strip.lo tif_swab.lo tif_thunder.lo tif_tile.lo tif_version.lo tif_warning.lo tif_write.lo tif_zip.lo  tif_unix.lo ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -shared  -fPIC -DPIC  .libs/tif_aux.o .libs/tif_close.o .libs/tif_codec.o .libs/tif_color.o .libs/tif_compress.o .libs/tif_dir.o .libs/tif_dirinfo.o .libs/tif_dirread.o .libs/tif_dirwrite.o .libs/tif_dumpmode.o .libs/tif_error.o .libs/tif_extension.o .libs/tif_fax3.o .libs/tif_fax3sm.o .libs/tif_flush.o .libs/tif_getimage.o .libs/tif_jbig.o .libs/tif_jpeg.o .libs/tif_jpeg_12.o .libs/tif_luv.o .libs/tif_lzma.o .libs/tif_lzw.o .libs/tif_next.o .libs/tif_ojpeg.o .libs/tif_open.o .libs/tif_packbits.o .libs/tif_pixarlog.o .libs/tif_predict.o .libs/tif_print.o .libs/tif_read.o .libs/tif_strip.o .libs/tif_swab.o .libs/tif_thunder.o .libs/tif_tile.o .libs/tif_version.o .libs/tif_warning.o .libs/tif_write.o .libs/tif_zip.o .libs/tif_unix.o  -Wl,--whole-archive ../port/.libs/libport.a -Wl,--no-whole-archive  -ljpeg -lm  -g -O2   -Wl,-soname -Wl,libtiff.so.5 -o .libs/libtiff.so.5.2.4
+libtool: link: (cd ".libs" && rm -f "libtiff.so.5" && ln -s "libtiff.so.5.2.4" "libtiff.so.5")
+libtool: link: (cd ".libs" && rm -f "libtiff.so" && ln -s "libtiff.so.5.2.4" "libtiff.so")
+libtool: link: (cd .libs/libtiff.lax/libport.a && ar x "/home/workspace/libtiff/../port/.libs/libport.a")
+libtool: link: ar cr .libs/libtiff.a  tif_aux.o tif_close.o tif_codec.o tif_color.o tif_compress.o tif_dir.o tif_dirinfo.o tif_dirread.o tif_dirwrite.o tif_dumpmode.o tif_error.o tif_extension.o tif_fax3.o tif_fax3sm.o tif_flush.o tif_getimage.o tif_jbig.o tif_jpeg.o tif_jpeg_12.o tif_luv.o tif_lzma.o tif_lzw.o tif_next.o tif_ojpeg.o tif_open.o tif_packbits.o tif_pixarlog.o tif_predict.o tif_print.o tif_read.o tif_strip.o tif_swab.o tif_thunder.o tif_tile.o tif_version.o tif_warning.o tif_write.o tif_zip.o tif_unix.o  .libs/libtiff.lax/libport.a/dummy.o 
+libtool: link: ranlib .libs/libtiff.a
+libtool: link: rm -fr .libs/libtiff.lax
+libtool: link: ( cd ".libs" && rm -f "libtiff.la" && ln -s "../libtiff.la" "libtiff.la" )
+/bin/bash ../libtool  --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I.     -g -O2 -MT tif_stream.lo -MD -MP -MF .deps/tif_stream.Tpo -c -o tif_stream.lo tif_stream.cxx
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -g -O2 -MT tif_stream.lo -MD -MP -MF .deps/tif_stream.Tpo -c tif_stream.cxx  -fPIC -DPIC -o .libs/tif_stream.o
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -g -O2 -MT tif_stream.lo -MD -MP -MF .deps/tif_stream.Tpo -c tif_stream.cxx -o tif_stream.o >/dev/null 2>&1
+mv -f .deps/tif_stream.Tpo .deps/tif_stream.Plo
+/bin/bash ../libtool  --tag=CXX   --mode=link g++  -g -O2 -no-undefined -version-info 7:4:2    -o libtiffxx.la -rpath /usr/local/lib tif_stream.lo ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: g++  -fPIC -DPIC -shared -nostdlib /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o  .libs/tif_stream.o  -Wl,--whole-archive ../port/.libs/libport.a -Wl,--no-whole-archive  -Wl,-rpath -Wl,/home/workspace/libtiff/.libs ../libtiff/.libs/libtiff.so -ljpeg -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. -lstdc++ -lm -lc -lgcc_s /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o  -g -O2   -Wl,-soname -Wl,libtiffxx.so.5 -o .libs/libtiffxx.so.5.2.4
+libtool: link: (cd ".libs" && rm -f "libtiffxx.so.5" && ln -s "libtiffxx.so.5.2.4" "libtiffxx.so.5")
+libtool: link: (cd ".libs" && rm -f "libtiffxx.so" && ln -s "libtiffxx.so.5.2.4" "libtiffxx.so")
+libtool: link: (cd .libs/libtiffxx.lax/libport.a && ar x "/home/workspace/libtiff/../port/.libs/libport.a")
+libtool: link: ar cr .libs/libtiffxx.a  tif_stream.o  .libs/libtiffxx.lax/libport.a/dummy.o 
+libtool: link: ranlib .libs/libtiffxx.a
+libtool: link: rm -fr .libs/libtiffxx.lax
+libtool: link: ( cd ".libs" && rm -f "libtiffxx.la" && ln -s "../libtiffxx.la" "libtiffxx.la" )
+make[2]: Leaving directory '/home/workspace/libtiff'
+make[1]: Leaving directory '/home/workspace/libtiff'
+Making all in tools
+make[1]: Entering directory '/home/workspace/tools'
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT bmp2tiff.o -MD -MP -MF .deps/bmp2tiff.Tpo -c -o bmp2tiff.o bmp2tiff.c
+mv -f .deps/bmp2tiff.Tpo .deps/bmp2tiff.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o bmp2tiff bmp2tiff.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/bmp2tiff bmp2tiff.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT fax2ps.o -MD -MP -MF .deps/fax2ps.Tpo -c -o fax2ps.o fax2ps.c
+mv -f .deps/fax2ps.Tpo .deps/fax2ps.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o fax2ps fax2ps.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/fax2ps fax2ps.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT fax2tiff.o -MD -MP -MF .deps/fax2tiff.Tpo -c -o fax2tiff.o fax2tiff.c
+mv -f .deps/fax2tiff.Tpo .deps/fax2tiff.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o fax2tiff fax2tiff.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/fax2tiff fax2tiff.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT gif2tiff.o -MD -MP -MF .deps/gif2tiff.Tpo -c -o gif2tiff.o gif2tiff.c
+mv -f .deps/gif2tiff.Tpo .deps/gif2tiff.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o gif2tiff gif2tiff.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/gif2tiff gif2tiff.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT pal2rgb.o -MD -MP -MF .deps/pal2rgb.Tpo -c -o pal2rgb.o pal2rgb.c
+mv -f .deps/pal2rgb.Tpo .deps/pal2rgb.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o pal2rgb pal2rgb.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/pal2rgb pal2rgb.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT ppm2tiff.o -MD -MP -MF .deps/ppm2tiff.Tpo -c -o ppm2tiff.o ppm2tiff.c
+mv -f .deps/ppm2tiff.Tpo .deps/ppm2tiff.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o ppm2tiff ppm2tiff.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/ppm2tiff ppm2tiff.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT ras2tiff.o -MD -MP -MF .deps/ras2tiff.Tpo -c -o ras2tiff.o ras2tiff.c
+mv -f .deps/ras2tiff.Tpo .deps/ras2tiff.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o ras2tiff ras2tiff.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/ras2tiff ras2tiff.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT raw2tiff.o -MD -MP -MF .deps/raw2tiff.Tpo -c -o raw2tiff.o raw2tiff.c
+mv -f .deps/raw2tiff.Tpo .deps/raw2tiff.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o raw2tiff raw2tiff.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/raw2tiff raw2tiff.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT rgb2ycbcr.o -MD -MP -MF .deps/rgb2ycbcr.Tpo -c -o rgb2ycbcr.o rgb2ycbcr.c
+mv -f .deps/rgb2ycbcr.Tpo .deps/rgb2ycbcr.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o rgb2ycbcr rgb2ycbcr.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/rgb2ycbcr rgb2ycbcr.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT thumbnail.o -MD -MP -MF .deps/thumbnail.Tpo -c -o thumbnail.o thumbnail.c
+thumbnail.c: In function 'setrow':
+thumbnail.c:531:18: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  531 |      case 8: acc += bits[*src++];
+      |                  ^~
+thumbnail.c:532:6: note: here
+  532 |      case 7: acc += bits[*src++];
+      |      ^~~~
+thumbnail.c:532:18: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  532 |      case 7: acc += bits[*src++];
+      |                  ^~
+thumbnail.c:533:6: note: here
+  533 |      case 6: acc += bits[*src++];
+      |      ^~~~
+thumbnail.c:533:18: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  533 |      case 6: acc += bits[*src++];
+      |                  ^~
+thumbnail.c:534:6: note: here
+  534 |      case 5: acc += bits[*src++];
+      |      ^~~~
+thumbnail.c:534:18: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  534 |      case 5: acc += bits[*src++];
+      |                  ^~
+thumbnail.c:535:6: note: here
+  535 |      case 4: acc += bits[*src++];
+      |      ^~~~
+thumbnail.c:535:18: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  535 |      case 4: acc += bits[*src++];
+      |                  ^~
+thumbnail.c:536:6: note: here
+  536 |      case 3: acc += bits[*src++];
+      |      ^~~~
+thumbnail.c:536:18: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  536 |      case 3: acc += bits[*src++];
+      |                  ^~
+thumbnail.c:537:6: note: here
+  537 |      case 2: acc += bits[*src++];
+      |      ^~~~
+thumbnail.c:537:18: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  537 |      case 2: acc += bits[*src++];
+      |                  ^~
+thumbnail.c:538:6: note: here
+  538 |      case 1: acc += bits[*src++];
+      |      ^~~~
+mv -f .deps/thumbnail.Tpo .deps/thumbnail.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o thumbnail thumbnail.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/thumbnail thumbnail.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT tiff2bw.o -MD -MP -MF .deps/tiff2bw.Tpo -c -o tiff2bw.o tiff2bw.c
+mv -f .deps/tiff2bw.Tpo .deps/tiff2bw.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o tiff2bw tiff2bw.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/tiff2bw tiff2bw.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT tiff2pdf.o -MD -MP -MF .deps/tiff2pdf.Tpo -c -o tiff2pdf.o tiff2pdf.c
+tiff2pdf.c: In function 't2p_pdf_currenttime':
+tiff2pdf.c:4189:19: warning: '%.2d' directive output may be truncated writing between 2 and 4 bytes into a region of size between 1 and 7 [-Wformat-truncation=]
+ 4189 |    "D:%.4d%.2d%.2d%.2d%.2d%.2d",
+      |                   ^~~~
+tiff2pdf.c:4189:4: note: directive argument in the range [-255, 255]
+ 4189 |    "D:%.4d%.2d%.2d%.2d%.2d%.2d",
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+tiff2pdf.c:4189:4: note: directive argument in the range [-255, 255]
+tiff2pdf.c:4189:4: note: directive argument in the range [-255, 255]
+In file included from /usr/include/stdio.h:867,
+                 from tiff2pdf.c:29:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:67:10: note: '__builtin___snprintf_chk' output between 17 and 29 bytes into a destination of size 17
+   67 |   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   68 |        __bos (__s), __fmt, __va_arg_pack ());
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mv -f .deps/tiff2pdf.Tpo .deps/tiff2pdf.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o tiff2pdf tiff2pdf.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/tiff2pdf tiff2pdf.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT tiff2ps.o -MD -MP -MF .deps/tiff2ps.Tpo -c -o tiff2ps.o tiff2ps.c
+tiff2ps.c: In function 'PSDataColorContig':
+tiff2ps.c:2431:50: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 2431 | #define PUTHEX(c,fd) putc(hex[((c)>>4)&0xf],fd); putc(hex[(c)&0xf],fd)
+      |                                                  ^~~~~~~~~~~~~~~~~~~~~
+tiff2ps.c:2472:33: note: in expansion of macro 'PUTHEX'
+ 2472 |     case 4: c = *cp++ + adjust; PUTHEX(c,fd);
+      |                                 ^~~~~~
+tiff2ps.c:2473:5: note: here
+ 2473 |     case 3: c = *cp++ + adjust; PUTHEX(c,fd);
+      |     ^~~~
+tiff2ps.c:2431:50: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 2431 | #define PUTHEX(c,fd) putc(hex[((c)>>4)&0xf],fd); putc(hex[(c)&0xf],fd)
+      |                                                  ^~~~~~~~~~~~~~~~~~~~~
+tiff2ps.c:2473:33: note: in expansion of macro 'PUTHEX'
+ 2473 |     case 3: c = *cp++ + adjust; PUTHEX(c,fd);
+      |                                 ^~~~~~
+tiff2ps.c:2474:5: note: here
+ 2474 |     case 2: c = *cp++ + adjust; PUTHEX(c,fd);
+      |     ^~~~
+tiff2ps.c:2431:50: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 2431 | #define PUTHEX(c,fd) putc(hex[((c)>>4)&0xf],fd); putc(hex[(c)&0xf],fd)
+      |                                                  ^~~~~~~~~~~~~~~~~~~~~
+tiff2ps.c:2474:33: note: in expansion of macro 'PUTHEX'
+ 2474 |     case 2: c = *cp++ + adjust; PUTHEX(c,fd);
+      |                                 ^~~~~~
+tiff2ps.c:2475:5: note: here
+ 2475 |     case 1: c = *cp++ + adjust; PUTHEX(c,fd);
+      |     ^~~~
+tiff2ps.c:2431:50: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 2431 | #define PUTHEX(c,fd) putc(hex[((c)>>4)&0xf],fd); putc(hex[(c)&0xf],fd)
+      |                                                  ^~~~~~~~~~~~~~~~~~~~~
+tiff2ps.c:2484:24: note: in expansion of macro 'PUTHEX'
+ 2484 |     case 4: c = *cp++; PUTHEX(c,fd);
+      |                        ^~~~~~
+tiff2ps.c:2485:5: note: here
+ 2485 |     case 3: c = *cp++; PUTHEX(c,fd);
+      |     ^~~~
+tiff2ps.c:2431:50: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 2431 | #define PUTHEX(c,fd) putc(hex[((c)>>4)&0xf],fd); putc(hex[(c)&0xf],fd)
+      |                                                  ^~~~~~~~~~~~~~~~~~~~~
+tiff2ps.c:2485:24: note: in expansion of macro 'PUTHEX'
+ 2485 |     case 3: c = *cp++; PUTHEX(c,fd);
+      |                        ^~~~~~
+tiff2ps.c:2486:5: note: here
+ 2486 |     case 2: c = *cp++; PUTHEX(c,fd);
+      |     ^~~~
+tiff2ps.c:2431:50: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 2431 | #define PUTHEX(c,fd) putc(hex[((c)>>4)&0xf],fd); putc(hex[(c)&0xf],fd)
+      |                                                  ^~~~~~~~~~~~~~~~~~~~~
+tiff2ps.c:2486:24: note: in expansion of macro 'PUTHEX'
+ 2486 |     case 2: c = *cp++; PUTHEX(c,fd);
+      |                        ^~~~~~
+tiff2ps.c:2487:5: note: here
+ 2487 |     case 1: c = *cp++; PUTHEX(c,fd);
+      |     ^~~~
+mv -f .deps/tiff2ps.Tpo .deps/tiff2ps.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o tiff2ps tiff2ps.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/tiff2ps tiff2ps.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT tiff2rgba.o -MD -MP -MF .deps/tiff2rgba.Tpo -c -o tiff2rgba.o tiff2rgba.c
+mv -f .deps/tiff2rgba.Tpo .deps/tiff2rgba.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o tiff2rgba tiff2rgba.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/tiff2rgba tiff2rgba.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT tiffcmp.o -MD -MP -MF .deps/tiffcmp.Tpo -c -o tiffcmp.o tiffcmp.c
+tiffcmp.c: In function 'PrintIntDiff':
+tiffcmp.c:441:19: warning: left shift of negative value [-Wshift-negative-value]
+  441 |   mask1 =  ~((-1) << bitspersample);
+      |                   ^~
+mv -f .deps/tiffcmp.Tpo .deps/tiffcmp.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o tiffcmp tiffcmp.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/tiffcmp tiffcmp.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT tiffcp.o -MD -MP -MF .deps/tiffcp.Tpo -c -o tiffcp.o tiffcp.c
+mv -f .deps/tiffcp.Tpo .deps/tiffcp.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o tiffcp tiffcp.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/tiffcp tiffcp.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT tiffcrop.o -MD -MP -MF .deps/tiffcrop.Tpo -c -o tiffcrop.o tiffcrop.c
+tiffcrop.c: In function 'invertImage':
+tiffcrop.c:9160:21: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+ 9160 |   *src = (bytebuff1 << 6) || (bytebuff2 << 4) || (bytebuff3 << 2) || bytebuff4;
+      |          ~~~~~~~~~~~^~~~~
+tiffcrop.c:9160:41: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+ 9160 |   *src = (bytebuff1 << 6) || (bytebuff2 << 4) || (bytebuff3 << 2) || bytebuff4;
+      |                              ~~~~~~~~~~~^~~~~
+tiffcrop.c:9160:61: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+ 9160 |   *src = (bytebuff1 << 6) || (bytebuff2 << 4) || (bytebuff3 << 2) || bytebuff4;
+      |                                                  ~~~~~~~~~~~^~~~~
+tiffcrop.c: In function 'mirrorImage':
+tiffcrop.c:9012:17: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 9012 |              if (mirror == MIRROR_VERT)
+      |                 ^
+tiffcrop.c:9014:5: note: here
+ 9014 |     case MIRROR_HORIZ :
+      |     ^~~~
+In file included from /usr/include/string.h:495,
+                 from ../libtiff/tiffiop.h:44,
+                 from tiffcrop.c:114:
+In function 'strncpy',
+    inlined from 'update_output_file' at tiffcrop.c:2107:9:
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:106:10: warning: '__builtin_strncpy' output truncated before terminating nul copying 5 bytes from a string of the same length [-Wstringop-truncation]
+  106 |   return __builtin___strncpy_chk (__dest, __src, __len, __bos (__dest));
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+tiffcrop.c: In function 'update_output_file':
+tiffcrop.c:2117:48: warning: '%s' directive output may be truncated writing up to 15 bytes into a region of size between 4 and 12 [-Wformat-truncation=]
+ 2117 |       snprintf(filenum, sizeof(filenum), "-%03d%s", findex, export_ext);
+      |                                                ^~           ~~~~~~~~~~
+In file included from /usr/include/stdio.h:867,
+                 from ../libtiff/tiffio.h:258,
+                 from ../libtiff/tiffiop.h:66,
+                 from tiffcrop.c:114:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:67:10: note: '__builtin___snprintf_chk' output between 5 and 28 bytes into a destination of size 16
+   67 |   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   68 |        __bos (__s), __fmt, __va_arg_pack ());
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+tiffcrop.c: In function 'main':
+tiffcrop.c:2273:61: warning: '-read-' directive output may be truncated writing 6 bytes into a region of size between 1 and 4097 [-Wformat-truncation=]
+ 2273 |           snprintf(temp_filename, sizeof(temp_filename), "%s-read-%03d.%s",
+      |                                                             ^~~~~~
+tiffcrop.c:2273:58: note: using the range [-2147483648, 2147483647] for directive argument
+ 2273 |           snprintf(temp_filename, sizeof(temp_filename), "%s-read-%03d.%s",
+      |                                                          ^~~~~~~~~~~~~~~~~
+In file included from /usr/include/stdio.h:867,
+                 from ../libtiff/tiffio.h:258,
+                 from ../libtiff/tiffiop.h:66,
+                 from tiffcrop.c:114:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:67:10: note: '__builtin___snprintf_chk' output between 14 and 4118 bytes into a destination of size 4097
+   67 |   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   68 |        __bos (__s), __fmt, __va_arg_pack ());
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+tiffcrop.c:2292:61: warning: '-write-' directive output may be truncated writing 7 bytes into a region of size between 1 and 4097 [-Wformat-truncation=]
+ 2292 |           snprintf(temp_filename, sizeof(temp_filename), "%s-write-%03d.%s",
+      |                                                             ^~~~~~~
+tiffcrop.c:2292:58: note: using the range [-2147483648, 2147483647] for directive argument
+ 2292 |           snprintf(temp_filename, sizeof(temp_filename), "%s-write-%03d.%s",
+      |                                                          ^~~~~~~~~~~~~~~~~~
+In file included from /usr/include/stdio.h:867,
+                 from ../libtiff/tiffio.h:258,
+                 from ../libtiff/tiffiop.h:66,
+                 from tiffcrop.c:114:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:67:10: note: '__builtin___snprintf_chk' output between 15 and 4119 bytes into a destination of size 4097
+   67 |   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   68 |        __bos (__s), __fmt, __va_arg_pack ());
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mv -f .deps/tiffcrop.Tpo .deps/tiffcrop.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o tiffcrop tiffcrop.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/tiffcrop tiffcrop.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT tiffdither.o -MD -MP -MF .deps/tiffdither.Tpo -c -o tiffdither.o tiffdither.c
+mv -f .deps/tiffdither.Tpo .deps/tiffdither.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o tiffdither tiffdither.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/tiffdither tiffdither.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT tiffdump.o -MD -MP -MF .deps/tiffdump.Tpo -c -o tiffdump.o tiffdump.c
+mv -f .deps/tiffdump.Tpo .deps/tiffdump.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o tiffdump tiffdump.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/tiffdump tiffdump.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT tiffinfo.o -MD -MP -MF .deps/tiffinfo.Tpo -c -o tiffinfo.o tiffinfo.c
+mv -f .deps/tiffinfo.Tpo .deps/tiffinfo.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o tiffinfo tiffinfo.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/tiffinfo tiffinfo.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT tiffmedian.o -MD -MP -MF .deps/tiffmedian.Tpo -c -o tiffmedian.o tiffmedian.c
+mv -f .deps/tiffmedian.Tpo .deps/tiffmedian.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o tiffmedian tiffmedian.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/tiffmedian tiffmedian.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT tiffset.o -MD -MP -MF .deps/tiffset.Tpo -c -o tiffset.o tiffset.c
+mv -f .deps/tiffset.Tpo .deps/tiffset.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o tiffset tiffset.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/tiffset tiffset.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT tiffsplit.o -MD -MP -MF .deps/tiffsplit.Tpo -c -o tiffsplit.o tiffsplit.c
+mv -f .deps/tiffsplit.Tpo .deps/tiffsplit.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o tiffsplit tiffsplit.o ../libtiff/libtiff.la ../port/libport.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/tiffsplit tiffsplit.o  ../libtiff/.libs/libtiff.so ../port/.libs/libport.a -ljpeg -lm
+make[1]: Leaving directory '/home/workspace/tools'
+Making all in build
+make[1]: Entering directory '/home/workspace/build'
+make[2]: Entering directory '/home/workspace/build'
+make[2]: Nothing to be done for 'all-am'.
+make[2]: Leaving directory '/home/workspace/build'
+make[1]: Leaving directory '/home/workspace/build'
+Making all in contrib
+make[1]: Entering directory '/home/workspace/contrib'
+Making all in addtiffo
+make[2]: Entering directory '/home/workspace/contrib/addtiffo'
+gcc -DHAVE_CONFIG_H -I. -I../../libtiff  -I../../libtiff   -g -O2 -Wall -W -MT addtiffo.o -MD -MP -MF .deps/addtiffo.Tpo -c -o addtiffo.o addtiffo.c
+mv -f .deps/addtiffo.Tpo .deps/addtiffo.Po
+gcc -DHAVE_CONFIG_H -I. -I../../libtiff  -I../../libtiff   -g -O2 -Wall -W -MT tif_overview.o -MD -MP -MF .deps/tif_overview.Tpo -c -o tif_overview.o tif_overview.c
+mv -f .deps/tif_overview.Tpo .deps/tif_overview.Po
+gcc -DHAVE_CONFIG_H -I. -I../../libtiff  -I../../libtiff   -g -O2 -Wall -W -MT tif_ovrcache.o -MD -MP -MF .deps/tif_ovrcache.Tpo -c -o tif_ovrcache.o tif_ovrcache.c
+mv -f .deps/tif_ovrcache.Tpo .deps/tif_ovrcache.Po
+/bin/bash ../../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o addtiffo addtiffo.o tif_overview.o tif_ovrcache.o ../../libtiff/libtiff.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/addtiffo addtiffo.o tif_overview.o tif_ovrcache.o  ../../libtiff/.libs/libtiff.so -ljpeg -lm
+make[2]: Leaving directory '/home/workspace/contrib/addtiffo'
+Making all in dbs
+make[2]: Entering directory '/home/workspace/contrib/dbs'
+Making all in xtiff
+make[3]: Entering directory '/home/workspace/contrib/dbs/xtiff'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/workspace/contrib/dbs/xtiff'
+make[3]: Entering directory '/home/workspace/contrib/dbs'
+gcc -DHAVE_CONFIG_H -I. -I../../libtiff  -I../../libtiff   -g -O2 -Wall -W -MT tiff-bi.o -MD -MP -MF .deps/tiff-bi.Tpo -c -o tiff-bi.o tiff-bi.c
+mv -f .deps/tiff-bi.Tpo .deps/tiff-bi.Po
+/bin/bash ../../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o tiff-bi tiff-bi.o ../../libtiff/libtiff.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/tiff-bi tiff-bi.o  ../../libtiff/.libs/libtiff.so -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../../libtiff  -I../../libtiff   -g -O2 -Wall -W -MT tiff-grayscale.o -MD -MP -MF .deps/tiff-grayscale.Tpo -c -o tiff-grayscale.o tiff-grayscale.c
+mv -f .deps/tiff-grayscale.Tpo .deps/tiff-grayscale.Po
+/bin/bash ../../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o tiff-grayscale tiff-grayscale.o ../../libtiff/libtiff.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/tiff-grayscale tiff-grayscale.o  ../../libtiff/.libs/libtiff.so -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../../libtiff  -I../../libtiff   -g -O2 -Wall -W -MT tiff-palette.o -MD -MP -MF .deps/tiff-palette.Tpo -c -o tiff-palette.o tiff-palette.c
+mv -f .deps/tiff-palette.Tpo .deps/tiff-palette.Po
+/bin/bash ../../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o tiff-palette tiff-palette.o ../../libtiff/libtiff.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/tiff-palette tiff-palette.o  ../../libtiff/.libs/libtiff.so -ljpeg -lm
+gcc -DHAVE_CONFIG_H -I. -I../../libtiff  -I../../libtiff   -g -O2 -Wall -W -MT tiff-rgb.o -MD -MP -MF .deps/tiff-rgb.Tpo -c -o tiff-rgb.o tiff-rgb.c
+mv -f .deps/tiff-rgb.Tpo .deps/tiff-rgb.Po
+/bin/bash ../../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o tiff-rgb tiff-rgb.o ../../libtiff/libtiff.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/tiff-rgb tiff-rgb.o  ../../libtiff/.libs/libtiff.so -ljpeg -lm
+make[3]: Leaving directory '/home/workspace/contrib/dbs'
+make[2]: Leaving directory '/home/workspace/contrib/dbs'
+Making all in iptcutil
+make[2]: Entering directory '/home/workspace/contrib/iptcutil'
+gcc -DHAVE_CONFIG_H -I. -I../../libtiff  -I../../libtiff   -g -O2 -Wall -W -MT iptcutil.o -MD -MP -MF .deps/iptcutil.Tpo -c -o iptcutil.o iptcutil.c
+iptcutil.c: In function 'tokenizer':
+iptcutil.c:930:16: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  930 |        _p_state=IN_TOKEN; /* switch states */
+      |                ^
+iptcutil.c:932:6: note: here
+  932 |      case IN_TOKEN:   /* these 2 are     */
+      |      ^~~~
+mv -f .deps/iptcutil.Tpo .deps/iptcutil.Po
+/bin/bash ../../libtool  --tag=CC   --mode=link gcc  -g -O2 -Wall -W   -o iptcutil iptcutil.o ../../libtiff/libtiff.la -ljpeg -lm 
+libtool: link: gcc -g -O2 -Wall -W -o .libs/iptcutil iptcutil.o  ../../libtiff/.libs/libtiff.so -ljpeg -lm
+make[2]: Leaving directory '/home/workspace/contrib/iptcutil'
+Making all in mfs
+make[2]: Entering directory '/home/workspace/contrib/mfs'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/workspace/contrib/mfs'
+Making all in pds
+make[2]: Entering directory '/home/workspace/contrib/pds'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/workspace/contrib/pds'
+Making all in ras
+make[2]: Entering directory '/home/workspace/contrib/ras'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/workspace/contrib/ras'
+Making all in stream
+make[2]: Entering directory '/home/workspace/contrib/stream'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/workspace/contrib/stream'
+Making all in tags
+make[2]: Entering directory '/home/workspace/contrib/tags'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/workspace/contrib/tags'
+Making all in win_dib
+make[2]: Entering directory '/home/workspace/contrib/win_dib'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/workspace/contrib/win_dib'
+make[2]: Entering directory '/home/workspace/contrib'
+make[2]: Nothing to be done for 'all-am'.
+make[2]: Leaving directory '/home/workspace/contrib'
+make[1]: Leaving directory '/home/workspace/contrib'
+Making all in test
+make[1]: Entering directory '/home/workspace/test'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/workspace/test'
+Making all in man
+make[1]: Entering directory '/home/workspace/man'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/workspace/man'
+Making all in html
+make[1]: Entering directory '/home/workspace/html'
+Making all in images
+make[2]: Entering directory '/home/workspace/html/images'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/workspace/html/images'
+Making all in man
+make[2]: Entering directory '/home/workspace/html/man'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/workspace/html/man'
+make[2]: Entering directory '/home/workspace/html'
+make[2]: Nothing to be done for 'all-am'.
+make[2]: Leaving directory '/home/workspace/html'
+make[1]: Leaving directory '/home/workspace/html'
+make[1]: Entering directory '/home/workspace'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/home/workspace'
+
+  Closing container
+[libtiff] done
+Elapsed: 53.75s

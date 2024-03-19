@@ -1,0 +1,385 @@
+Note: Google Test filter = NodeSpecTest.*
+[==========] Running 109 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 109 tests from NodeSpecTest
+[ RUN      ] NodeSpecTest.Ex2_1_SeqScalars
+[       OK ] NodeSpecTest.Ex2_1_SeqScalars (1 ms)
+[ RUN      ] NodeSpecTest.Ex2_2_MappingScalarsToScalars
+[       OK ] NodeSpecTest.Ex2_2_MappingScalarsToScalars (0 ms)
+[ RUN      ] NodeSpecTest.Ex2_3_MappingScalarsToSequences
+[       OK ] NodeSpecTest.Ex2_3_MappingScalarsToSequences (0 ms)
+[ RUN      ] NodeSpecTest.Ex2_4_SequenceOfMappings
+[       OK ] NodeSpecTest.Ex2_4_SequenceOfMappings (0 ms)
+[ RUN      ] NodeSpecTest.Ex2_5_SequenceOfSequences
+[       OK ] NodeSpecTest.Ex2_5_SequenceOfSequences (0 ms)
+[ RUN      ] NodeSpecTest.Ex2_6_MappingOfMappings
+[       OK ] NodeSpecTest.Ex2_6_MappingOfMappings (0 ms)
+[ RUN      ] NodeSpecTest.Ex2_7_TwoDocumentsInAStream
+[       OK ] NodeSpecTest.Ex2_7_TwoDocumentsInAStream (0 ms)
+[ RUN      ] NodeSpecTest.Ex2_8_PlayByPlayFeed
+[       OK ] NodeSpecTest.Ex2_8_PlayByPlayFeed (0 ms)
+[ RUN      ] NodeSpecTest.Ex2_9_SingleDocumentWithTwoComments
+[       OK ] NodeSpecTest.Ex2_9_SingleDocumentWithTwoComments (0 ms)
+[ RUN      ] NodeSpecTest.Ex2_10_SimpleAnchor
+[       OK ] NodeSpecTest.Ex2_10_SimpleAnchor (1 ms)
+[ RUN      ] NodeSpecTest.Ex2_11_MappingBetweenSequences
+[       OK ] NodeSpecTest.Ex2_11_MappingBetweenSequences (0 ms)
+[ RUN      ] NodeSpecTest.Ex2_12_CompactNestedMapping
+[       OK ] NodeSpecTest.Ex2_12_CompactNestedMapping (0 ms)
+[ RUN      ] NodeSpecTest.Ex2_13_InLiteralsNewlinesArePreserved
+/home/workspace/test/integration/node_spec_test.cpp:191: Failure
+Value of: doc.as<std::string>() == "\\//||\\/||\n" "// ||  ||__"
+  Actual: false
+Expected: true
+[  FAILED  ] NodeSpecTest.Ex2_13_InLiteralsNewlinesArePreserved (0 ms)
+[ RUN      ] NodeSpecTest.Ex2_14_InFoldedScalarsNewlinesBecomeSpaces
+/home/workspace/test/integration/node_spec_test.cpp:197: Failure
+Value of: doc.as<std::string>() == "Mark McGwire's year was crippled by a knee injury."
+  Actual: false
+Expected: true
+[  FAILED  ] NodeSpecTest.Ex2_14_InFoldedScalarsNewlinesBecomeSpaces (1 ms)
+[ RUN      ] NodeSpecTest.Ex2_15_FoldedNewlinesArePreservedForMoreIndentedAndBlankLines
+/home/workspace/test/integration/node_spec_test.cpp:207: Failure
+Value of: doc.as<std::string>() == "Sammy Sosa completed another fine season with great stats.\n\n" "  63 Home Runs\n" "  0.288 Batting Average\n\n" "What a year!"
+  Actual: false
+Expected: true
+[  FAILED  ] NodeSpecTest.Ex2_15_FoldedNewlinesArePreservedForMoreIndentedAndBlankLines (0 ms)
+[ RUN      ] NodeSpecTest.Ex2_16_IndentationDeterminesScope
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 3, column 3: end of map not found" thrown in the test body.
+[  FAILED  ] NodeSpecTest.Ex2_16_IndentationDeterminesScope (1 ms)
+[ RUN      ] NodeSpecTest.Ex2_17_QuotedScalars
+[       OK ] NodeSpecTest.Ex2_17_QuotedScalars (0 ms)
+[ RUN      ] NodeSpecTest.Ex2_18_MultiLineFlowScalars
+[       OK ] NodeSpecTest.Ex2_18_MultiLineFlowScalars (0 ms)
+[ RUN      ] NodeSpecTest.Ex2_23_VariousExplicitTags
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 5, column 2: end of map not found" thrown in the test body.
+[  FAILED  ] NodeSpecTest.Ex2_23_VariousExplicitTags (1 ms)
+[ RUN      ] NodeSpecTest.Ex2_24_GlobalTags
+[       OK ] NodeSpecTest.Ex2_24_GlobalTags (0 ms)
+[ RUN      ] NodeSpecTest.Ex2_25_UnorderedSets
+[       OK ] NodeSpecTest.Ex2_25_UnorderedSets (0 ms)
+[ RUN      ] NodeSpecTest.Ex2_16_OrderedMappings
+[       OK ] NodeSpecTest.Ex2_16_OrderedMappings (1 ms)
+[ RUN      ] NodeSpecTest.Ex2_27_Invoice
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 9, column 13: end of map not found" thrown in the test body.
+[  FAILED  ] NodeSpecTest.Ex2_27_Invoice (0 ms)
+[ RUN      ] NodeSpecTest.Ex2_28_LogFile
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 22, column 7: end of map not found" thrown in the test body.
+[  FAILED  ] NodeSpecTest.Ex2_28_LogFile (1 ms)
+[ RUN      ] NodeSpecTest.Ex5_3_BlockStructureIndicators
+[       OK ] NodeSpecTest.Ex5_3_BlockStructureIndicators (0 ms)
+[ RUN      ] NodeSpecTest.Ex5_4_FlowStructureIndicators
+[       OK ] NodeSpecTest.Ex5_4_FlowStructureIndicators (0 ms)
+[ RUN      ] NodeSpecTest.Ex5_5_CommentIndicator
+[       OK ] NodeSpecTest.Ex5_5_CommentIndicator (1 ms)
+[ RUN      ] NodeSpecTest.Ex5_6_NodePropertyIndicators
+[       OK ] NodeSpecTest.Ex5_6_NodePropertyIndicators (0 ms)
+[ RUN      ] NodeSpecTest.Ex5_7_BlockScalarIndicators
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 2, column 3: end of map not found" thrown in the test body.
+[  FAILED  ] NodeSpecTest.Ex5_7_BlockScalarIndicators (0 ms)
+[ RUN      ] NodeSpecTest.Ex5_8_QuotedScalarIndicators
+[       OK ] NodeSpecTest.Ex5_8_QuotedScalarIndicators (0 ms)
+[ RUN      ] NodeSpecTest.Ex5_11_LineBreakCharacters
+/home/workspace/test/integration/node_spec_test.cpp:452: Failure
+Value of: doc.as<std::string>() == "Line break (no glyph)\nLine break (glyphed)\n"
+  Actual: false
+Expected: true
+[  FAILED  ] NodeSpecTest.Ex5_11_LineBreakCharacters (0 ms)
+[ RUN      ] NodeSpecTest.Ex5_12_TabsAndSpaces
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 4, column 3: end of map not found" thrown in the test body.
+[  FAILED  ] NodeSpecTest.Ex5_12_TabsAndSpaces (0 ms)
+[ RUN      ] NodeSpecTest.Ex5_13_EscapedCharacters
+[       OK ] NodeSpecTest.Ex5_13_EscapedCharacters (0 ms)
+[ RUN      ] NodeSpecTest.Ex5_14_InvalidEscapedCharacters
+[       OK ] NodeSpecTest.Ex5_14_InvalidEscapedCharacters (1 ms)
+[ RUN      ] NodeSpecTest.Ex6_1_IndentationSpaces
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 6, column 5: end of map not found" thrown in the test body.
+[  FAILED  ] NodeSpecTest.Ex6_1_IndentationSpaces (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_2_IndentationIndicators
+[       OK ] NodeSpecTest.Ex6_2_IndentationIndicators (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_3_SeparationSpaces
+[       OK ] NodeSpecTest.Ex6_3_SeparationSpaces (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_4_LinePrefixes
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 6, column 3: end of map not found" thrown in the test body.
+[  FAILED  ] NodeSpecTest.Ex6_4_LinePrefixes (1 ms)
+[ RUN      ] NodeSpecTest.Ex6_5_EmptyLines
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 6, column 3: end of map not found" thrown in the test body.
+[  FAILED  ] NodeSpecTest.Ex6_5_EmptyLines (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_6_LineFolding
+/home/workspace/test/integration/node_spec_test.cpp:530: Failure
+Expected equality of these values:
+  "trimmed\n\n\nas space"
+  doc.as<std::string>()
+    Which is: ""
+With diff:
+@@ -1,4 +1,1 @@
+-trimmed
+-
+-
+-as space
++""
+
+[  FAILED  ] NodeSpecTest.Ex6_6_LineFolding (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_7_BlockFolding
+/home/workspace/test/integration/node_spec_test.cpp:535: Failure
+Expected equality of these values:
+  "foo \n\n\t bar\n\nbaz\n"
+  doc.as<std::string>()
+    Which is: ""
+With diff:
+@@ -1,5 +1,1 @@
+-foo 
+-
+-\t bar
+-
+-baz\n
++""
+
+[  FAILED  ] NodeSpecTest.Ex6_7_BlockFolding (1 ms)
+[ RUN      ] NodeSpecTest.Ex6_8_FlowFolding
+[       OK ] NodeSpecTest.Ex6_8_FlowFolding (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_9_SeparatedComment
+[       OK ] NodeSpecTest.Ex6_9_SeparatedComment (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_10_CommentLines
+[       OK ] NodeSpecTest.Ex6_10_CommentLines (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_11_MultiLineComments
+[       OK ] NodeSpecTest.Ex6_11_MultiLineComments (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_12_SeparationSpacesII
+[       OK ] NodeSpecTest.Ex6_12_SeparationSpacesII (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_13_ReservedDirectives
+[       OK ] NodeSpecTest.Ex6_13_ReservedDirectives (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_14_YAMLDirective
+[       OK ] NodeSpecTest.Ex6_14_YAMLDirective (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_15_InvalidRepeatedYAMLDirective
+[       OK ] NodeSpecTest.Ex6_15_InvalidRepeatedYAMLDirective (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_16_TagDirective
+[       OK ] NodeSpecTest.Ex6_16_TagDirective (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_17_InvalidRepeatedTagDirective
+[       OK ] NodeSpecTest.Ex6_17_InvalidRepeatedTagDirective (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_18_PrimaryTagHandle
+[       OK ] NodeSpecTest.Ex6_18_PrimaryTagHandle (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_19_SecondaryTagHandle
+[       OK ] NodeSpecTest.Ex6_19_SecondaryTagHandle (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_20_TagHandles
+[       OK ] NodeSpecTest.Ex6_20_TagHandles (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_21_LocalTagPrefix
+[       OK ] NodeSpecTest.Ex6_21_LocalTagPrefix (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_22_GlobalTagPrefix
+[       OK ] NodeSpecTest.Ex6_22_GlobalTagPrefix (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_23_NodeProperties
+[       OK ] NodeSpecTest.Ex6_23_NodeProperties (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_24_VerbatimTags
+[       OK ] NodeSpecTest.Ex6_24_VerbatimTags (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_26_TagShorthands
+[       OK ] NodeSpecTest.Ex6_26_TagShorthands (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_27a_InvalidTagShorthands
+[       OK ] NodeSpecTest.Ex6_27a_InvalidTagShorthands (1 ms)
+[ RUN      ] NodeSpecTest.Ex6_28_NonSpecificTags
+[       OK ] NodeSpecTest.Ex6_28_NonSpecificTags (0 ms)
+[ RUN      ] NodeSpecTest.Ex6_29_NodeAnchors
+[       OK ] NodeSpecTest.Ex6_29_NodeAnchors (0 ms)
+[ RUN      ] NodeSpecTest.Ex7_1_AliasNodes
+[       OK ] NodeSpecTest.Ex7_1_AliasNodes (0 ms)
+[ RUN      ] NodeSpecTest.Ex7_2_EmptyNodes
+[       OK ] NodeSpecTest.Ex7_2_EmptyNodes (0 ms)
+[ RUN      ] NodeSpecTest.Ex7_3_CompletelyEmptyNodes
+[       OK ] NodeSpecTest.Ex7_3_CompletelyEmptyNodes (1 ms)
+[ RUN      ] NodeSpecTest.Ex7_4_DoubleQuotedImplicitKeys
+[       OK ] NodeSpecTest.Ex7_4_DoubleQuotedImplicitKeys (0 ms)
+[ RUN      ] NodeSpecTest.Ex7_5_DoubleQuotedLineBreaks
+/home/workspace/test/integration/node_spec_test.cpp:763: Failure
+Value of: doc.as<std::string>() == "folded to a space,\nto a line feed, or \t \tnon-content"
+  Actual: false
+Expected: true
+[  FAILED  ] NodeSpecTest.Ex7_5_DoubleQuotedLineBreaks (0 ms)
+[ RUN      ] NodeSpecTest.Ex7_6_DoubleQuotedLines
+[       OK ] NodeSpecTest.Ex7_6_DoubleQuotedLines (0 ms)
+[ RUN      ] NodeSpecTest.Ex7_7_SingleQuotedCharacters
+[       OK ] NodeSpecTest.Ex7_7_SingleQuotedCharacters (0 ms)
+[ RUN      ] NodeSpecTest.Ex7_8_SingleQuotedImplicitKeys
+[       OK ] NodeSpecTest.Ex7_8_SingleQuotedImplicitKeys (0 ms)
+[ RUN      ] NodeSpecTest.Ex7_9_SingleQuotedLines
+[       OK ] NodeSpecTest.Ex7_9_SingleQuotedLines (0 ms)
+[ RUN      ] NodeSpecTest.Ex7_10_PlainCharacters
+[       OK ] NodeSpecTest.Ex7_10_PlainCharacters (1 ms)
+[ RUN      ] NodeSpecTest.Ex7_11_PlainImplicitKeys
+[       OK ] NodeSpecTest.Ex7_11_PlainImplicitKeys (0 ms)
+[ RUN      ] NodeSpecTest.Ex7_12_PlainLines
+[       OK ] NodeSpecTest.Ex7_12_PlainLines (0 ms)
+[ RUN      ] NodeSpecTest.Ex7_13_FlowSequence
+[       OK ] NodeSpecTest.Ex7_13_FlowSequence (0 ms)
+[ RUN      ] NodeSpecTest.Ex7_14_FlowSequenceEntries
+[       OK ] NodeSpecTest.Ex7_14_FlowSequenceEntries (0 ms)
+[ RUN      ] NodeSpecTest.Ex7_15_FlowMappings
+[       OK ] NodeSpecTest.Ex7_15_FlowMappings (1 ms)
+[ RUN      ] NodeSpecTest.Ex7_16_FlowMappingEntries
+[       OK ] NodeSpecTest.Ex7_16_FlowMappingEntries (0 ms)
+[ RUN      ] NodeSpecTest.Ex7_17_FlowMappingSeparateValues
+[       OK ] NodeSpecTest.Ex7_17_FlowMappingSeparateValues (0 ms)
+[ RUN      ] NodeSpecTest.Ex7_18_FlowMappingAdjacentValues
+[       OK ] NodeSpecTest.Ex7_18_FlowMappingAdjacentValues (0 ms)
+[ RUN      ] NodeSpecTest.Ex7_19_SinglePairFlowMappings
+[       OK ] NodeSpecTest.Ex7_19_SinglePairFlowMappings (0 ms)
+[ RUN      ] NodeSpecTest.Ex7_20_SinglePairExplicitEntry
+[       OK ] NodeSpecTest.Ex7_20_SinglePairExplicitEntry (0 ms)
+[ RUN      ] NodeSpecTest.Ex7_21_SinglePairImplicitEntries
+[       OK ] NodeSpecTest.Ex7_21_SinglePairImplicitEntries (1 ms)
+[ RUN      ] NodeSpecTest.Ex7_22_InvalidImplicitKeys
+[       OK ] NodeSpecTest.Ex7_22_InvalidImplicitKeys (0 ms)
+[ RUN      ] NodeSpecTest.Ex7_23_FlowContent
+[       OK ] NodeSpecTest.Ex7_23_FlowContent (0 ms)
+[ RUN      ] NodeSpecTest.Ex7_24_FlowNodes
+[       OK ] NodeSpecTest.Ex7_24_FlowNodes (0 ms)
+[ RUN      ] NodeSpecTest.Ex8_1_BlockScalarHeader
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 2, column 2: end of sequence not found" thrown in the test body.
+[  FAILED  ] NodeSpecTest.Ex8_1_BlockScalarHeader (0 ms)
+[ RUN      ] NodeSpecTest.Ex8_2_BlockIndentationHeader
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 2, column 2: end of sequence not found" thrown in the test body.
+[  FAILED  ] NodeSpecTest.Ex8_2_BlockIndentationHeader (1 ms)
+[ RUN      ] NodeSpecTest.Ex8_3a_InvalidBlockScalarIndentationIndicators
+[       OK ] NodeSpecTest.Ex8_3a_InvalidBlockScalarIndentationIndicators (0 ms)
+[ RUN      ] NodeSpecTest.Ex8_3b_InvalidBlockScalarIndentationIndicators
+[       OK ] NodeSpecTest.Ex8_3b_InvalidBlockScalarIndentationIndicators (0 ms)
+[ RUN      ] NodeSpecTest.Ex8_3c_InvalidBlockScalarIndentationIndicators
+[       OK ] NodeSpecTest.Ex8_3c_InvalidBlockScalarIndentationIndicators (0 ms)
+[ RUN      ] NodeSpecTest.Ex8_4_ChompingFinalLineBreak
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 2, column 3: end of map not found" thrown in the test body.
+[  FAILED  ] NodeSpecTest.Ex8_4_ChompingFinalLineBreak (0 ms)
+[ RUN      ] NodeSpecTest.Ex8_6_EmptyScalarChomping
+[       OK ] NodeSpecTest.Ex8_6_EmptyScalarChomping (0 ms)
+[ RUN      ] NodeSpecTest.Ex8_7_LiteralScalar
+/home/workspace/test/integration/node_spec_test.cpp:1002: Failure
+Expected equality of these values:
+  "literal\n\ttext\n"
+  doc.as<std::string>()
+    Which is: ""
+With diff:
+@@ -1,2 +1,1 @@
+-literal
+-\ttext\n
++""
+
+[  FAILED  ] NodeSpecTest.Ex8_7_LiteralScalar (1 ms)
+[ RUN      ] NodeSpecTest.Ex8_8_LiteralContent
+/home/workspace/test/integration/node_spec_test.cpp:1007: Failure
+Expected equality of these values:
+  "\n\nliteral\n \n\ntext\n"
+  doc.as<std::string>()
+    Which is: ""
+With diff:
+@@ -1,6 +1,1 @@
+-
+-
+-literal
+- 
+-
+-text\n
++""
+
+[  FAILED  ] NodeSpecTest.Ex8_8_LiteralContent (0 ms)
+[ RUN      ] NodeSpecTest.Ex8_9_FoldedScalar
+/home/workspace/test/integration/node_spec_test.cpp:1012: Failure
+Expected equality of these values:
+  "folded text\n"
+  doc.as<std::string>()
+    Which is: ""
+[  FAILED  ] NodeSpecTest.Ex8_9_FoldedScalar (0 ms)
+[ RUN      ] NodeSpecTest.Ex8_10_FoldedLines
+/home/workspace/test/integration/node_spec_test.cpp:1019: Failure
+Value of: doc.as<std::string>() == "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * " "lines\n\nlast line\n"
+  Actual: false
+Expected: true
+[  FAILED  ] NodeSpecTest.Ex8_10_FoldedLines (0 ms)
+[ RUN      ] NodeSpecTest.Ex8_11_MoreIndentedLines
+/home/workspace/test/integration/node_spec_test.cpp:1026: Failure
+Value of: doc.as<std::string>() == "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * " "lines\n\nlast line\n"
+  Actual: false
+Expected: true
+[  FAILED  ] NodeSpecTest.Ex8_11_MoreIndentedLines (0 ms)
+[ RUN      ] NodeSpecTest.Ex8_12_EmptySeparationLines
+/home/workspace/test/integration/node_spec_test.cpp:1033: Failure
+Value of: doc.as<std::string>() == "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * " "lines\n\nlast line\n"
+  Actual: false
+Expected: true
+[  FAILED  ] NodeSpecTest.Ex8_12_EmptySeparationLines (0 ms)
+[ RUN      ] NodeSpecTest.Ex8_13_FinalEmptyLines
+/home/workspace/test/integration/node_spec_test.cpp:1040: Failure
+Value of: doc.as<std::string>() == "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * " "lines\n\nlast line\n"
+  Actual: false
+Expected: true
+[  FAILED  ] NodeSpecTest.Ex8_13_FinalEmptyLines (1 ms)
+[ RUN      ] NodeSpecTest.Ex8_14_BlockSequence
+[       OK ] NodeSpecTest.Ex8_14_BlockSequence (0 ms)
+[ RUN      ] NodeSpecTest.Ex8_15_BlockSequenceEntryTypes
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 3, column 2: end of sequence not found" thrown in the test body.
+[  FAILED  ] NodeSpecTest.Ex8_15_BlockSequenceEntryTypes (0 ms)
+[ RUN      ] NodeSpecTest.Ex8_16_BlockMappings
+[       OK ] NodeSpecTest.Ex8_16_BlockMappings (0 ms)
+[ RUN      ] NodeSpecTest.Ex8_17_ExplicitBlockMappingEntries
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 3, column 3: end of map not found" thrown in the test body.
+[  FAILED  ] NodeSpecTest.Ex8_17_ExplicitBlockMappingEntries (0 ms)
+[ RUN      ] NodeSpecTest.Ex8_18_ImplicitBlockMappingEntries
+[       OK ] NodeSpecTest.Ex8_18_ImplicitBlockMappingEntries (1 ms)
+[ RUN      ] NodeSpecTest.Ex8_19_CompactBlockMappings
+[       OK ] NodeSpecTest.Ex8_19_CompactBlockMappings (0 ms)
+[ RUN      ] NodeSpecTest.Ex8_20_BlockNodeTypes
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 4, column 2: end of sequence not found" thrown in the test body.
+[  FAILED  ] NodeSpecTest.Ex8_20_BlockNodeTypes (0 ms)
+[ RUN      ] NodeSpecTest.Ex8_22_BlockCollectionNodes
+[       OK ] NodeSpecTest.Ex8_22_BlockCollectionNodes (0 ms)
+[ RUN      ] NodeSpecTest.FlowMapNotClosed
+[       OK ] NodeSpecTest.FlowMapNotClosed (0 ms)
+[----------] 109 tests from NodeSpecTest (24 ms total)
+
+[----------] Global test environment tear-down
+[==========] 109 tests from 1 test suite ran. (24 ms total)
+[  PASSED  ] 80 tests.
+[  FAILED  ] 29 tests, listed below:
+[  FAILED  ] NodeSpecTest.Ex2_13_InLiteralsNewlinesArePreserved
+[  FAILED  ] NodeSpecTest.Ex2_14_InFoldedScalarsNewlinesBecomeSpaces
+[  FAILED  ] NodeSpecTest.Ex2_15_FoldedNewlinesArePreservedForMoreIndentedAndBlankLines
+[  FAILED  ] NodeSpecTest.Ex2_16_IndentationDeterminesScope
+[  FAILED  ] NodeSpecTest.Ex2_23_VariousExplicitTags
+[  FAILED  ] NodeSpecTest.Ex2_27_Invoice
+[  FAILED  ] NodeSpecTest.Ex2_28_LogFile
+[  FAILED  ] NodeSpecTest.Ex5_7_BlockScalarIndicators
+[  FAILED  ] NodeSpecTest.Ex5_11_LineBreakCharacters
+[  FAILED  ] NodeSpecTest.Ex5_12_TabsAndSpaces
+[  FAILED  ] NodeSpecTest.Ex6_1_IndentationSpaces
+[  FAILED  ] NodeSpecTest.Ex6_4_LinePrefixes
+[  FAILED  ] NodeSpecTest.Ex6_5_EmptyLines
+[  FAILED  ] NodeSpecTest.Ex6_6_LineFolding
+[  FAILED  ] NodeSpecTest.Ex6_7_BlockFolding
+[  FAILED  ] NodeSpecTest.Ex7_5_DoubleQuotedLineBreaks
+[  FAILED  ] NodeSpecTest.Ex8_1_BlockScalarHeader
+[  FAILED  ] NodeSpecTest.Ex8_2_BlockIndentationHeader
+[  FAILED  ] NodeSpecTest.Ex8_4_ChompingFinalLineBreak
+[  FAILED  ] NodeSpecTest.Ex8_7_LiteralScalar
+[  FAILED  ] NodeSpecTest.Ex8_8_LiteralContent
+[  FAILED  ] NodeSpecTest.Ex8_9_FoldedScalar
+[  FAILED  ] NodeSpecTest.Ex8_10_FoldedLines
+[  FAILED  ] NodeSpecTest.Ex8_11_MoreIndentedLines
+[  FAILED  ] NodeSpecTest.Ex8_12_EmptySeparationLines
+[  FAILED  ] NodeSpecTest.Ex8_13_FinalEmptyLines
+[  FAILED  ] NodeSpecTest.Ex8_15_BlockSequenceEntryTypes
+[  FAILED  ] NodeSpecTest.Ex8_17_ExplicitBlockMappingEntries
+[  FAILED  ] NodeSpecTest.Ex8_20_BlockNodeTypes
+
+29 FAILED TESTS
+  YOU HAVE 4 DISABLED TESTS
+

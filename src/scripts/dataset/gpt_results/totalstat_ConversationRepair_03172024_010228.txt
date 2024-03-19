@@ -1,0 +1,6 @@
+Test_Buggy_Repo_List: ['libtiff-2']
+Total_Patch_Number: 5
+Total_Compilable_Patch_Number: 5
+Total_Plausible_Patch_Number: 0
+Compilable_Patch_List: ['libtiff-2_Conversation-1', 'libtiff-2_Conversation-2', 'libtiff-2_Conversation-3', 'libtiff-2_Conversation-4', 'libtiff-2_Conversation-5']
+Plausible_Patch_list: []

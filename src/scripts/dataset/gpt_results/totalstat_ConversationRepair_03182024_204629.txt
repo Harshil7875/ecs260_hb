@@ -1,0 +1,6 @@
+Test_Buggy_Repo_List: ['yaml_cpp-6']
+Total_Patch_Number: 5
+Total_Compilable_Patch_Number: 5
+Total_Plausible_Patch_Number: 0
+Compilable_Patch_List: ['yaml_cpp-6_Conversation-1', 'yaml_cpp-6_Conversation-2', 'yaml_cpp-6_Conversation-3', 'yaml_cpp-6_Conversation-4', 'yaml_cpp-6_Conversation-5']
+Plausible_Patch_list: []

@@ -1,0 +1,8 @@
+test_result: 
+berry-2: 
+build_result: True
+test_cases_result:  
+pass_rate: 0.0
+pass_test_cases: []
+fail_test_cases: ['berry-buggy-2-3']
+fail_test_cases_info: {'berry-buggy-2-3': {'failing_info': 'assert_failed: assert failed!\nstack traceback:\n\t<native>: in native function\n\ttests/bool.be:25: in function `main`\n', 'tc_code': '# test cases for boolean expressions\n\nassert(1 != false && 1 != true)\nassert(0 != false && 0 != true)\nassert(!!1 == true)\nassert(!!0 == false)\n\na = true\nb = false\nassert(!!list == true)\nassert(a && b == false)\nassert(!(a && b))\ndef test(a, b)\n    while !(a && b)\n        assert(false)\n    end\nend\ntest(true, true)\n\n# bug in unary \ndef f(i)\n    var j = !i       # bug if i is erroneously modified\n    return i\nend\nassert(f(1) == 1)\n'}}

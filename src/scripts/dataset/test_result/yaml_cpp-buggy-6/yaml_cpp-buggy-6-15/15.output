@@ -1,0 +1,33 @@
+Note: Google Test filter = RegExTest.*
+[==========] Running 12 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 12 tests from RegExTest
+[ RUN      ] RegExTest.Empty
+[       OK ] RegExTest.Empty (0 ms)
+[ RUN      ] RegExTest.Range
+[       OK ] RegExTest.Range (217 ms)
+[ RUN      ] RegExTest.EmptyString
+[       OK ] RegExTest.EmptyString (0 ms)
+[ RUN      ] RegExTest.SingleCharacterString
+[       OK ] RegExTest.SingleCharacterString (3 ms)
+[ RUN      ] RegExTest.MultiCharacterString
+[       OK ] RegExTest.MultiCharacterString (0 ms)
+[ RUN      ] RegExTest.OperatorNot
+[       OK ] RegExTest.OperatorNot (0 ms)
+[ RUN      ] RegExTest.OperatorOr
+[       OK ] RegExTest.OperatorOr (639 ms)
+[ RUN      ] RegExTest.OperatorOrShortCircuits
+[       OK ] RegExTest.OperatorOrShortCircuits (0 ms)
+[ RUN      ] RegExTest.OperatorAnd
+[       OK ] RegExTest.OperatorAnd (0 ms)
+[ RUN      ] RegExTest.OperatorAndShortCircuits
+[       OK ] RegExTest.OperatorAndShortCircuits (0 ms)
+[ RUN      ] RegExTest.OperatorPlus
+[       OK ] RegExTest.OperatorPlus (0 ms)
+[ RUN      ] RegExTest.StringOr
+[       OK ] RegExTest.StringOr (0 ms)
+[----------] 12 tests from RegExTest (859 ms total)
+
+[----------] Global test environment tear-down
+[==========] 12 tests from 1 test suite ran. (859 ms total)
+[  PASSED  ] 12 tests.

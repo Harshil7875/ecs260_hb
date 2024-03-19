@@ -1,0 +1,3 @@
+gcc -DHAVE_CONFIG_H -I. -I../libtiff  -I../libtiff   -g -O2 -Wall -W -MT ascii_tag.o -MD -MP -MF .deps/ascii_tag.Tpo -c -o ascii_tag.o ascii_tag.c
+mv -f .deps/ascii_tag.Tpo .deps/ascii_tag.Po
+make: *** No rule to make target '../libtiff/libtiff.la', needed by 'ascii_tag'.  Stop.

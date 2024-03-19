@@ -1,0 +1,36 @@
+[berry] start building
+  Starting container
+    Image: hschoe/defects4cpp-ubuntu:berry
+[Clean...]
+done
+
+[Prebuild] generate resources
+[Compile] src/be_map.c
+[Compile] src/be_debuglib.c
+[Compile] src/be_filelib.c
+[Compile] src/be_module.c
+[Compile] src/be_maplib.c
+[Compile] src/be_introspectlib.c
+[Compile] src/be_object.c
+[Compile] src/be_gclib.c
+[Compile] src/be_gc.c
+[Compile] src/be_baselib.c
+[Compile] src/be_list.c
+[Compile] src/be_syslib.c
+[Compile] src/be_parser.c
+src/be_parser.c: In function 'class_inherit':
+src/be_parser.c:1428:15: error: 'bexpdesc' {aka 'struct <anonymous>'} has no member named 'k'
+ 1428 |         if (e1.k == VNONRELOC) {
+      |               ^
+src/be_parser.c:1428:21: error: 'VNONRELOC' undeclared (first use in this function)
+ 1428 |         if (e1.k == VNONRELOC) {
+      |                     ^~~~~~~~~
+src/be_parser.c:1428:21: note: each undeclared identifier is reported only once for each function it appears in
+src/be_parser.c:1431:13: error: implicit declaration of function 'berror' [-Wimplicit-function-declaration]
+ 1431 |             berror(parser, "syntax_error: register overflow (more than 255)");
+      |             ^~~~~~
+make: *** [Makefile:70: src/be_parser.o] Error 1
+
+  Closing container
+[berry] done
+Elapsed: 12.87s

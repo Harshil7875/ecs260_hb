@@ -1,0 +1,181 @@
+[yaml_cpp] start building
+  Starting container
+    Image: hschoe/defects4cpp-ubuntu:yaml_cpp
+    An API Error occured.
+    Find detailed message at /tmp/defects4cpp.log.
+Step 1/1 : FROM hschoe/defects4cpp-ubuntu:18.04
+
+ ---> cbbdbdd2721e
+Successfully built cbbdbdd2721e
+Successfully tagged hschoe/defects4cpp-ubuntu:yaml_cpp
+
+-- The CXX compiler identification is GNU 7.5.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+CMake Deprecation Warning at test/gtest-1.10.0/CMakeLists.txt:4 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- The C compiler identification is GNU 7.5.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+CMake Deprecation Warning at test/gtest-1.10.0/googlemock/CMakeLists.txt:45 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake Deprecation Warning at test/gtest-1.10.0/googletest/CMakeLists.txt:56 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- Found PythonInterp: /usr/bin/python (found version "3.6.9") 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/workspace/build
+
+[  1%] Building CXX object CMakeFiles/yaml-cpp.dir/src/contrib/graphbuilder.cpp.o
+[  3%] Building CXX object CMakeFiles/yaml-cpp.dir/src/contrib/graphbuilderadapter.cpp.o
+[  5%] Building CXX object CMakeFiles/yaml-cpp.dir/src/binary.cpp.o
+[  6%] Building CXX object CMakeFiles/yaml-cpp.dir/src/convert.cpp.o
+In file included from /home/workspace/include/yaml-cpp/node/impl.h:12:0,
+                 from /home/workspace/include/yaml-cpp/node/convert.h:20,
+                 from /home/workspace/src/convert.cpp:3:
+/home/workspace/include/yaml-cpp/node/detail/node.h: In constructor 'YAML::detail::node::node()':
+/home/workspace/include/yaml-cpp/node/detail/node.h:27:3: warning: 'YAML::detail::node::m_index' should be initialized in the member initialization list [-Weffc++]
+   node() : m_pRef(new node_ref), m_dependencies{} {}
+   ^~~~
+In file included from /home/workspace/include/yaml-cpp/node/convert.h:20:0,
+                 from /home/workspace/src/convert.cpp:3:
+/home/workspace/include/yaml-cpp/node/impl.h: In member function 'YAML::Node& YAML::Node::operator=(const T&)':
+/home/workspace/include/yaml-cpp/node/impl.h:206:11: warning: 'operator=' should return a reference to '*this' [-Weffc++]
+   return *this;
+           ^~~~
+[  8%] Building CXX object CMakeFiles/yaml-cpp.dir/src/depthguard.cpp.o
+[ 10%] Building CXX object CMakeFiles/yaml-cpp.dir/src/directives.cpp.o
+[ 11%] Building CXX object CMakeFiles/yaml-cpp.dir/src/emit.cpp.o
+[ 13%] Building CXX object CMakeFiles/yaml-cpp.dir/src/emitfromevents.cpp.o
+[ 15%] Building CXX object CMakeFiles/yaml-cpp.dir/src/emitter.cpp.o
+[ 16%] Building CXX object CMakeFiles/yaml-cpp.dir/src/emitterstate.cpp.o
+[ 18%] Building CXX object CMakeFiles/yaml-cpp.dir/src/emitterutils.cpp.o
+[ 20%] Building CXX object CMakeFiles/yaml-cpp.dir/src/exceptions.cpp.o
+[ 21%] Building CXX object CMakeFiles/yaml-cpp.dir/src/exp.cpp.o
+[ 23%] Building CXX object CMakeFiles/yaml-cpp.dir/src/memory.cpp.o
+In file included from /home/workspace/src/memory.cpp:2:0:
+/home/workspace/include/yaml-cpp/node/detail/node.h: In constructor 'YAML::detail::node::node()':
+/home/workspace/include/yaml-cpp/node/detail/node.h:27:3: warning: 'YAML::detail::node::m_index' should be initialized in the member initialization list [-Weffc++]
+   node() : m_pRef(new node_ref), m_dependencies{} {}
+   ^~~~
+[ 25%] Building CXX object CMakeFiles/yaml-cpp.dir/src/node.cpp.o
+[ 26%] Building CXX object CMakeFiles/yaml-cpp.dir/src/node_data.cpp.o
+In file included from /home/workspace/src/node_data.cpp:8:0:
+/home/workspace/include/yaml-cpp/node/detail/node.h: In constructor 'YAML::detail::node::node()':
+/home/workspace/include/yaml-cpp/node/detail/node.h:27:3: warning: 'YAML::detail::node::m_index' should be initialized in the member initialization list [-Weffc++]
+   node() : m_pRef(new node_ref), m_dependencies{} {}
+   ^~~~
+[ 28%] Building CXX object CMakeFiles/yaml-cpp.dir/src/nodebuilder.cpp.o
+In file included from /home/workspace/src/nodebuilder.cpp:4:0:
+/home/workspace/include/yaml-cpp/node/detail/node.h: In constructor 'YAML::detail::node::node()':
+/home/workspace/include/yaml-cpp/node/detail/node.h:27:3: warning: 'YAML::detail::node::m_index' should be initialized in the member initialization list [-Weffc++]
+   node() : m_pRef(new node_ref), m_dependencies{} {}
+   ^~~~
+In file included from /home/workspace/src/nodebuilder.cpp:5:0:
+/home/workspace/include/yaml-cpp/node/impl.h: In member function 'YAML::Node& YAML::Node::operator=(const T&)':
+/home/workspace/include/yaml-cpp/node/impl.h:206:11: warning: 'operator=' should return a reference to '*this' [-Weffc++]
+   return *this;
+           ^~~~
+[ 30%] Building CXX object CMakeFiles/yaml-cpp.dir/src/nodeevents.cpp.o
+In file included from /home/workspace/src/nodeevents.cpp:4:0:
+/home/workspace/include/yaml-cpp/node/detail/node.h: In constructor 'YAML::detail::node::node()':
+/home/workspace/include/yaml-cpp/node/detail/node.h:27:3: warning: 'YAML::detail::node::m_index' should be initialized in the member initialization list [-Weffc++]
+   node() : m_pRef(new node_ref), m_dependencies{} {}
+   ^~~~
+[ 31%] Building CXX object CMakeFiles/yaml-cpp.dir/src/null.cpp.o
+[ 33%] Building CXX object CMakeFiles/yaml-cpp.dir/src/ostream_wrapper.cpp.o
+[ 35%] Building CXX object CMakeFiles/yaml-cpp.dir/src/parse.cpp.o
+In file included from /home/workspace/include/yaml-cpp/node/impl.h:12:0,
+                 from /home/workspace/src/parse.cpp:7:
+/home/workspace/include/yaml-cpp/node/detail/node.h: In constructor 'YAML::detail::node::node()':
+/home/workspace/include/yaml-cpp/node/detail/node.h:27:3: warning: 'YAML::detail::node::m_index' should be initialized in the member initialization list [-Weffc++]
+   node() : m_pRef(new node_ref), m_dependencies{} {}
+   ^~~~
+In file included from /home/workspace/src/parse.cpp:7:0:
+/home/workspace/include/yaml-cpp/node/impl.h: In member function 'YAML::Node& YAML::Node::operator=(const T&)':
+/home/workspace/include/yaml-cpp/node/impl.h:206:11: warning: 'operator=' should return a reference to '*this' [-Weffc++]
+   return *this;
+           ^~~~
+[ 36%] Building CXX object CMakeFiles/yaml-cpp.dir/src/parser.cpp.o
+[ 38%] Building CXX object CMakeFiles/yaml-cpp.dir/src/regex_yaml.cpp.o
+[ 40%] Building CXX object CMakeFiles/yaml-cpp.dir/src/scanner.cpp.o
+[ 41%] Building CXX object CMakeFiles/yaml-cpp.dir/src/scanscalar.cpp.o
+[ 43%] Building CXX object CMakeFiles/yaml-cpp.dir/src/scantag.cpp.o
+[ 45%] Building CXX object CMakeFiles/yaml-cpp.dir/src/scantoken.cpp.o
+[ 46%] Building CXX object CMakeFiles/yaml-cpp.dir/src/simplekey.cpp.o
+[ 48%] Building CXX object CMakeFiles/yaml-cpp.dir/src/singledocparser.cpp.o
+[ 50%] Building CXX object CMakeFiles/yaml-cpp.dir/src/stream.cpp.o
+[ 51%] Building CXX object CMakeFiles/yaml-cpp.dir/src/tag.cpp.o
+[ 53%] Linking CXX static library libyaml-cpp.a
+[ 53%] Built target yaml-cpp
+[ 55%] Building CXX object test/prefix/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+[ 56%] Linking CXX static library ../../../lib/libgtest.a
+[ 56%] Built target gtest
+[ 58%] Building CXX object test/prefix/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
+[ 60%] Linking CXX static library ../../../lib/libgmock.a
+[ 60%] Built target gmock
+[ 61%] Building CXX object test/CMakeFiles/yaml-cpp-tests.dir/integration/emitter_test.cpp.o
+[ 63%] Building CXX object test/CMakeFiles/yaml-cpp-tests.dir/integration/encoding_test.cpp.o
+[ 65%] Building CXX object test/CMakeFiles/yaml-cpp-tests.dir/integration/error_messages_test.cpp.o
+[ 66%] Building CXX object test/CMakeFiles/yaml-cpp-tests.dir/integration/gen_emitter_test.cpp.o
+[ 68%] Building CXX object test/CMakeFiles/yaml-cpp-tests.dir/integration/handler_spec_test.cpp.o
+[ 70%] Building CXX object test/CMakeFiles/yaml-cpp-tests.dir/integration/handler_test.cpp.o
+[ 71%] Building CXX object test/CMakeFiles/yaml-cpp-tests.dir/integration/load_node_test.cpp.o
+[ 73%] Building CXX object test/CMakeFiles/yaml-cpp-tests.dir/integration/node_spec_test.cpp.o
+[ 75%] Building CXX object test/CMakeFiles/yaml-cpp-tests.dir/main.cpp.o
+[ 76%] Building CXX object test/CMakeFiles/yaml-cpp-tests.dir/node/node_test.cpp.o
+[ 78%] Building CXX object test/CMakeFiles/yaml-cpp-tests.dir/ostream_wrapper_test.cpp.o
+[ 80%] Building CXX object test/CMakeFiles/yaml-cpp-tests.dir/parser_test.cpp.o
+[ 81%] Building CXX object test/CMakeFiles/yaml-cpp-tests.dir/regex_test.cpp.o
+[ 83%] Linking CXX executable yaml-cpp-tests
+[ 83%] Built target yaml-cpp-tests
+[ 85%] Building CXX object test/prefix/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
+[ 86%] Linking CXX static library ../../../lib/libgmock_main.a
+[ 86%] Built target gmock_main
+[ 88%] Building CXX object test/prefix/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+[ 90%] Linking CXX static library ../../../lib/libgtest_main.a
+[ 90%] Built target gtest_main
+[ 91%] Building CXX object util/CMakeFiles/yaml-cpp-sandbox.dir/sandbox.cpp.o
+[ 93%] Linking CXX executable sandbox
+[ 93%] Built target yaml-cpp-sandbox
+[ 95%] Building CXX object util/CMakeFiles/yaml-cpp-parse.dir/parse.cpp.o
+[ 96%] Linking CXX executable parse
+[ 96%] Built target yaml-cpp-parse
+[ 98%] Building CXX object util/CMakeFiles/yaml-cpp-read.dir/read.cpp.o
+[100%] Linking CXX executable read
+[100%] Built target yaml-cpp-read
+
+  Closing container
+[yaml_cpp] done
+Elapsed: 69.64s

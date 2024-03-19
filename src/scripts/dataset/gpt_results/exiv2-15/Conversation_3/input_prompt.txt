@@ -1,0 +1,474 @@
+You are a automated program repair tool for C and C++. Your task is to provide a fix for the buggy function below.
+
+<<< Buggy Function:
+    ExifData::const_iterator isoSpeed(const ExifData& ed)
+    {
+        static const char* keys[] = {
+            "Exif.Photo.ISOSpeedRatings",
+            "Exif.Image.ISOSpeedRatings",
+            "Exif.CanonSi.ISOSpeed",
+            "Exif.CanonCs.ISOSpeed",
+            "Exif.Nikon1.ISOSpeed",
+            "Exif.Nikon2.ISOSpeed",
+            "Exif.Nikon3.ISOSpeed",
+            "Exif.NikonIi.ISO",
+            "Exif.NikonIi.ISO2",
+            "Exif.MinoltaCsNew.ISOSetting",
+            "Exif.MinoltaCsOld.ISOSetting",
+            "Exif.MinoltaCs5D.ISOSpeed",
+            "Exif.MinoltaCs7D.ISOSpeed",
+            "Exif.Sony1Cs.ISOSetting",
+            "Exif.Sony2Cs.ISOSetting",
+            "Exif.Sony1Cs2.ISOSetting",
+            "Exif.Sony2Cs2.ISOSetting",
+            "Exif.Sony1MltCsA100.ISOSetting",
+            "Exif.Pentax.ISO",
+            "Exif.PentaxDng.ISO",
+            "Exif.Olympus.ISOSpeed",
+            "Exif.Samsung2.ISO",
+            "Exif.Casio.ISO",
+            "Exif.Casio2.ISO",
+            "Exif.Casio2.ISOSpeed"
+        };
+
+        struct SensKeyNameList {
+            int count;
+            const char* keys[3];
+        };
+
+        // covers Exif.Phot.SensitivityType values 1-7. Note that SOS, REI and
+        // ISO do differ in their meaning. Values coming first in a list (and
+        // existing as a tag) are picked up first and used as the "ISO" value.
+        static const SensKeyNameList sensitivityKey[] = {
+            { 1, { "Exif.Photo.StandardOutputSensitivity" }},
+            { 1, { "Exif.Photo.RecommendedExposureIndex" }},
+            { 1, { "Exif.Photo.ISOSpeed" }},
+            { 2, { "Exif.Photo.RecommendedExposureIndex", "Exif.Photo.StandardOutputSensitivity" }},
+            { 2, { "Exif.Photo.ISOSpeed", "Exif.Photo.StandardOutputSensitivity" }},
+            { 2, { "Exif.Photo.ISOSpeed", "Exif.Photo.RecommendedExposureIndex" }},
+            { 3, { "Exif.Photo.ISOSpeed", "Exif.Photo.RecommendedExposureIndex", "Exif.Photo.StandardOutputSensitivity" }}
+        };
+
+        static const char* sensitivityType[] = {
+            "Exif.Photo.SensitivityType"
+        };
+
+        // Find the first ISO value which is not "0"
+        const int cnt = EXV_COUNTOF(keys);
+        ExifData::const_iterator md = ed.end();
+        long iso_val = -1;
+        for (int idx = 0; idx < cnt; ) {
+            md = findMetadatum(ed, keys + idx, cnt - idx);
+            if (md == ed.end()) break;
+            std::ostringstream os;
+            md->write(os, &ed);
+            bool ok = false;
+            iso_val = parseLong(os.str(), ok);
+            if (ok && iso_val > 0) break;
+            while (strcmp(keys[idx++], md->key().c_str()) != 0 && idx < cnt) {}
+            md = ed.end();
+        }
+
+        // there is either a possible ISO "overflow" or no legacy
+        // ISO tag at all. Check for SensitivityType tag and the referenced
+        // ISO value (see EXIF 2.3 Annex G)
+        long iso_tmp_val = -1;
+        while (iso_tmp_val == -1 && (iso_val == 65535 || md == ed.end())) {
+            ExifData::const_iterator md_st = findMetadatum(ed, sensitivityType, 1);
+            // no SensitivityType? exit with existing data
+            if (md_st == ed.end())
+                break;
+            // otherwise pick up actual value and grab value accordingly
+            std::ostringstream os;
+            md_st->write(os, &ed);
+            bool ok = false;
+            const long st_val = parseLong(os.str(), ok);
+            // SensivityType out of range or cannot be parsed properly
+            if (!ok || st_val < 1 || st_val > 7)
+                break;
+            // pick up list of ISO tags, and check for at least one of
+            // them available.
+            const SensKeyNameList *sensKeys = &sensitivityKey[st_val - 1];
+            md_st = ed.end();
+            for (int idx = 0; idx < sensKeys->count; md_st = ed.end()) {
+                md_st = findMetadatum(ed, const_cast<const char**>(sensKeys->keys), sensKeys->count);
+                if (md_st == ed.end())
+                    break;
+                std::ostringstream os_iso;
+                md_st->write(os_iso, &ed);
+                ok = false;
+                iso_tmp_val = parseLong(os_iso.str(), ok);
+                // something wrong with the value
+                if (ok || iso_tmp_val > 0) {
+                    md = md_st;
+                    break;
+                }
+                while (strcmp(sensKeys->keys[idx++], md_st->key().c_str()) != 0 && idx < cnt) {}
+            }
+            break;
+        }
+
+        return md;
+    }
+
+>>>
+
+The following was the errors outputted by a failed test case.
+
+<<< Test Failed Log:
+F
+======================================================================
+FAIL: test_run (test_issue_561.ShouldNotThrowsWithSpecificIsoSpeedValue)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/workspace/tests/system_tests.py", line 635, in test_run
+    retval, proc.returncode, msg="Return value does not match"
+AssertionError: 0 != -11 : Return value does not match
+
+----------------------------------------------------------------------
+Ran 1 test in 0.086s
+
+FAILED (failures=1)
+
+>>>
+
+The following is the relevant code of that failed test case.
+
+<<< Test Code:
+def test_run(self):
+    """
+    This function reads in the attributes commands, retval, stdout, stderr,
+    stdin and runs the `expand_variables` function on each. The resulting
+    commands are then run using the subprocess module and compared against the
+    expected values that were provided in the attributes via `compare_stdout`
+    and `compare_stderr`. Furthermore a threading.Timer is used to abort the
+    execution if a configured timeout is reached.
+
+    This function is automatically added as a member function to each system
+    test by the CaseMeta metaclass. This ensures that it is run by each system
+    test **after** setUp() and setUpClass() were run.
+    """
+    if not (len(self.commands) == len(self.retval)
+            == len(self.stdout) == len(self.stderr) == len(self.stdin)):
+        raise ValueError(
+            "commands, retval, stdout, stderr and stdin don't have the same "
+            "length"
+        )
+
+    for i, command, retval, stdout, stderr, stdin in \
+        zip(range(len(self.commands)),
+            self.commands,
+            self.retval,
+            self.stdout,
+            self.stderr,
+            self.stdin):
+        command, retval, stdout, stderr, stdin = [
+            self.expand_variables(var) for var in
+            (command, retval, stdout, stderr, stdin)
+        ]
+
+        retval = int(retval)
+
+        if "memcheck" in _parameters:
+            command = _parameters["memcheck"] + " " + command
+
+        if _debug_mode:
+            print(
+                '', "="*80, "will run: " + command, "expected stdout:", stdout,
+                "expected stderr:", stderr,
+                "expected return value: {:d}".format(retval),
+                sep='\n'
+            )
+
+        proc = subprocess.Popen(
+            _cmd_splitter(command),
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            stdin=subprocess.PIPE if stdin is not None else None,
+            env=self._get_env(),
+            cwd=self.work_dir,
+            shell=_SUBPROCESS_SHELL
+        )
+
+        # Setup a threading.Timer which will terminate the command if it takes
+        # too long. Don't use the timeout parameter in subprocess.Popen, since
+        # that is not available for all Python 3 versions.
+        # Use a dictionary to indicate a timeout, as booleans get passed by
+        # value and the changes made timeout_reached function will not be
+        # visible once it exits (the command will still be terminated once the
+        # timeout expires).
+        timeout = {"flag": False}
+
+        def timeout_reached(tmout):
+            tmout["flag"] = True
+            proc.kill()
+
+        t = threading.Timer(
+            _parameters["timeout"], timeout_reached, args=[timeout]
+        )
+
+        def get_encode_err():
+            """ Return an error message indicating that the encoding of stdin
+            failed.
+            """
+            return "Could not encode stdin {!s} for the command {!s} with the"\
+                " following encodings: {!s}"\
+                .format(stdin, command, ','.join(self.encodings))
+
+        # Prepare stdin: try to encode it or keep it at None if it was not
+        # provided
+        encoded_stdin = None
+        if stdin is not None:
+            encoded_stdin = self._encode(
+                stdin, lambda data_in, encoding: data_in.encode(encoding),
+                get_encode_err
+            )
+
+        if _debug_mode:
+            print('', "stdin:", stdin or "", sep='\n')
+
+        t.start()
+        got_stdout, got_stderr = proc.communicate(input=encoded_stdin)
+        t.cancel()
+
+        def get_decode_error():
+            """ Return an error indicating the the decoding of stdout/stderr
+            failed.
+            """
+            return "Could not decode the output of the command '{!s}' with "\
+                "the following encodings: {!s}"\
+                .format(command, ','.join(self.encodings))
+
+        def decode_output(data_in, encoding):
+            """ Decode stdout/stderr, consider platform dependent line
+            endings.
+            """
+            return _process_output_post(data_in.decode(encoding))
+
+        processed_stdout, processed_stderr = [
+            self._encode(output, decode_output, get_decode_error)
+            for output in (got_stdout, got_stderr)
+        ]
+
+        if _debug_mode:
+            print(
+                "got stdout:", processed_stdout, "got stderr:",
+                processed_stderr, "got return value: {:d}"
+                .format(proc.returncode),
+                sep='\n'
+            )
+
+        self.assertFalse(timeout["flag"], msg="Timeout reached")
+        self.compare_stderr(i, command, processed_stderr, stderr)
+        self.compare_stdout(i, command, processed_stdout, stdout)
+        self.assertEqual(
+            retval, proc.returncode, msg="Return value does not match"
+        )
+
+        self.post_command_hook(i, command)
+
+    self.post_tests_hook()
+>>>
+
+The functions provided by you can pass all test cases:
+
+<<< Plausible Patches Generated By You:
+ExifData::const_iterator isoSpeed(const ExifData& ed)
+{
+    static const char* keys[] = {
+        "Exif.Photo.ISOSpeedRatings",
+        "Exif.Image.ISOSpeedRatings",
+        "Exif.CanonSi.ISOSpeed",
+        "Exif.CanonCs.ISOSpeed",
+        "Exif.Nikon1.ISOSpeed",
+        "Exif.Nikon2.ISOSpeed",
+        "Exif.Nikon3.ISOSpeed",
+        "Exif.NikonIi.ISO",
+        "Exif.NikonIi.ISO2",
+        "Exif.MinoltaCsNew.ISOSetting",
+        "Exif.MinoltaCsOld.ISOSetting",
+        "Exif.MinoltaCs5D.ISOSpeed",
+        "Exif.MinoltaCs7D.ISOSpeed",
+        "Exif.Sony1Cs.ISOSetting",
+        "Exif.Sony2Cs.ISOSetting",
+        "Exif.Sony1Cs2.ISOSetting",
+        "Exif.Sony2Cs2.ISOSetting",
+        "Exif.Sony1MltCsA100.ISOSetting",
+        "Exif.Pentax.ISO",
+        "Exif.PentaxDng.ISO",
+        "Exif.Olympus.ISOSpeed",
+        "Exif.Samsung2.ISO",
+        "Exif.Casio.ISO",
+        "Exif.Casio2.ISO",
+        "Exif.Casio2.ISOSpeed"
+    };
+
+    struct SensKeyNameList {
+        int count;
+        const char* keys[3];
+    };
+
+    static const SensKeyNameList sensitivityKey[] = {
+        { 1, { "Exif.Photo.StandardOutputSensitivity" }},
+        { 1, { "Exif.Photo.RecommendedExposureIndex" }},
+        { 1, { "Exif.Photo.ISOSpeed" }},
+        { 2, { "Exif.Photo.RecommendedExposureIndex", "Exif.Photo.StandardOutputSensitivity" }},
+        { 2, { "Exif.Photo.ISOSpeed", "Exif.Photo.StandardOutputSensitivity" }},
+        { 2, { "Exif.Photo.ISOSpeed", "Exif.Photo.RecommendedExposureIndex" }},
+        { 3, { "Exif.Photo.ISOSpeed", "Exif.Photo.RecommendedExposureIndex", "Exif.Photo.StandardOutputSensitivity" }}
+    };
+
+    static const char* sensitivityType[] = {
+        "Exif.Photo.SensitivityType"
+    };
+
+    const int cnt = EXV_COUNTOF(keys);
+    ExifData::const_iterator md = ed.end();
+    long iso_val = -1;
+    for (int idx = 0; idx < cnt; ) {
+        md = findMetadatum(ed, keys + idx, cnt - idx);
+        if (md == ed.end()) break;
+        std::ostringstream os;
+        md->write(os, &ed);
+        bool ok = false;
+        iso_val = parseLong(os.str(), ok);
+        if (ok && iso_val > 0) break;
+        idx++;
+    }
+
+    long iso_tmp_val = -1;
+    while (iso_tmp_val == -1 && (iso_val == 65535 || md == ed.end())) {
+        ExifData::const_iterator md_st = findMetadatum(ed, sensitivityType, 1);
+        if (md_st == ed.end())
+            break;
+        std::ostringstream os;
+        md_st->write(os, &ed);
+        bool ok = false;
+        const long st_val = parseLong(os.str(), ok);
+        if (!ok || st_val < 1 || st_val > 7)
+            break;
+        const SensKeyNameList *sensKeys = &sensitivityKey[st_val - 1];
+        md_st = ed.end();
+        for (int idx = 0; idx < sensKeys->count; idx++) {
+            md_st = findMetadatum(ed, const_cast<const char**>(sensKeys->keys), sensKeys->count);
+            if (md_st == ed.end())
+                break;
+            std::ostringstream os_iso;
+            md_st->write(os_iso, &ed);
+            ok = false;
+            iso_tmp_val = parseLong(os_iso.str(), ok);
+            if (ok || iso_tmp_val > 0) {
+                md = md_st;
+                break;
+            }
+        }
+        break;
+    }
+
+    return md;
+}
+
+
+ExifData::const_iterator isoSpeed(const ExifData& ed)
+{
+    static const char* keys[] = {
+        "Exif.Photo.ISOSpeedRatings",
+        "Exif.Image.ISOSpeedRatings",
+        "Exif.CanonSi.ISOSpeed",
+        "Exif.CanonCs.ISOSpeed",
+        "Exif.Nikon1.ISOSpeed",
+        "Exif.Nikon2.ISOSpeed",
+        "Exif.Nikon3.ISOSpeed",
+        "Exif.NikonIi.ISO",
+        "Exif.NikonIi.ISO2",
+        "Exif.MinoltaCsNew.ISOSetting",
+        "Exif.MinoltaCsOld.ISOSetting",
+        "Exif.MinoltaCs5D.ISOSpeed",
+        "Exif.MinoltaCs7D.ISOSpeed",
+        "Exif.Sony1Cs.ISOSetting",
+        "Exif.Sony2Cs.ISOSetting",
+        "Exif.Sony1Cs2.ISOSetting",
+        "Exif.Sony2Cs2.ISOSetting",
+        "Exif.Sony1MltCsA100.ISOSetting",
+        "Exif.Pentax.ISO",
+        "Exif.PentaxDng.ISO",
+        "Exif.Olympus.ISOSpeed",
+        "Exif.Samsung2.ISO",
+        "Exif.Casio.ISO",
+        "Exif.Casio2.ISO",
+        "Exif.Casio2.ISOSpeed"
+    };
+
+    struct SensKeyNameList {
+        int count;
+        const char* keys[3];
+    };
+
+    static const SensKeyNameList sensitivityKey[] = {
+        { 1, { "Exif.Photo.StandardOutputSensitivity" }},
+        { 1, { "Exif.Photo.RecommendedExposureIndex" }},
+        { 1, { "Exif.Photo.ISOSpeed" }},
+        { 2, { "Exif.Photo.RecommendedExposureIndex", "Exif.Photo.StandardOutputSensitivity" }},
+        { 2, { "Exif.Photo.ISOSpeed", "Exif.Photo.StandardOutputSensitivity" }},
+        { 2, { "Exif.Photo.ISOSpeed", "Exif.Photo.RecommendedExposureIndex" }},
+        { 3, { "Exif.Photo.ISOSpeed", "Exif.Photo.RecommendedExposureIndex", "Exif.Photo.StandardOutputSensitivity" }}
+    };
+
+    static const char* sensitivityType[] = {
+        "Exif.Photo.SensitivityType"
+    };
+
+    const int cnt = EXV_COUNTOF(keys);
+    ExifData::const_iterator md = ed.end();
+    long iso_val = -1;
+    for (int idx = 0; idx < cnt; ) {
+        md = findMetadatum(ed, keys + idx, cnt - idx);
+        if (md == ed.end()) break;
+        std::ostringstream os;
+        md->write(os, &ed);
+        bool ok = false;
+        iso_val = parseLong(os.str(), ok);
+        if (ok && iso_val > 0) break;
+        idx++;
+    }
+
+    long iso_tmp_val = -1;
+    while (iso_tmp_val == -1 && (iso_val == 65535 || md == ed.end())) {
+        ExifData::const_iterator md_st = findMetadatum(ed, sensitivityType, 1);
+        if (md_st == ed.end())
+            break;
+        std::ostringstream os;
+        md_st->write(os, &ed);
+        bool ok = false;
+        const long st_val = parseLong(os.str(), ok);
+        if (!ok || st_val < 1 || st_val > 7)
+            break;
+        const SensKeyNameList *sensKeys = &sensitivityKey[st_val - 1];
+        md_st = ed.end();
+        for (int idx = 0; idx < sensKeys->count; idx++) {
+            md_st = findMetadatum(ed, const_cast<const char**>(sensKeys->keys), sensKeys->count);
+            if (md_st == ed.end())
+                break;
+            std::ostringstream os_iso;
+            md_st->write(os_iso, &ed);
+            ok = false;
+            iso_tmp_val = parseLong(os_iso.str(), ok);
+            if (ok || iso_tmp_val > 0) {
+                md = md_st;
+                break;
+            }
+        }
+        break;
+    }
+
+    return md;
+}
+
+>>>
+
+Please generate an alternative fix function.
+
+You will only respond with your repaired function in a code snippet as below:
+```
+<Your repaired function>
+```

@@ -1,0 +1,15 @@
+make depend && make _tests
+make[1]: Entering directory '/home/workspace'
+make[1]: Leaving directory '/home/workspace'
+make[1]: Entering directory '/home/workspace'
+( SRCTOP=. \
+  BLDTOP=. \
+  PERL="/usr/bin/perl" \
+  FIPSKEY="f4556650ac31d35461610bac4ed81b1a181b2d8a43ea2854cbae22ca74560813" \
+  EXE_EXT= \
+  /usr/bin/perl ./test/run_tests.pl test_mp_rsa )
+15-test_mp_rsa.t .. ok
+All tests successful.
+Files=1, Tests=31, 10 wallclock secs ( 0.01 usr  0.03 sys +  9.86 cusr  0.21 csys = 10.11 CPU)
+Result: PASS
+make[1]: Leaving directory '/home/workspace'

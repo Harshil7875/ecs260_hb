@@ -1,0 +1,489 @@
+You are a automated program repair tool for C and C++. Your task is to provide a fix for the buggy function below.
+
+<<< Buggy Function:
+    void Jp2Image::printStructure(std::ostream& out, PrintStructureOption option, int depth)
+    {
+        if (io_->open() != 0)
+            throw Error(kerDataSourceOpenFailed, io_->path(), strError());
+
+        // Ensure that this is the correct image type
+        if (!isJp2Type(*io_, false)) {
+            if (io_->error() || io_->eof())
+                throw Error(kerFailedToReadImageData);
+            throw Error(kerNotAJpeg);
+        }
+
+        bool bPrint = option == kpsBasic || option == kpsRecursive;
+        bool bRecursive = option == kpsRecursive;
+        bool bICC = option == kpsIccProfile;
+        bool bXMP = option == kpsXMP;
+        bool bIPTCErase = option == kpsIptcErase;
+
+        if (bPrint) {
+            out << "STRUCTURE OF JPEG2000 FILE: " << io_->path() << std::endl;
+            out << " address |   length | box       | data" << std::endl;
+        }
+
+        if (bPrint || bXMP || bICC || bIPTCErase) {
+            Jp2BoxHeader box = {1, 1};
+            Jp2BoxHeader subBox = {1, 1};
+            Jp2UuidBox uuid = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
+            bool bLF = false;
+
+            while (box.length && box.type != kJp2BoxTypeClose && io_->read((byte*)&box, sizeof(box)) == sizeof(box)) {
+                long position = io_->tell();
+                box.length = getLong((byte*)&box.length, bigEndian);
+                box.type = getLong((byte*)&box.type, bigEndian);
+
+                if (bPrint) {
+                    out << Internal::stringFormat("%8ld | %8ld | ", (size_t)(position - sizeof(box)),
+                                                  (size_t)box.length)
+                        << toAscii(box.type) << "      | ";
+                    bLF = true;
+                    if (box.type == kJp2BoxTypeClose)
+                        lf(out, bLF);
+                }
+                if (box.type == kJp2BoxTypeClose)
+                    break;
+
+                switch (box.type) {
+                    case kJp2BoxTypeJp2Header: {
+                        lf(out, bLF);
+
+                        while (io_->read((byte*)&subBox, sizeof(subBox)) == sizeof(subBox) &&
+                               io_->tell() < position + (long)box.length)  // don't read beyond the box!
+                        {
+                            int address = io_->tell() - sizeof(subBox);
+                            subBox.length = getLong((byte*)&subBox.length, bigEndian);
+                            subBox.type = getLong((byte*)&subBox.type, bigEndian);
+
+                            if (subBox.length > io_->size() - io_->tell()) {
+                                throw Error(kerCorruptedMetadata);
+                            }
+
+                            DataBuf data(subBox.length - sizeof(box));
+                            io_->read(data.pData_, data.size_);
+                            if (bPrint) {
+                                out << Internal::stringFormat("%8ld | %8ld |  sub:", (size_t)address,
+                                                              (size_t)subBox.length)
+                                    << toAscii(subBox.type) << " | "
+                                    << Internal::binaryToString(makeSlice(data, 0, 30));
+                                bLF = true;
+                            }
+
+                            if (subBox.type == kJp2BoxTypeColorHeader) {
+                                long pad = 3;  // don't know why there are 3 padding bytes
+                                if (bPrint) {
+                                    out << " | pad:";
+                                    for (int i = 0; i < 3; i++)
+                                        out << " " << (int)data.pData_[i];
+                                }
+                                long iccLength = getULong(data.pData_ + pad, bigEndian);
+                                if (bPrint) {
+                                    out << " | iccLength:" << iccLength;
+                                }
+                                if (bICC) {
+                                    out.write((const char*)data.pData_ + pad, iccLength);
+                                }
+                            }
+                            lf(out, bLF);
+                        }
+                    } break;
+
+                    case kJp2BoxTypeUuid: {
+                        if (io_->read((byte*)&uuid, sizeof(uuid)) == sizeof(uuid)) {
+                            bool bIsExif = memcmp(uuid.uuid, kJp2UuidExif, sizeof(uuid)) == 0;
+                            bool bIsIPTC = memcmp(uuid.uuid, kJp2UuidIptc, sizeof(uuid)) == 0;
+                            bool bIsXMP = memcmp(uuid.uuid, kJp2UuidXmp, sizeof(uuid)) == 0;
+
+                            bool bUnknown = !(bIsExif || bIsIPTC || bIsXMP);
+
+                            if (bPrint) {
+                                if (bIsExif)
+                                    out << "Exif: ";
+                                if (bIsIPTC)
+                                    out << "IPTC: ";
+                                if (bIsXMP)
+                                    out << "XMP : ";
+                                if (bUnknown)
+                                    out << "????: ";
+                            }
+
+                            DataBuf rawData;
+                            rawData.alloc(box.length - sizeof(uuid) - sizeof(box));
+                            long bufRead = io_->read(rawData.pData_, rawData.size_);
+                            if (io_->error())
+                                throw Error(kerFailedToReadImageData);
+                            if (bufRead != rawData.size_)
+                                throw Error(kerInputDataReadFailed);
+
+                            if (bPrint) {
+                                out << Internal::binaryToString(makeSlice(rawData, 0, 40));
+                                out.flush();
+                            }
+                            lf(out, bLF);
+
+                            if (bIsExif && bRecursive && rawData.size_ > 0) {
+                                if ((rawData.pData_[0] == rawData.pData_[1]) &&
+                                    (rawData.pData_[0] == 'I' || rawData.pData_[0] == 'M')) {
+                                    BasicIo::UniquePtr p = BasicIo::UniquePtr(new MemIo(rawData.pData_, rawData.size_));
+                                    printTiffStructure(*p, out, option, depth);
+                                }
+                            }
+
+                            if (bIsIPTC && bRecursive) {
+                                IptcData::printStructure(out, makeSlice(rawData.pData_, 0, rawData.size_), depth);
+                            }
+
+                            if (bIsXMP && bXMP) {
+                                out.write((const char*)rawData.pData_, rawData.size_);
+                            }
+                        }
+                    } break;
+
+                    default:
+                        break;
+                }
+
+                // Move to the next box.
+                io_->seek(static_cast<long>(position - sizeof(box) + box.length), BasicIo::beg);
+                if (io_->error())
+                    throw Error(kerFailedToReadImageData);
+                if (bPrint)
+                    lf(out, bLF);
+            }
+        }
+    }  // JpegBase::printStructure
+
+>>>
+
+The following was the errors outputted by a failed test case.
+
+<<< Test Failed Log:
+F
+======================================================================
+FAIL: test_run (test_issue_742.ThrowsWhenSubBoxLengthIsNotGood)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/workspace/tests/system_tests.py", line 632, in test_run
+    self.compare_stderr(i, command, processed_stderr, stderr)
+  File "/home/workspace/tests/system_tests.py", line 755, in compare_stderr
+    msg="Standard error does not match"
+  File "/home/workspace/tests/system_tests.py", line 726, in _compare_output
+    expected, got, msg=msg
+AssertionError: 'Uncaught exception: std::bad_alloc\n' != 'Exiv2 exception in print action for file [64 chars]ta\n'
+- Uncaught exception: std::bad_alloc
++ Exiv2 exception in print action for file /home/workspace/test/data/issue_742_poc:
++ corrupted image metadata
+ : Standard error does not match
+
+----------------------------------------------------------------------
+Ran 1 test in 0.078s
+
+FAILED (failures=1)
+
+>>>
+
+The following is the relevant code of that failed test case.
+
+<<< Test Code:
+ef test_run(self):
+    """
+    This function reads in the attributes commands, retval, stdout, stderr,
+    stdin and runs the `expand_variables` function on each. The resulting
+    commands are then run using the subprocess module and compared against the
+    expected values that were provided in the attributes via `compare_stdout`
+    and `compare_stderr`. Furthermore a threading.Timer is used to abort the
+    execution if a configured timeout is reached.
+
+    This function is automatically added as a member function to each system
+    test by the CaseMeta metaclass. This ensures that it is run by each system
+    test **after** setUp() and setUpClass() were run.
+    """
+    if not (len(self.commands) == len(self.retval)
+            == len(self.stdout) == len(self.stderr) == len(self.stdin)):
+        raise ValueError(
+            "commands, retval, stdout, stderr and stdin don't have the same "
+            "length"
+        )
+
+    for i, command, retval, stdout, stderr, stdin in \
+        zip(range(len(self.commands)),
+            self.commands,
+            self.retval,
+            self.stdout,
+            self.stderr,
+            self.stdin):
+        command, retval, stdout, stderr, stdin = [
+            self.expand_variables(var) for var in
+            (command, retval, stdout, stderr, stdin)
+        ]
+
+        retval = int(retval)
+
+        if "memcheck" in _parameters:
+            command = _parameters["memcheck"] + " " + command
+
+        if _debug_mode:
+            print(
+                '', "="*80, "will run: " + command, "expected stdout:", stdout,
+                "expected stderr:", stderr,
+                "expected return value: {:d}".format(retval),
+                sep='\n'
+            )
+
+        proc = subprocess.Popen(
+            _cmd_splitter(command),
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            stdin=subprocess.PIPE if stdin is not None else None,
+            env=self._get_env(),
+            cwd=self.work_dir,
+            shell=_SUBPROCESS_SHELL
+        )
+
+        # Setup a threading.Timer which will terminate the command if it takes
+        # too long. Don't use the timeout parameter in subprocess.Popen, since
+        # that is not available for all Python 3 versions.
+        # Use a dictionary to indicate a timeout, as booleans get passed by
+        # value and the changes made timeout_reached function will not be
+        # visible once it exits (the command will still be terminated once the
+        # timeout expires).
+        timeout = {"flag": False}
+
+        def timeout_reached(tmout):
+            tmout["flag"] = True
+            proc.kill()
+
+        t = threading.Timer(
+            _parameters["timeout"], timeout_reached, args=[timeout]
+        )
+
+        def get_encode_err():
+            """ Return an error message indicating that the encoding of stdin
+            failed.
+            """
+            return "Could not encode stdin {!s} for the command {!s} with the"\
+                " following encodings: {!s}"\
+                .format(stdin, command, ','.join(self.encodings))
+
+        # Prepare stdin: try to encode it or keep it at None if it was not
+        # provided
+        encoded_stdin = None
+        if stdin is not None:
+            encoded_stdin = self._encode(
+                stdin, lambda data_in, encoding: data_in.encode(encoding),
+                get_encode_err
+            )
+
+        if _debug_mode:
+            print('', "stdin:", stdin or "", sep='\n')
+
+        t.start()
+        got_stdout, got_stderr = proc.communicate(input=encoded_stdin)
+        t.cancel()
+
+        def get_decode_error():
+            """ Return an error indicating the the decoding of stdout/stderr
+            failed.
+            """
+            return "Could not decode the output of the command '{!s}' with "\
+                "the following encodings: {!s}"\
+                .format(command, ','.join(self.encodings))
+
+        def decode_output(data_in, encoding):
+            """ Decode stdout/stderr, consider platform dependent line
+            endings.
+            """
+            return _process_output_post(data_in.decode(encoding))
+
+        processed_stdout, processed_stderr = [
+            self._encode(output, decode_output, get_decode_error)
+            for output in (got_stdout, got_stderr)
+        ]
+
+        if _debug_mode:
+            print(
+                "got stdout:", processed_stdout, "got stderr:",
+                processed_stderr, "got return value: {:d}"
+                .format(proc.returncode),
+                sep='\n'
+            )
+
+        self.assertFalse(timeout["flag"], msg="Timeout reached")
+        self.compare_stderr(i, command, processed_stderr, stderr)
+        self.compare_stdout(i, command, processed_stdout, stdout)
+        self.assertEqual(
+            retval, proc.returncode, msg="Return value does not match"
+        )
+
+        self.post_command_hook(i, command)
+
+    self.post_tests_hook()
+>>>
+
+The function provided by you is still not correct! Your repaired function is:
+
+<<< Function Repaired By You:
+void Jp2Image::printStructure(std::ostream& out, PrintStructureOption option, int depth)
+{
+    if (io_->open() != 0)
+        throw Error(kerDataSourceOpenFailed, io_->path(), strError());
+
+    // Ensure that this is the correct image type
+    if (!isJp2Type(*io_, false)) {
+        if (io_->error() || io_->eof())
+            throw Error(kerFailedToReadImageData);
+        throw Error(kerNotAJpeg);
+    }
+
+    bool bPrint = option == kpsBasic || option == kpsRecursive;
+    bool bRecursive = option == kpsRecursive;
+    bool bICC = option == kpsIccProfile;
+    bool bXMP = option == kpsXMP;
+    bool bIPTCErase = option == kpsIptcErase;
+
+    if (bPrint) {
+        out << "STRUCTURE OF JPEG2000 FILE: " << io_->path() << std::endl;
+        out << " address |   length | box       | data" << std::endl;
+    }
+
+    if (bPrint || bXMP || bICC || bIPTCErase) {
+        Jp2BoxHeader box = {1, 1};
+        Jp2BoxHeader subBox = {1, 1};
+        Jp2UuidBox uuid = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
+        bool bLF = false;
+
+        while (box.length && box.type != kJp2BoxTypeClose && io_->read((byte*)&box, sizeof(box)) == sizeof(box)) {
+            long position = io_->tell();
+            box.length = getLong((byte*)&box.length, bigEndian);
+            box.type = getLong((byte*)&box.type, bigEndian);
+
+            if (bPrint) {
+                out << Internal::stringFormat("%8ld | %8ld | ", (size_t)(position - sizeof(box)),
+                                              (size_t)box.length)
+                    << toAscii(box.type) << "      | ";
+                bLF = true;
+                if (box.type == kJp2BoxTypeClose)
+                    lf(out, bLF);
+            }
+            if (box.type == kJp2BoxTypeClose)
+                break;
+
+            switch (box.type) {
+                case kJp2BoxTypeJp2Header: {
+                    lf(out, bLF);
+
+                    while (io_->read((byte*)&subBox, sizeof(subBox)) == sizeof(subBox) &&
+                           io_->tell() < position + (long)box.length)  // don't read beyond the box!
+                    {
+                        int address = io_->tell() - sizeof(subBox);
+                        subBox.length = getLong((byte*)&subBox.length, bigEndian);
+                        subBox.type = getLong((byte*)&subBox.type, bigEndian);
+
+                        if (subBox.length > io_->size() - io_->tell()) {
+                            throw Error(kerCorruptedMetadata);
+                        }
+
+                        DataBuf data(subBox.length - sizeof(subBox));
+                        io_->read(data.pData_, data.size_);
+                        if (bPrint) {
+                            out << Internal::stringFormat("%8ld | %8ld |  sub:", (size_t)address,
+                                                          (size_t)subBox.length)
+                                << toAscii(subBox.type) << " | "
+                                << Internal::binaryToString(makeSlice(data, 0, 30));
+                            bLF = true;
+                        }
+
+                        if (subBox.type == kJp2BoxTypeColorHeader) {
+                            long pad = 3;  // don't know why there are 3 padding bytes
+                            if (bPrint) {
+                                out << " | pad:";
+                                for (int i = 0; i < 3; i++)
+                                    out << " " << (int)data.pData_[i];
+                            }
+                            long iccLength = getULong(data.pData_ + pad, bigEndian);
+                            if (bPrint) {
+                                out << " | iccLength:" << iccLength;
+                            }
+                            if (bICC) {
+                                out.write((const char*)data.pData_ + pad, iccLength);
+                            }
+                        }
+                        lf(out, bLF);
+                    }
+                } break;
+
+                case kJp2BoxTypeUuid: {
+                    if (io_->read((byte*)&uuid, sizeof(uuid)) == sizeof(uuid)) {
+                        bool bIsExif = memcmp(uuid.uuid, kJp2UuidExif, sizeof(uuid)) == 0;
+                        bool bIsIPTC = memcmp(uuid.uuid, kJp2UuidIptc, sizeof(uuid)) == 0;
+                        bool bIsXMP = memcmp(uuid.uuid, kJp2UuidXmp, sizeof(uuid)) == 0;
+
+                        bool bUnknown = !(bIsExif || bIsIPTC || bIsXMP);
+
+                        if (bPrint) {
+                            if (bIsExif)
+                                out << "Exif: ";
+                            if (bIsIPTC)
+                                out << "IPTC: ";
+                            if (bIsXMP)
+                                out << "XMP : ";
+                            if (bUnknown)
+                                out << "????: ";
+                        }
+
+                        DataBuf rawData;
+                        rawData.alloc(box.length - sizeof(uuid) - sizeof(box));
+                        long bufRead = io_->read(rawData.pData_, rawData.size_);
+                        if (io_->error())
+                            throw Error(kerFailedToReadImageData);
+                        if (bufRead != rawData.size_)
+                            throw Error(kerInputDataReadFailed);
+
+                        if (bPrint) {
+                            out << Internal::binaryToString(makeSlice(rawData, 0, 40));
+                            out.flush();
+                        }
+                        lf(out, bLF);
+
+                        if (bIsExif && bRecursive && rawData.size_ > 0) {
+                            if ((rawData.pData_[0] == rawData.pData_[1]) &&
+                                (rawData.pData_[0] == 'I' || rawData.pData_[0] == 'M')) {
+                                BasicIo::UniquePtr p = BasicIo::UniquePtr(new MemIo(rawData.pData_, rawData.size_));
+                                printTiffStructure(*p, out, option, depth);
+                            }
+                        }
+
+                        if (bIsIPTC && bRecursive) {
+                            IptcData::printStructure(out, makeSlice(rawData.pData_, 0, rawData.size_), depth);
+                        }
+
+                        if (bIsXMP && bXMP) {
+                            out.write((const char*)rawData.pData_, rawData.size_);
+                        }
+                    }
+                } break;
+
+                default:
+                    break;
+            }
+
+            // Move to the next box.
+            io_->seek(static_cast<long>(position - sizeof(box) + box.length), BasicIo::beg);
+            if (io_->error())
+                throw Error(kerFailedToReadImageData);
+            if (bPrint)
+                lf(out, bLF);
+        }
+    }
+}
+
+>>>
+
+It still does not fix the original test failure stated above!
+
+You will only respond with your repaired function in a code snippet as below:
+```
+<Your repaired function>
+```

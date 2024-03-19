@@ -1,0 +1,23 @@
+Repaired function:
+```c
+void dpp_sighandler(int signum) {
+	__gcov_flush();
+	sigaction(signum, &dpp_orig_sigaction, NULL);
+	raise(signum);
+	exit(1);
+}
+```
+
+JSON response:
+```json
+{
+  "error": [
+    {
+      "line_number": 3,
+      "error_type": "Parameter mismatch",
+      "explanation": "The parameter 'sigaction' used in sigaction() function should be 'signum'."
+    }
+  ],
+  "confidence": 0.9
+}
+```

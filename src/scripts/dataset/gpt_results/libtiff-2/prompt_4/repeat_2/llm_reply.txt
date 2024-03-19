@@ -1,0 +1,21 @@
+Repaired function:
+void dpp_sighandler(int signum) {
+	__gcov_flush();
+	sigaction(signum, &dpp_orig_sigaction, NULL);
+	raise(signum);
+	exit(1);
+}
+
+JSON response:
+```json
+{
+  "error": [
+    {
+      "line_number": 3,
+      "error_type": "Incorrect variable usage",
+      "explanation": "The variable 'sigaction' should be replaced with 'signum' in the sigaction function call."
+    }
+  ],
+  "confidence": 0.9
+}
+```

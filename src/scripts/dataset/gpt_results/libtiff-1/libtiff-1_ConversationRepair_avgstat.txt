@@ -1,0 +1,6 @@
+Test_Repo: libtiff-1
+Conversation_Num: 5
+Total_Patch_Num: 5
+Compilable_Patch_Num: 4
+Plausible_Patch_Num: 0
+Average_Response_Time: 10.039586400985717

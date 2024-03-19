@@ -1,0 +1,54 @@
+Making check in src
+make[1]: Entering directory '/home/workspace/src'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/home/workspace/src'
+Making check in tests
+make[1]: Entering directory '/home/workspace/tests'
+make  test_basic test_speed test_generate test_schema test_streamline
+make[2]: Entering directory '/home/workspace/tests'
+gcc -DHAVE_CONFIG_H -I. -I..    -I../include -I../src -I../uthash -g -O2 -MT test_basic-test_basic.o -MD -MP -MF .deps/test_basic-test_basic.Tpo -c -o test_basic-test_basic.o `test -f 'test_basic.c' || echo './'`test_basic.c
+mv -f .deps/test_basic-test_basic.Tpo .deps/test_basic-test_basic.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc -I../include -I../src -I../uthash -g -O2   -o test_basic test_basic-test_basic.o ../src/libucl.la -lm 
+libtool: link: gcc -I../include -I../src -I../uthash -g -O2 -o .libs/test_basic test_basic-test_basic.o  ../src/.libs/libucl.so -lm
+gcc -DHAVE_CONFIG_H -I. -I..    -I../include -I../src -I../uthash -g -O2 -MT test_speed-test_speed.o -MD -MP -MF .deps/test_speed-test_speed.Tpo -c -o test_speed-test_speed.o `test -f 'test_speed.c' || echo './'`test_speed.c
+mv -f .deps/test_speed-test_speed.Tpo .deps/test_speed-test_speed.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc -I../include -I../src -I../uthash -g -O2   -o test_speed test_speed-test_speed.o ../src/libucl.la -lm 
+libtool: link: gcc -I../include -I../src -I../uthash -g -O2 -o .libs/test_speed test_speed-test_speed.o  ../src/.libs/libucl.so -lm
+gcc -DHAVE_CONFIG_H -I. -I..    -I../include -I../src -I../uthash -g -O2 -MT test_generate-test_generate.o -MD -MP -MF .deps/test_generate-test_generate.Tpo -c -o test_generate-test_generate.o `test -f 'test_generate.c' || echo './'`test_generate.c
+mv -f .deps/test_generate-test_generate.Tpo .deps/test_generate-test_generate.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc -I../include -I../src -I../uthash -g -O2   -o test_generate test_generate-test_generate.o ../src/libucl.la -lm 
+libtool: link: gcc -I../include -I../src -I../uthash -g -O2 -o .libs/test_generate test_generate-test_generate.o  ../src/.libs/libucl.so -lm
+gcc -DHAVE_CONFIG_H -I. -I..    -I../include -I../src -I../uthash -g -O2 -MT test_schema-test_schema.o -MD -MP -MF .deps/test_schema-test_schema.Tpo -c -o test_schema-test_schema.o `test -f 'test_schema.c' || echo './'`test_schema.c
+mv -f .deps/test_schema-test_schema.Tpo .deps/test_schema-test_schema.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc -I../include -I../src -I../uthash -g -O2   -o test_schema test_schema-test_schema.o ../src/libucl.la -lm 
+libtool: link: gcc -I../include -I../src -I../uthash -g -O2 -o .libs/test_schema test_schema-test_schema.o  ../src/.libs/libucl.so -lm
+gcc -DHAVE_CONFIG_H -I. -I..    -I../include -I../src -I../uthash -g -O2 -MT test_streamline-test_streamline.o -MD -MP -MF .deps/test_streamline-test_streamline.Tpo -c -o test_streamline-test_streamline.o `test -f 'test_streamline.c' || echo './'`test_streamline.c
+mv -f .deps/test_streamline-test_streamline.Tpo .deps/test_streamline-test_streamline.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc -I../include -I../src -I../uthash -g -O2   -o test_streamline test_streamline-test_streamline.o ../src/libucl.la -lm 
+libtool: link: gcc -I../include -I../src -I../uthash -g -O2 -o .libs/test_streamline test_streamline-test_streamline.o  ../src/.libs/libucl.so -lm
+make[2]: Leaving directory '/home/workspace/tests'
+make  check-TESTS
+make[2]: Entering directory '/home/workspace/tests'
+make[3]: Entering directory '/home/workspace/tests'
+FAIL: basic.test
+============================================================================
+Testsuite summary for libucl 0.5.0
+============================================================================
+# TOTAL: 1
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+============================================================================
+See tests/test-suite.log
+Please report to https://github.com/vstakhov/libucl
+============================================================================
+make[3]: Leaving directory '/home/workspace/tests'
+make[3]: *** [Makefile:823: test-suite.log] Error 1
+make[2]: Leaving directory '/home/workspace/tests'
+make[2]: *** [Makefile:931: check-TESTS] Error 2
+make[1]: *** [Makefile:998: check-am] Error 2
+make[1]: Leaving directory '/home/workspace/tests'
+make: *** [Makefile:466: check-recursive] Error 1

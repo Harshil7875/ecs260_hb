@@ -1,0 +1,64 @@
+```
+static int JPEGSetupEncode(TIFF* tif)
+{
+    JPEGState* sp = JState(tif);
+    TIFFDirectory *td = &tif->tif_dir;
+    static const char module[] = "JPEGSetupEncode";
+
+    JPEGInitializeLibJPEG(tif, FALSE);
+
+    assert(sp != NULL);
+    assert(!sp->cinfo.comm.is_decompressor);
+
+    sp->photometric = td->td_photometric;
+
+    if (!TIFFjpeg_set_defaults(sp))
+        return (0);
+
+    switch (sp->photometric) {
+        case PHOTOMETRIC_YCBCR:
+            sp->h_sampling = td->td_ycbcrsubsampling[0];
+            sp->v_sampling = td->td_ycbcrsubsampling[1];
+            break;
+        case PHOTOMETRIC_PALETTE:
+        case PHOTOMETRIC_MASK:
+            TIFFErrorExt(tif->tif_clientdata, module, "PhotometricInterpretation %d not allowed for JPEG", (int) sp->photometric);
+            return (0);
+        default:
+            sp->h_sampling = 1;
+            sp->v_sampling = 1;
+            break;
+    }
+
+    if (td->td_bitspersample != 8 && td->td_bitspersample != 12) {
+        TIFFErrorExt(tif->tif_clientdata, module, "BitsPerSample %d not allowed for JPEG", (int) td->td_bitspersample);
+        return (0);
+    }
+    sp->cinfo.c.data_precision = td->td_bitspersample;
+
+    if (isTiled(tif)) {
+        if ((td->td_tilelength % (sp->v_sampling * DCTSIZE)) != 0 || (td->td_tilewidth % (sp->h_sampling * DCTSIZE)) != 0) {
+            TIFFErrorExt(tif->tif_clientdata, module, "JPEG tile dimensions must be multiple of %d", sp->v_sampling * DCTSIZE);
+            return (0);
+        }
+    } else {
+        if (td->td_rowsperstrip < td->td_imagelength && (td->td_rowsperstrip % (sp->v_sampling * DCTSIZE)) != 0) {
+            TIFFErrorExt(tif->tif_clientdata, module, "RowsPerStrip must be multiple of %d for JPEG", sp->v_sampling * DCTSIZE);
+            return (0);
+        }
+    }
+
+    if (sp->jpegtablesmode & (JPEGTABLESMODE_QUANT|JPEGTABLESMODE_HUFF)) {
+        if (!prepare_JPEGTables(tif))
+            return (0);
+        tif->tif_flags |= TIFF_DIRTYDIRECT;
+        TIFFSetFieldBit(tif, FIELD_JPEGTABLES);
+    } else {
+        TIFFClrFieldBit(tif, FIELD_JPEGTABLES);
+    }
+
+    TIFFjpeg_data_dest(sp, tif);
+
+    return (1);
+}
+```

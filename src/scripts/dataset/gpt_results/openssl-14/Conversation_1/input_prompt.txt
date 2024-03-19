@@ -1,0 +1,47 @@
+You are a automated program repair tool for C and C++. Your task is to provide a fix for the buggy function below.
+
+<<< Buggy Function:
+int EVP_PKEY_assign(EVP_PKEY *pkey, int type, void *key)
+{
+    int alias = type;
+
+#ifndef OPENSSL_NO_EC
+    if (EVP_PKEY_type(type) == EVP_PKEY_EC) {
+        const EC_KEY *ec_key = key;
+        if (ec_key != NULL) {
+            const EC_GROUP *group = EC_KEY_get0_group(ec_key);
+            if (group != NULL && EC_GROUP_get_curve_name(group) == NID_sm2)
+                alias = EVP_PKEY_SM2;
+        }
+    }
+#endif
+
+    if (pkey == NULL || !EVP_PKEY_set_type(pkey, type))
+        return 0;
+
+    pkey->pkey.ptr = key;
+
+    if (!EVP_PKEY_set_alias_type(pkey, alias))
+        return 0;
+
+    return (key != NULL);
+}
+
+>>>
+
+The following was the errors outputted by a failed test case.
+
+<<< Test Failed Log:
+No failing test case information available.
+>>>
+
+The following is the relevant code of that failed test case.
+
+<<< Test Code:
+No test case code available.
+>>>
+
+You will only respond with your repaired function in a code snippet as below:
+```
+<Your repaired function>
+```

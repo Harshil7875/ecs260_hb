@@ -1,0 +1,471 @@
+```C
+static void vm_exec(bvm *vm)
+{
+    bclosure *clos;
+    bvalue *ktab, *reg;
+    binstruction ins;
+    vm->cf->status |= BASE_FRAME;
+newframe: /* a new call frame */
+    be_assert(var_isclosure(vm->cf->func));
+    clos = var_toobj(vm->cf->func);  /* `clos` is the current function/closure */
+    ktab = clos->proto->ktab;  /* `ktab` is the current constant table */
+    reg = vm->reg;  /* `reg` is the current stack base for the callframe */
+    vm_exec_loop() {
+        opcase(LDNIL): {
+            var_setnil(RA());
+            dispatch();
+        }
+        opcase(LDBOOL): {
+            bvalue *v = RA();
+            var_setbool(v, IGET_RKB(ins));
+            if (IGET_RKC(ins)) { /* skip next instruction */
+                vm->ip += 1;
+            }
+            dispatch();
+        }
+        opcase(LDINT): {
+            bvalue *v = RA();
+            var_setint(v, IGET_sBx(ins));
+            dispatch();
+        }
+        opcase(LDCONST): {
+            bvalue *dst = RA();
+            *dst = ktab[IGET_Bx(ins)];
+            dispatch();
+        }
+        opcase(GETGBL): {
+            bvalue *v = RA();
+            int idx = IGET_Bx(ins);
+            *v = *be_global_var(vm, idx);
+            dispatch();
+        }
+        opcase(GETNGBL): {  /* get Global by name */
+            bvalue *v = RA();
+            bvalue *b = RKB();
+            if (var_isstr(b)) {
+                bstring *name = var_tostr(b);
+                int idx = be_global_find(vm, name);
+                if (idx > -1) {
+                    *v = *be_global_var(vm, idx);
+                } else {
+                    vm_error(vm, "attribute_error", "'%s' undeclared", str(name));
+                }
+            } else {
+                vm_error(vm, "internal_error", "global name must be a string");
+            }
+            dispatch();
+        }
+        opcase(SETNGBL): {  /* set Global by name */
+            bvalue *v = RA();
+            bvalue *b = RKB();
+            if (var_isstr(b)) {
+                bstring *name = var_tostr(b);
+                int idx = be_global_new(vm, name);
+                *be_global_var(vm, idx) = *v;
+            } else {
+                vm_error(vm, "internal_error", "global name must be a string");
+            }
+            dispatch();
+        }
+        opcase(SETGBL): {
+            bvalue *v = RA();
+            int idx = IGET_Bx(ins);
+            *be_global_var(vm, idx) = *v;
+            dispatch();
+        }
+        opcase(GETUPV): {
+            bvalue *v = RA();
+            int idx = IGET_Bx(ins);
+            be_assert(*clos->upvals != NULL);
+            *v = *clos->upvals[idx]->value;
+            dispatch();
+        }
+        opcase(SETUPV): {
+            bvalue *v = RA();
+            int idx = IGET_Bx(ins);
+            be_assert(*clos->upvals != NULL);
+            *clos->upvals[idx]->value = *v;
+            dispatch();
+        }
+        opcase(MOVE): {
+            bvalue *dst = RA();
+            *dst = *RKB();
+            dispatch();
+        }
+        opcase(ADD): {
+            bvalue *dst = RA(), *a = RKB(), *b = RKC();
+            if (var_isint(a) && var_isint(b)) {
+                var_setint(dst, ibinop(+, a, b));
+            } else if (var_isnumber(a) && var_isnumber(b)) {
+                breal x = var2real(a), y = var2real(b);
+                var_setreal(dst, x + y);
+            } else if (var_isstr(a) && var_isstr(b)) { /* strcat */
+                bstring *s = be_strcat(vm, var_tostr(a), var_tostr(b));
+                reg = vm->reg;
+                dst = RA();
+                var_setstr(dst, s);
+            } else if (var_isinstance(a)) {
+                ins_binop(vm, "+", ins);
+            } else {
+                binop_error(vm, "+", a, b);
+            }
+            dispatch();
+        }
+        opcase(SUB): {
+            bvalue *dst = RA(), *a = RKB(), *b = RKC();
+            if (var_isint(a) && var_isint(b)) {
+                var_setint(dst, ibinop(-, a, b));
+            } else if (var_isnumber(a) && var_isnumber(b)) {
+                breal x = var2real(a), y = var2real(b);
+                var_setreal(dst, x - y);
+            } else if (var_isinstance(a)) {
+                ins_binop(vm, "-", ins);
+            } else {
+                binop_error(vm, "-", a, b);
+            }
+            dispatch();
+        }
+        opcase(MUL): {
+            bvalue *dst = RA(), *a = RKB(), *b = RKC();
+            if (var_isint(a) && var_isint(b)) {
+                var_setint(dst, ibinop(*, a, b));
+            } else if (var_isnumber(a) && var_isnumber(b)) {
+                breal x = var2real(a), y = var2real(b);
+                var_setreal(dst, x * y);
+            } else if (var_isinstance(a)) {
+                ins_binop(vm, "*", ins);
+            } else {
+                binop_error(vm, "*", a, b);
+            }
+            dispatch();
+        }
+        opcase(DIV): {
+            bvalue *dst = RA(), *a = RKB(), *b = RKC();
+            if (var_isint(a) && var_isint(b)) {
+                bint x = var_toint(a), y = var_toint(b);
+                if (y == 0) {
+                    vm_error(vm, "divzero_error", "division by zero");
+                } else {
+                    var_setint(dst, x / y);
+                }
+            } else if (var_isnumber(a) && var_isnumber(b)) {
+                breal x = var2real(a), y = var2real(b);
+                if (y == cast(breal, 0)) {
+                    vm_error(vm, "divzero_error", "division by zero");
+                }
+                var_setreal(dst, x / y);
+            } else if (var_isinstance(a)) {
+                ins_binop(vm, "/", ins);
+            } else {
+                binop_error(vm, "/", a, b);
+            }
+            dispatch();
+        }
+        opcase(MOD): {
+            bvalue *dst = RA(), *a = RKB(), *b = RKC();
+            if (var_isint(a) && var_isint(b)) {
+                var_setint(dst, ibinop(%, a, b));
+            } else if (var_isnumber(a) && var_isnumber(b)) {
+                var_setreal(dst, mathfunc(fmod)(var_toreal(a), var_toreal(b)));
+            } else if (var_isinstance(a)) {
+                ins_binop(vm, "%", ins);
+            } else {
+                binop_error(vm, "%", a, b);
+            }
+            dispatch();
+        }
+        opcase(LT): {
+            bbool res = be_vm_islt(vm, RKB(), RKC());
+            bvalue *dst;
+            reg = vm->reg;
+            dst = RA();
+            var_setbool(dst, res);
+            dispatch();
+        }
+        opcase(LE): {
+            bbool res = be_vm_isle(vm, RKB(), RKC());
+            bvalue *dst;
+            reg = vm->reg;
+            dst = RA();
+            var_setbool(dst, res);
+            dispatch();
+        }
+        opcase(EQ): {
+            bbool res = be_vm_iseq(vm, RKB(), RKC());
+            bvalue *dst;
+            reg = vm->reg;
+            dst = RA();
+            var_setbool(dst, res);
+            dispatch();
+        }
+        opcase(NE): {
+            bbool res = be_vm_isneq(vm, RKB(), RKC());
+            bvalue *dst;
+            reg = vm->reg;
+            dst = RA();
+            var_setbool(dst, res);
+            dispatch();
+        }
+        opcase(GT): {
+            bbool res = be_vm_isgt(vm, RKB(), RKC());
+            bvalue *dst;
+            reg = vm->reg;
+            dst = RA();
+            var_setbool(dst, res);
+            dispatch();
+        }
+        opcase(GE): {
+            bbool res = be_vm_isge(vm, RKB(), RKC());
+            bvalue *dst;
+            reg = vm->reg;
+            dst = RA();
+            var_setbool(dst, res);
+            dispatch();
+        }
+        opcase(CONNECT): {
+            bvalue *a = RKB(), *b = RKC();
+            if (var_isint(a) && var_isint(b)) {
+                make_range(vm, *RKB(), *RKC());
+            } else if (var_isstr(a)) {
+                connect_str(vm, var_tostr(a), b);
+            } else if (var_isinstance(a)) {
+                object_binop(vm, "..", *RKB(), *RKC());
+            } else {
+                binop_error(vm, "..", RKB(), RKC());
+            }
+            reg = vm->reg;
+            *RA() = *vm->top; /* copy result to R(A) */
+            dispatch();
+        }
+        opcase(AND): {
+            bitwise_block(&);
+            dispatch();
+        }
+        opcase(OR): {
+            bitwise_block(|);
+            dispatch();
+        }
+        opcase(XOR): {
+            bitwise_block(^);
+            dispatch();
+        }
+        opcase(SHL): {
+            bitwise_block(<<);
+            dispatch();
+        }
+        opcase(SHR): {
+            bitwise_block(>>);
+            dispatch();
+        }
+        opcase(NEG): {
+            bvalue *dst = RA(), *a = RKB();
+            if (var_isint(a)) {
+                var_setint(dst, -var_toint(a));
+            } else if (var_isreal(a)) {
+                var_setreal(dst, -var_toreal(a));
+            } else if (var_isinstance(a)) {
+                ins_unop(vm, "-*", *RKB());
+                reg = vm->reg;
+                *RA() = *vm->top; /* copy result to dst */
+            } else {
+                unop_error(vm, "-", a);
+            }
+            dispatch();
+        }
+        opcase(FLIP): {
+            bvalue *dst = RA(), *a = RKB();
+            if (var_isint(a)) {
+                var_setint(dst, ~var_toint(a));
+            } else if (var_isinstance(a)) {
+                ins_unop(vm, "~", *RKB());
+                reg = vm->reg;
+                *RA() = *vm->top; /* copy result to dst */
+            } else {
+                unop_error(vm, "~", a);
+            }
+            dispatch();
+        }
+        opcase(JMP): {
+            vm->ip += IGET_sBx(ins);
+            dispatch();
+        }
+        opcase(JMPT): {
+            if (be_value2bool(vm, RA())) {
+                vm->ip += IGET_sBx(ins);
+            }
+            dispatch();
+        }
+        opcase(JMPF): {
+            if (!be_value2bool(vm, RA())) {
+                vm->ip += IGET_sBx(ins);
+            }
+            dispatch();
+        }
+        opcase(CLOSURE): {
+            bvalue *dst;
+            bproto *p = clos->proto->ptab[IGET_Bx(ins)];
+            bclosure *cl = be_newclosure(vm, p->nupvals);
+            cl->proto = p;
+            reg = vm->reg;
+            dst = RA();
+            var_setclosure(dst, cl);
+            be_initupvals(vm, cl);
+            dispatch();
+        }
+        opcase(CLASS): {
+            bclass *c = var_toobj(ktab + IGET_Bx(ins));
+            be_class_upvalue_init(vm, c);
+            dispatch();
+        }
+        opcase(GETMBR): {
+            bvalue *a = RA(), *b = RKB(), *c = RKC();
+            if (var_isinstance(b) && var_isstr(c)) {
+                obj_attribute(vm, b, var_tostr(c), a);
+                reg = vm->reg;
+            } else if (var_isclass(b) && var_isstr(c)) {
+                class_attribute(vm, b, c, a);
+                reg = vm->reg;
+            } else if (var_ismodule(b) && var_isstr(c)) {
+                module_attribute(vm, b, c, a);
+                reg = vm->reg;
+            } else {
+                attribute_error(vm, "attribute", b, c);
+            }
+            dispatch();
+        }
+        opcase(GETMET): {
+            bvalue *a = RA(), *b = RKB(), *c = RKC();
+            if (var_isinstance(b) && var_isstr(c)) {
+                binstance *obj = var_toobj(b);
+                int type = obj_attribute(vm, b, var_tostr(c), a);
+                reg = vm->reg;
+                if (basetype(type) == BE_FUNCTION) {
+                    /* check if the object is a superinstance, if so get the lowest possible subclass */
+                    while (obj->sub) {
+                        obj = obj->sub;
+                    }
+                    var_setinstance(&a[1], obj);  /* replace superinstance by lowest subinstance */
+                } else {
+                    vm_error(vm, "attribute_error",
+                        "class '%s' has no method '%s'",
+                        str(be_instance_name(obj)), str(var_tostr(c)));
+                }
+            } else if (var_ismodule(b) && var_isstr(c)) {
+                module_attribute(vm, b, c, &a[1]);
+                var_settype(a, NOT_METHOD);
+            } else {
+                attribute_error(vm, "method", b, c);
+            }
+            dispatch();
+        }
+        opcase(SETMBR): {
+            bvalue *a = RA(), *b = RKB(), *c = RKC();
+            if (var_isinstance(a) && var_isstr(b)) {
+                binstance *obj = var_toobj(a);
+                bstring *attr = var_tostr(b);
+                if (!be_instance_setmember(vm, obj, attr, c)) {
+                    vm_error(vm, "attribute_error",
+                        "class '%s' cannot assign to attribute '%s'",
+                        str(be_instance_name(obj)), str(attr));
+                }
+                dispatch();
+            }
+            if (var_isclass(a) && var_isstr(b)) {
+                bclass *obj = var_toobj(a);
+                bstring *attr = var_tostr(b);
+                if (!be_class_setmember(vm, obj, attr, c)) {
+                    vm_error(vm, "attribute_error",
+                        "class '%s' cannot assign to static attribute '%s'",
+                        str(be_class_name(obj)), str(attr));
+                }
+                dispatch();
+            }
+            if (var_ismodule(a) && var_isstr(b)) {
+                bmodule *obj = var_toobj(a);
+                bstring *attr = var_tostr(b);
+                if (be_module_setmember(vm, obj, attr, c)) {
+                    dispatch();
+                } else {
+                    // fall through exception below
+                }
+            }
+            attribute_error(vm, "writable attribute", a, b);
+            dispatch();
+        }
+        opcase(GETIDX): {
+            bvalue *b = RKB(), *c = RKC();
+            if (var_isinstance(b)) {
+                bvalue *top = vm->top;
+                /* get method 'item' */
+                obj_method(vm, b, str_literal(vm, "item"), vm->top);
+                top[1] = *b; /* move object to argv[0] */
+                top[2] = *c; /* move key to argv[1] */
+                vm->top += 3;   /* prevent collection results */
+                be_dofunc(vm, top, 2); /* call method 'item' */
+                vm->top -= 3;
+                reg = vm->reg;
+                *RA() = *vm->top;   /* copy result to R(A) */
+            } else if (var_isstr(b)) {
+                bstring *s = be_strindex(vm, var_tostr(b), c);
+                reg = vm->reg;
+                var_setstr(RA(), s);
+            } else {
+                vm_error(vm, "type_error",
+                    "value '%s' does not support subscriptable",
+                    be_vtype2str(b));
+            }
+            dispatch();
+        }
+        opcase(SETIDX): {
+            bvalue *a = RA(), *b = RKB(), *c = RKC();
+            if (var_isinstance(a)) {
+                bvalue *top = vm->top;
+                /* get method 'setitem' */
+                obj_method(vm, a, str_literal(vm, "setitem"), vm->top);
+                top[1] = *a; /* move object to argv[0] */
+                top[2] = *b; /* move key to argv[1] */
+                top[3] = *c; /* move src to argv[2] */
+                vm->top += 4;
+                be_dofunc(vm, top, 3); /* call method 'setitem' */
+                vm->top -= 4;
+                reg = vm->reg;
+            } else {
+                vm_error(vm, "type_error",
+                    "value '%s' does not support index assignment",
+                    be_vtype2str(a));
+            }
+            dispatch();
+        }
+        opcase(SETSUPER): {
+            bvalue *a = RA(), *b = RKB();
+            if (var_isclass(a) && var_isclass(b)) {
+                bclass *obj = var_toobj(a);
+                be_class_setsuper(obj, var_toobj(b));
+            } else {
+                vm_error(vm, "type_error",
+                    "value '%s' does not support set super",
+                    be_vtype2str(b));
+            }
+            dispatch();
+        }
+        opcase(CLOSE): {
+            be_upvals_close(vm, RA());
+            dispatch();
+        }
+        opcase(IMPORT): {
+            bvalue *b = RKB();
+            if (var_isstr(b)) {
+                bstring *name = var_tostr(b);
+                int res = be_module_load(vm, name);
+                reg = vm->reg;
+                switch (res) {
+                case BE_OK: /* find the module */
+                    be_stackpop(vm, 1);
+                    *RA() = *vm->top;
+                    break;
+                case BE_EXCEPTION: /* pop the exception value and message */
+                    be_pop(vm, 2);
+                    be_throw(vm, BE_EXCEPTION);
+                    break;
+                default:
+                    vm_error(vm, "import_error", "module

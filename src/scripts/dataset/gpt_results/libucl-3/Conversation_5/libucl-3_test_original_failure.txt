@@ -1,0 +1,8 @@
+test_result: 
+libucl-3: 
+build_result: True
+test_cases_result:  
+pass_rate: 0.0
+pass_test_cases: []
+fail_test_cases: ['libucl-buggy-3-1']
+fail_test_cases_info: {'libucl-buggy-3-1': {'failing_info': "========================================\n   libucl 0.7.2: tests/test-suite.log\n========================================\n\n# TOTAL: 1\n# PASS:  0\n# SKIP:  0\n# XFAIL: 0\n# FAIL:  1\n# XPASS: 0\n# ERROR: 0\n\n.. contents:: :depth: 2\n\nFAIL: basic\n===========\n\nFiles ../tests/basic.out and ../tests/basic/1.res are identical\nFiles ../tests/basic.out and ../tests/basic/11.res are identical\nFiles ../tests/basic.out and ../tests/basic/12.res are identical\nFiles ../tests/basic.out and ../tests/basic/13.res are identical\nTest: ../tests/basic/14 failed, output:\nError occurred: error while parsing <unknown>: line: 6, column: 1 - 'delimiter is missing', character: 'i'\nFAIL basic.test (exit status: 1)\n\n", 'tc_code': '#!/bin/sh\n\nPROG=${TEST_BINARY_DIR}/test_basic\n\nfor _tin in ${TEST_DIR}/basic/*.in ; do\n\t_t=`echo $_tin | sed -e \'s/.in$//\'`\n\t_out=${TEST_OUT_DIR}/basic.out\n\t$PROG $_t.in $_out\n\tif [ $? -ne 0 ] ; then\n\t\techo "Test: $_t failed, output:"\n\t\tcat $_out\n\t\trm $_out\n\t\texit 1\n\tfi\n\tif [ -f $_t.res ] ; then\n\tdiff -s $_out $_t.res -u 2>/dev/null\n\t\tif [ $? -ne 0 ] ; then\n\t\t\trm $_out\n\t\t\techo "Test: $_t output missmatch"\n\t\t\texit 1\n\t\tfi\n\tfi\n\trm $_out\ndone\n\n\n'}}

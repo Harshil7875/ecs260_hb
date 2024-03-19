@@ -1,0 +1,19 @@
+Note: Google Test filter = EmitterErrorTest.*
+[==========] Running 5 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 5 tests from EmitterErrorTest
+[ RUN      ] EmitterErrorTest.BadLocalTag
+[       OK ] EmitterErrorTest.BadLocalTag (0 ms)
+[ RUN      ] EmitterErrorTest.ExtraEndSeq
+[       OK ] EmitterErrorTest.ExtraEndSeq (0 ms)
+[ RUN      ] EmitterErrorTest.ExtraEndMap
+[       OK ] EmitterErrorTest.ExtraEndMap (0 ms)
+[ RUN      ] EmitterErrorTest.InvalidAnchor
+[       OK ] EmitterErrorTest.InvalidAnchor (0 ms)
+[ RUN      ] EmitterErrorTest.InvalidAlias
+[       OK ] EmitterErrorTest.InvalidAlias (0 ms)
+[----------] 5 tests from EmitterErrorTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 5 tests from 1 test suite ran. (0 ms total)
+[  PASSED  ] 5 tests.

@@ -1,0 +1,285 @@
+You are a automated program repair tool for C and C++. Your task is to provide a fix for the buggy function below.
+
+<<< Buggy Function:
+static int JPEGSetupEncode(TIFF* tif)
+{
+	JPEGState* sp = JState(tif);
+	TIFFDirectory *td = &tif->tif_dir;
+	static const char module[] = "JPEGSetupEncode";
+
+#if defined(JPEG_DUAL_MODE_8_12) && !defined(TIFFInitJPEG)
+        if( tif->tif_dir.td_bitspersample == 12 )
+            return TIFFReInitJPEG_12( tif, COMPRESSION_JPEG, 1 );
+#endif
+
+        JPEGInitializeLibJPEG( tif, FALSE );
+
+	assert(sp != NULL);
+	assert(!sp->cinfo.comm.is_decompressor);
+
+	sp->photometric = td->td_photometric;
+
+	/*
+	 * Initialize all JPEG parameters to default values.
+	 * Note that jpeg_set_defaults needs legal values for
+	 * in_color_space and input_components.
+	 */
+	if (td->td_planarconfig == PLANARCONFIG_CONTIG) {
+		sp->cinfo.c.input_components = td->td_samplesperpixel;
+		if (sp->photometric == PHOTOMETRIC_YCBCR) {
+			if (sp->jpegcolormode == JPEGCOLORMODE_RGB) {
+				sp->cinfo.c.in_color_space = JCS_RGB;
+			} else {
+				sp->cinfo.c.in_color_space = JCS_YCbCr;
+			}
+		} else {
+			if ((td->td_photometric == PHOTOMETRIC_MINISWHITE || td->td_photometric == PHOTOMETRIC_MINISBLACK) && td->td_samplesperpixel == 1)
+				sp->cinfo.c.in_color_space = JCS_GRAYSCALE;
+			else if (td->td_photometric == PHOTOMETRIC_RGB && td->td_samplesperpixel == 3)
+				sp->cinfo.c.in_color_space = JCS_RGB;
+			else if (td->td_photometric == PHOTOMETRIC_SEPARATED && td->td_samplesperpixel == 4)
+				sp->cinfo.c.in_color_space = JCS_CMYK;
+			else
+				sp->cinfo.c.in_color_space = JCS_UNKNOWN;
+		}
+	} else {
+		sp->cinfo.c.input_components = 1;
+		sp->cinfo.c.in_color_space = JCS_UNKNOWN;
+	}
+	if (!TIFFjpeg_set_defaults(sp))
+		return (0);
+	/* Set per-file parameters */
+	switch (sp->photometric) {
+	case PHOTOMETRIC_YCBCR:
+		sp->h_sampling = td->td_ycbcrsubsampling[0];
+		sp->v_sampling = td->td_ycbcrsubsampling[1];
+
+		/*
+		 * A ReferenceBlackWhite field *must* be present since the
+		 * default value is inappropriate for YCbCr.  Fill in the
+		 * proper value if application didn't set it.
+		 */
+		{
+			float *ref;
+			if (!TIFFGetField(tif, TIFFTAG_REFERENCEBLACKWHITE,
+					  &ref)) {
+				float refbw[6];
+				long top = 1L << td->td_bitspersample;
+				refbw[0] = 0;
+				refbw[1] = (float)(top-1L);
+				refbw[2] = (float)(top>>1);
+				refbw[3] = refbw[1];
+				refbw[4] = refbw[2];
+				refbw[5] = refbw[1];
+				TIFFSetField(tif, TIFFTAG_REFERENCEBLACKWHITE,
+					     refbw);
+			}
+		}
+		break;
+	case PHOTOMETRIC_PALETTE:		/* disallowed by Tech Note */
+	case PHOTOMETRIC_MASK:
+		TIFFErrorExt(tif->tif_clientdata, module,
+			  "PhotometricInterpretation %d not allowed for JPEG",
+			  (int) sp->photometric);
+		return (0);
+	default:
+		/* TIFF 6.0 forbids subsampling of all other color spaces */
+		sp->h_sampling = 1;
+		sp->v_sampling = 1;
+		break;
+	}
+
+	/* Verify miscellaneous parameters */
+
+	/*
+	 * This would need work if libtiff ever supports different
+	 * depths for different components, or if libjpeg ever supports
+	 * run-time selection of depth.  Neither is imminent.
+	 */
+#ifdef JPEG_LIB_MK1
+        /* BITS_IN_JSAMPLE now permits 8 and 12 --- dgilbert */
+	if (td->td_bitspersample != 8 && td->td_bitspersample != 12) 
+#else
+	if (td->td_bitspersample != BITS_IN_JSAMPLE )
+#endif
+	{
+		TIFFErrorExt(tif->tif_clientdata, module, "BitsPerSample %d not allowed for JPEG",
+			  (int) td->td_bitspersample);
+		return (0);
+	}
+	sp->cinfo.c.data_precision = td->td_bitspersample;
+#ifdef JPEG_LIB_MK1
+        sp->cinfo.c.bits_in_jsample = td->td_bitspersample;
+#endif
+	if (isTiled(tif)) {
+		if ((td->td_tilelength % (sp->v_sampling * DCTSIZE)) != 0) {
+			TIFFErrorExt(tif->tif_clientdata, module,
+				  "JPEG tile height must be multiple of %d",
+				  sp->v_sampling * DCTSIZE);
+			return (0);
+		}
+		if ((td->td_tilewidth % (sp->h_sampling * DCTSIZE)) != 0) {
+			TIFFErrorExt(tif->tif_clientdata, module,
+				  "JPEG tile width must be multiple of %d",
+				  sp->h_sampling * DCTSIZE);
+			return (0);
+		}
+	} else {
+		if (td->td_rowsperstrip < td->td_imagelength &&
+		    (td->td_rowsperstrip % (sp->v_sampling * DCTSIZE)) != 0) {
+			TIFFErrorExt(tif->tif_clientdata, module,
+				  "RowsPerStrip must be multiple of %d for JPEG",
+				  sp->v_sampling * DCTSIZE);
+			return (0);
+		}
+	}
+
+	/* Create a JPEGTables field if appropriate */
+	if (sp->jpegtablesmode & (JPEGTABLESMODE_QUANT|JPEGTABLESMODE_HUFF)) {
+                if( sp->jpegtables == NULL
+                    || memcmp(sp->jpegtables,"\0\0\0\0\0\0\0\0\0",8) == 0 )
+                {
+                        if (!prepare_JPEGTables(tif))
+                                return (0);
+                        /* Mark the field present */
+                        /* Can't use TIFFSetField since BEENWRITING is already set! */
+                        tif->tif_flags |= TIFF_DIRTYDIRECT;
+                        TIFFSetFieldBit(tif, FIELD_JPEGTABLES);
+                }
+	} else {
+		/* We do not support application-supplied JPEGTables, */
+		/* so mark the field not present */
+		TIFFClrFieldBit(tif, FIELD_JPEGTABLES);
+	}
+
+	/* Direct libjpeg output to libtiff's output buffer */
+	TIFFjpeg_data_dest(sp, tif);
+
+	return (1);
+}
+
+>>>
+
+The following was the errors outputted by a failed test case.
+
+<<< Test Failed Log:
+TIFFReadDirectoryCheckOrder: Warning, Invalid TIFF directory; tags are not sorted in ascending order.
+TIFFReadDirectory: Warning, Unknown field with tag 65535 (0xffff) encountered.
+.dpp/00123-libtiff-fpe-JPEGSetupEncode: Warning, Nonstandard tile width 3, convert file.
+TIFFFetchNormalTag: Warning, IO error during reading of "DocumentName"; tag ignored.
+TIFFFetchNormalTag: Warning, Incorrect count for "XResolution"; tag ignored.
+TIFFFetchNormalTag: Warning, Incorrect count for "YResolution"; tag ignored.
+TIFFFetchNormalTag: Warning, IO error during reading of "Software"; tag ignored.
+TIFFFillTile: 0: Invalid tile byte count, tile 1.
+JPEGLib: Not a JPEG file: starts with 0x49 0x49.
+TIFFFillTile: 0: Invalid tile byte count, tile 3.
+TIFFFillTile: 0: Invalid tile byte count, tile 4.
+TIFFFillTile: 0: Invalid tile byte count, tile 5.
+TIFFFillTile: 0: Invalid tile byte count, tile 6.
+JPEGLib: Not a JPEG file: starts with 0x49 0x49.
+TIFFFillTile: 0: Invalid tile byte count, tile 9.
+TIFFFillTile: 0: Invalid tile byte count, tile 10.
+TIFFFillTile: 0: Invalid tile byte count, tile 11.
+JPEGLib: Not a JPEG file: starts with 0x49 0x49.
+bash: line 1:    19 Floating point exceptiontools/tiffcp -i .dpp/00123-libtiff-fpe-JPEGSetupEncode /tmp/foo
+
+>>>
+
+The function provided by you is still not correct! Your repaired function is:
+
+<<< Function Repaired By You:
+static int JPEGSetupEncode(TIFF* tif)
+{
+	JPEGState* sp = JState(tif);
+	TIFFDirectory *td = &tif->tif_dir;
+	static const char module[] = "JPEGSetupEncode";
+
+	if (sp == NULL) {
+		TIFFErrorExt(tif->tif_clientdata, module, "JPEGState is NULL");
+		return (0);
+	}
+
+	if (sp->cinfo.comm.is_decompressor) {
+		TIFFErrorExt(tif->tif_clientdata, module, "JPEGState is a decompressor");
+		return (0);
+	}
+
+	sp->photometric = td->td_photometric;
+
+	if (td->td_planarconfig == PLANARCONFIG_CONTIG) {
+		sp->cinfo.c.input_components = td->td_samplesperpixel;
+		if (sp->photometric == PHOTOMETRIC_YCBCR) {
+			sp->cinfo.c.in_color_space = (sp->jpegcolormode == JPEGCOLORMODE_RGB) ? JCS_RGB : JCS_YCbCr;
+		} else {
+			if ((td->td_photometric == PHOTOMETRIC_MINISWHITE || td->td_photometric == PHOTOMETRIC_MINISBLACK) && td->td_samplesperpixel == 1)
+				sp->cinfo.c.in_color_space = JCS_GRAYSCALE;
+			else if (td->td_photometric == PHOTOMETRIC_RGB && td->td_samplesperpixel == 3)
+				sp->cinfo.c.in_color_space = JCS_RGB;
+			else if (td->td_photometric == PHOTOMETRIC_SEPARATED && td->td_samplesperpixel == 4)
+				sp->cinfo.c.in_color_space = JCS_CMYK;
+			else
+				sp->cinfo.c.in_color_space = JCS_UNKNOWN;
+		}
+	} else {
+		sp->cinfo.c.input_components = 1;
+		sp->cinfo.c.in_color_space = JCS_UNKNOWN;
+	}
+
+	if (!TIFFjpeg_set_defaults(sp))
+		return (0);
+
+	switch (sp->photometric) {
+	case PHOTOMETRIC_YCBCR:
+		if (td->td_bitspersample == 12) {
+			return TIFFReInitJPEG_12(tif, COMPRESSION_JPEG, 1);
+		}
+		// Handle YCbCr case
+		break;
+	case PHOTOMETRIC_PALETTE:
+	case PHOTOMETRIC_MASK:
+		TIFFErrorExt(tif->tif_clientdata, module, "PhotometricInterpretation %d not allowed for JPEG", (int) sp->photometric);
+		return (0);
+	default:
+		// Handle other cases
+		break;
+	}
+
+	// Verify miscellaneous parameters
+	if (td->td_bitspersample != 8 && td->td_bitspersample != 12) {
+		TIFFErrorExt(tif->tif_clientdata, module, "BitsPerSample %d not allowed for JPEG", (int) td->td_bitspersample);
+		return (0);
+	}
+	sp->cinfo.c.data_precision = td->td_bitspersample;
+
+	if (isTiled(tif)) {
+		// Handle tiled case
+	} else {
+		// Handle non-tiled case
+	}
+
+	// Create a JPEGTables field if appropriate
+	if (sp->jpegtablesmode & (JPEGTABLESMODE_QUANT|JPEGTABLESMODE_HUFF)) {
+		if (sp->jpegtables == NULL || memcmp(sp->jpegtables, "\0\0\0\0\0\0\0\0\0", 8) == 0) {
+			if (!prepare_JPEGTables(tif))
+				return (0);
+			tif->tif_flags |= TIFF_DIRTYDIRECT;
+			TIFFSetFieldBit(tif, FIELD_JPEGTABLES);
+		}
+	} else {
+		TIFFClrFieldBit(tif, FIELD_JPEGTABLES);
+	}
+
+	// Direct libjpeg output to libtiff's output buffer
+	TIFFjpeg_data_dest(sp, tif);
+
+	return (1);
+}
+
+>>>
+
+It still does not fix the original test failure stated above!
+
+You will only respond with your repaired function in a code snippet as below:
+```
+<Your repaired function>
+```

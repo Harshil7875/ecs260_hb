@@ -1,0 +1,2 @@
+Test_Repo,Prompt_ID,Repeat_Num,Total_Patch_Num,Compilable_Patch_Num,Plausible_Patch_Num,Average_Response_Time,Average_Confidence,Average_Identify_Accuracy,Average_Pass_Rate
+libtiff-1,4,3,3,3,0,21.41703947385152,0.0,0.0,0.24390243902439024

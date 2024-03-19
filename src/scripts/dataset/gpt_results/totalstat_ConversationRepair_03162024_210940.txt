@@ -1,0 +1,6 @@
+Test_Buggy_Repo_List: ['exiv2-15']
+Total_Patch_Number: 5
+Total_Compilable_Patch_Number: 5
+Total_Plausible_Patch_Number: 5
+Compilable_Patch_List: ['exiv2-15_Conversation-1', 'exiv2-15_Conversation-2', 'exiv2-15_Conversation-3', 'exiv2-15_Conversation-4', 'exiv2-15_Conversation-5']
+Plausible_Patch_list: ['exiv2-15_Conversation-1', 'exiv2-15_Conversation-2', 'exiv2-15_Conversation-3', 'exiv2-15_Conversation-4', 'exiv2-15_Conversation-5']

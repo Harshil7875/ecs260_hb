@@ -1,0 +1,8 @@
+test_result: 
+libtiff-4: 
+build_result: True
+test_cases_result:  
+pass_rate: 1.0
+pass_test_cases: ['libtiff-buggy-4-82']
+fail_test_cases: []
+fail_test_cases_info: {}

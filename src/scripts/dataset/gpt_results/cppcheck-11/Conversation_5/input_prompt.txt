@@ -1,0 +1,254 @@
+You are a automated program repair tool for C and C++. Your task is to provide a fix for the buggy function below.
+
+<<< Buggy Function:
+static bool isContainerSizeChangedByFunction(const Token *tok, int depth = 20)
+{
+    if (!tok->valueType() || !tok->valueType()->container)
+        return false;
+    // If we are accessing an element then we are not changing the container size
+    if (Token::Match(tok, "%name% . %name% (")) {
+        Library::Container::Yield yield = tok->valueType()->container->getYield(tok->strAt(2));
+        if (yield != Library::Container::Yield::NO_YIELD)
+            return false;
+    }
+    if (Token::simpleMatch(tok->astParent(), "["))
+        return false;
+
+    // address of variable
+    const bool addressOf = tok->valueType()->pointer || (tok->astParent() && tok->astParent()->isUnaryOp("&"));
+
+    int narg;
+    const Token * ftok = getTokenArgumentFunction(tok, narg);
+    if (!ftok)
+        return false; // not a function => variable not changed
+    const Function * fun = ftok->function();
+    if (fun) {
+        const Variable *arg = fun->getArgumentVar(narg);
+        if (arg) {
+            if (!arg->isReference() && !addressOf)
+                return false;
+            if (!addressOf && arg->isConst())
+                return false;
+            if (arg->valueType() && arg->valueType()->constness == 1)
+                return false;
+            const Scope * scope = fun->functionScope;
+            if (scope) {
+                // Argument not used
+                if (!arg->nameToken())
+                    return false;
+                if (depth > 0)
+                    return isContainerSizeChanged(arg->declarationId(), scope->bodyStart, scope->bodyEnd, depth - 1);
+            }
+            // Don't know => Safe guess
+            return true;
+        }
+    }
+
+    bool inconclusive = false;
+    const bool isChanged = isVariableChangedByFunctionCall(tok, 0, nullptr, &inconclusive);
+    return (isChanged || inconclusive);
+}
+
+>>>
+
+The following was the errors outputted by a failed test case.
+
+<<< Test Failed Log:
+Internal ctest changing into directory: /home/workspace/build
+Test project /home/workspace/build
+    Start 60: TestValueFlow
+1/1 Test #60: TestValueFlow ....................***Failed    1.76 sec
+TestValueFlow::valueFlowNumber
+TestValueFlow::valueFlowString
+TestValueFlow::valueFlowPointerAlias
+TestValueFlow::valueFlowLifetime
+TestValueFlow::valueFlowArrayElement
+TestValueFlow::valueFlowMove
+TestValueFlow::valueFlowBitAnd
+TestValueFlow::valueFlowRightShift
+TestValueFlow::valueFlowCalculations
+TestValueFlow::valueFlowSizeof
+TestValueFlow::valueFlowErrorPath
+TestValueFlow::valueFlowBeforeCondition
+TestValueFlow::valueFlowBeforeConditionAndAndOrOrGuard
+TestValueFlow::valueFlowBeforeConditionAssignIncDec
+TestValueFlow::valueFlowBeforeConditionFunctionCall
+TestValueFlow::valueFlowBeforeConditionGlobalVariables
+TestValueFlow::valueFlowBeforeConditionGoto
+TestValueFlow::valueFlowBeforeConditionIfElse
+TestValueFlow::valueFlowBeforeConditionLoop
+TestValueFlow::valueFlowBeforeConditionMacro
+TestValueFlow::valueFlowBeforeConditionSizeof
+TestValueFlow::valueFlowBeforeConditionSwitch
+TestValueFlow::valueFlowBeforeConditionTernaryOp
+TestValueFlow::valueFlowBeforeConditionForward
+TestValueFlow::valueFlowAfterAssign
+TestValueFlow::valueFlowAfterCondition
+TestValueFlow::valueFlowAfterConditionExpr
+TestValueFlow::valueFlowAfterConditionSeveralNot
+TestValueFlow::valueFlowForwardCompoundAssign
+TestValueFlow::valueFlowForwardCorrelatedVariables
+TestValueFlow::valueFlowForwardModifiedVariables
+TestValueFlow::valueFlowForwardFunction
+TestValueFlow::valueFlowForwardTernary
+TestValueFlow::valueFlowForwardLambda
+TestValueFlow::valueFlowForwardTryCatch
+TestValueFlow::valueFlowForwardInconclusiveImpossible
+TestValueFlow::valueFlowFwdAnalysis
+TestValueFlow::valueFlowSwitchVariable
+TestValueFlow::valueFlowForLoop
+TestValueFlow::valueFlowSubFunction
+TestValueFlow::valueFlowFunctionReturn
+TestValueFlow::valueFlowFunctionDefaultParameter
+TestValueFlow::knownValue
+TestValueFlow::valueFlowSizeofForwardDeclaredEnum
+TestValueFlow::valueFlowGlobalVar
+TestValueFlow::valueFlowGlobalConstVar
+TestValueFlow::valueFlowGlobalStaticVar
+TestValueFlow::valueFlowInlineAssembly
+TestValueFlow::valueFlowSameExpression
+TestValueFlow::valueFlowUninit
+TestValueFlow::valueFlowTerminatingCond
+TestValueFlow::valueFlowContainerSize
+TestValueFlow::valueFlowDynamicBufferSize
+TestValueFlow::valueFlowSafeFunctionParameterValues
+TestValueFlow::valueFlowUnknownFunctionReturn
+TestValueFlow::valueFlowPointerAliasDeref
+TestValueFlow::valueFlowCrashIncompleteCode
+TestValueFlow::valueFlowCrash
+TestValueFlow::valueFlowHang
+TestValueFlow::valueFlowCrashConstructorInitialization
+TestValueFlow::valueFlowUnknownMixedOperators
+
+
+Testing Complete
+Number of tests: 61
+Number of todos: 15
+Tests failed: 1
+
+/home/workspace/test/testvalueflow.cpp:4674(TestValueFlow::valueFlowContainerSize): Assertion failed. 
+Expected: 
+0
+
+Actual: 
+1
+
+_____
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   1.81 sec
+
+The following tests FAILED:
+	 60 - TestValueFlow (Failed)
+Errors while running CTest
+
+>>>
+
+The following is the relevant code of that failed test case.
+
+<<< Test Code:
+code = "struct Base {\n"
+               "    virtual bool GetString(std::string &) const { return false; }\n"
+               "};\n"
+               "int f() {\n"
+               "    std::string str;\n"
+               "    Base *b = GetClass();\n"
+               "    if (!b->GetString(str)) {\n"
+               "        return -2;\n"
+               "    }\n"
+               "    else {\n"
+               "        return str.front();\n"
+               "    }\n"
+               "}\n";
+        ASSERT_EQUALS(0U, tokenValues(code, "str . front").size());
+>>>
+
+The function provided by you is still not correct! Your repaired function is:
+
+<<< Function Repaired By You:
+static bool isContainerSizeChangedByFunction(const Token *tok, int depth = 20)
+{
+    if (!tok->valueType() || !tok->valueType()->container)
+        return false;
+    // If we are accessing an element then we are not changing the container size
+    if (Token::Match(tok, "%name% . %name% (")) {
+        Library::Container::Yield yield = tok->valueType()->container->getYield(tok->strAt(2));
+        if (yield != Library::Container::Yield::NO_YIELD)
+            return false;
+    }
+    if (Token::simpleMatch(tok->astParent(), "[")) {
+        return false;
+    }
+
+    // address of variable
+    const bool addressOf = tok->valueType()->pointer || (tok->astParent() && tok->astParent()->isUnaryOp("&"));
+
+    int narg;
+    const Token * ftok = getTokenArgumentFunction(tok, narg);
+    if (!ftok) {
+        return false; // not a function => variable not changed
+    }
+    const Function * fun = ftok->function();
+    if (fun) {
+        const Variable *arg = fun->getArgumentVar(narg);
+        if (arg) {
+            if (!arg->isReference() && !addressOf) {
+                return false;
+            }
+            if (!addressOf && arg->isConst()) {
+                return false;
+            }
+            if (arg->valueType() && arg->valueType()->constness == 1) {
+                return false;
+            }
+            const Scope * scope = fun->functionScope;
+            if (scope) {
+                // Argument not used
+                if (!arg->nameToken()) {
+                    return false;
+                }
+                if (depth > 0) {
+                    return isContainerSizeChangedByFunction(arg, depth - 1); // Fixed the recursion call arguments
+                }
+            }
+            // Don't know => Safe guess
+            return true;
+        }
+    }
+
+    bool inconclusive = false;
+    const bool isChanged = isVariableChangedByFunctionCall(tok, 0, nullptr, &inconclusive);
+    return (isChanged || inconclusive);
+}
+
+>>>
+
+That function has the following compiliation error:
+
+<<< Compliation Error:
+[ 44%] Building CXX object lib/CMakeFiles/lib_objs.dir/utils.cpp.o
+[ 45%] Building CXX object lib/CMakeFiles/lib_objs.dir/valueflow.cpp.o
+/home/workspace/lib/valueflow.cpp: In function 'bool isContainerSizeChangedByFunction(const Token*, int)':
+/home/workspace/lib/valueflow.cpp:5882:75: error: cannot convert 'const Variable*' to 'const Token*' for argument '1' to 'bool isContainerSizeChangedByFunction(const Token*, int)'
+                     return isContainerSizeChangedByFunction(arg, depth - 1); // Fixed the recursion call arguments
+                                                                           ^
+/home/workspace/lib/valueflow.cpp: At global scope:
+/home/workspace/lib/valueflow.cpp:6058:13: warning: 'bool isContainerSizeChanged(int, const Token*, const Token*, int)' defined but not used [-Wunused-function]
+ static bool isContainerSizeChanged(nonneg int varId, const Token *start, const Token *end, int depth)
+             ^~~~~~~~~~~~~~~~~~~~~~
+lib/CMakeFiles/lib_objs.dir/build.make:831: recipe for target 'lib/CMakeFiles/lib_objs.dir/valueflow.cpp.o' failed
+make[2]: *** [lib/CMakeFiles/lib_objs.dir/valueflow.cpp.o] Error 1
+CMakeFiles/Makefile2:354: recipe for target 'lib/CMakeFiles/lib_objs.dir/all' failed
+make[1]: *** [lib/CMakeFiles/lib_objs.dir/all] Error 2
+Makefile:145: recipe for target 'all' failed
+make: *** [all] Error 2
+
+
+>>>
+
+You will only respond with your repaired function in a code snippet as below:
+```
+<Your repaired function>
+```

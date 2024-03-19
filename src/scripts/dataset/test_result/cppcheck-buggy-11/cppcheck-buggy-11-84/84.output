@@ -1,0 +1,43 @@
+Internal ctest changing into directory: /home/workspace/build
+Test project /home/workspace/build
+    Start 84: cfg-windows64
+Could not find executable /home/workspace/build/bin/cppcheck
+Looked in the following places:
+/home/workspace/build/bin/cppcheck
+/home/workspace/build/bin/cppcheck
+/home/workspace/build/bin/Release/cppcheck
+/home/workspace/build/bin/Release/cppcheck
+/home/workspace/build/bin/Debug/cppcheck
+/home/workspace/build/bin/Debug/cppcheck
+/home/workspace/build/bin/MinSizeRel/cppcheck
+/home/workspace/build/bin/MinSizeRel/cppcheck
+/home/workspace/build/bin/RelWithDebInfo/cppcheck
+/home/workspace/build/bin/RelWithDebInfo/cppcheck
+/home/workspace/build/bin/Deployment/cppcheck
+/home/workspace/build/bin/Deployment/cppcheck
+/home/workspace/build/bin/Development/cppcheck
+/home/workspace/build/bin/Development/cppcheck
+home/workspace/build/bin/cppcheck
+home/workspace/build/bin/cppcheck
+home/workspace/build/bin/Release/cppcheck
+home/workspace/build/bin/Release/cppcheck
+home/workspace/build/bin/Debug/cppcheck
+home/workspace/build/bin/Debug/cppcheck
+home/workspace/build/bin/MinSizeRel/cppcheck
+home/workspace/build/bin/MinSizeRel/cppcheck
+home/workspace/build/bin/RelWithDebInfo/cppcheck
+home/workspace/build/bin/RelWithDebInfo/cppcheck
+home/workspace/build/bin/Deployment/cppcheck
+home/workspace/build/bin/Deployment/cppcheck
+home/workspace/build/bin/Development/cppcheck
+home/workspace/build/bin/Development/cppcheck
+1/1 Test #84: cfg-windows64 ....................***Not Run   0.00 sec
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   0.00 sec
+
+The following tests FAILED:
+	 84 - cfg-windows64 (Not Run)
+Unable to find executable: /home/workspace/build/bin/cppcheck
+Errors while running CTest

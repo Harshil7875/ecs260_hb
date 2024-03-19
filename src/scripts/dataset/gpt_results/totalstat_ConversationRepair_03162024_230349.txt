@@ -1,0 +1,6 @@
+Test_Buggy_Repo_List: ['yara-1']
+Total_Patch_Number: 5
+Total_Compilable_Patch_Number: 5
+Total_Plausible_Patch_Number: 0
+Compilable_Patch_List: ['yara-1_Conversation-1', 'yara-1_Conversation-2', 'yara-1_Conversation-3', 'yara-1_Conversation-4', 'yara-1_Conversation-5']
+Plausible_Patch_list: []

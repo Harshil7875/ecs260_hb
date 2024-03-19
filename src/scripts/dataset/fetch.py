@@ -3,12 +3,14 @@ import re
 import json
 import os
 import sys
+import dataset_api
+from typing import List
 
 from pathlib import Path
 
 python_prefix = sys.executable
-bugscpp_script_path = "../../../3rdparty/bugscpp_hufork/bugscpp/bugscpp.py"
-patch_path_prefix = "../../../3rdparty/bugscpp_hufork/bugscpp/taxonomy/"
+bugscpp_script_path = "/workspaces/ecs260_hb/3rdparty/bugscpp_hufork/bugscpp/bugscpp.py"
+patch_path_prefix = "/workspaces/ecs260_hb/3rdparty/bugscpp_hufork/bugscpp/taxonomy/"
 target_path = "./data"
 
 search_command_pattern = "{} {} search {} {}"
@@ -308,7 +310,7 @@ def parse_patch(patch_file):
 
 def find_function_start(lines, start_index):
     func_def_regex = re.compile(
-        r'^\s*(?:static\s+)?(?:inline\s+)?(?:virtual\s+)?[\w:]+\s+[\w:]+\s*\([^)]*\)?\s*(const)?\s*{?\s*$')
+        r'^\s*(?:static\s+)?(?:inline\s+)?(?:virtual\s+)?[\w:<>]+\s+[\w:]+\s*\([^)]*\)?\s*(const)?\s*{?\s*$')
     brace_regex = re.compile(r'^\s*\{\s*$')
 
     for i in range(start_index, -1, -1):
@@ -348,3 +350,40 @@ def is_data_exist(repo, index):
     return buggy_path.exists() and fixed_path.exists()
 
 
+def filter_multi_files_bug_repo(lst:List[str]) ->List[str]:
+    new_lst = []
+    for repo in lst:
+        data = get_buggy_files(repo)
+        if len(data) == 1:
+            new_lst.append(repo)
+    return new_lst
+
+
+def find_repair_scenarios_repos():
+    total_bugs = 0
+    rs_repos = []
+    idx = 1
+    for bug_tag in dataset_api.bugs_line_tags:
+        for error_tag in dataset_api.error_types_tags:
+            lst = dataset_api.search_repositories_by_tags(bug_tag, error_tag)
+            lst = filter_multi_files_bug_repo(lst)
+            print(f'RS_{idx}: {bug_tag} - {error_tag}: , num: {len(lst)}')
+            print(f'{lst}')
+            rs_repos.append(lst)
+            idx += 1
+            total_bugs += len(lst)
+    print(f'total bugs in 6 RSs: {total_bugs}')
+    print(f'rs_repos: {rs_repos}')
+
+    for i in range(len(rs_repos)):
+        for j in range(i + 1, len(rs_repos)):
+            common_elements = set(rs_repos[i]).intersection(rs_repos[j])
+            common_elements_list = list(common_elements)
+            print(f'RS_{i + 1} and RS_{j + 1}\'s common repos: {common_elements_list}')
+
+
+def get_rq3_buggy_data(buggy_repo):
+    with open('rq3_buggy_functions.json', 'r') as file:
+        data = json.load(file)
+        buggy_data = data.get(buggy_repo)
+    return buggy_data

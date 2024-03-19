@@ -1,0 +1,394 @@
+[dlt_daemon] start building
+  Starting container
+    Image: hschoe/defects4cpp-ubuntu:dlt_daemon
+
+-- The C compiler identification is GNU 7.5.0
+-- The CXX compiler identification is GNU 7.5.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Build type not defined. Using default build type 'RelWithDebInfo'.
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Looking for include file arpa/inet.h
+-- Looking for include file arpa/inet.h - found
+-- Looking for include file fcntl.h
+-- Looking for include file fcntl.h - found
+-- Looking for include file float.h
+-- Looking for include file float.h - found
+-- Looking for include file limits.h
+-- Looking for include file limits.h - found
+-- Looking for include file netdb.h
+-- Looking for include file netdb.h - found
+-- Looking for include file netinet/in.h
+-- Looking for include file netinet/in.h - found
+-- Looking for include file stddef.h
+-- Looking for include file stddef.h - found
+-- Looking for include file stdint.h
+-- Looking for include file stdint.h - found
+-- Looking for include file stdlib.h
+-- Looking for include file stdlib.h - found
+-- Looking for include file string.h
+-- Looking for include file string.h - found
+-- Looking for include file sys/ioctl.h
+-- Looking for include file sys/ioctl.h - found
+-- Looking for include file sys/socket.h
+-- Looking for include file sys/socket.h - found
+-- Looking for include file sys/time.h
+-- Looking for include file sys/time.h - found
+-- Looking for include file unistd.h
+-- Looking for include file unistd.h - found
+-- Looking for include file sys/ipc.h
+-- Looking for include file sys/ipc.h - found
+-- Looking for include file ctype.h
+-- Looking for include file ctype.h - found
+-- Looking for include file signal.h
+-- Looking for include file signal.h - found
+-- Looking for include file syslog.h
+-- Looking for include file syslog.h - found
+-- Looking for include file sys/stat.h
+-- Looking for include file sys/stat.h - found
+-- Looking for include file linux/stat.h
+-- Looking for include file linux/stat.h - found
+-- Looking for include file sys/uio.h
+-- Looking for include file sys/uio.h - found
+-- Looking for include file termios.h
+-- Looking for include file termios.h - found
+-- Looking for include file mqueue.h
+-- Looking for include file mqueue.h - found
+-- Looking for clock_gettime
+-- Looking for clock_gettime - found
+-- Looking for floor
+-- Looking for floor - not found
+-- Looking for fork
+-- Looking for fork - found
+-- Looking for gethostbyname
+-- Looking for gethostbyname - found
+-- Looking for gettimeofday
+-- Looking for gettimeofday - found
+-- Looking for inet_ntoa
+-- Looking for inet_ntoa - found
+-- Looking for malloc
+-- Looking for malloc - found
+-- Looking for memmove
+-- Looking for memmove - found
+-- Looking for memset
+-- Looking for memset - found
+-- Looking for mkfifo
+-- Looking for mkfifo - found
+-- Looking for select
+-- Looking for select - found
+-- Looking for socket
+-- Looking for socket - found
+-- Looking for strchr
+-- Looking for strchr - found
+-- Looking for strerror
+-- Looking for strerror - found
+-- Looking for strstr
+-- Looking for strstr - found
+-- Looking for strtol
+-- Looking for strtol - found
+-- Looking for mq_open in /usr/lib/x86_64-linux-gnu/librt.so
+-- Looking for mq_open in /usr/lib/x86_64-linux-gnu/librt.so - found
+-- Looking for mq_close in /usr/lib/x86_64-linux-gnu/librt.so
+-- Looking for mq_close in /usr/lib/x86_64-linux-gnu/librt.so - found
+-- Looking for mq_unlink in /usr/lib/x86_64-linux-gnu/librt.so
+-- Looking for mq_unlink in /usr/lib/x86_64-linux-gnu/librt.so - found
+-- Looking for mq_send in /usr/lib/x86_64-linux-gnu/librt.so
+-- Looking for mq_send in /usr/lib/x86_64-linux-gnu/librt.so - found
+-- Looking for mq_receive in /usr/lib/x86_64-linux-gnu/librt.so
+-- Looking for mq_receive in /usr/lib/x86_64-linux-gnu/librt.so - found
+-- pthread_setname_np API not available on this platform
+CMake Deprecation Warning at gtest-1.7.0/CMakeLists.txt:43 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- Found PythonInterp: /usr/bin/python (found version "3.6.9") 
+-- 
+-- -------------------------------------------------------------------------------
+-- Build for Version 2.18.5 build  version state STABLE
+-- WITH_SYSTEMD = OFF
+-- WITH_SYSTEMD_WATCHDOG = OFF
+-- WITH_SYSTEMD_JOURNAL = OFF
+-- WITH_DOC = OFF
+-- WITH_MAN = OFF
+-- WITH_DLT_ADAPTOR = OFF
+-- WITH_DLT_CONSOLE = ON
+-- WITH_DLT_EXAMPLES = ON
+-- WITH_DLT_SYSTEM = OFF
+-- WITH_DLT_FILETRANSFER = OFF
+-- WITH_DLT_DBUS = OFF
+-- WITH_DLT_TESTS = ON
+-- WITH_DLT_UNIT_TESTS = ON
+-- WITH_DLT_SHM_ENABLE = OFF
+-- WITH_DLTTEST = OFF
+-- WITH_DLT_PKGCONFIG = ON
+-- WITH_DLT_CXX11_EXT = OFF
+-- WITH_DLT_COREDUMPHANDLER = OFF
+-- WITH_DLT_KPI = OFF
+-- WITH_DLT_FATAL_LOG_TRAP = OFF
+-- WITH_CHECK_CONFIG_FILE = OFF
+-- WITH_TESTSCRIPTS = OFF
+-- WITH_GPROF = OFF
+-- WITH_DLT_USE_IPv6 = ON
+-- DLT_USER = genivi
+-- BUILD_SHARED_LIBS = ON
+-- TARGET_CPU_NAME = 
+-- CMAKE_INSTALL_PREFIX = /home/workspace/install
+-- CMAKE_BUILD_TYPE = RelWithDebInfo
+-- CMAKE_HOST_SYSTEM_PROCESSOR = x86_64
+-- CMAKE_SYSTEM_PROCESSOR = x86_64
+-- WITH_DLT_LOGSTORAGE_CTRL_UDEV = OFF
+-- DLT_IPC = FIFO(Path: /tmp)
+-- WITH_UDP_CONNECTION = OFF
+-- WITH_DLT_QNX_SYSTEM = OFF)
+-- Change a value with: cmake -D<Variable>=<Value>
+-- -------------------------------------------------------------------------------
+-- 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/workspace/build
+
+make: *** No rule to make target '@DPP_PRALLEL_BUILD@'.  Stop.
+
+[  0%] Building C object src/lib/CMakeFiles/dlt.dir/dlt_user.c.o
+[  1%] Building C object src/lib/CMakeFiles/dlt.dir/dlt_client.c.o
+[  2%] Building C object src/lib/CMakeFiles/dlt.dir/dlt_filetransfer.c.o
+[  3%] Building C object src/lib/CMakeFiles/dlt.dir/dlt_env_ll.c.o
+[  4%] Building C object src/lib/CMakeFiles/dlt.dir/__/shared/dlt_common.c.o
+[  5%] Building C object src/lib/CMakeFiles/dlt.dir/__/shared/dlt_protocol.c.o
+[  6%] Building C object src/lib/CMakeFiles/dlt.dir/__/shared/dlt_user_shared.c.o
+[  6%] Linking C shared library libdlt.so
+[  6%] Built target dlt
+[  7%] Building C object src/daemon/CMakeFiles/dlt-daemon.dir/dlt-daemon.c.o
+[  7%] Building C object src/daemon/CMakeFiles/dlt-daemon.dir/dlt_daemon_client.c.o
+[  8%] Building C object src/daemon/CMakeFiles/dlt-daemon.dir/dlt_daemon_common.c.o
+[  9%] Building C object src/daemon/CMakeFiles/dlt-daemon.dir/dlt_daemon_connection.c.o
+[ 10%] Building C object src/daemon/CMakeFiles/dlt-daemon.dir/dlt_daemon_event_handler.c.o
+[ 11%] Building C object src/daemon/CMakeFiles/dlt-daemon.dir/dlt_daemon_offline_logstorage.c.o
+[ 12%] Building C object src/daemon/CMakeFiles/dlt-daemon.dir/dlt_daemon_serial.c.o
+[ 13%] Building C object src/daemon/CMakeFiles/dlt-daemon.dir/dlt_daemon_socket.c.o
+[ 13%] Building C object src/daemon/CMakeFiles/dlt-daemon.dir/dlt_daemon_unix_socket.c.o
+[ 14%] Building C object src/daemon/CMakeFiles/dlt-daemon.dir/__/gateway/dlt_gateway.c.o
+[ 15%] Building C object src/daemon/CMakeFiles/dlt-daemon.dir/__/lib/dlt_client.c.o
+[ 16%] Building C object src/daemon/CMakeFiles/dlt-daemon.dir/__/shared/dlt_common.c.o
+[ 17%] Building C object src/daemon/CMakeFiles/dlt-daemon.dir/__/shared/dlt_config_file_parser.c.o
+[ 18%] Building C object src/daemon/CMakeFiles/dlt-daemon.dir/__/shared/dlt_offline_trace.c.o
+[ 19%] Building C object src/daemon/CMakeFiles/dlt-daemon.dir/__/shared/dlt_protocol.c.o
+[ 20%] Building C object src/daemon/CMakeFiles/dlt-daemon.dir/__/shared/dlt_user_shared.c.o
+[ 20%] Building C object src/daemon/CMakeFiles/dlt-daemon.dir/__/offlinelogstorage/dlt_offline_logstorage.c.o
+[ 21%] Building C object src/daemon/CMakeFiles/dlt-daemon.dir/__/offlinelogstorage/dlt_offline_logstorage_behavior.c.o
+[ 22%] Linking C executable dlt-daemon
+[ 22%] Built target dlt-daemon
+[ 23%] Building C object src/daemon/CMakeFiles/dlt_daemon.dir/dlt-daemon.c.o
+[ 24%] Building C object src/daemon/CMakeFiles/dlt_daemon.dir/dlt_daemon_client.c.o
+[ 25%] Building C object src/daemon/CMakeFiles/dlt_daemon.dir/dlt_daemon_common.c.o
+[ 25%] Building C object src/daemon/CMakeFiles/dlt_daemon.dir/dlt_daemon_connection.c.o
+[ 26%] Building C object src/daemon/CMakeFiles/dlt_daemon.dir/dlt_daemon_event_handler.c.o
+[ 27%] Building C object src/daemon/CMakeFiles/dlt_daemon.dir/dlt_daemon_offline_logstorage.c.o
+[ 28%] Building C object src/daemon/CMakeFiles/dlt_daemon.dir/dlt_daemon_serial.c.o
+[ 29%] Building C object src/daemon/CMakeFiles/dlt_daemon.dir/dlt_daemon_socket.c.o
+[ 30%] Building C object src/daemon/CMakeFiles/dlt_daemon.dir/dlt_daemon_unix_socket.c.o
+[ 31%] Building C object src/daemon/CMakeFiles/dlt_daemon.dir/__/gateway/dlt_gateway.c.o
+[ 32%] Building C object src/daemon/CMakeFiles/dlt_daemon.dir/__/lib/dlt_client.c.o
+[ 32%] Building C object src/daemon/CMakeFiles/dlt_daemon.dir/__/shared/dlt_common.c.o
+[ 33%] Building C object src/daemon/CMakeFiles/dlt_daemon.dir/__/shared/dlt_config_file_parser.c.o
+[ 34%] Building C object src/daemon/CMakeFiles/dlt_daemon.dir/__/shared/dlt_offline_trace.c.o
+[ 35%] Building C object src/daemon/CMakeFiles/dlt_daemon.dir/__/shared/dlt_protocol.c.o
+[ 36%] Building C object src/daemon/CMakeFiles/dlt_daemon.dir/__/shared/dlt_user_shared.c.o
+[ 37%] Building C object src/daemon/CMakeFiles/dlt_daemon.dir/__/offlinelogstorage/dlt_offline_logstorage.c.o
+[ 38%] Building C object src/daemon/CMakeFiles/dlt_daemon.dir/__/offlinelogstorage/dlt_offline_logstorage_behavior.c.o
+[ 38%] Linking C shared library libdlt_daemon.so
+[ 38%] Built target dlt_daemon
+[ 38%] Building C object src/console/CMakeFiles/dlt-sortbytimestamp.dir/dlt-sortbytimestamp.c.o
+[ 39%] Linking C executable dlt-sortbytimestamp
+[ 39%] Built target dlt-sortbytimestamp
+[ 40%] Building C object src/console/CMakeFiles/dlt-convert.dir/dlt-convert.c.o
+[ 41%] Linking C executable dlt-convert
+[ 41%] Built target dlt-convert
+[ 42%] Building C object src/console/CMakeFiles/dlt-receive.dir/dlt-receive.c.o
+/home/workspace/src/console/dlt-receive.c: In function 'dpp_sighandler':
+/home/workspace/src/console/dlt-receive.c:291:25: warning: unused parameter 'signum' [-Wunused-parameter]
+ void dpp_sighandler(int signum) {
+                         ^~~~~~
+[ 43%] Linking C executable dlt-receive
+[ 43%] Built target dlt-receive
+[ 44%] Building C object src/console/CMakeFiles/dlt-control.dir/dlt-control.c.o
+[ 45%] Building C object src/console/CMakeFiles/dlt-control.dir/dlt-control-common.c.o
+[ 46%] Linking C executable dlt-control
+[ 46%] Built target dlt-control
+[ 47%] Building C object src/console/CMakeFiles/dlt-passive-node-ctrl.dir/dlt-passive-node-ctrl.c.o
+[ 48%] Building C object src/console/CMakeFiles/dlt-passive-node-ctrl.dir/dlt-control-common.c.o
+[ 49%] Linking C executable dlt-passive-node-ctrl
+[ 49%] Built target dlt-passive-node-ctrl
+[ 50%] Building C object src/console/logstorage/CMakeFiles/dlt-logstorage-ctrl.dir/dlt-logstorage-ctrl.c.o
+[ 51%] Building C object src/console/logstorage/CMakeFiles/dlt-logstorage-ctrl.dir/dlt-logstorage-common.c.o
+[ 52%] Building C object src/console/logstorage/CMakeFiles/dlt-logstorage-ctrl.dir/dlt-logstorage-list.c.o
+[ 52%] Building C object src/console/logstorage/CMakeFiles/dlt-logstorage-ctrl.dir/__/dlt-control-common.c.o
+[ 53%] Linking C executable dlt-logstorage-ctrl
+[ 53%] Built target dlt-logstorage-ctrl
+[ 54%] Building C object src/examples/CMakeFiles/dlt-example-user.dir/dlt-example-user.c.o
+[ 55%] Linking C executable dlt-example-user
+[ 55%] Built target dlt-example-user
+[ 55%] Building C object src/examples/CMakeFiles/dlt-example-user-common-api.dir/dlt-example-user-common-api.c.o
+[ 56%] Linking C executable dlt-example-user-common-api
+[ 56%] Built target dlt-example-user-common-api
+[ 57%] Building C object src/examples/CMakeFiles/dlt-example-user-func.dir/dlt-example-user-func.c.o
+[ 58%] Linking C executable dlt-example-user-func
+[ 58%] Built target dlt-example-user-func
+[ 59%] Building C object src/examples/CMakeFiles/dlt-example-filetransfer.dir/dlt-example-filetransfer.c.o
+[ 60%] Linking C executable dlt-example-filetransfer
+[ 60%] Built target dlt-example-filetransfer
+[ 61%] Building C object src/tests/CMakeFiles/dlt-test-multi-process.dir/dlt-test-multi-process.c.o
+[ 62%] Linking C executable dlt-test-multi-process
+[ 62%] Built target dlt-test-multi-process
+[ 63%] Building C object src/tests/CMakeFiles/dlt-test-multi-process-client.dir/dlt-test-multi-process-client.c.o
+[ 64%] Linking C executable dlt-test-multi-process-client
+[ 64%] Built target dlt-test-multi-process-client
+[ 65%] Building C object src/tests/CMakeFiles/dlt-test-user.dir/dlt-test-user.c.o
+[ 66%] Linking C executable dlt-test-user
+[ 66%] Built target dlt-test-user
+[ 67%] Building C object src/tests/CMakeFiles/dlt-test-client.dir/dlt-test-client.c.o
+[ 68%] Linking C executable dlt-test-client
+[ 68%] Built target dlt-test-client
+[ 68%] Building C object src/tests/CMakeFiles/dlt-test-stress-user.dir/dlt-test-stress-user.c.o
+[ 69%] Linking C executable dlt-test-stress-user
+[ 69%] Built target dlt-test-stress-user
+[ 70%] Building C object src/tests/CMakeFiles/dlt-test-stress-client.dir/dlt-test-stress-client.c.o
+[ 71%] Linking C executable dlt-test-stress-client
+[ 71%] Built target dlt-test-stress-client
+[ 72%] Building C object src/tests/CMakeFiles/dlt-test-stress.dir/dlt-test-stress.c.o
+[ 73%] Linking C executable dlt-test-stress
+[ 73%] Built target dlt-test-stress
+[ 74%] Building C object src/tests/CMakeFiles/dlt-test-filetransfer.dir/dlt-test-filetransfer.c.o
+[ 75%] Linking C executable dlt-test-filetransfer
+[ 75%] Built target dlt-test-filetransfer
+[ 76%] Building C object src/tests/CMakeFiles/dlt-test-fork-handler.dir/dlt-test-fork-handler.c.o
+[ 77%] Linking C executable dlt-test-fork-handler
+[ 77%] Built target dlt-test-fork-handler
+[ 77%] Building C object src/tests/CMakeFiles/dlt-test-init-free.dir/dlt-test-init-free.c.o
+[ 78%] Linking C executable dlt-test-init-free
+[ 78%] Built target dlt-test-init-free
+[ 79%] Building C object src/tests/CMakeFiles/dlt-test-non-verbose.dir/dlt-test-non-verbose.c.o
+[ 79%] Linking C executable dlt-test-non-verbose
+[ 79%] Built target dlt-test-non-verbose
+[ 80%] Building CXX object gtest-1.7.0/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+[ 81%] Linking CXX shared library libgtest.so
+[ 81%] Built target gtest
+[ 82%] Building CXX object gtest-1.7.0/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+[ 83%] Linking CXX shared library libgtest_main.so
+[ 83%] Built target gtest_main
+[ 83%] Building CXX object tests/CMakeFiles/gtest_dlt_common.dir/gtest_dlt_common.cpp.o
+[ 84%] Linking CXX executable gtest_dlt_common
+[ 84%] Built target gtest_dlt_common
+[ 85%] Building CXX object tests/CMakeFiles/gtest_dlt_user.dir/gtest_dlt_user.cpp.o
+[ 86%] Linking CXX executable gtest_dlt_user
+[ 86%] Built target gtest_dlt_user
+[ 87%] Building CXX object tests/CMakeFiles/gtest_dlt_daemon_common.dir/gtest_dlt_daemon_common.cpp.o
+[ 88%] Building C object tests/CMakeFiles/gtest_dlt_daemon_common.dir/__/src/daemon/dlt_daemon_common.c.o
+[ 89%] Linking CXX executable gtest_dlt_daemon_common
+[ 89%] Built target gtest_dlt_daemon_common
+[ 90%] Building C object tests/CMakeFiles/dlt_test_receiver.dir/dlt_test_receiver.c.o
+[ 91%] Linking C executable dlt_test_receiver
+[ 91%] Built target dlt_test_receiver
+[ 92%] Building CXX object tests/CMakeFiles/dlt_env_ll_unit_test.dir/dlt_env_ll_unit_test.cpp.o
+[ 93%] Linking CXX executable dlt_env_ll_unit_test
+[ 93%] Built target dlt_env_ll_unit_test
+[ 94%] Building C object tests/CMakeFiles/dlt-test-preregister-context.dir/dlt-test-preregister-context.c.o
+[ 95%] Linking C executable dlt-test-preregister-context
+[ 95%] Built target dlt-test-preregister-context
+[ 95%] Building CXX object tests/CMakeFiles/gtest_dlt_daemon_gateway.dir/gtest_dlt_daemon_gateway.cpp.o
+[ 96%] Linking CXX executable gtest_dlt_daemon_gateway
+[ 96%] Built target gtest_dlt_daemon_gateway
+[ 97%] Building CXX object tests/CMakeFiles/gtest_dlt_daemon_event_handler.dir/gtest_dlt_daemon_event_handler.cpp.o
+[ 98%] Linking CXX executable gtest_dlt_daemon_event_handler
+[ 98%] Built target gtest_dlt_daemon_event_handler
+[ 99%] Building CXX object tests/CMakeFiles/gtest_dlt_daemon_offline_log.dir/gtest_dlt_daemon_offline_log.cpp.o
+[100%] Linking CXX executable gtest_dlt_daemon_offline_log
+[100%] Built target gtest_dlt_daemon_offline_log
+Install the project...
+-- Install configuration: "RelWithDebInfo"
+-- Installing: /home/workspace/install/lib/pkgconfig/automotive-dlt.pc
+-- Installing: /home/workspace/install/lib/libdlt.so.2.18.5
+-- Up-to-date: /home/workspace/install/lib/libdlt.so.2
+-- Up-to-date: /home/workspace/install/lib/libdlt.so
+-- Installing: /home/workspace/install/bin/dlt-daemon
+-- Installing: /home/workspace/install/lib/libdlt_daemon.so
+-- Up-to-date: /home/workspace/install/etc/dlt.conf
+-- Up-to-date: /home/workspace/install/etc/dlt_gateway.conf
+-- Installing: /home/workspace/install/bin/dlt-sortbytimestamp
+-- Set runtime path of "/home/workspace/install/bin/dlt-sortbytimestamp" to ""
+-- Installing: /home/workspace/install/bin/dlt-convert
+-- Set runtime path of "/home/workspace/install/bin/dlt-convert" to ""
+-- Installing: /home/workspace/install/bin/dlt-receive
+-- Set runtime path of "/home/workspace/install/bin/dlt-receive" to ""
+-- Installing: /home/workspace/install/bin/dlt-control
+-- Set runtime path of "/home/workspace/install/bin/dlt-control" to ""
+-- Installing: /home/workspace/install/bin/dlt-passive-node-ctrl
+-- Set runtime path of "/home/workspace/install/bin/dlt-passive-node-ctrl" to ""
+-- Installing: /home/workspace/install/bin/dlt-logstorage-ctrl
+-- Set runtime path of "/home/workspace/install/bin/dlt-logstorage-ctrl" to ""
+-- Installing: /home/workspace/install/bin/dlt-example-user
+-- Set runtime path of "/home/workspace/install/bin/dlt-example-user" to ""
+-- Installing: /home/workspace/install/bin/dlt-example-user-func
+-- Set runtime path of "/home/workspace/install/bin/dlt-example-user-func" to ""
+-- Installing: /home/workspace/install/bin/dlt-example-user-common-api
+-- Set runtime path of "/home/workspace/install/bin/dlt-example-user-common-api" to ""
+-- Installing: /home/workspace/install/bin/dlt-example-filetransfer
+-- Set runtime path of "/home/workspace/install/bin/dlt-example-filetransfer" to ""
+-- Installing: /home/workspace/install/bin/dlt-test-multi-process
+-- Set runtime path of "/home/workspace/install/bin/dlt-test-multi-process" to ""
+-- Installing: /home/workspace/install/bin/dlt-test-multi-process-client
+-- Set runtime path of "/home/workspace/install/bin/dlt-test-multi-process-client" to ""
+-- Installing: /home/workspace/install/bin/dlt-test-user
+-- Set runtime path of "/home/workspace/install/bin/dlt-test-user" to ""
+-- Installing: /home/workspace/install/bin/dlt-test-client
+-- Set runtime path of "/home/workspace/install/bin/dlt-test-client" to ""
+-- Installing: /home/workspace/install/bin/dlt-test-stress-user
+-- Set runtime path of "/home/workspace/install/bin/dlt-test-stress-user" to ""
+-- Installing: /home/workspace/install/bin/dlt-test-stress-client
+-- Set runtime path of "/home/workspace/install/bin/dlt-test-stress-client" to ""
+-- Installing: /home/workspace/install/bin/dlt-test-stress
+-- Set runtime path of "/home/workspace/install/bin/dlt-test-stress" to ""
+-- Installing: /home/workspace/install/bin/dlt-test-filetransfer
+-- Set runtime path of "/home/workspace/install/bin/dlt-test-filetransfer" to ""
+-- Installing: /home/workspace/install/bin/dlt-test-fork-handler
+-- Set runtime path of "/home/workspace/install/bin/dlt-test-fork-handler" to ""
+-- Installing: /home/workspace/install/bin/dlt-test-init-free
+-- Set runtime path of "/home/workspace/install/bin/dlt-test-init-free" to ""
+-- Installing: /home/workspace/install/bin/dlt-test-non-verbose
+-- Set runtime path of "/home/workspace/install/bin/dlt-test-non-verbose" to ""
+-- Up-to-date: /home/workspace/install/share/dlt-filetransfer/dlt-test-filetransfer-file
+-- Up-to-date: /home/workspace/install/share/dlt-filetransfer/dlt-test-filetransfer-image.png
+-- Up-to-date: /home/workspace/install/include/dlt/dlt.h
+-- Up-to-date: /home/workspace/install/include/dlt/dlt_user_macros.h
+-- Up-to-date: /home/workspace/install/include/dlt/dlt_client.h
+-- Up-to-date: /home/workspace/install/include/dlt/dlt_protocol.h
+-- Up-to-date: /home/workspace/install/include/dlt/dlt_common.h
+-- Up-to-date: /home/workspace/install/include/dlt/dlt_types.h
+-- Up-to-date: /home/workspace/install/include/dlt/dlt_shm.h
+-- Up-to-date: /home/workspace/install/include/dlt/dlt_offline_trace.h
+-- Up-to-date: /home/workspace/install/include/dlt/dlt_filetransfer.h
+-- Up-to-date: /home/workspace/install/include/dlt/dlt_common_api.h
+-- Installing: /home/workspace/install/include/dlt/dlt_version.h
+-- Installing: /home/workspace/install/include/dlt/dlt_user.h
+
+  Closing container
+[dlt_daemon] done
+Elapsed: 70.23s

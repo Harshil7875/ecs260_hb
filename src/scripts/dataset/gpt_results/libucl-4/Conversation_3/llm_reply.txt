@@ -1,0 +1,179 @@
+```
+static bool
+ucl_state_machine (struct ucl_parser *parser)
+{
+    ucl_object_t *obj;
+    struct ucl_chunk *chunk = parser->chunks;
+    const unsigned char *p, *c = NULL, *macro_start = NULL;
+    unsigned char *macro_escaped;
+    size_t macro_len = 0;
+    struct ucl_macro *macro = NULL;
+    bool next_key = false, end_of_object = false;
+
+    if (parser->top_obj == NULL) {
+        if (*chunk->pos == '[') {
+            obj = ucl_add_parser_stack (NULL, parser, true, 0);
+        }
+        else {
+            obj = ucl_add_parser_stack (NULL, parser, false, 0);
+        }
+        if (obj == NULL) {
+            return false;
+        }
+        parser->top_obj = obj;
+        parser->cur_obj = obj;
+        parser->state = UCL_STATE_INIT;
+    }
+
+    p = chunk->pos;
+    while (chunk->pos < chunk->end) {
+        switch (parser->state) {
+            case UCL_STATE_INIT:
+                obj = parser->cur_obj;
+                if (!ucl_skip_comments (parser)) {
+                    parser->prev_state = parser->state;
+                    parser->state = UCL_STATE_ERROR;
+                    return false;
+                }
+                else {
+                    p = chunk->pos;
+                    if (*p == '[') {
+                        parser->state = UCL_STATE_VALUE;
+                        ucl_chunk_skipc (chunk, p);
+                    }
+                    else if (*p == '{') {
+                        ucl_set_err (chunk, UCL_ESYNTAX, "key must begin with a letter", &parser->err);
+                        parser->state = UCL_STATE_ERROR;
+                        return false;
+                    }
+                    else {
+                        parser->state = UCL_STATE_KEY;
+                    }
+                }
+                break;
+            case UCL_STATE_KEY:
+                while (p < chunk->end && ucl_test_character (*p, UCL_CHARACTER_WHITESPACE_UNSAFE)) {
+                    ucl_chunk_skipc (chunk, p);
+                }
+                if (*p == '}') {
+                    parser->state = UCL_STATE_AFTER_VALUE;
+                    continue;
+                }
+                if (parser->stack == NULL) {
+                    ucl_set_err (chunk, UCL_ESYNTAX, "top object is finished but the parser expects a key", &parser->err);
+                    parser->prev_state = parser->state;
+                    parser->state = UCL_STATE_ERROR;
+                    return false;
+                }
+                if (!ucl_parse_key (parser, chunk, &next_key, &end_of_object)) {
+                    parser->prev_state = parser->state;
+                    parser->state = UCL_STATE_ERROR;
+                    return false;
+                }
+                if (end_of_object) {
+                    p = chunk->pos;
+                    parser->state = UCL_STATE_AFTER_VALUE;
+                    continue;
+                }
+                else if (parser->state != UCL_STATE_MACRO_NAME) {
+                    if (next_key && parser->stack->obj->type == UCL_OBJECT) {
+                        obj = ucl_add_parser_stack (parser->cur_obj, parser, false, parser->stack->level + 1);
+                        if (obj == NULL) {
+                            return false;
+                        }
+                    }
+                    else {
+                        parser->state = UCL_STATE_VALUE;
+                    }
+                }
+                else {
+                    c = chunk->pos;
+                }
+                p = chunk->pos;
+                break;
+            case UCL_STATE_VALUE:
+                if (!ucl_parse_value (parser, chunk)) {
+                    parser->prev_state = parser->state;
+                    parser->state = UCL_STATE_ERROR;
+                    return false;
+                }
+                p = chunk->pos;
+                break;
+            case UCL_STATE_AFTER_VALUE:
+                if (!ucl_parse_after_value (parser, chunk)) {
+                    parser->prev_state = parser->state;
+                    parser->state = UCL_STATE_ERROR;
+                    return false;
+                }
+                if (parser->stack != NULL) {
+                    if (parser->stack->obj->type == UCL_OBJECT) {
+                        parser->state = UCL_STATE_KEY;
+                    }
+                    else {
+                        parser->state = UCL_STATE_VALUE;
+                    }
+                }
+                else {
+                    return true;
+                }
+                p = chunk->pos;
+                break;
+            case UCL_STATE_MACRO_NAME:
+                if (!ucl_test_character (*p, UCL_CHARACTER_WHITESPACE_UNSAFE)) {
+                    ucl_chunk_skipc (chunk, p);
+                }
+                else if (p - c > 0) {
+                    macro_len = (size_t)(p - c);
+                    HASH_FIND (hh, parser->macroes, c, macro_len, macro);
+                    if (macro == NULL) {
+                        ucl_create_err (&parser->err, "error on line %d at column %d: unknown macro: '%.*s', character: '%c'", chunk->line, chunk->column, (int)(p - c), c, *chunk->pos);
+                        parser->state = UCL_STATE_ERROR;
+                        return false;
+                    }
+                    while (p < chunk->end) {
+                        if (!ucl_test_character (*p, UCL_CHARACTER_WHITESPACE_UNSAFE)) {
+                            if (chunk->remain >= 2 && ucl_lex_is_comment (p[0], p[1])) {
+                                if (!ucl_skip_comments (parser)) {
+                                    return false;
+                                }
+                                p = chunk->pos;
+                            }
+                            break;
+                        }
+                        ucl_chunk_skipc (chunk, p);
+                    }
+                    parser->state = UCL_STATE_MACRO;
+                }
+                break;
+            case UCL_STATE_MACRO:
+                if (!ucl_parse_macro_value (parser, chunk, macro, &macro_start, &macro_len)) {
+                    parser->prev_state = parser->state;
+                    parser->state = UCL_STATE_ERROR;
+                    return false;
+                }
+                macro_len = ucl_expand_variable (parser, &macro_escaped, macro_start, macro_len);
+                parser->state = parser->prev_state;
+                if (macro_escaped == NULL) {
+                    if (!macro->handler (macro_start, macro_len, macro->ud)) {
+                        return false;
+                    }
+                }
+                else {
+                    if (!macro->handler (macro_escaped, macro_len, macro->ud)) {
+                        UCL_FREE (macro_len + 1, macro_escaped);
+                        return false;
+                    }
+                    UCL_FREE (macro_len + 1, macro_escaped);
+                }
+                p = chunk->pos;
+                break;
+            default:
+                ucl_set_err (chunk, UCL_EINTERNAL, "internal error: parser is in an unknown state", &parser->err);
+                parser->state = UCL_STATE_ERROR;
+                return false;
+        }
+    }
+
+    return true;
+}
+```

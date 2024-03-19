@@ -1,0 +1,7 @@
+test_result: 
+exiv2-15: 
+build_result: True
+test_cases_result:  
+pass_rate: 0.0
+pass_test_cases: []
+fail_test_cases: ['exiv2-buggy-15-2', 'exiv2-buggy-15-3', 'exiv2-buggy-15-1', 'exiv2-buggy-15-4']

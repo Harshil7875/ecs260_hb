@@ -1,0 +1,45 @@
+Note: Google Test filter = LoadNodeTest.*
+[==========] Running 15 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 15 tests from LoadNodeTest
+[ RUN      ] LoadNodeTest.Reassign
+[       OK ] LoadNodeTest.Reassign (0 ms)
+[ RUN      ] LoadNodeTest.FallbackValues
+[       OK ] LoadNodeTest.FallbackValues (0 ms)
+[ RUN      ] LoadNodeTest.NumericConversion
+[       OK ] LoadNodeTest.NumericConversion (2 ms)
+[ RUN      ] LoadNodeTest.Binary
+[       OK ] LoadNodeTest.Binary (0 ms)
+[ RUN      ] LoadNodeTest.BinaryWithWhitespaces
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 2, column 3: end of map not found" thrown in the test body.
+[  FAILED  ] LoadNodeTest.BinaryWithWhitespaces (1 ms)
+[ RUN      ] LoadNodeTest.IterateSequence
+[       OK ] LoadNodeTest.IterateSequence (0 ms)
+[ RUN      ] LoadNodeTest.IterateMap
+[       OK ] LoadNodeTest.IterateMap (0 ms)
+[ RUN      ] LoadNodeTest.CloneScalar
+[       OK ] LoadNodeTest.CloneScalar (0 ms)
+[ RUN      ] LoadNodeTest.CloneSeq
+[       OK ] LoadNodeTest.CloneSeq (0 ms)
+[ RUN      ] LoadNodeTest.CloneMap
+[       OK ] LoadNodeTest.CloneMap (1 ms)
+[ RUN      ] LoadNodeTest.CloneAlias
+[       OK ] LoadNodeTest.CloneAlias (0 ms)
+[ RUN      ] LoadNodeTest.ForceInsertIntoMap
+[       OK ] LoadNodeTest.ForceInsertIntoMap (0 ms)
+[ RUN      ] LoadNodeTest.ResetNode
+[       OK ] LoadNodeTest.ResetNode (0 ms)
+[ RUN      ] LoadNodeTest.EmptyString
+[       OK ] LoadNodeTest.EmptyString (0 ms)
+[ RUN      ] LoadNodeTest.DereferenceIteratorError
+[       OK ] LoadNodeTest.DereferenceIteratorError (0 ms)
+[----------] 15 tests from LoadNodeTest (4 ms total)
+
+[----------] Global test environment tear-down
+[==========] 15 tests from 1 test suite ran. (4 ms total)
+[  PASSED  ] 14 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] LoadNodeTest.BinaryWithWhitespaces
+
+ 1 FAILED TEST

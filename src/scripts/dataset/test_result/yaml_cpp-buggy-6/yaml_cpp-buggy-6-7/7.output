@@ -1,0 +1,21 @@
+Note: Google Test filter = HandlerTest.*
+[==========] Running 6 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 6 tests from HandlerTest
+[ RUN      ] HandlerTest.NoEndOfMapFlow
+[       OK ] HandlerTest.NoEndOfMapFlow (0 ms)
+[ RUN      ] HandlerTest.PlainScalarStartingWithQuestionMark
+[       OK ] HandlerTest.PlainScalarStartingWithQuestionMark (1 ms)
+[ RUN      ] HandlerTest.NullStringScalar
+[       OK ] HandlerTest.NullStringScalar (0 ms)
+[ RUN      ] HandlerTest.CommentOnNewlineOfMapValueWithNoSpaces
+[       OK ] HandlerTest.CommentOnNewlineOfMapValueWithNoSpaces (0 ms)
+[ RUN      ] HandlerTest.CommentOnNewlineOfMapValueWithOneSpace
+[       OK ] HandlerTest.CommentOnNewlineOfMapValueWithOneSpace (0 ms)
+[ RUN      ] HandlerTest.CommentOnNewlineOfMapValueWithManySpace
+[       OK ] HandlerTest.CommentOnNewlineOfMapValueWithManySpace (0 ms)
+[----------] 6 tests from HandlerTest (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 6 tests from 1 test suite ran. (1 ms total)
+[  PASSED  ] 6 tests.

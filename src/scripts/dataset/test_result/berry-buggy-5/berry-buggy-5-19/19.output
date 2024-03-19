@@ -1,0 +1,4 @@
+assert_failed: assert failed!
+stack traceback:
+	<native>: in native function
+	tests/suffix.be:25: in function `main`

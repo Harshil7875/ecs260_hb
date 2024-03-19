@@ -1,0 +1,31 @@
+<<< Fixed function:
+void dpp_sighandler(int signum) {
+	__gcov_flush();
+	sigaction(signum, &dpp_orig_sigaction, NULL); // Fixed the error by passing correct argument
+	if(signum == SIGFPE) {
+		printf("Division by zero error occurred\n");
+		exit(1);
+	} else {
+		raise(signum);
+	}
+}
+
+>>>
+
+```json
+{
+  "error": [
+    {
+      "line_number": 4,
+      "error_type": "Omission and Vulnerability Error",
+      "explanation": "The sigaction function was called with incorrect argument, it should be 'signum' instead of 'sigaction'"
+    },
+    {
+      "line_number": 7,
+      "error_type": "Division by Zero",
+      "explanation": "Added a check for division by zero error and exiting the program with an appropriate message"
+    }
+  ],
+  "confidence": 0.9
+}
+```

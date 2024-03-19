@@ -1,0 +1,8 @@
+test_result: 
+yara-1: 
+build_result: True
+test_cases_result:  
+pass_rate: 0.0
+pass_test_cases: []
+fail_test_cases: ['yara-buggy-1-55']
+fail_test_cases_info: {'yara-buggy-1-55': {'failing_info': 'expecting ERROR_CALLBACK_REQUIRED (14), got: 0\nFAIL test-api (exit status: 1)', 'tc_code': 'void test_issue_920()\n{\n  const char* rules_str = "\\\n      rule test { \\\n        condition: true \\\n      }";\n\n  YR_COMPILER* compiler = NULL;\n\n  yr_initialize();\n\n  if (yr_compiler_create(&compiler) != ERROR_SUCCESS)\n  {\n    perror("yr_compiler_create");\n    exit(EXIT_FAILURE);\n  }\n\n  // Define a variable named "test"\n  yr_compiler_define_boolean_variable(compiler, "test", 1);\n\n  // The compilation should not succeed, as the rule is named "test" and a\n  // a variable with the same name already exists.\n  yr_compiler_add_string(compiler, rules_str, NULL);\n\n  if (compiler->last_error != ERROR_DUPLICATED_IDENTIFIER)\n  {\n    yr_compiler_destroy(compiler);\n    printf("expecting ERROR_CALLBACK_REQUIRED (%d), got: %d\\n",\n           ERROR_DUPLICATED_IDENTIFIER, compiler->last_error);\n    exit(EXIT_FAILURE);\n  }\n\n  yr_compiler_destroy(compiler);\n  yr_finalize();\n}'}}

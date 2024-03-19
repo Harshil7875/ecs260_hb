@@ -1,0 +1,309 @@
+[exiv2] start building
+  Starting container
+    Image: hschoe/defects4cpp-ubuntu:exiv2
+
+-- The CXX compiler identification is GNU 7.5.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found Python3: /usr/bin/python3.6 (found version "3.6.9") found components: Interpreter 
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11") 
+-- Found EXPAT: /usr/lib/x86_64-linux-gnu/libexpat.so (found version "2.2.5") 
+-- Performing Test Iconv_IS_BUILT_IN
+-- Performing Test Iconv_IS_BUILT_IN - Success
+-- Found Iconv: /usr/lib/x86_64-linux-gnu/libc.so  
+-- ICONV_INCLUDE_DIR : 
+-- ICONV_LIBRARIES : /usr/lib/x86_64-linux-gnu/libc.so
+-- Performing Test HAS_FSTACK_CLASH_PROTECTION
+-- Performing Test HAS_FSTACK_CLASH_PROTECTION - Failed
+-- Performing Test HAS_FCF_PROTECTION
+-- Performing Test HAS_FCF_PROTECTION - Failed
+-- Performing Test HAS_FSTACK_PROTECTOR_STRONG
+-- Performing Test HAS_FSTACK_PROTECTOR_STRONG - Success
+-- Looking for mmap
+-- Looking for mmap - found
+-- Looking for munmap
+-- Looking for munmap - found
+-- Looking for strerror_r
+-- Looking for strerror_r - found
+-- Performing Test EXV_STRERROR_R_CHAR_P
+-- Performing Test EXV_STRERROR_R_CHAR_P - Success
+-- Looking for C++ include libproc.h
+-- Looking for C++ include libproc.h - not found
+-- Looking for C++ include unistd.h
+-- Looking for C++ include unistd.h - found
+-- Looking for C++ include sys/mman.h
+-- Looking for C++ include sys/mman.h - found
+-- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY
+-- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY - Success
+-- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY
+-- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY - Success
+-- Performing Test COMPILER_HAS_DEPRECATED_ATTR
+-- Performing Test COMPILER_HAS_DEPRECATED_ATTR - Success
+-- Install prefix:    /usr/local
+-- ------------------------------------------------------------------
+-- CMake Generator:   Unix Makefiles
+-- CMAKE_BUILD_TYPE:  Release
+-- Compiler info: GNU (/usr/bin/c++) ; version: 7.5.0
+-- CMAKE_CXX_STANDARD:11
+--  --- Compiler flags --- 
+-- General:           
+	 -fstack-protector-strong
+	 -Wp,-D_GLIBCXX_ASSERTIONS
+	 -Wp,-D_FORTIFY_SOURCE=2
+	 -Wall
+	 -Wcast-align
+	 -Wpointer-arith
+	 -Wformat-security
+	 -Wmissing-format-attribute
+-- Extra:              
+-- Debug:             -g3 -gstrict-dwarf -O0
+-- Release:           -O3 -DNDEBUG
+-- RelWithDebInfo:    -O2 -g -DNDEBUG
+-- MinSizeRel:        -Os -DNDEBUG
+--  --- Linker flags --- 
+-- General:           
+-- Debug:             
+-- Release:           
+	 -Woverloaded-virtual
+	 -W
+	 -Wno-error=format-nonliteral
+-- RelWithDebInfo:    
+-- MinSizeRel:        
+-- 
+-- Compiler Options
+-- Warnings as errors:                 NO
+-- Use extra compiler warning flags:   NO
+-- 
+-- ------------------------------------------------------------------
+-- Building shared library:            YES
+-- Building PNG support:               YES
+-- XMP metadata support:               YES
+-- Building BMFF support:              YES
+-- Native language support:            NO
+-- Conversion of Windows XP tags:      YES
+-- Nikon lens database:                YES
+-- Building webready support:          NO
+-- Building exiv2 command:             YES
+-- Building samples:                   YES
+-- Building unit tests:                NO
+-- Building fuzz tests:                NO
+-- Building doc:                       NO
+-- Building with coverage flags:       NO
+-- Using ccache:                       NO
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/workspace/build
+
+[  0%] Building CXX object xmpsdk/CMakeFiles/exiv2-xmp.dir/src/ExpatAdapter.cpp.o
+[  1%] Building CXX object xmpsdk/CMakeFiles/exiv2-xmp.dir/src/MD5.cpp.o
+[  1%] Building CXX object xmpsdk/CMakeFiles/exiv2-xmp.dir/src/ParseRDF.cpp.o
+[  2%] Building CXX object xmpsdk/CMakeFiles/exiv2-xmp.dir/src/UnicodeConversions.cpp.o
+[  3%] Building CXX object xmpsdk/CMakeFiles/exiv2-xmp.dir/src/WXMPIterator.cpp.o
+[  3%] Building CXX object xmpsdk/CMakeFiles/exiv2-xmp.dir/src/WXMPMeta.cpp.o
+[  4%] Building CXX object xmpsdk/CMakeFiles/exiv2-xmp.dir/src/WXMPUtils.cpp.o
+[  4%] Building CXX object xmpsdk/CMakeFiles/exiv2-xmp.dir/src/XML_Node.cpp.o
+[  5%] Building CXX object xmpsdk/CMakeFiles/exiv2-xmp.dir/src/XMPCore_Impl.cpp.o
+[  6%] Building CXX object xmpsdk/CMakeFiles/exiv2-xmp.dir/src/XMPIterator.cpp.o
+[  6%] Building CXX object xmpsdk/CMakeFiles/exiv2-xmp.dir/src/XMPMeta-GetSet.cpp.o
+[  7%] Building CXX object xmpsdk/CMakeFiles/exiv2-xmp.dir/src/XMPMeta-Parse.cpp.o
+[  7%] Building CXX object xmpsdk/CMakeFiles/exiv2-xmp.dir/src/XMPMeta-Serialize.cpp.o
+[  8%] Building CXX object xmpsdk/CMakeFiles/exiv2-xmp.dir/src/XMPMeta.cpp.o
+[  9%] Building CXX object xmpsdk/CMakeFiles/exiv2-xmp.dir/src/XMPUtils-FileInfo.cpp.o
+[  9%] Building CXX object xmpsdk/CMakeFiles/exiv2-xmp.dir/src/XMPUtils.cpp.o
+[ 10%] Linking CXX static library ../lib/libexiv2-xmp.a
+[ 10%] Built target exiv2-xmp
+[ 10%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/canonmn_int.cpp.o
+[ 11%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/casiomn_int.cpp.o
+[ 11%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/cr2header_int.cpp.o
+[ 12%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/crwimage_int.cpp.o
+[ 13%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/fujimn_int.cpp.o
+[ 13%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/helper_functions.cpp.o
+[ 14%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/image_int.cpp.o
+[ 14%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/makernote_int.cpp.o
+[ 15%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/minoltamn_int.cpp.o
+[ 16%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/nikonmn_int.cpp.o
+[ 16%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/olympusmn_int.cpp.o
+[ 17%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/orfimage_int.cpp.o
+[ 17%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/panasonicmn_int.cpp.o
+[ 18%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/pentaxmn_int.cpp.o
+[ 19%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/rw2image_int.cpp.o
+[ 19%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/samsungmn_int.cpp.o
+[ 20%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/sigmamn_int.cpp.o
+[ 20%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/sonymn_int.cpp.o
+[ 21%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/tags_int.cpp.o
+[ 22%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/tiffcomposite_int.cpp.o
+[ 22%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/tiffimage_int.cpp.o
+[ 23%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/tiffvisitor_int.cpp.o
+[ 24%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/utils.cpp.o
+[ 24%] Building CXX object src/CMakeFiles/exiv2lib_int.dir/pngchunk_int.cpp.o
+[ 24%] Built target exiv2lib_int
+[ 24%] Building CXX object src/CMakeFiles/exiv2lib.dir/basicio.cpp.o
+[ 25%] Building CXX object src/CMakeFiles/exiv2lib.dir/bmffimage.cpp.o
+[ 26%] Building CXX object src/CMakeFiles/exiv2lib.dir/bmpimage.cpp.o
+[ 26%] Building CXX object src/CMakeFiles/exiv2lib.dir/convert.cpp.o
+[ 27%] Building CXX object src/CMakeFiles/exiv2lib.dir/cr2image.cpp.o
+[ 27%] Building CXX object src/CMakeFiles/exiv2lib.dir/crwimage.cpp.o
+[ 28%] Building CXX object src/CMakeFiles/exiv2lib.dir/datasets.cpp.o
+[ 29%] Building CXX object src/CMakeFiles/exiv2lib.dir/easyaccess.cpp.o
+[ 29%] Building CXX object src/CMakeFiles/exiv2lib.dir/epsimage.cpp.o
+[ 30%] Building CXX object src/CMakeFiles/exiv2lib.dir/error.cpp.o
+[ 30%] Building CXX object src/CMakeFiles/exiv2lib.dir/exif.cpp.o
+[ 31%] Building CXX object src/CMakeFiles/exiv2lib.dir/futils.cpp.o
+[ 32%] Building CXX object src/CMakeFiles/exiv2lib.dir/gifimage.cpp.o
+[ 32%] Building CXX object src/CMakeFiles/exiv2lib.dir/http.cpp.o
+[ 33%] Building CXX object src/CMakeFiles/exiv2lib.dir/image.cpp.o
+[ 33%] Building CXX object src/CMakeFiles/exiv2lib.dir/ini.cpp.o
+[ 34%] Building CXX object src/CMakeFiles/exiv2lib.dir/iptc.cpp.o
+[ 35%] Building CXX object src/CMakeFiles/exiv2lib.dir/jp2image.cpp.o
+[ 35%] Building CXX object src/CMakeFiles/exiv2lib.dir/jpgimage.cpp.o
+[ 36%] Building CXX object src/CMakeFiles/exiv2lib.dir/metadatum.cpp.o
+[ 37%] Building CXX object src/CMakeFiles/exiv2lib.dir/mrwimage.cpp.o
+[ 37%] Building CXX object src/CMakeFiles/exiv2lib.dir/orfimage.cpp.o
+[ 38%] Building CXX object src/CMakeFiles/exiv2lib.dir/pgfimage.cpp.o
+[ 38%] Building CXX object src/CMakeFiles/exiv2lib.dir/preview.cpp.o
+[ 39%] Building CXX object src/CMakeFiles/exiv2lib.dir/properties.cpp.o
+[ 40%] Building CXX object src/CMakeFiles/exiv2lib.dir/psdimage.cpp.o
+[ 40%] Building CXX object src/CMakeFiles/exiv2lib.dir/rafimage.cpp.o
+[ 41%] Building CXX object src/CMakeFiles/exiv2lib.dir/rw2image.cpp.o
+[ 41%] Building CXX object src/CMakeFiles/exiv2lib.dir/tags.cpp.o
+[ 42%] Building CXX object src/CMakeFiles/exiv2lib.dir/tgaimage.cpp.o
+[ 43%] Building CXX object src/CMakeFiles/exiv2lib.dir/tiffimage.cpp.o
+[ 43%] Building CXX object src/CMakeFiles/exiv2lib.dir/types.cpp.o
+[ 44%] Building CXX object src/CMakeFiles/exiv2lib.dir/value.cpp.o
+[ 44%] Building CXX object src/CMakeFiles/exiv2lib.dir/version.cpp.o
+[ 45%] Building CXX object src/CMakeFiles/exiv2lib.dir/webpimage.cpp.o
+[ 46%] Building CXX object src/CMakeFiles/exiv2lib.dir/xmp.cpp.o
+[ 46%] Building CXX object src/CMakeFiles/exiv2lib.dir/xmpsidecar.cpp.o
+[ 47%] Building CXX object src/CMakeFiles/exiv2lib.dir/pngimage.cpp.o
+[ 48%] Linking CXX shared library ../lib/libexiv2.so
+[ 48%] Built target exiv2lib
+[ 49%] Building CXX object src/CMakeFiles/exiv2.dir/exiv2.cpp.o
+[ 50%] Building CXX object src/CMakeFiles/exiv2.dir/actions.cpp.o
+[ 50%] Building CXX object src/CMakeFiles/exiv2.dir/getopt.cpp.o
+[ 51%] Building CXX object src/CMakeFiles/exiv2.dir/utils.cpp.o
+[ 52%] Linking CXX executable ../bin/exiv2
+[ 52%] Built target exiv2
+[ 52%] Building CXX object samples/CMakeFiles/addmoddel.dir/addmoddel.cpp.o
+[ 53%] Linking CXX executable ../bin/addmoddel
+[ 53%] Built target addmoddel
+[ 54%] Building CXX object samples/CMakeFiles/convert-test.dir/convert-test.cpp.o
+[ 54%] Linking CXX executable ../bin/convert-test
+[ 54%] Built target convert-test
+[ 55%] Building CXX object samples/CMakeFiles/easyaccess-test.dir/easyaccess-test.cpp.o
+[ 55%] Linking CXX executable ../bin/easyaccess-test
+[ 55%] Built target easyaccess-test
+[ 56%] Building CXX object samples/CMakeFiles/exifcomment.dir/exifcomment.cpp.o
+[ 57%] Linking CXX executable ../bin/exifcomment
+[ 57%] Built target exifcomment
+[ 57%] Building CXX object samples/CMakeFiles/exifdata-test.dir/exifdata-test.cpp.o
+[ 58%] Linking CXX executable ../bin/exifdata-test
+[ 58%] Built target exifdata-test
+[ 58%] Building CXX object samples/CMakeFiles/exifdata.dir/exifdata.cpp.o
+[ 59%] Linking CXX executable ../bin/exifdata
+[ 59%] Built target exifdata
+[ 60%] Building CXX object samples/CMakeFiles/exifprint.dir/exifprint.cpp.o
+[ 60%] Linking CXX executable ../bin/exifprint
+[ 60%] Built target exifprint
+[ 61%] Building CXX object samples/CMakeFiles/exifvalue.dir/exifvalue.cpp.o
+[ 61%] Linking CXX executable ../bin/exifvalue
+[ 61%] Built target exifvalue
+[ 61%] Building CXX object samples/CMakeFiles/ini-test.dir/ini-test.cpp.o
+[ 62%] Linking CXX executable ../bin/ini-test
+[ 62%] Built target ini-test
+[ 63%] Building CXX object samples/CMakeFiles/iotest.dir/iotest.cpp.o
+[ 63%] Linking CXX executable ../bin/iotest
+[ 63%] Built target iotest
+[ 64%] Building CXX object samples/CMakeFiles/iptceasy.dir/iptceasy.cpp.o
+[ 64%] Linking CXX executable ../bin/iptceasy
+[ 64%] Built target iptceasy
+[ 65%] Building CXX object samples/CMakeFiles/iptcprint.dir/iptcprint.cpp.o
+[ 66%] Linking CXX executable ../bin/iptcprint
+[ 66%] Built target iptcprint
+[ 66%] Building CXX object samples/CMakeFiles/iptctest.dir/iptctest.cpp.o
+[ 67%] Linking CXX executable ../bin/iptctest
+[ 67%] Built target iptctest
+[ 68%] Building CXX object samples/CMakeFiles/key-test.dir/key-test.cpp.o
+[ 68%] Linking CXX executable ../bin/key-test
+[ 68%] Built target key-test
+[ 69%] Building CXX object samples/CMakeFiles/largeiptc-test.dir/largeiptc-test.cpp.o
+[ 69%] Linking CXX executable ../bin/largeiptc-test
+[ 69%] Built target largeiptc-test
+[ 69%] Building CXX object samples/CMakeFiles/mmap-test.dir/mmap-test.cpp.o
+[ 70%] Linking CXX executable ../bin/mmap-test
+[ 70%] Built target mmap-test
+[ 71%] Building CXX object samples/CMakeFiles/mrwthumb.dir/mrwthumb.cpp.o
+[ 71%] Linking CXX executable ../bin/mrwthumb
+[ 71%] Built target mrwthumb
+[ 71%] Building CXX object samples/CMakeFiles/prevtest.dir/prevtest.cpp.o
+[ 72%] Linking CXX executable ../bin/prevtest
+[ 72%] Built target prevtest
+[ 73%] Building CXX object samples/CMakeFiles/stringto-test.dir/stringto-test.cpp.o
+[ 73%] Linking CXX executable ../bin/stringto-test
+[ 73%] Built target stringto-test
+[ 74%] Building CXX object samples/CMakeFiles/taglist.dir/taglist.cpp.o
+[ 75%] Linking CXX executable ../bin/taglist
+[ 75%] Built target taglist
+[ 75%] Building CXX object samples/CMakeFiles/tiff-test.dir/tiff-test.cpp.o
+[ 76%] Linking CXX executable ../bin/tiff-test
+[ 76%] Built target tiff-test
+[ 76%] Building CXX object samples/CMakeFiles/werror-test.dir/werror-test.cpp.o
+[ 77%] Linking CXX executable ../bin/werror-test
+[ 77%] Built target werror-test
+[ 78%] Building CXX object samples/CMakeFiles/write-test.dir/write-test.cpp.o
+[ 78%] Linking CXX executable ../bin/write-test
+[ 78%] Built target write-test
+[ 79%] Building CXX object samples/CMakeFiles/write2-test.dir/write2-test.cpp.o
+[ 79%] Linking CXX executable ../bin/write2-test
+[ 79%] Built target write2-test
+[ 79%] Building CXX object samples/CMakeFiles/xmpparse.dir/xmpparse.cpp.o
+[ 80%] Linking CXX executable ../bin/xmpparse
+[ 80%] Built target xmpparse
+[ 80%] Building CXX object samples/CMakeFiles/xmpparser-test.dir/xmpparser-test.cpp.o
+[ 81%] Linking CXX executable ../bin/xmpparser-test
+[ 81%] Built target xmpparser-test
+[ 82%] Building CXX object samples/CMakeFiles/xmpprint.dir/xmpprint.cpp.o
+[ 82%] Linking CXX executable ../bin/xmpprint
+[ 82%] Built target xmpprint
+[ 83%] Building CXX object samples/CMakeFiles/xmpsample.dir/xmpsample.cpp.o
+[ 84%] Linking CXX executable ../bin/xmpsample
+[ 84%] Built target xmpsample
+[ 85%] Building CXX object samples/CMakeFiles/xmpdump.dir/xmpdump.cpp.o
+[ 86%] Linking CXX executable ../bin/xmpdump
+[ 86%] Built target xmpdump
+[ 87%] Building CXX object samples/CMakeFiles/getopt-test.dir/getopt-test.cpp.o
+[ 88%] Building CXX object samples/CMakeFiles/getopt-test.dir/__/src/utils.cpp.o
+[ 88%] Building CXX object samples/CMakeFiles/getopt-test.dir/__/src/getopt.cpp.o
+[ 89%] Linking CXX executable ../bin/getopt-test
+[ 89%] Built target getopt-test
+[ 90%] Building CXX object samples/CMakeFiles/metacopy.dir/metacopy.cpp.o
+[ 91%] Building CXX object samples/CMakeFiles/metacopy.dir/__/src/utils.cpp.o
+[ 91%] Building CXX object samples/CMakeFiles/metacopy.dir/__/src/getopt.cpp.o
+[ 92%] Linking CXX executable ../bin/metacopy
+[ 92%] Built target metacopy
+[ 93%] Building CXX object samples/CMakeFiles/path-test.dir/path-test.cpp.o
+[ 93%] Building CXX object samples/CMakeFiles/path-test.dir/__/src/utils.cpp.o
+[ 94%] Building CXX object samples/CMakeFiles/path-test.dir/__/src/getopt.cpp.o
+[ 95%] Linking CXX executable ../bin/path-test
+[ 95%] Built target path-test
+[ 96%] Building CXX object samples/CMakeFiles/exiv2json.dir/exiv2json.cpp.o
+[ 96%] Building CXX object samples/CMakeFiles/exiv2json.dir/Jzon.cpp.o
+[ 97%] Linking CXX executable ../bin/exiv2json
+[ 97%] Built target exiv2json
+[ 98%] Building CXX object samples/CMakeFiles/geotag.dir/geotag.cpp.o
+[ 98%] Linking CXX executable ../bin/geotag
+[ 98%] Built target geotag
+[ 98%] Building CXX object samples/CMakeFiles/conntest.dir/conntest.cpp.o
+[ 99%] Linking CXX executable ../bin/conntest
+[ 99%] Built target conntest
+[ 99%] Building CXX object samples/CMakeFiles/remotetest.dir/remotetest.cpp.o
+[100%] Linking CXX executable ../bin/remotetest
+[100%] Built target remotetest
+
+mv: './tests/test_issue_1969.py' and './tests/test_issue_1969.py' are the same file
+
+  Closing container
+[exiv2] done
+Elapsed: 2m 30.21s

@@ -1,0 +1,2654 @@
+Note: Google Test filter = HandlerSpecTest.*
+[==========] Running 112 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 112 tests from HandlerSpecTest
+[ RUN      ] HandlerSpecTest.Ex2_1_SeqScalars
+[       OK ] HandlerSpecTest.Ex2_1_SeqScalars (0 ms)
+[ RUN      ] HandlerSpecTest.Ex2_2_MappingScalarsToScalars
+[       OK ] HandlerSpecTest.Ex2_2_MappingScalarsToScalars (0 ms)
+[ RUN      ] HandlerSpecTest.Ex2_3_MappingScalarsToSequences
+[       OK ] HandlerSpecTest.Ex2_3_MappingScalarsToSequences (2 ms)
+[ RUN      ] HandlerSpecTest.Ex2_4_SequenceOfMappings
+[       OK ] HandlerSpecTest.Ex2_4_SequenceOfMappings (0 ms)
+[ RUN      ] HandlerSpecTest.Ex2_5_SequenceOfSequences
+[       OK ] HandlerSpecTest.Ex2_5_SequenceOfSequences (1 ms)
+[ RUN      ] HandlerSpecTest.Ex2_6_MappingOfMappings
+[       OK ] HandlerSpecTest.Ex2_6_MappingOfMappings (0 ms)
+[ RUN      ] HandlerSpecTest.Ex2_7_TwoDocumentsInAStream
+[       OK ] HandlerSpecTest.Ex2_7_TwoDocumentsInAStream (1 ms)
+[ RUN      ] HandlerSpecTest.Ex2_8_PlayByPlayFeed
+[       OK ] HandlerSpecTest.Ex2_8_PlayByPlayFeed (0 ms)
+[ RUN      ] HandlerSpecTest.Ex2_9_SingleDocumentWithTwoComments
+[       OK ] HandlerSpecTest.Ex2_9_SingleDocumentWithTwoComments (1 ms)
+[ RUN      ] HandlerSpecTest.Ex2_10_SimpleAnchor
+[       OK ] HandlerSpecTest.Ex2_10_SimpleAnchor (0 ms)
+[ RUN      ] HandlerSpecTest.Ex2_11_MappingBetweenSequences
+[       OK ] HandlerSpecTest.Ex2_11_MappingBetweenSequences (1 ms)
+[ RUN      ] HandlerSpecTest.Ex2_12_CompactNestedMapping
+[       OK ] HandlerSpecTest.Ex2_12_CompactNestedMapping (0 ms)
+[ RUN      ] HandlerSpecTest.Ex2_13_InLiteralsNewlinesArePreserved
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <10-00 00-00 01-00 00-00 04-00 00-00>, @0x7ffc4099ade0 "!", 0, @0x55c31f569470 "")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:269: EXPECT_CALL(handler, OnScalar(_, "!", 0, "\\//||\\/||\n" "// ||  ||__"))...
+  Expected arg #3: is equal to "\\//||\\/||\n// ||  ||__"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:270: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:269: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:266: Failure
+Mock function called more times than expected - returning directly.
+    Function call: OnDocumentStart(@0x55c31f569568 12-byte object <14-00 00-00 02-00 00-00 02-00 00-00>)
+         Expected: to be called once
+           Actual: called twice - over-saturated and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <14-00 00-00 02-00 00-00 02-00 00-00>, @0x7ffc4099ade0 "?", 0, @0x55c31f569578 "\\//||\\/|| // ||  ||__")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:269: EXPECT_CALL(handler, OnScalar(_, "!", 0, "\\//||\\/||\n" "// ||  ||__"))...
+  Expected arg #1: is equal to "!"
+           Actual: "?"
+  Expected arg #3: is equal to "\\//||\\/||\n// ||  ||__"
+           Actual: "\\//||\\/|| // ||  ||__"
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:270: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:269: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:269: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "\\//||\\/||\n" "// ||  ||__"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:270: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex2_13_InLiteralsNewlinesArePreserved (1 ms)
+[ RUN      ] HandlerSpecTest.Ex2_14_InFoldedScalarsNewlinesBecomeSpaces
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <04-00 00-00 00-00 00-00 04-00 00-00>, @0x7ffc4099ade0 "!", 0, @0x55c31f563fb0 "")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:278: EXPECT_CALL(handler, OnScalar(_, "!", 0, "Mark McGwire's year was crippled by a knee injury."))...
+  Expected arg #3: is equal to "Mark McGwire's year was crippled by a knee injury."
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:279: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:278: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:275: Failure
+Mock function called more times than expected - returning directly.
+    Function call: OnDocumentStart(@0x55c31f5640a8 12-byte object <08-00 00-00 01-00 00-00 02-00 00-00>)
+         Expected: to be called once
+           Actual: called twice - over-saturated and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <08-00 00-00 01-00 00-00 02-00 00-00>, @0x7ffc4099ade0 "?", 0, @0x55c31f5640b8 "Mark McGwire's year was crippled by a knee injury.")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:278: EXPECT_CALL(handler, OnScalar(_, "!", 0, "Mark McGwire's year was crippled by a knee injury."))...
+  Expected arg #1: is equal to "!"
+           Actual: "?"
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:279: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:278: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:278: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "Mark McGwire's year was crippled by a knee injury."))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:279: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex2_14_InFoldedScalarsNewlinesBecomeSpaces (0 ms)
+[ RUN      ] HandlerSpecTest.Ex2_15_FoldedNewlinesArePreservedForMoreIndentedAndBlankLines
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <00-00 00-00 00-00 00-00 00-00 00-00>, @0x7ffc4099ade0 "!", 0, @0x55c31f569418 "")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:294: EXPECT_CALL(handler, OnScalar(_, "!", 0, "Sammy Sosa completed another fine season with great stats.\n" "\n" "  63 Home Runs\n" "  0.288 Batting Average\n" "\n" "What a year!"))...
+  Expected arg #3: is equal to "Sammy Sosa completed another fine season with great stats.\n\n  63 Home Runs\n  0.288 Batting Average\n\nWhat a year!"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:295: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:294: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:285: Failure
+Mock function called more times than expected - returning directly.
+    Function call: OnDocumentStart(@0x55c31f569510 12-byte object <03-00 00-00 01-00 00-00 01-00 00-00>)
+         Expected: to be called once
+           Actual: called twice - over-saturated and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <03-00 00-00 01-00 00-00 01-00 00-00>, @0x7ffc4099ade0 "?", 0, @0x55c31f569520 "Sammy Sosa completed another fine season with great stats.\n63 Home Runs 0.288 Batting Average\nWhat a year!")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:294: EXPECT_CALL(handler, OnScalar(_, "!", 0, "Sammy Sosa completed another fine season with great stats.\n" "\n" "  63 Home Runs\n" "  0.288 Batting Average\n" "\n" "What a year!"))...
+  Expected arg #1: is equal to "!"
+           Actual: "?"
+  Expected arg #3: is equal to "Sammy Sosa completed another fine season with great stats.\n\n  63 Home Runs\n  0.288 Batting Average\n\nWhat a year!"
+           Actual: "Sammy Sosa completed another fine season with great stats.\n63 Home Runs 0.288 Batting Average\nWhat a year!"
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:295: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:294: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:294: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "Sammy Sosa completed another fine season with great stats.\n" "\n" "  63 Home Runs\n" "  0.288 Batting Average\n" "\n" "What a year!"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:295: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex2_15_FoldedNewlinesArePreservedForMoreIndentedAndBlankLines (1 ms)
+[ RUN      ] HandlerSpecTest.Ex2_16_IndentationDeterminesScope
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099ac24 12-byte object <23-00 00-00 01-00 00-00 10-00 00-00>, @0x7ffc4099ac30 "!", 0, @0x55c31f564060 "")
+Google Mock tried the following 6 expectations, but none matched:
+
+/home/workspace/test/integration/handler_spec_test.cpp:302: tried expectation #0: EXPECT_CALL(handler, OnScalar(_, "?", 0, "name"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:303: tried expectation #1: EXPECT_CALL(handler, OnScalar(_, "?", 0, "Mark McGwire"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:304: tried expectation #2: EXPECT_CALL(handler, OnScalar(_, "?", 0, "accomplishment"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "accomplishment"
+           Actual: ""
+         Expected: to be called once
+           Actual: called once - saturated and active
+/home/workspace/test/integration/handler_spec_test.cpp:307: tried expectation #3: EXPECT_CALL(handler, OnScalar(_, "!", 0, "Mark set a major league home run record in 1998.\n"))...
+  Expected arg #3: is equal to "Mark set a major league home run record in 1998.\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:308: tried expectation #4: EXPECT_CALL(handler, OnScalar(_, "?", 0, "stats"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "stats"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:311: tried expectation #5: EXPECT_CALL(handler, OnScalar(_, "!", 0, "65 Home Runs\n" "0.278 Batting Average\n"))...
+  Expected arg #3: is equal to "65 Home Runs\n0.278 Batting Average\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 3, column 3: end of map not found" thrown in the test body.
+/home/workspace/test/integration/handler_spec_test.cpp:312: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:307: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "Mark set a major league home run record in 1998.\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:308: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "stats"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:311: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "65 Home Runs\n" "0.278 Batting Average\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:313: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex2_16_IndentationDeterminesScope (1 ms)
+[ RUN      ] HandlerSpecTest.Ex2_17_QuotedScalars
+[       OK ] HandlerSpecTest.Ex2_17_QuotedScalars (0 ms)
+[ RUN      ] HandlerSpecTest.Ex2_18_MultiLineFlowScalars
+[       OK ] HandlerSpecTest.Ex2_18_MultiLineFlowScalars (1 ms)
+[ RUN      ] HandlerSpecTest.Ex2_19_Integers
+[       OK ] HandlerSpecTest.Ex2_19_Integers (0 ms)
+[ RUN      ] HandlerSpecTest.Ex2_20_FloatingPoint
+[       OK ] HandlerSpecTest.Ex2_20_FloatingPoint (0 ms)
+[ RUN      ] HandlerSpecTest.Ex2_21_Miscellaneous
+[       OK ] HandlerSpecTest.Ex2_21_Miscellaneous (1 ms)
+[ RUN      ] HandlerSpecTest.Ex2_22_Timestamps
+[       OK ] HandlerSpecTest.Ex2_22_Timestamps (0 ms)
+[ RUN      ] HandlerSpecTest.Ex2_23_VariousExplicitTags
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099ac24 12-byte object <29-00 00-00 03-00 00-00 09-00 00-00>, @0x7ffc4099ac30 "tag:yaml.org,2002:binary", 0, @0x55c31f569470 "")
+Google Mock tried the following 6 expectations, but none matched:
+
+/home/workspace/test/integration/handler_spec_test.cpp:420: tried expectation #0: EXPECT_CALL(handler, OnScalar(_, "?", 0, "not-date"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:421: tried expectation #1: EXPECT_CALL(handler, OnScalar(_, "tag:yaml.org,2002:str", 0, "2002-04-28"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:422: tried expectation #2: EXPECT_CALL(handler, OnScalar(_, "?", 0, "picture"))...
+  Expected arg #1: is equal to "?"
+           Actual: "tag:yaml.org,2002:binary"
+  Expected arg #3: is equal to "picture"
+           Actual: ""
+         Expected: to be called once
+           Actual: called once - saturated and active
+/home/workspace/test/integration/handler_spec_test.cpp:427: tried expectation #3: EXPECT_CALL(handler, OnScalar(_, "tag:yaml.org,2002:binary", 0, "R0lGODlhDAAMAIQAAP//9/X\n" "17unp5WZmZgAAAOfn515eXv\n" "Pz7Y6OjuDg4J+fn5OTk6enp\n" "56enmleECcgggoBADs=\n"))...
+  Expected arg #3: is equal to "R0lGODlhDAAMAIQAAP//9/X\n17unp5WZmZgAAAOfn515eXv\nPz7Y6OjuDg4J+fn5OTk6enp\n56enmleECcgggoBADs=\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:428: tried expectation #4: EXPECT_CALL(handler, OnScalar(_, "?", 0, "application specific tag"))...
+  Expected arg #1: is equal to "?"
+           Actual: "tag:yaml.org,2002:binary"
+  Expected arg #3: is equal to "application specific tag"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:432: tried expectation #5: EXPECT_CALL(handler, OnScalar(_, "!something", 0, "The semantics of the tag\n" "above may be different for\n" "different documents."))...
+  Expected arg #1: is equal to "!something"
+           Actual: "tag:yaml.org,2002:binary"
+  Expected arg #3: is equal to "The semantics of the tag\nabove may be different for\ndifferent documents."
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 5, column 2: end of map not found" thrown in the test body.
+/home/workspace/test/integration/handler_spec_test.cpp:433: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:427: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "tag:yaml.org,2002:binary", 0, "R0lGODlhDAAMAIQAAP//9/X\n" "17unp5WZmZgAAAOfn515eXv\n" "Pz7Y6OjuDg4J+fn5OTk6enp\n" "56enmleECcgggoBADs=\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:428: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "application specific tag"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:432: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!something", 0, "The semantics of the tag\n" "above may be different for\n" "different documents."))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:434: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex2_23_VariousExplicitTags (1 ms)
+[ RUN      ] HandlerSpecTest.Ex2_24_GlobalTags
+[       OK ] HandlerSpecTest.Ex2_24_GlobalTags (1 ms)
+[ RUN      ] HandlerSpecTest.Ex2_25_UnorderedSets
+[       OK ] HandlerSpecTest.Ex2_25_UnorderedSets (0 ms)
+[ RUN      ] HandlerSpecTest.Ex2_26_OrderedMappings
+[       OK ] HandlerSpecTest.Ex2_26_OrderedMappings (1 ms)
+[ RUN      ] HandlerSpecTest.Ex2_27_Invoice
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099a8c4 12-byte object <9D-00 00-00 07-00 00-00 0F-00 00-00>, @0x7ffc4099a8d0 "!", 0, @0x55c31f560c60 "")
+Google Mock tried the following 42 expectations, but none matched:
+
+/home/workspace/test/integration/handler_spec_test.cpp:521: tried expectation #0: EXPECT_CALL(handler, OnScalar(_, "?", 0, "invoice"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:522: tried expectation #1: EXPECT_CALL(handler, OnScalar(_, "?", 0, "34843"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:523: tried expectation #2: EXPECT_CALL(handler, OnScalar(_, "?", 0, "date"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:524: tried expectation #3: EXPECT_CALL(handler, OnScalar(_, "?", 0, "2001-01-23"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:525: tried expectation #4: EXPECT_CALL(handler, OnScalar(_, "?", 0, "bill-to"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:528: tried expectation #5: EXPECT_CALL(handler, OnScalar(_, "?", 0, "given"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:529: tried expectation #6: EXPECT_CALL(handler, OnScalar(_, "?", 0, "Chris"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:530: tried expectation #7: EXPECT_CALL(handler, OnScalar(_, "?", 0, "family"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:531: tried expectation #8: EXPECT_CALL(handler, OnScalar(_, "?", 0, "Dumars"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:532: tried expectation #9: EXPECT_CALL(handler, OnScalar(_, "?", 0, "address"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:534: tried expectation #10: EXPECT_CALL(handler, OnScalar(_, "?", 0, "lines"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "lines"
+           Actual: ""
+         Expected: to be called once
+           Actual: called once - saturated and active
+/home/workspace/test/integration/handler_spec_test.cpp:537: tried expectation #11: EXPECT_CALL(handler, OnScalar(_, "!", 0, "458 Walkman Dr.\n" "Suite #292\n"))...
+  Expected arg #3: is equal to "458 Walkman Dr.\nSuite #292\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:538: tried expectation #12: EXPECT_CALL(handler, OnScalar(_, "?", 0, "city"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "city"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:539: tried expectation #13: EXPECT_CALL(handler, OnScalar(_, "?", 0, "Royal Oak"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "Royal Oak"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:540: tried expectation #14: EXPECT_CALL(handler, OnScalar(_, "?", 0, "state"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "state"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:541: tried expectation #15: EXPECT_CALL(handler, OnScalar(_, "?", 0, "MI"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "MI"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:542: tried expectation #16: EXPECT_CALL(handler, OnScalar(_, "?", 0, "postal"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "postal"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:543: tried expectation #17: EXPECT_CALL(handler, OnScalar(_, "?", 0, "48046"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "48046"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:546: tried expectation #18: EXPECT_CALL(handler, OnScalar(_, "?", 0, "ship-to"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "ship-to"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:548: tried expectation #19: EXPECT_CALL(handler, OnScalar(_, "?", 0, "product"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "product"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:551: tried expectation #20: EXPECT_CALL(handler, OnScalar(_, "?", 0, "sku"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "sku"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:552: tried expectation #21: EXPECT_CALL(handler, OnScalar(_, "?", 0, "BL394D"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "BL394D"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:553: tried expectation #22: EXPECT_CALL(handler, OnScalar(_, "?", 0, "quantity"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "quantity"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:554: tried expectation #23: EXPECT_CALL(handler, OnScalar(_, "?", 0, "4"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "4"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:555: tried expectation #24: EXPECT_CALL(handler, OnScalar(_, "?", 0, "description"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "description"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:556: tried expectation #25: EXPECT_CALL(handler, OnScalar(_, "?", 0, "Basketball"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "Basketball"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:557: tried expectation #26: EXPECT_CALL(handler, OnScalar(_, "?", 0, "price"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "price"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:558: tried expectation #27: EXPECT_CALL(handler, OnScalar(_, "?", 0, "450.00"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "450.00"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:561: tried expectation #28: EXPECT_CALL(handler, OnScalar(_, "?", 0, "sku"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "sku"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:562: tried expectation #29: EXPECT_CALL(handler, OnScalar(_, "?", 0, "BL4438H"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "BL4438H"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:563: tried expectation #30: EXPECT_CALL(handler, OnScalar(_, "?", 0, "quantity"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "quantity"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:564: tried expectation #31: EXPECT_CALL(handler, OnScalar(_, "?", 0, "1"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "1"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:565: tried expectation #32: EXPECT_CALL(handler, OnScalar(_, "?", 0, "description"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "description"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:566: tried expectation #33: EXPECT_CALL(handler, OnScalar(_, "?", 0, "Super Hoop"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "Super Hoop"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:567: tried expectation #34: EXPECT_CALL(handler, OnScalar(_, "?", 0, "price"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "price"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:568: tried expectation #35: EXPECT_CALL(handler, OnScalar(_, "?", 0, "2392.00"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "2392.00"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:571: tried expectation #36: EXPECT_CALL(handler, OnScalar(_, "?", 0, "tax"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "tax"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:572: tried expectation #37: EXPECT_CALL(handler, OnScalar(_, "?", 0, "251.42"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "251.42"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:573: tried expectation #38: EXPECT_CALL(handler, OnScalar(_, "?", 0, "total"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "total"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:574: tried expectation #39: EXPECT_CALL(handler, OnScalar(_, "?", 0, "4443.52"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "4443.52"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:575: tried expectation #40: EXPECT_CALL(handler, OnScalar(_, "?", 0, "comments"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "comments"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:578: tried expectation #41: EXPECT_CALL(handler, OnScalar(_, "?", 0, "Late afternoon is best. Backup contact is " "Nancy Billsmer @ 338-4338."))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "Late afternoon is best. Backup contact is Nancy Billsmer @ 338-4338."
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 9, column 13: end of map not found" thrown in the test body.
+/home/workspace/test/integration/handler_spec_test.cpp:544: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:545: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:559: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:569: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:579: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:550: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapStart(_, "?", 0, EmitterStyle::Block))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:560: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapStart(_, "?", 0, EmitterStyle::Block))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:570: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnSequenceEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:549: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnSequenceStart(_, "?", 0, EmitterStyle::Block))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:537: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "458 Walkman Dr.\n" "Suite #292\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:538: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "city"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:539: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "Royal Oak"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:540: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "state"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:541: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "MI"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:542: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "postal"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:543: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "48046"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:546: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "ship-to"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:548: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "product"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:551: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "sku"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:552: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "BL394D"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:553: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "quantity"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:554: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "4"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:555: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "description"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:556: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "Basketball"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:557: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "price"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:558: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "450.00"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:561: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "sku"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:562: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "BL4438H"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:563: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "quantity"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:564: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "1"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:565: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "description"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:566: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "Super Hoop"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:567: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "price"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:568: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "2392.00"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:571: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "tax"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:572: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "251.42"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:573: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "total"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:574: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "4443.52"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:575: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "comments"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:578: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "Late afternoon is best. Backup contact is " "Nancy Billsmer @ 338-4338."))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:547: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnAlias(_, 1))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:580: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex2_27_Invoice (2 ms)
+[ RUN      ] HandlerSpecTest.Ex2_28_LogFile
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099a8b4 12-byte object <3A-01 00-00 14-00 00-00 0A-00 00-00>, @0x7ffc4099a8c0 "!", 0, @0x55c31f560cb8 "")
+Google Mock tried the following 31 expectations, but none matched:
+
+/home/workspace/test/integration/handler_spec_test.cpp:587: tried expectation #0: EXPECT_CALL(handler, OnScalar(_, "?", 0, "Time"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:588: tried expectation #1: EXPECT_CALL(handler, OnScalar(_, "?", 0, "2001-11-23 15:01:42 -5"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:589: tried expectation #2: EXPECT_CALL(handler, OnScalar(_, "?", 0, "User"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:590: tried expectation #3: EXPECT_CALL(handler, OnScalar(_, "?", 0, "ed"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:591: tried expectation #4: EXPECT_CALL(handler, OnScalar(_, "?", 0, "Warning"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:593: tried expectation #5: EXPECT_CALL(handler, OnScalar(_, "?", 0, "This is an error message for the log file"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:598: tried expectation #6: EXPECT_CALL(handler, OnScalar(_, "?", 0, "Time"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:599: tried expectation #7: EXPECT_CALL(handler, OnScalar(_, "?", 0, "2001-11-23 15:02:31 -5"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:600: tried expectation #8: EXPECT_CALL(handler, OnScalar(_, "?", 0, "User"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:601: tried expectation #9: EXPECT_CALL(handler, OnScalar(_, "?", 0, "ed"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:602: tried expectation #10: EXPECT_CALL(handler, OnScalar(_, "?", 0, "Warning"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:604: tried expectation #11: EXPECT_CALL(handler, OnScalar(_, "?", 0, "A slightly different error message."))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:609: tried expectation #12: EXPECT_CALL(handler, OnScalar(_, "?", 0, "Date"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:610: tried expectation #13: EXPECT_CALL(handler, OnScalar(_, "?", 0, "2001-11-23 15:03:17 -5"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:611: tried expectation #14: EXPECT_CALL(handler, OnScalar(_, "?", 0, "User"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:612: tried expectation #15: EXPECT_CALL(handler, OnScalar(_, "?", 0, "ed"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:613: tried expectation #16: EXPECT_CALL(handler, OnScalar(_, "?", 0, "Fatal"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:614: tried expectation #17: EXPECT_CALL(handler, OnScalar(_, "?", 0, "Unknown variable \"bar\""))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:615: tried expectation #18: EXPECT_CALL(handler, OnScalar(_, "?", 0, "Stack"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:618: tried expectation #19: EXPECT_CALL(handler, OnScalar(_, "?", 0, "file"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:619: tried expectation #20: EXPECT_CALL(handler, OnScalar(_, "?", 0, "TopClass.py"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:620: tried expectation #21: EXPECT_CALL(handler, OnScalar(_, "?", 0, "line"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:621: tried expectation #22: EXPECT_CALL(handler, OnScalar(_, "?", 0, "23"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:622: tried expectation #23: EXPECT_CALL(handler, OnScalar(_, "?", 0, "code"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "code"
+           Actual: ""
+         Expected: to be called once
+           Actual: called once - saturated and active
+/home/workspace/test/integration/handler_spec_test.cpp:623: tried expectation #24: EXPECT_CALL(handler, OnScalar(_, "!", 0, "x = MoreObject(\"345\\n\")\n"))...
+  Expected arg #3: is equal to "x = MoreObject(\"345\\n\")\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:626: tried expectation #25: EXPECT_CALL(handler, OnScalar(_, "?", 0, "file"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "file"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:627: tried expectation #26: EXPECT_CALL(handler, OnScalar(_, "?", 0, "MoreClass.py"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "MoreClass.py"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:628: tried expectation #27: EXPECT_CALL(handler, OnScalar(_, "?", 0, "line"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "line"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:629: tried expectation #28: EXPECT_CALL(handler, OnScalar(_, "?", 0, "58"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "58"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:630: tried expectation #29: EXPECT_CALL(handler, OnScalar(_, "?", 0, "code"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "code"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:631: tried expectation #30: EXPECT_CALL(handler, OnScalar(_, "!", 0, "foo = bar"))...
+  Expected arg #3: is equal to "foo = bar"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 22, column 7: end of map not found" thrown in the test body.
+/home/workspace/test/integration/handler_spec_test.cpp:624: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:632: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:634: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:625: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapStart(_, "?", 0, EmitterStyle::Block))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:633: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnSequenceEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:623: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "x = MoreObject(\"345\\n\")\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:626: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "file"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:627: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "MoreClass.py"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:628: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "line"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:629: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "58"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:630: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "code"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:631: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "foo = bar"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:635: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex2_28_LogFile (2 ms)
+[ RUN      ] HandlerSpecTest.Ex5_3_BlockStructureIndicators
+[       OK ] HandlerSpecTest.Ex5_3_BlockStructureIndicators (1 ms)
+[ RUN      ] HandlerSpecTest.Ex5_4_FlowStructureIndicators
+[       OK ] HandlerSpecTest.Ex5_4_FlowStructureIndicators (0 ms)
+[ RUN      ] HandlerSpecTest.Ex5_5_CommentIndicator
+[       OK ] HandlerSpecTest.Ex5_5_CommentIndicator (0 ms)
+[ RUN      ] HandlerSpecTest.Ex5_6_NodePropertyIndicators
+[       OK ] HandlerSpecTest.Ex5_6_NodePropertyIndicators (0 ms)
+[ RUN      ] HandlerSpecTest.Ex5_7_BlockScalarIndicators
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099ac24 12-byte object <09-00 00-00 00-00 00-00 09-00 00-00>, @0x7ffc4099ac30 "!", 0, @0x55c31f560d68 "")
+Google Mock tried the following 4 expectations, but none matched:
+
+/home/workspace/test/integration/handler_spec_test.cpp:699: tried expectation #0: EXPECT_CALL(handler, OnScalar(_, "?", 0, "literal"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "literal"
+           Actual: ""
+         Expected: to be called once
+           Actual: called once - saturated and active
+/home/workspace/test/integration/handler_spec_test.cpp:700: tried expectation #1: EXPECT_CALL(handler, OnScalar(_, "!", 0, "some\ntext\n"))...
+  Expected arg #3: is equal to "some\ntext\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:701: tried expectation #2: EXPECT_CALL(handler, OnScalar(_, "?", 0, "folded"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "folded"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:702: tried expectation #3: EXPECT_CALL(handler, OnScalar(_, "!", 0, "some text\n"))...
+  Expected arg #3: is equal to "some text\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 2, column 3: end of map not found" thrown in the test body.
+/home/workspace/test/integration/handler_spec_test.cpp:703: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:700: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "some\ntext\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:701: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "folded"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:702: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "some text\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:704: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex5_7_BlockScalarIndicators (2 ms)
+[ RUN      ] HandlerSpecTest.Ex5_8_QuotedScalarIndicators
+[       OK ] HandlerSpecTest.Ex5_8_QuotedScalarIndicators (0 ms)
+[ RUN      ] HandlerSpecTest.Ex5_11_LineBreakCharacters
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <00-00 00-00 00-00 00-00 00-00 00-00>, @0x7ffc4099ade0 "!", 0, @0x55c31f560c08 "")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:727: EXPECT_CALL(handler, OnScalar(_, "!", 0, "Line break (no glyph)\n" "Line break (glyphed)\n"))...
+  Expected arg #3: is equal to "Line break (no glyph)\nLine break (glyphed)\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:728: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:727: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:724: Failure
+Mock function called more times than expected - returning directly.
+    Function call: OnDocumentStart(@0x55c31f560d00 12-byte object <04-00 00-00 01-00 00-00 02-00 00-00>)
+         Expected: to be called once
+           Actual: called twice - over-saturated and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <04-00 00-00 01-00 00-00 02-00 00-00>, @0x7ffc4099ade0 "?", 0, @0x55c31f560d10 "Line break (no glyph) Line break (glyphed)")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:727: EXPECT_CALL(handler, OnScalar(_, "!", 0, "Line break (no glyph)\n" "Line break (glyphed)\n"))...
+  Expected arg #1: is equal to "!"
+           Actual: "?"
+  Expected arg #3: is equal to "Line break (no glyph)\nLine break (glyphed)\n"
+           Actual: "Line break (no glyph) Line break (glyphed)"
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:728: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:727: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:727: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "Line break (no glyph)\n" "Line break (glyphed)\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:728: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex5_11_LineBreakCharacters (1 ms)
+[ RUN      ] HandlerSpecTest.Ex5_12_TabsAndSpaces
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099ac24 12-byte object <1A-00 00-00 01-00 00-00 08-00 00-00>, @0x7ffc4099ac30 "!", 0, @0x55c31f560d68 "Quoted ")
+Google Mock tried the following 4 expectations, but none matched:
+
+/home/workspace/test/integration/handler_spec_test.cpp:735: tried expectation #0: EXPECT_CALL(handler, OnScalar(_, "?", 0, "quoted"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "quoted"
+           Actual: "Quoted "
+         Expected: to be called once
+           Actual: called once - saturated and active
+/home/workspace/test/integration/handler_spec_test.cpp:736: tried expectation #1: EXPECT_CALL(handler, OnScalar(_, "!", 0, "Quoted\t"))...
+  Expected arg #3: is equal to "Quoted\t"
+           Actual: "Quoted "
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:737: tried expectation #2: EXPECT_CALL(handler, OnScalar(_, "?", 0, "block"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "block"
+           Actual: "Quoted "
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:741: tried expectation #3: EXPECT_CALL(handler, OnScalar(_, "!", 0, "void main() {\n" "\tprintf(\"Hello, world!\\n\");\n" "}"))...
+  Expected arg #3: is equal to "void main() {\n\tprintf(\"Hello, world!\\n\");\n}"
+           Actual: "Quoted "
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099ac24 12-byte object <24-00 00-00 02-00 00-00 00-00 00-00>, @0x7ffc4099ac30 "?", 0, @0x55c31f569470 "block")
+Google Mock tried the following 4 expectations, but none matched:
+
+/home/workspace/test/integration/handler_spec_test.cpp:735: tried expectation #0: EXPECT_CALL(handler, OnScalar(_, "?", 0, "quoted"))...
+  Expected arg #3: is equal to "quoted"
+           Actual: "block"
+         Expected: to be called once
+           Actual: called once - saturated and active
+/home/workspace/test/integration/handler_spec_test.cpp:736: tried expectation #1: EXPECT_CALL(handler, OnScalar(_, "!", 0, "Quoted\t"))...
+  Expected arg #1: is equal to "!"
+           Actual: "?"
+  Expected arg #3: is equal to "Quoted\t"
+           Actual: "block"
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:737: tried expectation #2: EXPECT_CALL(handler, OnScalar(_, "?", 0, "block"))...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:736: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:741: tried expectation #3: EXPECT_CALL(handler, OnScalar(_, "!", 0, "void main() {\n" "\tprintf(\"Hello, world!\\n\");\n" "}"))...
+  Expected arg #1: is equal to "!"
+           Actual: "?"
+  Expected arg #3: is equal to "void main() {\n\tprintf(\"Hello, world!\\n\");\n}"
+           Actual: "block"
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099ac24 12-byte object <2B-00 00-00 02-00 00-00 07-00 00-00>, @0x7ffc4099ac30 "!", 0, @0x55c31f569520 "")
+Google Mock tried the following 4 expectations, but none matched:
+
+/home/workspace/test/integration/handler_spec_test.cpp:735: tried expectation #0: EXPECT_CALL(handler, OnScalar(_, "?", 0, "quoted"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "quoted"
+           Actual: ""
+         Expected: to be called once
+           Actual: called once - saturated and active
+/home/workspace/test/integration/handler_spec_test.cpp:736: tried expectation #1: EXPECT_CALL(handler, OnScalar(_, "!", 0, "Quoted\t"))...
+  Expected arg #3: is equal to "Quoted\t"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:737: tried expectation #2: EXPECT_CALL(handler, OnScalar(_, "?", 0, "block"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "block"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:741: tried expectation #3: EXPECT_CALL(handler, OnScalar(_, "!", 0, "void main() {\n" "\tprintf(\"Hello, world!\\n\");\n" "}"))...
+  Expected arg #3: is equal to "void main() {\n\tprintf(\"Hello, world!\\n\");\n}"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 4, column 3: end of map not found" thrown in the test body.
+/home/workspace/test/integration/handler_spec_test.cpp:742: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:736: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "Quoted\t"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:737: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "block"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:741: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "void main() {\n" "\tprintf(\"Hello, world!\\n\");\n" "}"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:743: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex5_12_TabsAndSpaces (1 ms)
+[ RUN      ] HandlerSpecTest.Ex5_13_EscapedCharacters
+[       OK ] HandlerSpecTest.Ex5_13_EscapedCharacters (0 ms)
+[ RUN      ] HandlerSpecTest.Ex5_14_InvalidEscapedCharacters
+[       OK ] HandlerSpecTest.Ex5_14_InvalidEscapedCharacters (0 ms)
+[ RUN      ] HandlerSpecTest.Ex6_1_IndentationSpaces
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099aa74 12-byte object <6C-00 00-00 04-00 00-00 0F-00 00-00>, @0x7ffc4099aa80 "!", 0, @0x55c31f569520 "")
+Google Mock tried the following 7 expectations, but none matched:
+
+/home/workspace/test/integration/handler_spec_test.cpp:767: tried expectation #0: EXPECT_CALL(handler, OnScalar(_, "?", 0, "Not indented"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:769: tried expectation #1: EXPECT_CALL(handler, OnScalar(_, "?", 0, "By one space"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "By one space"
+           Actual: ""
+         Expected: to be called once
+           Actual: called once - saturated and active
+/home/workspace/test/integration/handler_spec_test.cpp:770: tried expectation #2: EXPECT_CALL(handler, OnScalar(_, "!", 0, "By four\n  spaces\n"))...
+  Expected arg #3: is equal to "By four\n  spaces\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:771: tried expectation #3: EXPECT_CALL(handler, OnScalar(_, "?", 0, "Flow style"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "Flow style"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:773: tried expectation #4: EXPECT_CALL(handler, OnScalar(_, "?", 0, "By two"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "By two"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:774: tried expectation #5: EXPECT_CALL(handler, OnScalar(_, "?", 0, "Also by two"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "Also by two"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:775: tried expectation #6: EXPECT_CALL(handler, OnScalar(_, "?", 0, "Still by two"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "Still by two"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 6, column 5: end of map not found" thrown in the test body.
+/home/workspace/test/integration/handler_spec_test.cpp:777: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:778: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:776: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnSequenceEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:772: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnSequenceStart(_, "?", 0, EmitterStyle::Flow))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:770: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "By four\n  spaces\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:771: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "Flow style"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:773: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "By two"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:774: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "Also by two"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:775: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "Still by two"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:779: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex6_1_IndentationSpaces (1 ms)
+[ RUN      ] HandlerSpecTest.Ex6_2_IndentationIndicators
+[       OK ] HandlerSpecTest.Ex6_2_IndentationIndicators (0 ms)
+[ RUN      ] HandlerSpecTest.Ex6_3_SeparationSpaces
+[       OK ] HandlerSpecTest.Ex6_3_SeparationSpaces (0 ms)
+[ RUN      ] HandlerSpecTest.Ex6_4_LinePrefixes
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099ac24 12-byte object <33-00 00-00 04-00 00-00 07-00 00-00>, @0x7ffc4099ac30 "!", 0, @0x55c31f5694c8 "")
+Google Mock tried the following 6 expectations, but none matched:
+
+/home/workspace/test/integration/handler_spec_test.cpp:818: tried expectation #0: EXPECT_CALL(handler, OnScalar(_, "?", 0, "plain"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:819: tried expectation #1: EXPECT_CALL(handler, OnScalar(_, "?", 0, "text lines"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:820: tried expectation #2: EXPECT_CALL(handler, OnScalar(_, "?", 0, "quoted"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:821: tried expectation #3: EXPECT_CALL(handler, OnScalar(_, "!", 0, "text lines"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:822: tried expectation #4: EXPECT_CALL(handler, OnScalar(_, "?", 0, "block"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "block"
+           Actual: ""
+         Expected: to be called once
+           Actual: called once - saturated and active
+/home/workspace/test/integration/handler_spec_test.cpp:823: tried expectation #5: EXPECT_CALL(handler, OnScalar(_, "!", 0, "text\n \tlines\n"))...
+  Expected arg #3: is equal to "text\n \tlines\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 6, column 3: end of map not found" thrown in the test body.
+/home/workspace/test/integration/handler_spec_test.cpp:824: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:823: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "text\n \tlines\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:825: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex6_4_LinePrefixes (1 ms)
+[ RUN      ] HandlerSpecTest.Ex6_5_EmptyLines
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099ac24 12-byte object <38-00 00-00 04-00 00-00 0A-00 00-00>, @0x7ffc4099ac30 "!", 0, @0x55c31f563f58 "")
+Google Mock tried the following 4 expectations, but none matched:
+
+/home/workspace/test/integration/handler_spec_test.cpp:832: tried expectation #0: EXPECT_CALL(handler, OnScalar(_, "?", 0, "Folding"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:833: tried expectation #1: EXPECT_CALL(handler, OnScalar(_, "!", 0, "Empty line\nas a line feed"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:834: tried expectation #2: EXPECT_CALL(handler, OnScalar(_, "?", 0, "Chomping"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "Chomping"
+           Actual: ""
+         Expected: to be called once
+           Actual: called once - saturated and active
+/home/workspace/test/integration/handler_spec_test.cpp:835: tried expectation #3: EXPECT_CALL(handler, OnScalar(_, "!", 0, "Clipped empty lines\n"))...
+  Expected arg #3: is equal to "Clipped empty lines\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 6, column 3: end of map not found" thrown in the test body.
+/home/workspace/test/integration/handler_spec_test.cpp:836: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:835: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "Clipped empty lines\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:837: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex6_5_EmptyLines (0 ms)
+[ RUN      ] HandlerSpecTest.Ex6_6_LineFolding
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <00-00 00-00 00-00 00-00 00-00 00-00>, @0x7ffc4099ade0 "!", 0, @0x55c31f569418 "")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:843: EXPECT_CALL(handler, OnScalar(_, "!", 0, "trimmed\n\n\nas space"))...
+  Expected arg #3: is equal to "trimmed\n\n\nas space"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:844: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:843: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:842: Failure
+Mock function called more times than expected - returning directly.
+    Function call: OnDocumentStart(@0x55c31f569510 12-byte object <05-00 00-00 01-00 00-00 02-00 00-00>)
+         Expected: to be called once
+           Actual: called twice - over-saturated and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <05-00 00-00 01-00 00-00 02-00 00-00>, @0x7ffc4099ade0 "?", 0, @0x55c31f569520 "trimmed\n\n\nas space")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:843: EXPECT_CALL(handler, OnScalar(_, "!", 0, "trimmed\n\n\nas space"))...
+  Expected arg #1: is equal to "!"
+           Actual: "?"
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:844: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:843: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:843: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "trimmed\n\n\nas space"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:844: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex6_6_LineFolding (1 ms)
+[ RUN      ] HandlerSpecTest.Ex6_7_BlockFolding
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <00-00 00-00 00-00 00-00 00-00 00-00>, @0x7ffc4099ade0 "!", 0, @0x55c31f569418 "")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:850: EXPECT_CALL(handler, OnScalar(_, "!", 0, "foo \n\n\t bar\n\nbaz\n"))...
+  Expected arg #3: is equal to "foo \n\n\t bar\n\nbaz\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:851: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:850: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:849: Failure
+Mock function called more times than expected - returning directly.
+    Function call: OnDocumentStart(@0x55c31f569510 12-byte object <04-00 00-00 01-00 00-00 02-00 00-00>)
+         Expected: to be called once
+           Actual: called twice - over-saturated and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <04-00 00-00 01-00 00-00 02-00 00-00>, @0x7ffc4099ade0 "?", 0, @0x55c31f569520 "foo\nbar\nbaz")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:850: EXPECT_CALL(handler, OnScalar(_, "!", 0, "foo \n\n\t bar\n\nbaz\n"))...
+  Expected arg #1: is equal to "!"
+           Actual: "?"
+  Expected arg #3: is equal to "foo \n\n\t bar\n\nbaz\n"
+           Actual: "foo\nbar\nbaz"
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:851: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:850: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:850: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "foo \n\n\t bar\n\nbaz\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:851: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex6_7_BlockFolding (0 ms)
+[ RUN      ] HandlerSpecTest.Ex6_8_FlowFolding
+[       OK ] HandlerSpecTest.Ex6_8_FlowFolding (0 ms)
+[ RUN      ] HandlerSpecTest.Ex6_9_SeparatedComment
+[       OK ] HandlerSpecTest.Ex6_9_SeparatedComment (1 ms)
+[ RUN      ] HandlerSpecTest.Ex6_10_CommentLines
+[       OK ] HandlerSpecTest.Ex6_10_CommentLines (0 ms)
+[ RUN      ] HandlerSpecTest._MultiLineComments
+[       OK ] HandlerSpecTest._MultiLineComments (0 ms)
+[ RUN      ] HandlerSpecTest.Ex6_12_SeparationSpacesII
+[       OK ] HandlerSpecTest.Ex6_12_SeparationSpacesII (0 ms)
+[ RUN      ] HandlerSpecTest.Ex6_13_ReservedDirectives
+[       OK ] HandlerSpecTest.Ex6_13_ReservedDirectives (1 ms)
+[ RUN      ] HandlerSpecTest.Ex6_14_YAMLDirective
+[       OK ] HandlerSpecTest.Ex6_14_YAMLDirective (0 ms)
+[ RUN      ] HandlerSpecTest.Ex6_15_InvalidRepeatedYAMLDirective
+[       OK ] HandlerSpecTest.Ex6_15_InvalidRepeatedYAMLDirective (0 ms)
+[ RUN      ] HandlerSpecTest.Ex6_16_TagDirective
+[       OK ] HandlerSpecTest.Ex6_16_TagDirective (0 ms)
+[ RUN      ] HandlerSpecTest.Ex6_17_InvalidRepeatedTagDirective
+[       OK ] HandlerSpecTest.Ex6_17_InvalidRepeatedTagDirective (0 ms)
+[ RUN      ] HandlerSpecTest.Ex6_18_PrimaryTagHandle
+[       OK ] HandlerSpecTest.Ex6_18_PrimaryTagHandle (0 ms)
+[ RUN      ] HandlerSpecTest.Ex6_19_SecondaryTagHandle
+[       OK ] HandlerSpecTest.Ex6_19_SecondaryTagHandle (1 ms)
+[ RUN      ] HandlerSpecTest.Ex6_20_TagHandles
+[       OK ] HandlerSpecTest.Ex6_20_TagHandles (0 ms)
+[ RUN      ] HandlerSpecTest.Ex6_21_LocalTagPrefix
+[       OK ] HandlerSpecTest.Ex6_21_LocalTagPrefix (0 ms)
+[ RUN      ] HandlerSpecTest.Ex6_22_GlobalTagPrefix
+[       OK ] HandlerSpecTest.Ex6_22_GlobalTagPrefix (0 ms)
+[ RUN      ] HandlerSpecTest.Ex6_23_NodeProperties
+[       OK ] HandlerSpecTest.Ex6_23_NodeProperties (1 ms)
+[ RUN      ] HandlerSpecTest.Ex6_24_VerbatimTags
+[       OK ] HandlerSpecTest.Ex6_24_VerbatimTags (0 ms)
+[ RUN      ] HandlerSpecTest.Ex6_26_TagShorthands
+[       OK ] HandlerSpecTest.Ex6_26_TagShorthands (0 ms)
+[ RUN      ] HandlerSpecTest.Ex6_27a_InvalidTagShorthands
+[       OK ] HandlerSpecTest.Ex6_27a_InvalidTagShorthands (0 ms)
+[ RUN      ] HandlerSpecTest.Ex6_28_NonSpecificTags
+[       OK ] HandlerSpecTest.Ex6_28_NonSpecificTags (0 ms)
+[ RUN      ] HandlerSpecTest.Ex6_29_NodeAnchors
+[       OK ] HandlerSpecTest.Ex6_29_NodeAnchors (0 ms)
+[ RUN      ] HandlerSpecTest.Ex7_1_AliasNodes
+[       OK ] HandlerSpecTest.Ex7_1_AliasNodes (1 ms)
+[ RUN      ] HandlerSpecTest.Ex7_2_EmptyNodes
+[       OK ] HandlerSpecTest.Ex7_2_EmptyNodes (0 ms)
+[ RUN      ] HandlerSpecTest.Ex7_3_CompletelyEmptyNodes
+[       OK ] HandlerSpecTest.Ex7_3_CompletelyEmptyNodes (0 ms)
+[ RUN      ] HandlerSpecTest.Ex7_4_DoubleQuotedImplicitKeys
+[       OK ] HandlerSpecTest.Ex7_4_DoubleQuotedImplicitKeys (1 ms)
+[ RUN      ] HandlerSpecTest.Ex7_5_DoubleQuotedLineBreaks
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <00-00 00-00 00-00 00-00 00-00 00-00>, @0x7ffc4099ade0 "!", 0, @0x55c31f564008 "folded to a space,\nto a line feed, or    non-content")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1117: EXPECT_CALL(handler, OnScalar(_, "!", 0, "folded to a space,\nto a line feed, or \t \tnon-content"))...
+  Expected arg #3: is equal to "folded to a space,\nto a line feed, or \t \tnon-content"
+           Actual: "folded to a space,\nto a line feed, or    non-content"
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1118: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:1117: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1117: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "folded to a space,\nto a line feed, or \t \tnon-content"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1118: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex7_5_DoubleQuotedLineBreaks (0 ms)
+[ RUN      ] HandlerSpecTest.Ex7_6_DoubleQuotedLines
+[       OK ] HandlerSpecTest.Ex7_6_DoubleQuotedLines (0 ms)
+[ RUN      ] HandlerSpecTest.Ex7_7_SingleQuotedCharacters
+[       OK ] HandlerSpecTest.Ex7_7_SingleQuotedCharacters (0 ms)
+[ RUN      ] HandlerSpecTest.Ex7_8_SingleQuotedImplicitKeys
+[       OK ] HandlerSpecTest.Ex7_8_SingleQuotedImplicitKeys (0 ms)
+[ RUN      ] HandlerSpecTest.Ex7_9_SingleQuotedLines
+[       OK ] HandlerSpecTest.Ex7_9_SingleQuotedLines (1 ms)
+[ RUN      ] HandlerSpecTest.Ex7_10_PlainCharacters
+[       OK ] HandlerSpecTest.Ex7_10_PlainCharacters (0 ms)
+[ RUN      ] HandlerSpecTest.Ex7_11_PlainImplicitKeys
+[       OK ] HandlerSpecTest.Ex7_11_PlainImplicitKeys (1 ms)
+[ RUN      ] HandlerSpecTest.Ex7_12_PlainLines
+[       OK ] HandlerSpecTest.Ex7_12_PlainLines (0 ms)
+[ RUN      ] HandlerSpecTest.Ex7_13_FlowSequence
+[       OK ] HandlerSpecTest.Ex7_13_FlowSequence (0 ms)
+[ RUN      ] HandlerSpecTest.Ex7_14_FlowSequenceEntries
+[       OK ] HandlerSpecTest.Ex7_14_FlowSequenceEntries (1 ms)
+[ RUN      ] HandlerSpecTest.Ex7_15_FlowMappings
+[       OK ] HandlerSpecTest.Ex7_15_FlowMappings (0 ms)
+[ RUN      ] HandlerSpecTest.Ex7_16_FlowMappingEntries
+[       OK ] HandlerSpecTest.Ex7_16_FlowMappingEntries (1 ms)
+[ RUN      ] HandlerSpecTest.Ex7_17_FlowMappingSeparateValues
+[       OK ] HandlerSpecTest.Ex7_17_FlowMappingSeparateValues (0 ms)
+[ RUN      ] HandlerSpecTest.Ex7_18_FlowMappingAdjacentValues
+[       OK ] HandlerSpecTest.Ex7_18_FlowMappingAdjacentValues (0 ms)
+[ RUN      ] HandlerSpecTest.Ex7_19_SinglePairFlowMappings
+[       OK ] HandlerSpecTest.Ex7_19_SinglePairFlowMappings (1 ms)
+[ RUN      ] HandlerSpecTest.Ex7_20_SinglePairExplicitEntry
+[       OK ] HandlerSpecTest.Ex7_20_SinglePairExplicitEntry (0 ms)
+[ RUN      ] HandlerSpecTest.Ex7_21_SinglePairImplicitEntries
+[       OK ] HandlerSpecTest.Ex7_21_SinglePairImplicitEntries (1 ms)
+[ RUN      ] HandlerSpecTest.Ex7_22_InvalidImplicitKeys
+[       OK ] HandlerSpecTest.Ex7_22_InvalidImplicitKeys (0 ms)
+[ RUN      ] HandlerSpecTest.Ex7_23_FlowContent
+[       OK ] HandlerSpecTest.Ex7_23_FlowContent (0 ms)
+[ RUN      ] HandlerSpecTest.Ex7_24_FlowNodes
+[       OK ] HandlerSpecTest.Ex7_24_FlowNodes (1 ms)
+[ RUN      ] HandlerSpecTest.Ex8_1_BlockScalarHeader
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099ac14 12-byte object <02-00 00-00 00-00 00-00 02-00 00-00>, @0x7ffc4099ac20 "!", 0, @0x55c31f594778 "")
+Google Mock tried the following 4 expectations, but none matched:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1396: tried expectation #0: EXPECT_CALL(handler, OnScalar(_, "!", 0, "literal\n"))...
+  Expected arg #3: is equal to "literal\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1397: tried expectation #1: EXPECT_CALL(handler, OnScalar(_, "!", 0, " folded\n"))...
+  Expected arg #3: is equal to " folded\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1398: tried expectation #2: EXPECT_CALL(handler, OnScalar(_, "!", 0, "keep\n\n"))...
+  Expected arg #3: is equal to "keep\n\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1399: tried expectation #3: EXPECT_CALL(handler, OnScalar(_, "!", 0, " strip"))...
+  Expected arg #3: is equal to " strip"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 2, column 2: end of sequence not found" thrown in the test body.
+/home/workspace/test/integration/handler_spec_test.cpp:1400: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnSequenceEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1396: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "literal\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1397: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, " folded\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1398: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "keep\n\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1399: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, " strip"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1401: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex8_1_BlockScalarHeader (0 ms)
+[ RUN      ] HandlerSpecTest.Ex8_2_BlockIndentationHeader
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099ac14 12-byte object <02-00 00-00 00-00 00-00 02-00 00-00>, @0x7ffc4099ac20 "!", 0, @0x55c31f5694c8 "")
+Google Mock tried the following 4 expectations, but none matched:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1408: tried expectation #0: EXPECT_CALL(handler, OnScalar(_, "!", 0, "detected\n"))...
+  Expected arg #3: is equal to "detected\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1409: tried expectation #1: EXPECT_CALL(handler, OnScalar(_, "!", 0, "\n\n# detected\n"))...
+  Expected arg #3: is equal to "\n\n# detected\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1410: tried expectation #2: EXPECT_CALL(handler, OnScalar(_, "!", 0, " explicit\n"))...
+  Expected arg #3: is equal to " explicit\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1411: tried expectation #3: EXPECT_CALL(handler, OnScalar(_, "!", 0, "\t\ndetected\n"))...
+  Expected arg #3: is equal to "\t\ndetected\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 2, column 2: end of sequence not found" thrown in the test body.
+/home/workspace/test/integration/handler_spec_test.cpp:1412: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnSequenceEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1408: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "detected\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1409: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "\n\n# detected\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1410: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, " explicit\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1411: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "\t\ndetected\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1413: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex8_2_BlockIndentationHeader (1 ms)
+[ RUN      ] HandlerSpecTest.Ex8_3a_InvalidBlockScalarIndentationIndicators
+[       OK ] HandlerSpecTest.Ex8_3a_InvalidBlockScalarIndentationIndicators (0 ms)
+[ RUN      ] HandlerSpecTest.Ex8_3b_InvalidBlockScalarIndentationIndicators
+[       OK ] HandlerSpecTest.Ex8_3b_InvalidBlockScalarIndentationIndicators (0 ms)
+[ RUN      ] HandlerSpecTest.Ex8_3c_InvalidBlockScalarIndentationIndicators
+[       OK ] HandlerSpecTest.Ex8_3c_InvalidBlockScalarIndentationIndicators (0 ms)
+[ RUN      ] HandlerSpecTest.Ex8_4_ChompingFinalLineBreak
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099ac24 12-byte object <07-00 00-00 00-00 00-00 07-00 00-00>, @0x7ffc4099ac30 "!", 0, @0x55c31f594828 "")
+Google Mock tried the following 6 expectations, but none matched:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1432: tried expectation #0: EXPECT_CALL(handler, OnScalar(_, "?", 0, "strip"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "strip"
+           Actual: ""
+         Expected: to be called once
+           Actual: called once - saturated and active
+/home/workspace/test/integration/handler_spec_test.cpp:1433: tried expectation #1: EXPECT_CALL(handler, OnScalar(_, "!", 0, "text"))...
+  Expected arg #3: is equal to "text"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1434: tried expectation #2: EXPECT_CALL(handler, OnScalar(_, "?", 0, "clip"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "clip"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1435: tried expectation #3: EXPECT_CALL(handler, OnScalar(_, "!", 0, "text\n"))...
+  Expected arg #3: is equal to "text\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1436: tried expectation #4: EXPECT_CALL(handler, OnScalar(_, "?", 0, "keep"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "keep"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1437: tried expectation #5: EXPECT_CALL(handler, OnScalar(_, "!", 0, "text\n"))...
+  Expected arg #3: is equal to "text\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 2, column 3: end of map not found" thrown in the test body.
+/home/workspace/test/integration/handler_spec_test.cpp:1438: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1433: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "text"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1434: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "clip"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1435: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "text\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1436: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "keep"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1437: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "text\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1439: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex8_4_ChompingFinalLineBreak (1 ms)
+[ RUN      ] HandlerSpecTest.Ex8_6_EmptyScalarChomping
+[       OK ] HandlerSpecTest.Ex8_6_EmptyScalarChomping (0 ms)
+[ RUN      ] HandlerSpecTest.Ex8_7_LiteralScalar
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <00-00 00-00 00-00 00-00 00-00 00-00>, @0x7ffc4099ade0 "!", 0, @0x55c31f5946c8 "")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1475: EXPECT_CALL(handler, OnScalar(_, "!", 0, "literal\n\ttext\n"))...
+  Expected arg #3: is equal to "literal\n\ttext\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1476: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:1475: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1474: Failure
+Mock function called more times than expected - returning directly.
+    Function call: OnDocumentStart(@0x55c31f5947c0 12-byte object <03-00 00-00 01-00 00-00 01-00 00-00>)
+         Expected: to be called once
+           Actual: called twice - over-saturated and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <03-00 00-00 01-00 00-00 01-00 00-00>, @0x7ffc4099ade0 "?", 0, @0x55c31f5947d0 "literal text")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1475: EXPECT_CALL(handler, OnScalar(_, "!", 0, "literal\n\ttext\n"))...
+  Expected arg #1: is equal to "!"
+           Actual: "?"
+  Expected arg #3: is equal to "literal\n\ttext\n"
+           Actual: "literal text"
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1476: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:1475: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1475: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "literal\n\ttext\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1476: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex8_7_LiteralScalar (1 ms)
+[ RUN      ] HandlerSpecTest.Ex8_8_LiteralContent
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <00-00 00-00 00-00 00-00 00-00 00-00>, @0x7ffc4099ade0 "!", 0, @0x55c31f5946c8 "")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1482: EXPECT_CALL(handler, OnScalar(_, "!", 0, "\n\nliteral\n \n\ntext\n"))...
+  Expected arg #3: is equal to "\n\nliteral\n \n\ntext\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1483: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:1482: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1481: Failure
+Mock function called more times than expected - returning directly.
+    Function call: OnDocumentStart(@0x55c31f5947c0 12-byte object <09-00 00-00 03-00 00-00 02-00 00-00>)
+         Expected: to be called once
+           Actual: called twice - over-saturated and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <09-00 00-00 03-00 00-00 02-00 00-00>, @0x7ffc4099ade0 "?", 0, @0x55c31f5947d0 "literal\n\ntext")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1482: EXPECT_CALL(handler, OnScalar(_, "!", 0, "\n\nliteral\n \n\ntext\n"))...
+  Expected arg #1: is equal to "!"
+           Actual: "?"
+  Expected arg #3: is equal to "\n\nliteral\n \n\ntext\n"
+           Actual: "literal\n\ntext"
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1483: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:1482: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1482: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "\n\nliteral\n \n\ntext\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1483: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex8_8_LiteralContent (0 ms)
+[ RUN      ] HandlerSpecTest.Ex8_9_FoldedScalar
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <00-00 00-00 00-00 00-00 00-00 00-00>, @0x7ffc4099ade0 "!", 0, @0x55c31f5946c8 "")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1489: EXPECT_CALL(handler, OnScalar(_, "!", 0, "folded text\n"))...
+  Expected arg #3: is equal to "folded text\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1490: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:1489: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1488: Failure
+Mock function called more times than expected - returning directly.
+    Function call: OnDocumentStart(@0x55c31f5947c0 12-byte object <03-00 00-00 01-00 00-00 01-00 00-00>)
+         Expected: to be called once
+           Actual: called twice - over-saturated and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <03-00 00-00 01-00 00-00 01-00 00-00>, @0x7ffc4099ade0 "?", 0, @0x55c31f5947d0 "folded text")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1489: EXPECT_CALL(handler, OnScalar(_, "!", 0, "folded text\n"))...
+  Expected arg #1: is equal to "!"
+           Actual: "?"
+  Expected arg #3: is equal to "folded text\n"
+           Actual: "folded text"
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1490: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:1489: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1489: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "folded text\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1490: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex8_9_FoldedScalar (0 ms)
+[ RUN      ] HandlerSpecTest.Ex8_10_FoldedLines
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <00-00 00-00 00-00 00-00 00-00 00-00>, @0x7ffc4099ade0 "!", 0, @0x55c31f5946c8 "")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1499: EXPECT_CALL(handler, OnScalar(_, "!", 0, "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * " "lines\n\nlast line\n"))...
+  Expected arg #3: is equal to "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * lines\n\nlast line\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1500: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:1499: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1495: Failure
+Mock function called more times than expected - returning directly.
+    Function call: OnDocumentStart(@0x55c31f5947c0 12-byte object <04-00 00-00 02-00 00-00 01-00 00-00>)
+         Expected: to be called once
+           Actual: called twice - over-saturated and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <04-00 00-00 02-00 00-00 01-00 00-00>, @0x7ffc4099ade0 "?", 0, @0x55c31f5947d0 "folded line\nnext line * bullet\n* list * lines\nlast line")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1499: EXPECT_CALL(handler, OnScalar(_, "!", 0, "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * " "lines\n\nlast line\n"))...
+  Expected arg #1: is equal to "!"
+           Actual: "?"
+  Expected arg #3: is equal to "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * lines\n\nlast line\n"
+           Actual: "folded line\nnext line * bullet\n* list * lines\nlast line"
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1500: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:1499: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1499: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * " "lines\n\nlast line\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1500: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex8_10_FoldedLines (1 ms)
+[ RUN      ] HandlerSpecTest.Ex8_11_MoreIndentedLines
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <00-00 00-00 00-00 00-00 00-00 00-00>, @0x7ffc4099ade0 "!", 0, @0x55c31f5946c8 "")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1509: EXPECT_CALL(handler, OnScalar(_, "!", 0, "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * " "lines\n\nlast line\n"))...
+  Expected arg #3: is equal to "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * lines\n\nlast line\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1510: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:1509: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1505: Failure
+Mock function called more times than expected - returning directly.
+    Function call: OnDocumentStart(@0x55c31f5947c0 12-byte object <04-00 00-00 02-00 00-00 01-00 00-00>)
+         Expected: to be called once
+           Actual: called twice - over-saturated and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <04-00 00-00 02-00 00-00 01-00 00-00>, @0x7ffc4099ade0 "?", 0, @0x55c31f5947d0 "folded line\nnext line * bullet\n* list * lines\nlast line")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1509: EXPECT_CALL(handler, OnScalar(_, "!", 0, "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * " "lines\n\nlast line\n"))...
+  Expected arg #1: is equal to "!"
+           Actual: "?"
+  Expected arg #3: is equal to "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * lines\n\nlast line\n"
+           Actual: "folded line\nnext line * bullet\n* list * lines\nlast line"
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1510: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:1509: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1509: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * " "lines\n\nlast line\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1510: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex8_11_MoreIndentedLines (0 ms)
+[ RUN      ] HandlerSpecTest.Ex8_12_EmptySeparationLines
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <00-00 00-00 00-00 00-00 00-00 00-00>, @0x7ffc4099ade0 "!", 0, @0x55c31f5946c8 "")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1519: EXPECT_CALL(handler, OnScalar(_, "!", 0, "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * " "lines\n\nlast line\n"))...
+  Expected arg #3: is equal to "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * lines\n\nlast line\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1520: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:1519: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1515: Failure
+Mock function called more times than expected - returning directly.
+    Function call: OnDocumentStart(@0x55c31f5947c0 12-byte object <04-00 00-00 02-00 00-00 01-00 00-00>)
+         Expected: to be called once
+           Actual: called twice - over-saturated and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <04-00 00-00 02-00 00-00 01-00 00-00>, @0x7ffc4099ade0 "?", 0, @0x55c31f5947d0 "folded line\nnext line * bullet\n* list * lines\nlast line")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1519: EXPECT_CALL(handler, OnScalar(_, "!", 0, "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * " "lines\n\nlast line\n"))...
+  Expected arg #1: is equal to "!"
+           Actual: "?"
+  Expected arg #3: is equal to "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * lines\n\nlast line\n"
+           Actual: "folded line\nnext line * bullet\n* list * lines\nlast line"
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1520: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:1519: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1519: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * " "lines\n\nlast line\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1520: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex8_12_EmptySeparationLines (0 ms)
+[ RUN      ] HandlerSpecTest.Ex8_13_FinalEmptyLines
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <00-00 00-00 00-00 00-00 00-00 00-00>, @0x7ffc4099ade0 "!", 0, @0x55c31f5946c8 "")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1529: EXPECT_CALL(handler, OnScalar(_, "!", 0, "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * " "lines\n\nlast line\n"))...
+  Expected arg #3: is equal to "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * lines\n\nlast line\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1530: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:1529: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1525: Failure
+Mock function called more times than expected - returning directly.
+    Function call: OnDocumentStart(@0x55c31f5947c0 12-byte object <04-00 00-00 02-00 00-00 01-00 00-00>)
+         Expected: to be called once
+           Actual: called twice - over-saturated and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099add4 12-byte object <04-00 00-00 02-00 00-00 01-00 00-00>, @0x7ffc4099ade0 "?", 0, @0x55c31f5947d0 "folded line\nnext line * bullet\n* list * lines\nlast line")
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1529: EXPECT_CALL(handler, OnScalar(_, "!", 0, "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * " "lines\n\nlast line\n"))...
+  Expected arg #1: is equal to "!"
+           Actual: "?"
+  Expected arg #3: is equal to "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * lines\n\nlast line\n"
+           Actual: "folded line\nnext line * bullet\n* list * lines\nlast line"
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnDocumentEnd()
+Google Mock tried the following 1 expectation, but it didn't match:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1530: EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: all pre-requisites are satisfied
+           Actual: the following immediate pre-requisites are not satisfied:
+/home/workspace/test/integration/handler_spec_test.cpp:1529: pre-requisite #0
+                   (end of pre-requisites)
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1529: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "\nfolded line\nnext line\n  * bullet\n\n  * list\n  * " "lines\n\nlast line\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1530: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex8_13_FinalEmptyLines (1 ms)
+[ RUN      ] HandlerSpecTest.Ex8_14_BlockSequence
+[       OK ] HandlerSpecTest.Ex8_14_BlockSequence (0 ms)
+[ RUN      ] HandlerSpecTest.Ex8_15_BlockSequenceEntryTypes
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099ac14 12-byte object <0C-00 00-00 01-00 00-00 02-00 00-00>, @0x7ffc4099ac20 "!", 0, @0x55c31f569520 "")
+Google Mock tried the following 5 expectations, but none matched:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1554: tried expectation #0: EXPECT_CALL(handler, OnScalar(_, "!", 0, "block node\n"))...
+  Expected arg #3: is equal to "block node\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1556: tried expectation #1: EXPECT_CALL(handler, OnScalar(_, "?", 0, "one"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "one"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1557: tried expectation #2: EXPECT_CALL(handler, OnScalar(_, "?", 0, "two"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "two"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1560: tried expectation #3: EXPECT_CALL(handler, OnScalar(_, "?", 0, "one"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "one"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1561: tried expectation #4: EXPECT_CALL(handler, OnScalar(_, "?", 0, "two"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "two"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 3, column 2: end of sequence not found" thrown in the test body.
+/home/workspace/test/integration/handler_spec_test.cpp:1562: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1559: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapStart(_, "?", 0, EmitterStyle::Block))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1558: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnSequenceEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1563: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnSequenceEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1555: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnSequenceStart(_, "?", 0, EmitterStyle::Block))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1554: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "block node\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1556: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "one"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1557: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "two"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1560: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "one"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1561: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "two"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1564: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex8_15_BlockSequenceEntryTypes (1 ms)
+[ RUN      ] HandlerSpecTest.Ex8_16_BlockMappings
+[       OK ] HandlerSpecTest.Ex8_16_BlockMappings (0 ms)
+[ RUN      ] HandlerSpecTest.Ex8_17_ExplicitBlockMappingEntries
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099ac24 12-byte object <1F-00 00-00 01-00 00-00 02-00 00-00>, @0x7ffc4099ac30 "!", 0, @0x55c31f569470 "")
+Google Mock tried the following 4 expectations, but none matched:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1584: tried expectation #0: EXPECT_CALL(handler, OnScalar(_, "?", 0, "explicit key"))...
+         Expected: the expectation is active
+           Actual: it is retired
+         Expected: to be called once
+           Actual: called once - saturated and retired
+/home/workspace/test/integration/handler_spec_test.cpp:1586: tried expectation #1: EXPECT_CALL(handler, OnScalar(_, "!", 0, "block key\n"))...
+  Expected arg #3: is equal to "block key\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1588: tried expectation #2: EXPECT_CALL(handler, OnScalar(_, "?", 0, "one"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "one"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1589: tried expectation #3: EXPECT_CALL(handler, OnScalar(_, "?", 0, "two"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "two"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1585: Failure
+Mock function called more times than expected - returning directly.
+    Function call: OnNull(@0x7ffc4099ad08 12-byte object <1D-00 00-00 01-00 00-00 00-00 00-00>, 0)
+         Expected: to be called once
+           Actual: called twice - over-saturated and active
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 3, column 3: end of map not found" thrown in the test body.
+/home/workspace/test/integration/handler_spec_test.cpp:1591: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1590: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnSequenceEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1587: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnSequenceStart(_, "?", 0, EmitterStyle::Block))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1586: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "block key\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1588: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "one"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1589: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "two"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1592: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex8_17_ExplicitBlockMappingEntries (1 ms)
+[ RUN      ] HandlerSpecTest.Ex8_18_ImplicitBlockMappingEntries
+[       OK ] HandlerSpecTest.Ex8_18_ImplicitBlockMappingEntries (0 ms)
+[ RUN      ] HandlerSpecTest.Ex8_19_CompactBlockMappings
+[       OK ] HandlerSpecTest.Ex8_19_CompactBlockMappings (1 ms)
+[ RUN      ] HandlerSpecTest.Ex8_20_BlockNodeTypes
+unknown file: Failure
+
+Unexpected mock function call - returning directly.
+    Function call: OnScalar(@0x7ffc4099ac14 12-byte object <16-00 00-00 02-00 00-00 02-00 00-00>, @0x7ffc4099ac20 "!", 0, @0x55c31f569470 "")
+Google Mock tried the following 4 expectations, but none matched:
+
+/home/workspace/test/integration/handler_spec_test.cpp:1637: tried expectation #0: EXPECT_CALL(handler, OnScalar(_, "!", 0, "flow in block"))...
+  Expected arg #3: is equal to "flow in block"
+           Actual: ""
+         Expected: to be called once
+           Actual: called once - saturated and active
+/home/workspace/test/integration/handler_spec_test.cpp:1638: tried expectation #1: EXPECT_CALL(handler, OnScalar(_, "!", 0, "Block scalar\n"))...
+  Expected arg #3: is equal to "Block scalar\n"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1641: tried expectation #2: EXPECT_CALL(handler, OnScalar(_, "?", 0, "foo"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "foo"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1642: tried expectation #3: EXPECT_CALL(handler, OnScalar(_, "?", 0, "bar"))...
+  Expected arg #1: is equal to "?"
+           Actual: "!"
+  Expected arg #3: is equal to "bar"
+           Actual: ""
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+unknown file: Failure
+C++ exception with description "yaml-cpp: error at line 4, column 2: end of sequence not found" thrown in the test body.
+/home/workspace/test/integration/handler_spec_test.cpp:1643: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1640: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnMapStart(_, "tag:yaml.org,2002:map", 0, EmitterStyle::Block))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1644: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnSequenceEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1638: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "!", 0, "Block scalar\n"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1641: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "foo"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1642: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnScalar(_, "?", 0, "bar"))...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+/home/workspace/test/integration/handler_spec_test.cpp:1645: Failure
+Actual function call count doesn't match EXPECT_CALL(handler, OnDocumentEnd())...
+         Expected: to be called once
+           Actual: never called - unsatisfied and active
+[  FAILED  ] HandlerSpecTest.Ex8_20_BlockNodeTypes (0 ms)
+[ RUN      ] HandlerSpecTest.Ex8_22_BlockCollectionNodes
+[       OK ] HandlerSpecTest.Ex8_22_BlockCollectionNodes (1 ms)
+[----------] 112 tests from HandlerSpecTest (50 ms total)
+
+[----------] Global test environment tear-down
+[==========] 112 tests from 1 test suite ran. (51 ms total)
+[  PASSED  ] 83 tests.
+[  FAILED  ] 29 tests, listed below:
+[  FAILED  ] HandlerSpecTest.Ex2_13_InLiteralsNewlinesArePreserved
+[  FAILED  ] HandlerSpecTest.Ex2_14_InFoldedScalarsNewlinesBecomeSpaces
+[  FAILED  ] HandlerSpecTest.Ex2_15_FoldedNewlinesArePreservedForMoreIndentedAndBlankLines
+[  FAILED  ] HandlerSpecTest.Ex2_16_IndentationDeterminesScope
+[  FAILED  ] HandlerSpecTest.Ex2_23_VariousExplicitTags
+[  FAILED  ] HandlerSpecTest.Ex2_27_Invoice
+[  FAILED  ] HandlerSpecTest.Ex2_28_LogFile
+[  FAILED  ] HandlerSpecTest.Ex5_7_BlockScalarIndicators
+[  FAILED  ] HandlerSpecTest.Ex5_11_LineBreakCharacters
+[  FAILED  ] HandlerSpecTest.Ex5_12_TabsAndSpaces
+[  FAILED  ] HandlerSpecTest.Ex6_1_IndentationSpaces
+[  FAILED  ] HandlerSpecTest.Ex6_4_LinePrefixes
+[  FAILED  ] HandlerSpecTest.Ex6_5_EmptyLines
+[  FAILED  ] HandlerSpecTest.Ex6_6_LineFolding
+[  FAILED  ] HandlerSpecTest.Ex6_7_BlockFolding
+[  FAILED  ] HandlerSpecTest.Ex7_5_DoubleQuotedLineBreaks
+[  FAILED  ] HandlerSpecTest.Ex8_1_BlockScalarHeader
+[  FAILED  ] HandlerSpecTest.Ex8_2_BlockIndentationHeader
+[  FAILED  ] HandlerSpecTest.Ex8_4_ChompingFinalLineBreak
+[  FAILED  ] HandlerSpecTest.Ex8_7_LiteralScalar
+[  FAILED  ] HandlerSpecTest.Ex8_8_LiteralContent
+[  FAILED  ] HandlerSpecTest.Ex8_9_FoldedScalar
+[  FAILED  ] HandlerSpecTest.Ex8_10_FoldedLines
+[  FAILED  ] HandlerSpecTest.Ex8_11_MoreIndentedLines
+[  FAILED  ] HandlerSpecTest.Ex8_12_EmptySeparationLines
+[  FAILED  ] HandlerSpecTest.Ex8_13_FinalEmptyLines
+[  FAILED  ] HandlerSpecTest.Ex8_15_BlockSequenceEntryTypes
+[  FAILED  ] HandlerSpecTest.Ex8_17_ExplicitBlockMappingEntries
+[  FAILED  ] HandlerSpecTest.Ex8_20_BlockNodeTypes
+
+29 FAILED TESTS
+  YOU HAVE 4 DISABLED TESTS
+

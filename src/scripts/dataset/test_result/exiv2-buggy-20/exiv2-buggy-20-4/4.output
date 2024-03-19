@@ -1,0 +1,30 @@
+...............s...F...............................................s........
+======================================================================
+FAIL: test_run (test_issue_1137.MetadataPiping)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/workspace/tests/system_tests.py", line 653, in test_run
+    self.compare_stdout(i, command, processed_stdout, stdout)
+  File "/home/workspace/tests/system_tests.py", line 768, in compare_stdout
+    msg="Standard output does not match"
+  File "/home/workspace/tests/system_tests.py", line 746, in _compare_output
+    expected, got, msg=msg
+AssertionError: 'set [40 chars]      N\nset Exif.GPSInfo.GPSLatitude         [157 chars]/1\n' != 'set [40 chars]     Ascii      N\nset Exif.GPSInfo.GPSLatitud[197 chars]/1\n'
+- set Exif.GPSInfo.GPSLatitudeRef                   N
++ set Exif.GPSInfo.GPSLatitudeRef                  Ascii      N
+?                                                  ++++++++++
+- set Exif.GPSInfo.GPSLatitude                      51/1 106969/10000 0/1
++ set Exif.GPSInfo.GPSLatitude                     Rational   51/1 106969/10000 0/1
+?                                                  ++++++++++
+- set Exif.GPSInfo.GPSLongitudeRef                  W
++ set Exif.GPSInfo.GPSLongitudeRef                 Ascii      W
+?                                                  ++++++++++
+- set Exif.GPSInfo.GPSLongitude                     1/1 495984/10000 0/1
++ set Exif.GPSInfo.GPSLongitude                    Rational   1/1 495984/10000 0/1
+?                                                  ++++++++++
+ : Standard output does not match
+
+----------------------------------------------------------------------
+Ran 76 tests in 1.724s
+
+FAILED (failures=1, skipped=2)

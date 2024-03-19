@@ -1,0 +1,21 @@
+```
+static void code_not(bfuncinfo *finfo, bexpdesc *e)
+{
+    switch (e->type) {
+    case ETINT: e->v.i = !e->v.i; break;
+    case ETREAL: e->v.i = e->v.r == (breal)0; break;
+    case ETNIL: e->v.i = 1; break;
+    case ETBOOL: e->v.i = !e->v.i; break;
+    case ETSTRING: e->v.i = 0; break;
+    default: {
+        
+        int temp = e->t;
+        e->t = e->f;
+        e->f = temp;
+        e->not = NOT_EXPR | (e->not ^ NOT_MASK);
+        return;
+    }
+    }
+    e->type = ETBOOL;
+}
+```

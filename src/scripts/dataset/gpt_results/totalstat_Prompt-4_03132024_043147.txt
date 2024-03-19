@@ -1,0 +1,6 @@
+Test_Buggy_Repo_List: ['berry-2']
+Total_Patch_Number: 1
+Total_Compilable_Patch_Number: 1
+Total_Plausible_Patch_Number: 0
+Compilable_Patch_List: ['berry-2_Prompt-4_Repeat-1']
+Plausible_Patch_list: []
