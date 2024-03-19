@@ -16,7 +16,7 @@ RQ3_REPO_LIST = ["berry-1", "berry-2", "berry-3", "berry-4", "berry-5",
 
 
 def run_gpt(user_message, model="gpt-3.5-turbo-0125"):
-    client = OpenAI(api_key="api_key")
+    client = OpenAI()
     messages = [
         {"role": "user", "content": f"{user_message}"}
     ]
