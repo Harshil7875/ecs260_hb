@@ -8,7 +8,7 @@ import dataset_api
 base_path = '/workspaces/ecs260_hb/src/scripts/dataset/gpt_results'
 
 def run_gpt(user_message, model="gpt-3.5-turbo"):
-    client = OpenAI()
+    # client = OpenAI(api_key=""my_key")
     messages = [
         {"role": "system", "content": "You are an assistant skilled in debugging and explaining code."},
         {"role": "user", "content": f"{user_message}"}
