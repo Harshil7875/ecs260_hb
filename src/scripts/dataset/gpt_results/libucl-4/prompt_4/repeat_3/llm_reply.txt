@@ -1,0 +1,24 @@
+Repaired function:
+```c
+		else if (*p == '\\') {
+			*need_unescape = true;
+			ucl_chunk_skipc (chunk, &p);
+			if (p < chunk->end) {
+				ucl_chunk_skipc (chunk, &p);
+			}
+			continue;
+		}
+```
+
+```json
+{
+  "error": [
+    {
+      "line_number": 4,
+      "error_type": "Semantic Error",
+      "explanation": "The address of 'p' needs to be passed to 'ucl_chunk_skipc' function"
+    }
+  ],
+  "confidence": 0.95
+}
+```

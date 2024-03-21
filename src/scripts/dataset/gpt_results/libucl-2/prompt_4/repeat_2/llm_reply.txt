@@ -1,0 +1,19 @@
+Fixed function:
+```c
+			else if (*p == '"') {
+				state = 0;
+			}
+```
+
+```json
+{
+  "error": [
+    {
+      "line_number": 2,
+      "error_type": "Logical Error",
+      "explanation": "Changed state value from 1 to 0 to correct the logical flow"
+    }
+  ],
+  "confidence": 0.95
+}
+```

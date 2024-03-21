@@ -186,6 +186,31 @@ ucl_hash.c:152:2: note: here
   152 |  case 1:
       |  ^~~~
   CC       libucl_la-ucl_parser.lo
+ucl_parser.c: In function 'ucl_parse_macro_arguments':
+ucl_parser.c:1810:1: error: unknown type name 'Fixed'
+ 1810 | Fixed function:
+      | ^~~~~
+ucl_parser.c:1810:15: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+ 1810 | Fixed function:
+      |               ^
+ucl_parser.c:1811:1: error: stray '`' in program
+ 1811 | ```c
+      | ^
+ucl_parser.c:1811:2: error: stray '`' in program
+ 1811 | ```c
+      |  ^
+ucl_parser.c:1811:3: error: stray '`' in program
+ 1811 | ```c
+      |   ^
+ucl_parser.c:1815:1: error: stray '`' in program
+ 1815 | ```   /* Check pairing */
+      | ^
+ucl_parser.c:1815:2: error: stray '`' in program
+ 1815 | ```   /* Check pairing */
+      |  ^
+ucl_parser.c:1815:3: error: stray '`' in program
+ 1815 | ```   /* Check pairing */
+      |   ^
 ucl_parser.c: In function 'ucl_parse_value':
 ucl_parser.c:1500:7: warning: this statement may fall through [-Wimplicit-fallthrough=]
  1500 |    if (chunk->end - p > 3) {
@@ -193,27 +218,12 @@ ucl_parser.c:1500:7: warning: this statement may fall through [-Wimplicit-fallth
 ucl_parser.c:1538:3: note: here
  1538 |   default:
       |   ^~~~~~~
-  CC       libucl_la-ucl_schema.lo
-  CC       libucl_la-ucl_util.lo
-  CC       libucl_la-xxhash.lo
-  CCLD     libucl.la
 make[2]: Leaving directory '/home/workspace/src'
-Making all in tests
-make[2]: Entering directory '/home/workspace/tests'
-make[2]: Nothing to be done for 'all'.
-make[2]: Leaving directory '/home/workspace/tests'
-Making all in utils
-make[2]: Entering directory '/home/workspace/utils'
-make[2]: Nothing to be done for 'all'.
-make[2]: Leaving directory '/home/workspace/utils'
-Making all in doc
-make[2]: Entering directory '/home/workspace/doc'
-make[2]: Nothing to be done for 'all'.
-make[2]: Leaving directory '/home/workspace/doc'
-make[2]: Entering directory '/home/workspace'
-make[2]: Leaving directory '/home/workspace'
+make[2]: *** [Makefile:538: libucl_la-ucl_parser.lo] Error 1
+make[1]: *** [Makefile:480: all-recursive] Error 1
 make[1]: Leaving directory '/home/workspace'
+make: *** [Makefile:387: all] Error 2
 
   Closing container
 [libucl] done
-Elapsed: 25.94s
+Elapsed: 23.31s

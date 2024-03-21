@@ -1,0 +1,20 @@
+Fixed function:
+```c
+			else if (*p == '\"') {
+				state = 1;
+			}
+```
+
+JSON object:
+```json
+{
+  "error": [
+    {
+      "line_number": 2,
+      "error_type": "syntax error",
+      "explanation": "The double quote character '\"' should be escaped with a backslash '\\\"' in C/C++."
+    }
+  ],
+  "confidence": 0.95
+}
+```

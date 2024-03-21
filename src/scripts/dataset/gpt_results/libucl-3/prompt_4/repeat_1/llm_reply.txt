@@ -1,0 +1,19 @@
+Fixed function:
+```c
+		else if (*c == '$') {
+			*var_expand = true;
+		}
+```
+
+```json
+{
+  "error": [
+    {
+      "line_number": 2,
+      "error_type": "Syntax Error",
+      "explanation": "Dereferencing operator (*) was missing before c variable."
+    }
+  ],
+  "confidence": 0.9
+}
+```

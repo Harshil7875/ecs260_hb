@@ -1,0 +1,19 @@
+Fixed function:
+```c
+			else if (*p == '\"') {
+				state = 1;
+			}
+```
+
+```json
+{
+  "error": [
+    {
+      "line_number": 2,
+      "error_type": "Syntax error",
+      "explanation": "Changed single quote character to double quote character for string comparison"
+    }
+  ],
+  "confidence": 0.9
+}
+```

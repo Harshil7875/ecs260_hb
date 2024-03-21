@@ -1,0 +1,10 @@
+Test_Repo: libucl-3
+Prompt_ID: 4
+Repeat_Num: 3
+Total_Patch_Num: 3
+Compilable_Patch_Num: 0
+Plausible_Patch_Num: 0
+Average_Response_Time: 1.85978102684021
+Average_Confidence: 0.0
+Average_Identify_Accuracy: 0.0
+Average_Pass_Rate: 0.0

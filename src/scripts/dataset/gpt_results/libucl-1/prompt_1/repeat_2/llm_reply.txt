@@ -1,0 +1,21 @@
+```c
+if (obj->keylen > 0) {
+    func->ucl_emitter_append_len(obj->key, obj->keylen, func->ud);
+} else {
+    func->ucl_emitter_append_len("null", 4, func->ud);
+}
+func->ucl_emitter_append_len(": ", 2, func->ud);
+```
+
+```json
+{
+  "error": [
+    {
+      "line_number": 2,
+      "error_type": "Logical Error",
+      "explanation": "The condition `obj->flags & UCL_OBJECT_NEED_KEY_ESCAPE` is removed as it is not present in the repaired code."
+    }
+  ],
+  "confidence": 0.85
+}
+```

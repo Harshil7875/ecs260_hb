@@ -1,0 +1,6 @@
+Test_Buggy_Repo_List: ['libucl-4']
+Total_Patch_Number: 3
+Total_Compilable_Patch_Number: 0
+Total_Plausible_Patch_Number: 0
+Compilable_Patch_List: []
+Plausible_Patch_list: []

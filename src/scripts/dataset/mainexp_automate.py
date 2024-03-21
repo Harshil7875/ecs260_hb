@@ -9,7 +9,7 @@ import dataset_api
 base_path = '/workspaces/ecs260_hb/src/scripts/dataset/gpt_results'
 
 def run_gpt(user_message, model="gpt-3.5-turbo-0125"):
-    client = OpenAI()
+    client = OpenAI(api_key="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")
     messages = [
         {"role": "user", "content": f"{user_message}"}
     ]
@@ -224,7 +224,7 @@ def run_exps_from_buggyrepolist(buggy_repo_list : list, prompt_ind : int, repeat
     return repo_stat_list
 
 def main():
-    test_list = ['libtiff-5']  # Specify the repository you're focusing on
+    test_list = ['libucl-3']  # Specify the repository you're focusing on
     prompt_id = 4  # Use the second prompt for the experiment
     repeat_time = 3  # Number of times you want to repeat the experiment
 

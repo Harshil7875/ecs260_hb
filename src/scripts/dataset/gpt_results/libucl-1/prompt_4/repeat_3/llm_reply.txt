@@ -1,0 +1,18 @@
+Fixed function:
+static void ucl_emitter_common_elt(struct ucl_emitter_context *ctx,
+                                    const ucl_object_t *obj, bool first, bool print_key, bool compact) {
+    // Function body implementation goes here
+}
+
+```json
+{
+  "error": [
+    {
+      "line_number": 1,
+      "error_type": "Syntax Error",
+      "explanation": "Removed the space between function name and the opening parenthesis"
+    }
+  ],
+  "confidence": 0.95
+}
+```

@@ -172,90 +172,238 @@ make[1]: Entering directory '/home/workspace'
 Making all in src
 make[2]: Entering directory '/home/workspace/src'
   CC       libucl_la-ucl_emitter.lo
-ucl_emitter.c: In function 'ucl_emit_msgpack_elt':
-ucl_emitter.c:480:28: warning: unused variable 'celt' [-Wunused-variable]
-  480 |  const ucl_object_t *cur, *celt;
-      |                            ^~~~
+ucl_emitter.c:43:1: error: unknown type name 'Repaired'
+   43 | Repaired function:
+      | ^~~~~~~~
+ucl_emitter.c:43:18: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+   43 | Repaired function:
+      |                  ^
+ucl_emitter.c:44:1: error: stray '`' in program
+   44 | ```c
+      | ^
+ucl_emitter.c:44:2: error: stray '`' in program
+   44 | ```c
+      |  ^
+ucl_emitter.c:44:3: error: stray '`' in program
+   44 | ```c
+      |   ^
+ucl_emitter.c:53:1: error: unknown type name 'JSON'
+   53 | JSON object with explanations, line number, and error type:
+      | ^~~~
+ucl_emitter.c:53:13: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'with'
+   53 | JSON object with explanations, line number, and error type:
+      |             ^~~~
+ucl_emitter.c:53:13: error: unknown type name 'with'
+ucl_emitter.c: In function 'ucl_emitter_print_key':
+ucl_emitter.c:113:1: error: stray '`' in program
+  113 | ```c
+      | ^
+ucl_emitter.c:113:2: error: stray '`' in program
+  113 | ```c
+      |  ^
+ucl_emitter.c:113:3: error: stray '`' in program
+  113 | ```c
+      |   ^
+ucl_emitter.c:113:4: error: 'c' undeclared (first use in this function)
+  113 | ```c
+      |    ^
+ucl_emitter.c:113:4: note: each undeclared identifier is reported only once for each function it appears in
+ucl_emitter.c:113:5: error: expected ';' before 'if'
+  113 | ```c
+      |     ^
+      |     ;
+  114 | if (obj->keylen > 0) {
+      | ~~   
+ucl_emitter.c:120:1: error: stray '`' in program
+  120 | ``` else {
+      | ^
+ucl_emitter.c:120:2: error: stray '`' in program
+  120 | ``` else {
+      |  ^
+ucl_emitter.c:120:3: error: stray '`' in program
+  120 | ``` else {
+      |   ^
+ucl_emitter.c:120:5: error: 'else' without a previous 'if'
+  120 | ``` else {
+      |     ^~~~
+ucl_emitter.c: In function 'ucl_emitter_common_start_array':
+ucl_emitter.c:245:4: warning: implicit declaration of function 'ucl_emitter_common_elt'; did you mean 'ucl_emitter_common_end_array'? [-Wimplicit-function-declaration]
+  245 |    ucl_emitter_common_elt (ctx, cur, first, false, compact);
+      |    ^~~~~~~~~~~~~~~~~~~~~~
+      |    ucl_emitter_common_end_array
 ucl_emitter.c: At top level:
-ucl_emitter.c:547:1: warning: return type defaults to 'int' [-Wimplicit-int]
-  547 | ucl_emit_msgpack_start_obj (struct ucl_emitter_context *ctx,
+ucl_emitter.c:332:1: warning: conflicting types for 'ucl_emitter_common_elt'
+  332 | ucl_emitter_common_elt (struct ucl_emitter_context *ctx,
+      | ^~~~~~~~~~~~~~~~~~~~~~
+ucl_emitter.c:332:1: error: static declaration of 'ucl_emitter_common_elt' follows non-static declaration
+ucl_emitter.c:245:4: note: previous implicit declaration of 'ucl_emitter_common_elt' was here
+  245 |    ucl_emitter_common_elt (ctx, cur, first, false, compact);
+      |    ^~~~~~~~~~~~~~~~~~~~~~
+ucl_emitter.c: In function 'ucl_emit_msgpack_elt':
+ucl_emitter.c:484:3: warning: implicit declaration of function 'ucl_emit_msgpack_start_obj'; did you mean 'ucl_emit_yaml_start_obj'? [-Wimplicit-function-declaration]
+  484 |   ucl_emit_msgpack_start_obj (ctx, obj, print_key);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   ucl_emit_yaml_start_obj
+ucl_emitter.c:503:3: warning: implicit declaration of function 'ucl_emit_msgpack_start_array'; did you mean 'ucl_emit_yaml_start_array'? [-Wimplicit-function-declaration]
+  503 |   ucl_emit_msgpack_start_array (ctx, obj, print_key);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   ucl_emit_yaml_start_array
+ucl_emitter.c: At top level:
+ucl_emitter.c:529:1: warning: conflicting types for 'ucl_emit_msgpack_start_obj'
+  529 | ucl_emit_msgpack_start_obj (struct ucl_emitter_context *ctx,
       | ^~~~~~~~~~~~~~~~~~~~~~~~~~
-ucl_emitter.c:547:1: warning: conflicting types for 'ucl_emit_msgpack_start_obj'
-ucl_emitter.c:49:14: note: previous declaration of 'ucl_emit_msgpack_start_obj' was here
-   49 |  static void ucl_emit_ ## type ## _start_obj (struct ucl_emitter_context *ctx, \
+ucl_emitter.c:529:1: error: static declaration of 'ucl_emit_msgpack_start_obj' follows non-static declaration
+ucl_emitter.c:484:3: note: previous implicit declaration of 'ucl_emit_msgpack_start_obj' was here
+  484 |   ucl_emit_msgpack_start_obj (ctx, obj, print_key);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+ucl_emitter.c:536:1: warning: conflicting types for 'ucl_emit_msgpack_start_array'
+  536 | ucl_emit_msgpack_start_array (struct ucl_emitter_context *ctx,
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ucl_emitter.c:536:1: error: static declaration of 'ucl_emit_msgpack_start_array' follows non-static declaration
+ucl_emitter.c:503:3: note: previous implicit declaration of 'ucl_emit_msgpack_start_array' was here
+  503 |   ucl_emit_msgpack_start_array (ctx, obj, print_key);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ucl_emitter.c:550:1: warning: 'ucl_emit_msgpack_end_array' defined but not used [-Wunused-function]
+  550 | ucl_emit_msgpack_end_array (struct ucl_emitter_context *ctx,
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+ucl_emitter.c:543:1: warning: 'ucl_emit_msgpack_end_object' defined but not used [-Wunused-function]
+  543 | ucl_emit_msgpack_end_object (struct ucl_emitter_context *ctx,
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+ucl_emitter.c:536:1: warning: 'ucl_emit_msgpack_start_array' defined but not used [-Wunused-function]
+  536 | ucl_emit_msgpack_start_array (struct ucl_emitter_context *ctx,
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ucl_emitter.c:529:1: warning: 'ucl_emit_msgpack_start_obj' defined but not used [-Wunused-function]
+  529 | ucl_emit_msgpack_start_obj (struct ucl_emitter_context *ctx,
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+ucl_emitter.c:447:1: warning: 'ucl_emit_msgpack_elt' defined but not used [-Wunused-function]
+  447 | ucl_emit_msgpack_elt (struct ucl_emitter_context *ctx,
+      | ^~~~~~~~~~~~~~~~~~~~
+ucl_emitter.c:436:14: warning: 'ucl_emit_yaml_end_array' defined but not used [-Wunused-function]
+  436 |  static void ucl_emit_ ##type## _end_array (struct ucl_emitter_context *ctx, \
       |              ^~~~~~~~~
-ucl_emitter.c:65:1: note: in expansion of macro 'UCL_EMIT_TYPE_OPS'
-   65 | UCL_EMIT_TYPE_OPS(msgpack);
-      | ^~~~~~~~~~~~~~~~~
-  CC       libucl_la-ucl_emitter_streamline.lo
-  CC       libucl_la-ucl_emitter_utils.lo
-  CC       libucl_la-ucl_hash.lo
-ucl_hash.c: In function 'ucl_hash_caseless_func':
-ucl_hash.c:160:10: warning: this statement may fall through [-Wimplicit-fallthrough=]
-  160 |   u.c.c3 = lc_map[(unsigned char)s[i++]];
-      |   ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ucl_hash.c:161:2: note: here
-  161 |  case 2:
-      |  ^~~~
-ucl_hash.c:162:10: warning: this statement may fall through [-Wimplicit-fallthrough=]
-  162 |   u.c.c2 = lc_map[(unsigned char)s[i++]];
-      |   ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ucl_hash.c:163:2: note: here
-  163 |  case 1:
-      |  ^~~~
-  CC       libucl_la-ucl_parser.lo
-ucl_parser.c: In function 'ucl_parse_value':
-ucl_parser.c:1566:7: warning: this statement may fall through [-Wimplicit-fallthrough=]
- 1566 |    if (chunk->end - p > 3) {
-      |       ^
-ucl_parser.c:1604:3: note: here
- 1604 |   default:
-      |   ^~~~~~~
-  CC       libucl_la-ucl_schema.lo
-In file included from ucl_schema.c:28:
-tree.h:154:36: warning: 'TREE_REMOVE_ucl_compare_node_link' defined but not used [-Wunused-function]
-  154 |   static struct node *_HU_FUNCTION(TREE_REMOVE_##node##_##field)        \
-      |                                    ^~~~~~~~~~~~
-tree.h:49:56: note: in definition of macro '_HU_FUNCTION'
-   49 | #   define _HU_FUNCTION(x) __attribute__((__unused__)) x
-      |                                                        ^
-ucl_schema.c:471:1: note: in expansion of macro 'TREE_DEFINE'
-  471 | TREE_DEFINE(ucl_compare_node, link)
-      | ^~~~~~~~~~~
-  CC       libucl_la-ucl_util.lo
-ucl_util.c: In function 'ucl_load_handler':
-ucl_util.c:1561:3: warning: implicit declaration of function 'asprintf'; did you mean 'vsprintf'? [-Wimplicit-function-declaration]
- 1561 |   asprintf (&load_file, "%.*s", (int)len, data);
-      |   ^~~~~~~~
-      |   vsprintf
-ucl_util.c: In function 'ucl_include_common':
-ucl_util.c:1320:6: warning: 'allow_url' may be used uninitialized in this function [-Wmaybe-uninitialized]
- 1320 |   if (allow_url && ucl_strnstr (data, "://", len) != NULL) {
-      |      ^
-  CC       libucl_la-ucl_msgpack.lo
-ucl_msgpack.c: In function 'ucl_msgpack_get_parser_from_type':
-ucl_msgpack.c:718:12: warning: comparison of integer expressions of different signedness: 'unsigned int' and 'int' [-Wsign-compare]
-  718 |   if (mask == (t >> shift)) {
-      |            ^~
-  CC       libucl_la-xxhash.lo
-  CCLD     libucl.la
+ucl_emitter.c:444:1: note: in expansion of macro 'UCL_EMIT_TYPE_IMPL'
+  444 | UCL_EMIT_TYPE_IMPL(yaml, false)
+      | ^~~~~~~~~~~~~~~~~~
+ucl_emitter.c:432:14: warning: 'ucl_emit_yaml_end_object' defined but not used [-Wunused-function]
+  432 |  static void ucl_emit_ ##type## _end_object (struct ucl_emitter_context *ctx, \
+      |              ^~~~~~~~~
+ucl_emitter.c:444:1: note: in expansion of macro 'UCL_EMIT_TYPE_IMPL'
+  444 | UCL_EMIT_TYPE_IMPL(yaml, false)
+      | ^~~~~~~~~~~~~~~~~~
+ucl_emitter.c:428:14: warning: 'ucl_emit_yaml_start_array' defined but not used [-Wunused-function]
+  428 |  static void ucl_emit_ ## type## _start_array (struct ucl_emitter_context *ctx, \
+      |              ^~~~~~~~~
+ucl_emitter.c:444:1: note: in expansion of macro 'UCL_EMIT_TYPE_IMPL'
+  444 | UCL_EMIT_TYPE_IMPL(yaml, false)
+      | ^~~~~~~~~~~~~~~~~~
+ucl_emitter.c:424:14: warning: 'ucl_emit_yaml_start_obj' defined but not used [-Wunused-function]
+  424 |  static void ucl_emit_ ## type ## _start_obj (struct ucl_emitter_context *ctx, \
+      |              ^~~~~~~~~
+ucl_emitter.c:444:1: note: in expansion of macro 'UCL_EMIT_TYPE_IMPL'
+  444 | UCL_EMIT_TYPE_IMPL(yaml, false)
+      | ^~~~~~~~~~~~~~~~~~
+ucl_emitter.c:420:14: warning: 'ucl_emit_yaml_elt' defined but not used [-Wunused-function]
+  420 |  static void ucl_emit_ ## type ## _elt (struct ucl_emitter_context *ctx, \
+      |              ^~~~~~~~~
+ucl_emitter.c:444:1: note: in expansion of macro 'UCL_EMIT_TYPE_IMPL'
+  444 | UCL_EMIT_TYPE_IMPL(yaml, false)
+      | ^~~~~~~~~~~~~~~~~~
+ucl_emitter.c:436:14: warning: 'ucl_emit_config_end_array' defined but not used [-Wunused-function]
+  436 |  static void ucl_emit_ ##type## _end_array (struct ucl_emitter_context *ctx, \
+      |              ^~~~~~~~~
+ucl_emitter.c:443:1: note: in expansion of macro 'UCL_EMIT_TYPE_IMPL'
+  443 | UCL_EMIT_TYPE_IMPL(config, false)
+      | ^~~~~~~~~~~~~~~~~~
+ucl_emitter.c:432:14: warning: 'ucl_emit_config_end_object' defined but not used [-Wunused-function]
+  432 |  static void ucl_emit_ ##type## _end_object (struct ucl_emitter_context *ctx, \
+      |              ^~~~~~~~~
+ucl_emitter.c:443:1: note: in expansion of macro 'UCL_EMIT_TYPE_IMPL'
+  443 | UCL_EMIT_TYPE_IMPL(config, false)
+      | ^~~~~~~~~~~~~~~~~~
+ucl_emitter.c:428:14: warning: 'ucl_emit_config_start_array' defined but not used [-Wunused-function]
+  428 |  static void ucl_emit_ ## type## _start_array (struct ucl_emitter_context *ctx, \
+      |              ^~~~~~~~~
+ucl_emitter.c:443:1: note: in expansion of macro 'UCL_EMIT_TYPE_IMPL'
+  443 | UCL_EMIT_TYPE_IMPL(config, false)
+      | ^~~~~~~~~~~~~~~~~~
+ucl_emitter.c:424:14: warning: 'ucl_emit_config_start_obj' defined but not used [-Wunused-function]
+  424 |  static void ucl_emit_ ## type ## _start_obj (struct ucl_emitter_context *ctx, \
+      |              ^~~~~~~~~
+ucl_emitter.c:443:1: note: in expansion of macro 'UCL_EMIT_TYPE_IMPL'
+  443 | UCL_EMIT_TYPE_IMPL(config, false)
+      | ^~~~~~~~~~~~~~~~~~
+ucl_emitter.c:420:14: warning: 'ucl_emit_config_elt' defined but not used [-Wunused-function]
+  420 |  static void ucl_emit_ ## type ## _elt (struct ucl_emitter_context *ctx, \
+      |              ^~~~~~~~~
+ucl_emitter.c:443:1: note: in expansion of macro 'UCL_EMIT_TYPE_IMPL'
+  443 | UCL_EMIT_TYPE_IMPL(config, false)
+      | ^~~~~~~~~~~~~~~~~~
+ucl_emitter.c:436:14: warning: 'ucl_emit_json_compact_end_array' defined but not used [-Wunused-function]
+  436 |  static void ucl_emit_ ##type## _end_array (struct ucl_emitter_context *ctx, \
+      |              ^~~~~~~~~
+ucl_emitter.c:442:1: note: in expansion of macro 'UCL_EMIT_TYPE_IMPL'
+  442 | UCL_EMIT_TYPE_IMPL(json_compact, true)
+      | ^~~~~~~~~~~~~~~~~~
+ucl_emitter.c:432:14: warning: 'ucl_emit_json_compact_end_object' defined but not used [-Wunused-function]
+  432 |  static void ucl_emit_ ##type## _end_object (struct ucl_emitter_context *ctx, \
+      |              ^~~~~~~~~
+ucl_emitter.c:442:1: note: in expansion of macro 'UCL_EMIT_TYPE_IMPL'
+  442 | UCL_EMIT_TYPE_IMPL(json_compact, true)
+      | ^~~~~~~~~~~~~~~~~~
+ucl_emitter.c:428:14: warning: 'ucl_emit_json_compact_start_array' defined but not used [-Wunused-function]
+  428 |  static void ucl_emit_ ## type## _start_array (struct ucl_emitter_context *ctx, \
+      |              ^~~~~~~~~
+ucl_emitter.c:442:1: note: in expansion of macro 'UCL_EMIT_TYPE_IMPL'
+  442 | UCL_EMIT_TYPE_IMPL(json_compact, true)
+      | ^~~~~~~~~~~~~~~~~~
+ucl_emitter.c:424:14: warning: 'ucl_emit_json_compact_start_obj' defined but not used [-Wunused-function]
+  424 |  static void ucl_emit_ ## type ## _start_obj (struct ucl_emitter_context *ctx, \
+      |              ^~~~~~~~~
+ucl_emitter.c:442:1: note: in expansion of macro 'UCL_EMIT_TYPE_IMPL'
+  442 | UCL_EMIT_TYPE_IMPL(json_compact, true)
+      | ^~~~~~~~~~~~~~~~~~
+ucl_emitter.c:420:14: warning: 'ucl_emit_json_compact_elt' defined but not used [-Wunused-function]
+  420 |  static void ucl_emit_ ## type ## _elt (struct ucl_emitter_context *ctx, \
+      |              ^~~~~~~~~
+ucl_emitter.c:442:1: note: in expansion of macro 'UCL_EMIT_TYPE_IMPL'
+  442 | UCL_EMIT_TYPE_IMPL(json_compact, true)
+      | ^~~~~~~~~~~~~~~~~~
+ucl_emitter.c:436:14: warning: 'ucl_emit_json_end_array' defined but not used [-Wunused-function]
+  436 |  static void ucl_emit_ ##type## _end_array (struct ucl_emitter_context *ctx, \
+      |              ^~~~~~~~~
+ucl_emitter.c:441:1: note: in expansion of macro 'UCL_EMIT_TYPE_IMPL'
+  441 | UCL_EMIT_TYPE_IMPL(json, false)
+      | ^~~~~~~~~~~~~~~~~~
+ucl_emitter.c:432:14: warning: 'ucl_emit_json_end_object' defined but not used [-Wunused-function]
+  432 |  static void ucl_emit_ ##type## _end_object (struct ucl_emitter_context *ctx, \
+      |              ^~~~~~~~~
+ucl_emitter.c:441:1: note: in expansion of macro 'UCL_EMIT_TYPE_IMPL'
+  441 | UCL_EMIT_TYPE_IMPL(json, false)
+      | ^~~~~~~~~~~~~~~~~~
+ucl_emitter.c:428:14: warning: 'ucl_emit_json_start_array' defined but not used [-Wunused-function]
+  428 |  static void ucl_emit_ ## type## _start_array (struct ucl_emitter_context *ctx, \
+      |              ^~~~~~~~~
+ucl_emitter.c:441:1: note: in expansion of macro 'UCL_EMIT_TYPE_IMPL'
+  441 | UCL_EMIT_TYPE_IMPL(json, false)
+      | ^~~~~~~~~~~~~~~~~~
+ucl_emitter.c:424:14: warning: 'ucl_emit_json_start_obj' defined but not used [-Wunused-function]
+  424 |  static void ucl_emit_ ## type ## _start_obj (struct ucl_emitter_context *ctx, \
+      |              ^~~~~~~~~
+ucl_emitter.c:441:1: note: in expansion of macro 'UCL_EMIT_TYPE_IMPL'
+  441 | UCL_EMIT_TYPE_IMPL(json, false)
+      | ^~~~~~~~~~~~~~~~~~
+ucl_emitter.c:420:14: warning: 'ucl_emit_json_elt' defined but not used [-Wunused-function]
+  420 |  static void ucl_emit_ ## type ## _elt (struct ucl_emitter_context *ctx, \
+      |              ^~~~~~~~~
+ucl_emitter.c:441:1: note: in expansion of macro 'UCL_EMIT_TYPE_IMPL'
+  441 | UCL_EMIT_TYPE_IMPL(json, false)
+      | ^~~~~~~~~~~~~~~~~~
+make[2]: *** [Makefile:514: libucl_la-ucl_emitter.lo] Error 1
 make[2]: Leaving directory '/home/workspace/src'
-Making all in tests
-make[2]: Entering directory '/home/workspace/tests'
-make[2]: Nothing to be done for 'all'.
-make[2]: Leaving directory '/home/workspace/tests'
-Making all in utils
-make[2]: Entering directory '/home/workspace/utils'
-make[2]: Nothing to be done for 'all'.
-make[2]: Leaving directory '/home/workspace/utils'
-Making all in doc
-make[2]: Entering directory '/home/workspace/doc'
-make[2]: Nothing to be done for 'all'.
-make[2]: Leaving directory '/home/workspace/doc'
-make[2]: Entering directory '/home/workspace'
-make[2]: Leaving directory '/home/workspace'
 make[1]: Leaving directory '/home/workspace'
+make[1]: *** [Makefile:480: all-recursive] Error 1
+make: *** [Makefile:387: all] Error 2
 
   Closing container
 [libucl] done
-Elapsed: 26.82s
+Elapsed: 22.52s

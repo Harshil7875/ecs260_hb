@@ -1,0 +1,20 @@
+Repaired function:
+```c
+		else if (c == '$') {
+			*var_expand = 1;
+		}
+```
+
+JSON response:
+```json
+{
+  "error": [
+    {
+      "line_number": 3,
+      "error_type": "Semantic Error",
+      "explanation": "Assigning a boolean value to an integer pointer, should be assigned an integer value instead."
+    }
+  ],
+  "confidence": 0.9
+}
+```

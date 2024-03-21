@@ -1,0 +1,111 @@
+Repaired function:
+```c
+static void ucl_emitter_common_elt (struct ucl_emitter_context *ctx,
+		const ucl_object_t *obj, bool first, bool print_key, bool compact) {
+	// Function body implementation goes here
+}
+```
+
+JSON object with explanations, line number, and error type:
+```json
+{
+  "error": [
+    {
+      "line_number": 4,
+      "error_type": "Syntax Error",
+      "explanation": "Missing closing parenthesis at the end of the function declaration"
+    },
+    {
+      "line_number": 15,
+      "error_type": "Syntax Error",
+      "explanation": "Missing space between ## and type in macros definition"
+    },
+    {
+      "line_number": 15,
+      "error_type": "Syntax Error",
+      "explanation": "Missing space between ## and _elt in macros definition"
+    },
+    {
+      "line_number": 17,
+      "error_type": "Syntax Error",
+      "explanation": "Missing space between ## and _start_obj in macros definition"
+    },
+    {
+      "line_number": 19,
+      "error_type": "Syntax Error",
+      "explanation": "Missing space between ## and _start_array in macros definition"
+    },
+    {
+      "line_number": 21,
+      "error_type": "Syntax Error",
+      "explanation": "Missing space between ## and _end_object in macros definition"
+    },
+    {
+      "line_number": 23,
+      "error_type": "Syntax Error",
+      "explanation": "Missing space between ## and _end_array in macros definition"
+    },
+    {
+      "line_number": 28,
+      "error_type": "Syntax Error",
+      "explanation": "Missing space between ## and type in macros definition"
+    },
+    {
+      "line_number": 28,
+      "error_type": "Syntax Error",
+      "explanation": "Missing space between ## and _elt in macros definition"
+    },
+    {
+      "line_number": 30,
+      "error_type": "Syntax Error",
+      "explanation": "Missing space between ## and _start_obj in macros definition"
+    },
+    {
+      "line_number": 32,
+      "error_type": "Syntax Error",
+      "explanation": "Missing space between ## and _start_array in macros definition"
+    },
+    {
+      "line_number": 34,
+      "error_type": "Syntax Error",
+      "explanation": "Missing space between ## and _end_object in macros definition"
+    },
+    {
+      "line_number": 36,
+      "error_type": "Syntax Error",
+      "explanation": "Missing space between ## and _end_array in macros definition"
+    },
+    {
+      "line_number": 41,
+      "error_type": "Syntax Error",
+      "explanation": "Missing space between ## and type in macros definition"
+    },
+    {
+      "line_number": 41,
+      "error_type": "Syntax Error",
+      "explanation": "Missing space between ## and _elt in macros definition"
+    },
+    {
+      "line_number": 43,
+      "error_type": "Syntax Error",
+      "explanation": "Missing space between ## and _start_obj in macros definition"
+    },
+    {
+      "line_number": 45,
+      "error_type": "Syntax Error",
+      "explanation": "Missing space between ## and _start_array in macros definition"
+    },
+    {
+      "line_number": 47,
+      "error_type": "Syntax Error",
+      "explanation": "Missing space between ## and _end_object in macros definition"
+    },
+    {
+      "line_number": 49,
+      "error_type": "Syntax Error",
+      "explanation": "Missing space between ## and _end_array in macros definition"
+    }
+  ],
+  "confidence": 0.85
+}
+```

@@ -173,34 +173,44 @@ make[2]: Entering directory '/home/workspace/src'
   CC       libucl_la-ucl_emitter_utils.lo
   CC       libucl_la-ucl_hash.lo
   CC       libucl_la-ucl_parser.lo
+ucl_parser.c: In function 'ucl_lex_json_string':
+ucl_parser.c:952:1: error: unknown type name 'Fixed'
+  952 | Fixed function:
+      | ^~~~~
+ucl_parser.c:952:15: error: expected '=', ',', ';', 'asm' or '__attribute__' before ':' token
+  952 | Fixed function:
+      |               ^
+ucl_parser.c:953:1: error: stray '`' in program
+  953 | ```c
+      | ^
+ucl_parser.c:953:2: error: stray '`' in program
+  953 | ```c
+      |  ^
+ucl_parser.c:953:3: error: stray '`' in program
+  953 | ```c
+      |   ^
+ucl_parser.c:957:1: error: stray '`' in program
+  957 | ```  ucl_chunk_skipc (chunk, p);
+      | ^
+ucl_parser.c:957:2: error: stray '`' in program
+  957 | ```  ucl_chunk_skipc (chunk, p);
+      |  ^
+ucl_parser.c:957:3: error: stray '`' in program
+  957 | ```  ucl_chunk_skipc (chunk, p);
+      |   ^
 ucl_parser.c: In function 'ucl_parse_value':
-ucl_parser.c:1466:7: warning: this statement may fall through [-Wimplicit-fallthrough=]
- 1466 |    if (chunk->end - p > 3) {
+ucl_parser.c:1472:7: warning: this statement may fall through [-Wimplicit-fallthrough=]
+ 1472 |    if (chunk->end - p > 3) {
       |       ^
-ucl_parser.c:1498:3: note: here
- 1498 |   default:
+ucl_parser.c:1504:3: note: here
+ 1504 |   default:
       |   ^~~~~~~
-  CC       libucl_la-ucl_schema.lo
-  CC       libucl_la-ucl_util.lo
-  CC       libucl_la-xxhash.lo
-  CCLD     libucl.la
+make[2]: *** [Makefile:536: libucl_la-ucl_parser.lo] Error 1
+make[1]: *** [Makefile:480: all-recursive] Error 1
+make: *** [Makefile:387: all] Error 2
 make[2]: Leaving directory '/home/workspace/src'
-Making all in tests
-make[2]: Entering directory '/home/workspace/tests'
-make[2]: Nothing to be done for 'all'.
-make[2]: Leaving directory '/home/workspace/tests'
-Making all in utils
-make[2]: Entering directory '/home/workspace/utils'
-make[2]: Nothing to be done for 'all'.
-make[2]: Leaving directory '/home/workspace/utils'
-Making all in doc
-make[2]: Entering directory '/home/workspace/doc'
-make[2]: Nothing to be done for 'all'.
-make[2]: Leaving directory '/home/workspace/doc'
-make[2]: Entering directory '/home/workspace'
-make[2]: Leaving directory '/home/workspace'
 make[1]: Leaving directory '/home/workspace'
 
   Closing container
 [libucl] done
-Elapsed: 26.51s
+Elapsed: 23.08s

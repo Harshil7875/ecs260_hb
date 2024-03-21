@@ -1,0 +1,19 @@
+<<<Repaired function:
+static void ucl_emitter_common_elt (struct ucl_emitter_context *ctx,
+		const ucl_object_t *obj, bool first, bool print_key, bool compact) {
+	// Function body implementation goes here
+}
+>>>
+
+```json
+{
+  "error": [
+    {
+      "line_number": 1,
+      "error_type": "Syntax Error",
+      "explanation": "Missing closing parenthesis ')' at the end of the function declaration."
+    }
+  ],
+  "confidence": 0.9
+}
+```
